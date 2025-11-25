@@ -1,0 +1,175 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Sidebar from '../components/Sidebar.astro';
+import { getCollection } from 'astro:content';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+
+const posts = await getCollection('blog');
+const sortedPosts = posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+
+const featuredPost = sortedPosts.find(post => post.data.featured);
+const recentPosts = sortedPosts.filter(post => post !== featuredPost).slice(0, 5);
+const rawBase = import.meta.env.BASE_URL;
+const base = rawBase === '/' ? '' : rawBase.replace(/\/$/, '');
+---
+
+<BaseLayout title={SITE_TITLE} description={SITE_DESCRIPTION}>
+	<div class="container">
+        <div class="content">
+            {featuredPost && (
+                <section class="featured-post">
+                    <a href={`${base}/blog/${featuredPost.slug}/`}>
+                        {featuredPost.data.heroImage && <img width={720} height={360} src={`${base}${featuredPost.data.heroImage}`} alt="" />}
+                        <h2 class="title">{featuredPost.data.title}</h2>
+                        <p class="date">
+                            {featuredPost.data.pubDate.toLocaleDateString('es-ES', {
+                                year: 'numeric',
+                                month: 'long',
+                                day: 'numeric',
+                            })}
+                        </p>
+                        <p>{featuredPost.data.subtitle}</p>
+                    </a>
+                </section>
+            )}
+
+            <section class="recent-posts">
+                <h3>Últimos posts</h3>
+                <ul>
+                    {recentPosts.map((post) => (
+                        <li>
+                            <a href={`${base}/blog/${post.slug}/`}>
+                                <div class="post-content">
+                                    <h4 class="title">{post.data.title}</h4>
+                                    <p class="date">
+                                        {post.data.pubDate.toLocaleDateString('es-ES', {
+                                            year: 'numeric',
+                                            month: 'short',
+                                            day: 'numeric',
+                                        })}
+                                    </p>
+                                    {post.data.subtitle && <p class="subtitle">{post.data.subtitle}</p>}
+                                </div>
+                                {post.data.heroImage && (
+                                    <div class="post-image">
+                                        <img width={120} height={120} src={`${base}${post.data.heroImage}`} alt="" />
+                                    </div>
+                                )}
+                            </a>
+                        </li>
+                    ))}
+                </ul>
+                <div class="view-all">
+                    <a href={`${base}/blog/`}>Ver todos los posts →</a>
+                </div>
+            </section>
+        </div>
+        <aside>
+            <Sidebar />
+        </aside>
+    </div>
+</BaseLayout>
+
+<style>
+    .container {
+        display: flex;
+        gap: 2rem;
+        margin-top: 2rem;
+        max-width: 100%;
+        overflow-x: clip;
+    }
+    .content {
+        flex: 2;
+    }
+    aside {
+        flex: 1;
+    }
+    .featured-post {
+        margin-bottom: 3rem;
+    }
+    .featured-post img {
+        width: 100%;
+        border-radius: 8px;
+        margin-bottom: 1rem;
+    }
+    .featured-post a {
+        text-decoration: none;
+        color: inherit;
+    }
+    .featured-post .title {
+        font-size: 2.5rem;
+        margin-bottom: 0.5rem;
+    }
+    .featured-post .date {
+        color: rgb(var(--gray));
+        margin-bottom: 1rem;
+    }
+    .recent-posts ul {
+        list-style: none;
+        padding: 0;
+    }
+    .recent-posts li {
+        margin-bottom: 1.5rem;
+        border-bottom: 1px solid rgb(var(--gray-light));
+        padding-bottom: 1.5rem;
+    }
+    .recent-posts li:last-child {
+        border-bottom: none;
+    }
+    .recent-posts a {
+        text-decoration: none;
+        color: inherit;
+        display: flex;
+        justify-content: space-between;
+        gap: 1.5rem;
+        align-items: flex-start;
+    }
+    .post-content {
+        flex: 1;
+    }
+    .post-image img {
+        width: 120px;
+        height: 120px;
+        object-fit: cover;
+        border-radius: 8px;
+        display: block;
+    }
+    .recent-posts .title {
+        font-size: 1.5rem;
+        margin-bottom: 0.5rem;
+        margin-top: 0;
+    }
+    .recent-posts .date {
+        color: rgb(var(--gray));
+        font-size: 0.9rem;
+        margin-bottom: 0.25rem;
+    }
+    .view-all {
+        margin-top: 2rem;
+        text-align: center;
+    }
+    .view-all a {
+        display: inline-block;
+        padding: 0.5rem 1.5rem;
+        background-color: rgb(var(--accent));
+        color: white;
+        text-decoration: none;
+        border-radius: 4px;
+        font-weight: bold;
+        transition: background-color 0.2s;
+    }
+    .view-all a:hover {
+        background-color: rgb(var(--accent-dark));
+    }
+    .recent-posts .subtitle {
+        color: rgb(var(--gray-dark));
+        font-size: 1rem;
+        margin: 0;
+    }
+    @media (max-width: 768px) {
+        .container {
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+    }
+</style>

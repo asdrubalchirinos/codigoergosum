@@ -1,0 +1,57 @@
+---
+const today = new Date();
+---
+
+<footer>
+    <div class="footer-content">
+        <div class="social-links">
+            <a href="https://x.com/achirinos" target="_blank">                
+                <!-- X (formerly Twitter) Icon -->
+                <svg viewBox="0 0 24 24" aria-hidden="true" width="32" height="32" fill="currentColor">
+                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                </svg>
+            </a>            
+        </div>
+        <div class="copyright">
+            &copy; {today.getFullYear()} Código Ergo Sum. All rights reserved.
+        </div>
+        <div class="author">
+            Creado por <a href="https://x.com/achirinos" target="_blank">Asdrúbal "Astro" Chirinos</a>
+        </div>
+    </div>
+</footer>
+
+<style>
+	footer {
+		padding: 2em 1em 6em 1em;
+		background: linear-gradient(var(--gray-light) 0%, var(--white) 100%);
+		color: rgb(var(--gray));
+		text-align: center;
+        margin-top: 4rem;
+	}
+    .footer-content {
+        max-width: 1024px;
+        margin: 0 auto;
+    }
+	.social-links {
+		display: flex;
+		justify-content: center;
+		gap: 1em;
+		margin-top: 1em;
+	}
+	.social-links a {
+		text-decoration: none;
+		color: rgb(var(--gray));
+	}
+	.social-links a:hover {
+		color: rgb(var(--gray-dark));
+	}
+    .copyright {
+        margin-top: 1em;
+        font-size: 0.9em;
+    }
+    .author {
+        margin-top: 0.5em;
+        font-size: 0.8em;
+    }
+</style>

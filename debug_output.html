@@ -1,0 +1,165 @@
+<!DOCTYPE html><html lang="es"> <head><!-- Global Metadata --><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><meta name="generator" content="Astro v5.16.0"><!-- Font preloads --><link rel="preload" href="/fonts/atkinson-hyperlegible-regular.woff" as="font" type="font/woff" crossorigin><link rel="preload" href="/fonts/atkinson-hyperlegible-bold.woff" as="font" type="font/woff" crossorigin><!-- Canonical URL --><link rel="canonical" href="https://codigoergosum.com/blog/prueba-2/"><!-- Primary Meta Tags --><title>Post de Prueba 2: CSS</title><meta name="title" content="Post de Prueba 2: CSS"><meta name="description" content="Probando paginación y código en css"><!-- Open Graph / Facebook --><meta property="og:type" content="website"><meta property="og:url" content="http://localhost:4321/blog/prueba-2/"><meta property="og:title" content="Post de Prueba 2: CSS"><meta property="og:description" content="Probando paginación y código en css"><meta property="og:image" content="http://localhost:4321/placeholder.svg"><!-- Twitter --><meta property="twitter:card" content="summary_large_image"><meta property="twitter:url" content="http://localhost:4321/blog/prueba-2/"><meta property="twitter:title" content="Post de Prueba 2: CSS"><meta property="twitter:description" content="Probando paginación y código en css"><meta property="twitter:image" content="http://localhost:4321/placeholder.svg"><style data-vite-dev-id="/Users/achirinos/Projects/codigoergosum/src/styles/global.css">/* Global Styles */
+:root {
+	--accent: 236, 72, 153;
+	--accent-light: 224, 204, 250;
+	--accent-dark: 49, 10, 101;
+	--black: 15, 18, 25;
+	--gray: 96, 115, 159;
+	--gray-light: 229, 233, 240;
+	--gray-dark: 34, 41, 57;
+	--white: 255, 255, 255;
+	--box-shadow: 0 2px 6px rgba(var(--gray), 25%), 0 8px 24px rgba(var(--gray), 33%),
+		0 16px 32px rgba(var(--gray), 33%);
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--black: 229, 233, 240;
+		--white: 15, 18, 25;
+		--gray: 160, 170, 190;
+		--gray-light: 34, 41, 57;
+		--gray-dark: 229, 233, 240;
+	}
+}
+
+html {
+	background-color: rgb(var(--white));
+	font-family: 'Inter', system-ui, sans-serif;
+    color: rgb(var(--black));
+    line-height: 1.6;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	text-align: left;
+	word-wrap: break-word;
+	overflow-wrap: break-word;
+	color: rgb(var(--black));
+	font-size: 20px;
+	line-height: 1.7;
+}
+
+main {
+	width: 100%;
+    max-width: 1024px;
+	margin: 0 auto;
+    padding: 0 1rem;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	margin: 0 0 0.5rem 0;
+	color: rgb(var(--black));
+	line-height: 1.2;
+}
+
+h1 {
+	font-size: 3.052em;
+}
+
+h2 {
+	font-size: 2.441em;
+}
+
+h3 {
+	font-size: 1.953em;
+}
+
+h4 {
+	font-size: 1.563em;
+}
+
+h5 {
+	font-size: 1.25em;
+}
+
+strong, b {
+	font-weight: 700;
+}
+
+a {
+	color: rgb(var(--accent));
+}
+
+a:hover {
+	color: rgb(var(--accent));
+}
+
+textarea {
+	width: 100%;
+	font-size: 16px;
+}
+
+input {
+	font-size: 16px;
+}
+
+table {
+	width: 100%;
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+	border-radius: 8px;
+}
+
+code {
+	padding: 2px 5px;
+	background-color: rgb(var(--gray-light));
+	border-radius: 2px;
+}
+
+pre {
+	padding: 1.5em;
+	border-radius: 8px;
+}
+
+pre > code {
+	all: unset;
+}
+
+blockquote {
+	border-left: 4px solid rgb(var(--accent));
+	padding: 0 0 0 20px;
+	margin: 0px;
+	font-size: 1.333em;
+}
+
+hr {
+	border: none;
+	border-top: 1px solid rgb(var(--gray-light));
+}
+
+@media (max-width: 720px) {
+	body {
+		font-size: 18px;
+	}
+	main {
+		padding: 1em;
+	}
+}
+</style>
+<style data-vite-dev-id="/Users/achirinos/Projects/codigoergosum/src/components/Header.astro?astro&#38;type=style&#38;index=0&#38;lang.css">header[data-astro-cid-3ef6ksr2]{margin:0;padding:0 1em;background:white;box-shadow:0 2px 8px rgba(var(--black),5%)}h2[data-astro-cid-3ef6ksr2]{margin:0;font-size:1em}h2[data-astro-cid-3ef6ksr2] a[data-astro-cid-3ef6ksr2],h2[data-astro-cid-3ef6ksr2] a[data-astro-cid-3ef6ksr2].active{text-decoration:none}nav[data-astro-cid-3ef6ksr2]{display:flex;align-items:center;justify-content:space-between;max-width:1024px;margin:0 auto;padding:1em 0}.logo[data-astro-cid-3ef6ksr2]{flex:1;display:flex;justify-content:flex-start}.logo-img[data-astro-cid-3ef6ksr2]{height:40px;width:auto;display:block}.spacer[data-astro-cid-3ef6ksr2]{flex:1}h2[data-astro-cid-3ef6ksr2]{flex:2;text-align:center}nav[data-astro-cid-3ef6ksr2] a[data-astro-cid-3ef6ksr2]{padding:1em 0.5em;color:var(--black);border-bottom:4px solid transparent;text-decoration:none}nav[data-astro-cid-3ef6ksr2] a[data-astro-cid-3ef6ksr2].active{text-decoration:none;border-bottom-color:var(--accent)}.social-links[data-astro-cid-3ef6ksr2],.social-links[data-astro-cid-3ef6ksr2] a[data-astro-cid-3ef6ksr2]{display:flex}@media (max-width: 720px){.social-links[data-astro-cid-3ef6ksr2]{display:none}}</style>
+<style data-vite-dev-id="/Users/achirinos/Projects/codigoergosum/src/components/Footer.astro?astro&#38;type=style&#38;index=0&#38;lang.css">footer[data-astro-cid-sz7xmlte]{padding:2em 1em 6em 1em;background:linear-gradient(var(--gray-light) 0%,var(--white) 100%);color:rgb(var(--gray));text-align:center;margin-top:4rem}.footer-content[data-astro-cid-sz7xmlte]{max-width:1024px;margin:0 auto}.social-links[data-astro-cid-sz7xmlte]{display:flex;justify-content:center;gap:1em;margin-top:1em}.social-links[data-astro-cid-sz7xmlte] a[data-astro-cid-sz7xmlte]{text-decoration:none;color:rgb(var(--gray))}.social-links[data-astro-cid-sz7xmlte] a[data-astro-cid-sz7xmlte]:hover{color:rgb(var(--gray-dark))}.copyright[data-astro-cid-sz7xmlte]{margin-top:1em;font-size:0.9em}.author[data-astro-cid-sz7xmlte]{margin-top:0.5em;font-size:0.8em}</style>
+<style data-vite-dev-id="/Users/achirinos/Projects/codigoergosum/src/pages/blog/[...slug].astro?astro&#38;type=style&#38;index=0&#38;lang.css">.hero-image[data-astro-cid-7jjqptxk]{width:100%}.hero-image[data-astro-cid-7jjqptxk] img[data-astro-cid-7jjqptxk]{display:block;margin:0 auto;border-radius:12px;box-shadow:var(--box-shadow)}.prose[data-astro-cid-7jjqptxk]{width:720px;max-width:calc(100% - 2em);margin:auto;padding:1em;color:rgb(var(--gray-dark))}.title[data-astro-cid-7jjqptxk]{margin-bottom:1em;padding:1em 0;text-align:center;line-height:1}.title[data-astro-cid-7jjqptxk] h1[data-astro-cid-7jjqptxk]{margin:0 0 0.5em 0}.subtitle[data-astro-cid-7jjqptxk]{font-size:1.5em;color:rgb(var(--gray));font-weight:normal}.date[data-astro-cid-7jjqptxk]{margin-bottom:0.5em;color:rgb(var(--gray))}.last-updated-on[data-astro-cid-7jjqptxk]{font-style:italic}.share-buttons[data-astro-cid-7jjqptxk]{margin-top:4rem;padding-top:2rem;border-top:1px solid rgb(var(--gray-light));display:flex;gap:1rem;align-items:center}.share-buttons[data-astro-cid-7jjqptxk] h3[data-astro-cid-7jjqptxk]{margin:0;font-size:1rem;margin-right:0.5rem}.share-btn[data-astro-cid-7jjqptxk]{display:flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;color:white;text-decoration:none;transition:transform 0.2s}.share-btn[data-astro-cid-7jjqptxk]:hover{transform:translateY(-2px)}.share-btn[data-astro-cid-7jjqptxk].x{background-color:#000}.share-btn[data-astro-cid-7jjqptxk].linkedin{background-color:#0077b5}.share-btn[data-astro-cid-7jjqptxk].facebook{background-color:#1877f2}.share-btn[data-astro-cid-7jjqptxk].whatsapp{background-color:#25d366}.tags[data-astro-cid-7jjqptxk]{margin-top:2rem;display:flex;gap:0.5rem}.tag[data-astro-cid-7jjqptxk]{background:rgb(var(--gray-light));padding:0.2rem 0.5rem;border-radius:4px;font-size:0.9rem;text-decoration:none;color:rgb(var(--gray-dark));transition:all 0.2s}.tag[data-astro-cid-7jjqptxk]:hover{background:rgb(var(--accent));color:white}</style><script type="module" src="/@vite/client"></script>
+<script type="module" src="/@fs/Users/achirinos/Projects/codigoergosum/node_modules/astro/dist/runtime/client/dev-toolbar/entrypoint.js?v=f5d7cf6a"></script>
+<script>window.__astro_dev_toolbar__ = {"root":"/Users/achirinos/Projects/codigoergosum/","version":"5.16.0","debugInfo":"Astro                    v5.16.0\nNode                     v22.14.0\nSystem                   macOS (arm64)\nPackage Manager          npm\nOutput                   static\nAdapter                  none\nIntegrations             @astrojs/sitemap"}</script>
+<script type="module" src="/src/styles/global.css"></script>
+<script type="module" src="/src/components/Header.astro?astro&type=style&index=0&lang.css"></script>
+<script type="module" src="/src/components/Footer.astro?astro&type=style&index=0&lang.css"></script>
+<script type="module" src="/src/pages/blog/[...slug].astro?astro&type=style&index=0&lang.css"></script></head> <body data-astro-source-file="/Users/achirinos/Projects/codigoergosum/src/layouts/BaseLayout.astro" data-astro-source-loc="20:8"> <header data-astro-cid-3ef6ksr2 data-astro-source-file="/Users/achirinos/Projects/codigoergosum/src/components/Header.astro" data-astro-source-loc="5:9"> <nav data-astro-cid-3ef6ksr2 data-astro-source-file="/Users/achirinos/Projects/codigoergosum/src/components/Header.astro" data-astro-source-loc="6:7"> <div class="logo" data-astro-cid-3ef6ksr2 data-astro-source-file="/Users/achirinos/Projects/codigoergosum/src/components/Header.astro" data-astro-source-loc="7:27"> <a href="/" data-astro-cid-3ef6ksr2 data-astro-source-file="/Users/achirinos/Projects/codigoergosum/src/components/Header.astro" data-astro-source-loc="8:25"> <img src="/codigoergosum.webp" alt="Código Ergo Sum" class="logo-img" data-astro-cid-3ef6ksr2 data-astro-source-file="/Users/achirinos/Projects/codigoergosum/src/components/Header.astro" data-astro-source-loc="9:18"> </a> </div> <h2 data-astro-cid-3ef6ksr2 data-astro-source-file="/Users/achirinos/Projects/codigoergosum/src/components/Header.astro" data-astro-source-loc="12:8"><a href="/" data-astro-cid-3ef6ksr2 data-astro-source-file="/Users/achirinos/Projects/codigoergosum/src/components/Header.astro" data-astro-source-loc="12:19">Código Ergo Sum</a></h2> <div class="spacer" data-astro-cid-3ef6ksr2 data-astro-source-file="/Users/achirinos/Projects/codigoergosum/src/components/Header.astro" data-astro-source-loc="13:10"></div> </nav> </header>  <main data-astro-source-file="/Users/achirinos/Projects/codigoergosum/src/layouts/BaseLayout.astro" data-astro-source-loc="22:9">  <article data-astro-cid-7jjqptxk data-astro-source-file="/Users/achirinos/Projects/codigoergosum/src/pages/blog/[...slug].astro" data-astro-source-loc="22:11"> <div class="hero-image" data-astro-cid-7jjqptxk data-astro-source-file="/Users/achirinos/Projects/codigoergosum/src/pages/blog/[...slug].astro" data-astro-source-loc="23:27"> <img width="1020" height="510" src="/placeholder.svg" alt="" data-astro-cid-7jjqptxk data-astro-source-file="/Users/achirinos/Projects/codigoergosum/src/pages/blog/[...slug].astro" data-astro-source-loc="24:29"> </div> <div class="prose" data-astro-cid-7jjqptxk data-astro-source-file="/Users/achirinos/Projects/codigoergosum/src/pages/blog/[...slug].astro" data-astro-source-loc="26:22"> <div class="title" data-astro-cid-7jjqptxk data-astro-source-file="/Users/achirinos/Projects/codigoergosum/src/pages/blog/[...slug].astro" data-astro-source-loc="27:23"> <div class="date" data-astro-cid-7jjqptxk data-astro-source-file="/Users/achirinos/Projects/codigoergosum/src/pages/blog/[...slug].astro" data-astro-source-loc="28:23"> 21 de noviembre de 2025 </div> <h1 data-astro-cid-7jjqptxk data-astro-source-file="/Users/achirinos/Projects/codigoergosum/src/pages/blog/[...slug].astro" data-astro-source-loc="35:9">Post de Prueba 2: CSS</h1> <h2 class="subtitle" data-astro-cid-7jjqptxk data-astro-source-file="/Users/achirinos/Projects/codigoergosum/src/pages/blog/[...slug].astro" data-astro-source-loc="36:61">Probando paginación y código en css</h2> <div class="meta" data-astro-cid-7jjqptxk data-astro-source-file="/Users/achirinos/Projects/codigoergosum/src/pages/blog/[...slug].astro" data-astro-source-loc="37:35"> <span class="author" data-astro-cid-7jjqptxk data-astro-source-file="/Users/achirinos/Projects/codigoergosum/src/pages/blog/[...slug].astro" data-astro-source-loc="38:63">Por Bot Generador</span> </div> <hr data-astro-cid-7jjqptxk data-astro-source-file="/Users/achirinos/Projects/codigoergosum/src/pages/blog/[...slug].astro" data-astro-source-loc="40:6"> </div> <p>Este es el contenido del post de prueba número 2.</p>
+<h2 id="introducción">Introducción</h2>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+<h2 id="ejemplo-de-código-en-css">Ejemplo de Código en css</h2>
+<p>Aquí tienes un ejemplo de cómo se ve el código en <strong>css</strong>:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="css"><code><span class="line"><span style="color:#B392F0">.container</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#79B8FF">    display</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">flex</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#79B8FF">    justify-content</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">center</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#79B8FF">    align-items</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">center</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span></code></pre>
+<h2 id="conclusión">Conclusión</h2>
+<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p> <div class="share-buttons" data-astro-cid-7jjqptxk data-astro-source-file="/Users/achirinos/Projects/codigoergosum/src/pages/blog/[...slug].astro" data-astro-source-loc="44:40"> <h3 data-astro-cid-7jjqptxk data-astro-source-file="/Users/achirinos/Projects/codigoergosum/src/pages/blog/[...slug].astro" data-astro-source-loc="45:21">Compartir:</h3> <a href="https://twitter.com/intent/tweet?text=Lee "Post de Prueba 2: CSS" en Código Ergo Sum&url=https://codigoergosum.com/blog/prueba-2/" target="_blank" rel="noopener noreferrer" class="share-btn x" aria-label="Compartir en X" data-astro-cid-7jjqptxk data-astro-source-file="/Users/achirinos/Projects/codigoergosum/src/pages/blog/[...slug].astro" data-astro-source-loc="46:186"> <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" data-astro-cid-7jjqptxk data-astro-source-file="/Users/achirinos/Projects/codigoergosum/src/pages/blog/[...slug].astro" data-astro-source-loc="47:90"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" data-astro-cid-7jjqptxk data-astro-source-file="/Users/achirinos/Projects/codigoergosum/src/pages/blog/[...slug].astro" data-astro-source-loc="47:90"></path></svg> </a> <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://codigoergosum.com/blog/prueba-2/" target="_blank" rel="noopener noreferrer" class="share-btn linkedin" aria-label="Compartir en LinkedIn" data-astro-cid-7jjqptxk data-astro-source-file="/Users/achirinos/Projects/codigoergosum/src/pages/blog/[...slug].astro" data-astro-source-loc="49:197"> <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" data-astro-cid-7jjqptxk data-astro-source-file="/Users/achirinos/Projects/codigoergosum/src/pages/blog/[...slug].astro" data-astro-source-loc="50:90"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" data-astro-cid-7jjqptxk data-astro-source-file="/Users/achirinos/Projects/codigoergosum/src/pages/blog/[...slug].astro" data-astro-source-loc="50:90"></path></svg> </a> <a href="https://www.facebook.com/sharer/sharer.php?u=https://codigoergosum.com/blog/prueba-2/" target="_blank" rel="noopener noreferrer" class="share-btn facebook" aria-label="Compartir en Facebook" data-astro-cid-7jjqptxk data-astro-source-file="/Users/achirinos/Projects/codigoergosum/src/pages/blog/[...slug].astro" data-astro-source-loc="52:190"> <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" data-astro-cid-7jjqptxk data-astro-source-file="/Users/achirinos/Projects/codigoergosum/src/pages/blog/[...slug].astro" data-astro-source-loc="53:90"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" data-astro-cid-7jjqptxk data-astro-source-file="/Users/achirinos/Projects/codigoergosum/src/pages/blog/[...slug].astro" data-astro-source-loc="53:90"></path></svg> </a> <a href="https://wa.me/?text=Lee &#34;Post de Prueba 2: CSS&#34; en Código Ergo Sum https://codigoergosum.com/blog/prueba-2/" target="_blank" rel="noopener noreferrer" class="share-btn whatsapp" aria-label="Compartir en WhatsApp" data-astro-cid-7jjqptxk data-astro-source-file="/Users/achirinos/Projects/codigoergosum/src/pages/blog/[...slug].astro" data-astro-source-loc="55:178"> <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" data-astro-cid-7jjqptxk data-astro-source-file="/Users/achirinos/Projects/codigoergosum/src/pages/blog/[...slug].astro" data-astro-source-loc="56:90"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" data-astro-cid-7jjqptxk data-astro-source-file="/Users/achirinos/Projects/codigoergosum/src/pages/blog/[...slug].astro" data-astro-source-loc="56:90"></path></svg> </a> </div> <div class="tags" data-astro-cid-7jjqptxk data-astro-source-file="/Users/achirinos/Projects/codigoergosum/src/pages/blog/[...slug].astro" data-astro-source-loc="60:31"> <a href="/tags/prueba" class="tag" data-astro-cid-7jjqptxk data-astro-source-file="/Users/achirinos/Projects/codigoergosum/src/pages/blog/[...slug].astro" data-astro-source-loc="62:58">#prueba</a><a href="/tags/css" class="tag" data-astro-cid-7jjqptxk data-astro-source-file="/Users/achirinos/Projects/codigoergosum/src/pages/blog/[...slug].astro" data-astro-source-loc="62:58">#css</a><a href="/tags/auto-generated" class="tag" data-astro-cid-7jjqptxk data-astro-source-file="/Users/achirinos/Projects/codigoergosum/src/pages/blog/[...slug].astro" data-astro-source-loc="62:58">#auto-generated</a> </div> </div> </article>  </main> <footer data-astro-cid-sz7xmlte data-astro-source-file="/Users/achirinos/Projects/codigoergosum/src/components/Footer.astro" data-astro-source-loc="5:9"> <div class="footer-content" data-astro-cid-sz7xmlte data-astro-source-file="/Users/achirinos/Projects/codigoergosum/src/components/Footer.astro" data-astro-source-loc="6:33"> <div class="social-links" data-astro-cid-sz7xmlte data-astro-source-file="/Users/achirinos/Projects/codigoergosum/src/components/Footer.astro" data-astro-source-loc="7:35"> <a href="https://twitter.com" target="_blank" data-astro-cid-sz7xmlte data-astro-source-file="/Users/achirinos/Projects/codigoergosum/src/components/Footer.astro" data-astro-source-loc="8:59"> <span class="sr-only" data-astro-cid-sz7xmlte data-astro-source-file="/Users/achirinos/Projects/codigoergosum/src/components/Footer.astro" data-astro-source-loc="9:39">Follow on Twitter</span> <!-- Twitter Icon --> <svg viewBox="0 0 16 16" aria-hidden="true" width="32" height="32" fill="currentColor" data-astro-cid-sz7xmlte data-astro-source-file="/Users/achirinos/Projects/codigoergosum/src/components/Footer.astro" data-astro-source-loc="11:104"> <path d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z" data-astro-cid-sz7xmlte data-astro-source-file="/Users/achirinos/Projects/codigoergosum/src/components/Footer.astro" data-astro-source-loc="12:22"></path> </svg> </a> <a href="https://github.com" target="_blank" data-astro-cid-sz7xmlte data-astro-source-file="/Users/achirinos/Projects/codigoergosum/src/components/Footer.astro" data-astro-source-loc="15:58"> <span class="sr-only" data-astro-cid-sz7xmlte data-astro-source-file="/Users/achirinos/Projects/codigoergosum/src/components/Footer.astro" data-astro-source-loc="16:39">Go to GitHub</span> <!-- GitHub Icon --> <svg viewBox="0 0 16 16" aria-hidden="true" width="32" height="32" fill="currentColor" data-astro-cid-sz7xmlte data-astro-source-file="/Users/achirinos/Projects/codigoergosum/src/components/Footer.astro" data-astro-source-loc="18:104"> <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z" data-astro-cid-sz7xmlte data-astro-source-file="/Users/achirinos/Projects/codigoergosum/src/components/Footer.astro" data-astro-source-loc="19:22"></path> </svg> </a> </div> <div class="copyright" data-astro-cid-sz7xmlte data-astro-source-file="/Users/achirinos/Projects/codigoergosum/src/components/Footer.astro" data-astro-source-loc="23:32">
+&copy; 2025 Código Ergo Sum. All rights reserved.
+</div> <div class="author" data-astro-cid-sz7xmlte data-astro-source-file="/Users/achirinos/Projects/codigoergosum/src/components/Footer.astro" data-astro-source-loc="26:29">
+Creado por <a href="#" data-astro-cid-sz7xmlte data-astro-source-file="/Users/achirinos/Projects/codigoergosum/src/components/Footer.astro" data-astro-source-loc="27:36">Tu Nombre</a> </div> </div> </footer>  </body></html> 

@@ -1,0 +1,84 @@
+---
+import { SITE_TITLE } from '../consts';
+const rawBase = import.meta.env.BASE_URL;
+const base = rawBase === '/' ? '' : rawBase.replace(/\/$/, '');
+---
+
+<header>
+	<nav>
+        <div class="logo">
+            <a href={`${base}/`}>
+                <img src={`${base}/codigoergosum.webp`} alt="Código Ergo Sum" class="logo-img" />
+            </a>
+        </div>
+		<h2><a href={`${base}/`}>{SITE_TITLE}</a></h2>
+        <div class="spacer"></div>
+	</nav>
+</header>
+
+<style>
+	header {
+		margin: 0;
+		padding: 0 1em;
+		background: rgb(var(--white));
+		box-shadow: 0 2px 8px rgba(var(--black), 5%);
+	}
+	h2 {
+		margin: 0;
+		font-size: 1em;
+	}
+
+	h2 a,
+	h2 a.active {
+		text-decoration: none;
+	}
+	nav {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+        max-width: 1024px;
+        margin: 0 auto;
+        padding: 1em 0;
+	}
+    .logo {
+        flex: 1;
+        display: flex;
+        justify-content: flex-start;
+    }
+    .logo-img {
+        height: 40px;
+        width: auto;
+        display: block;
+    }
+    .spacer {
+        flex: 1;
+    }
+    h2 {
+        flex: 2;
+        text-align: center;
+    }
+	nav a {
+		padding: 1em 0.5em;
+		color: rgb(var(--black));
+		border-bottom: 4px solid transparent;
+		text-decoration: none;
+	}
+	nav a.active {
+		text-decoration: none;
+		border-bottom-color: var(--accent);
+	}
+	.social-links,
+	.social-links a {
+		display: flex;
+	}
+	@media (max-width: 720px) {
+		.social-links {
+			display: none;
+		}
+	}
+
+  @media (prefers-color-scheme: dark) {
+    header { background: rgba(var(--white), 0.06); backdrop-filter: blur(6px); }
+    nav a { color: rgb(var(--black)); }
+  }
+</style>

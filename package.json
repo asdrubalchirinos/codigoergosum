@@ -1,0 +1,23 @@
+{
+  "name": "codigoergosum",
+  "type": "module",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro check && astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "deploy": "npm run build && touch dist/.nojekyll",
+    "migrate": "cd ../substack-migrator && npm run",
+    "migrate:help": "cd ../substack-migrator && npm run start -- --help",
+    "generate-tags": "node ../blog-tag-generator/index.js ./src/content/blog"
+  },
+  "dependencies": {
+    "@astrojs/check": "^0.9.5",
+    "@astrojs/sitemap": "^3.6.0",
+    "astro": "^5.16.0",
+    "image-size": "^1.0.2",
+    "sharp": "^0.34.5",
+    "typescript": "^5.9.3"
+  }
+}

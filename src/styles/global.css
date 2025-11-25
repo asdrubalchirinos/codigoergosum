@@ -1,0 +1,161 @@
+/* Global Styles */
+:root {
+	--accent: 236, 72, 153;
+	--accent-light: 224, 204, 250;
+	--accent-dark: 49, 10, 101;
+	--black: 15, 18, 25;
+	--gray: 96, 115, 159;
+	--gray-light: 229, 233, 240;
+	--gray-dark: 34, 41, 57;
+	--white: 255, 255, 255;
+	--box-shadow: 0 2px 6px rgba(var(--gray), 25%), 0 8px 24px rgba(var(--gray), 33%),
+		0 16px 32px rgba(var(--gray), 33%);
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--black: 229, 233, 240;
+		--white: 15, 18, 25;
+		--gray: 160, 170, 190;
+		--gray-light: 34, 41, 57;
+		--gray-dark: 229, 233, 240;
+	}
+}
+
+html {
+	background-color: rgb(var(--white));
+	font-family: 'Inter', system-ui, sans-serif;
+    color: rgb(var(--black));
+    line-height: 1.6;
+    width: 100%;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	text-align: left;
+	word-wrap: break-word;
+	overflow-wrap: break-word;
+	color: rgb(var(--black));
+	font-size: 20px;
+	line-height: 1.7;
+	max-width: 100%;
+	overflow-x: hidden; /* Use hidden for wider iOS/Safari support */
+}
+
+/* Universal box-sizing to avoid width calculations causing overflow */
+*, *::before, *::after { box-sizing: border-box; }
+
+main { overflow-x: clip; }
+
+/* Constrain media/content blocks */
+img, table, pre, blockquote, code, .hero-image, .container { max-width: 100%; }
+/* Prevent intrinsic width attributes from causing initial overflow */
+.hero-image img, .featured-post img { width: 100%; height: auto; }
+pre { overflow-x: auto; }
+
+main {
+	width: 100%;
+    max-width: 1024px;
+	margin: 0 auto;
+    padding: 0 1rem;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	margin: 0 0 0.5rem 0;
+	color: rgb(var(--black));
+	line-height: 1.2;
+}
+
+h1 {
+	font-size: 3.052em;
+}
+
+h2 {
+	font-size: 2.441em;
+}
+
+h3 {
+	font-size: 1.953em;
+}
+
+h4 {
+	font-size: 1.563em;
+}
+
+h5 {
+	font-size: 1.25em;
+}
+
+strong, b {
+	font-weight: 700;
+}
+
+a {
+	color: rgb(var(--accent));
+}
+
+a:hover {
+	color: rgb(var(--accent));
+}
+
+textarea {
+	width: 100%;
+	font-size: 16px;
+}
+
+input {
+	font-size: 16px;
+}
+
+table {
+	width: 100%;
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+	border-radius: 8px;
+}
+
+code {
+	padding: 2px 5px;
+	background-color: rgb(var(--gray-light));
+	border-radius: 2px;
+}
+
+pre {
+	padding: 1.5em;
+	border-radius: 8px;
+}
+
+pre > code {
+	all: unset;
+}
+
+blockquote {
+	border-left: 4px solid rgb(var(--accent));
+	padding: 0 0 0 20px;
+	margin: 0px;
+	font-size: 1.333em;
+}
+
+hr {
+	border: none;
+	border-top: 1px solid rgb(var(--gray-light));
+}
+
+@media (max-width: 720px) {
+	body {
+		font-size: 18px;
+	}
+	main {
+		padding: 1em 0.75em; /* Slightly reduce side padding for small screens */
+	}
+}
+
+/* Dark mode specific tweaks for neutral surfaces */
+@media (prefers-color-scheme: dark) {
+  code { background-color: rgba(var(--gray-light), 0.25); }
+  hr { border-top-color: rgba(var(--gray-light), 0.4); }
+}
