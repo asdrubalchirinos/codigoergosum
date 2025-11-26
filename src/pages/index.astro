@@ -4,7 +4,9 @@ import Sidebar from '../components/Sidebar.astro';
 import { getCollection } from 'astro:content';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 
-const posts = await getCollection('blog');
+const posts = await getCollection('blog', ({ data }) => {
+	return import.meta.env.PROD ? data.draft !== true : true;
+});
 const sortedPosts = posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 
 const featuredPost = sortedPosts.find(post => post.data.featured);
