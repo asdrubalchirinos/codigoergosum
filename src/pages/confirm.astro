@@ -1,0 +1,85 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
+
+const status = Astro.url.searchParams.get("status");
+const error = Astro.url.searchParams.get("error");
+
+let title = "Confirmación de suscripción";
+let message = "Procesando tu confirmación...";
+let isSuccess = false;
+
+if (status === "success") {
+    title = "¡Suscripción confirmada!";
+    message =
+        "Gracias por confirmar tu suscripción. Pronto recibirás noticias nuestras.";
+    isSuccess = true;
+} else if (error) {
+    title = "Error en la confirmación";
+    message =
+        "Hubo un problema al confirmar tu suscripción. El enlace podría haber expirado o ser inválido.";
+}
+---
+
+<BaseLayout title={title} description={SITE_DESCRIPTION}>
+    <div class="container">
+        <div class={`card ${isSuccess ? "success" : error ? "error" : ""}`}>
+            <h1>{title}</h1>
+            <p>{message}</p>
+            <a href="/" class="button">Volver al inicio</a>
+        </div>
+    </div>
+</BaseLayout>
+
+<style>
+    .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 60vh;
+        padding: 1rem;
+    }
+
+    .card {
+        background: white;
+        padding: 2rem;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        max-width: 500px;
+        width: 100%;
+    }
+
+    .card.success {
+        border-top: 4px solid green;
+    }
+
+    .card.error {
+        border-top: 4px solid red;
+    }
+
+    h1 {
+        margin-top: 0;
+        color: rgb(var(--black));
+    }
+
+    p {
+        margin-bottom: 2rem;
+        color: rgb(var(--gray));
+    }
+
+    .button {
+        display: inline-block;
+        padding: 0.5rem 1.5rem;
+        background-color: rgb(var(--accent));
+        color: white;
+        text-decoration: none;
+        border-radius: 4px;
+        font-weight: bold;
+        transition: background-color 0.2s;
+    }
+
+    .button:hover {
+        background-color: rgb(var(--accent-dark));
+    }
+</style>

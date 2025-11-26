@@ -1,0 +1,200 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
+
+const token = Astro.url.searchParams.get("token");
+---
+
+<BaseLayout title="Darse de baja" description={SITE_DESCRIPTION}>
+    <div class="container">
+        <div class="card">
+            <h1>Darse de baja</h1>
+
+            <div id="status-message" class="hidden"></div>
+
+            <form id="unsubscribe-form" class={token ? "hidden" : ""}>
+                <p>
+                    Ingresa tu correo electrónico para darte de baja del
+                    newsletter.
+                </p>
+                <div class="input-group">
+                    <input
+                        type="email"
+                        name="email"
+                        placeholder="tu@email.com"
+                        required
+                    />
+                    <button type="submit">Darse de baja</button>
+                </div>
+            </form>
+
+            <div id="loading" class="hidden">
+                <p>Procesando...</p>
+            </div>
+        </div>
+    </div>
+</BaseLayout>
+
+<script>
+    const token = new URLSearchParams(window.location.search).get("token");
+    const form = document.getElementById("unsubscribe-form") as HTMLFormElement;
+    const statusMessage = document.getElementById(
+        "status-message",
+    ) as HTMLDivElement;
+    const loading = document.getElementById("loading") as HTMLDivElement;
+
+    const API_URL =
+        import.meta.env.PUBLIC_NEWSLETTER_API_URL || "http://localhost:8787";
+
+    async function unsubscribe(payload: any) {
+        try {
+            // Mock delay if no API
+            if (!import.meta.env.PUBLIC_NEWSLETTER_API_URL) {
+                await new Promise((resolve) => setTimeout(resolve, 1000));
+            } else {
+                const response = await fetch(`${API_URL}/api/unsubscribe`, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(payload),
+                });
+                if (!response.ok)
+                    throw new Error("Error al procesar la solicitud");
+            }
+            return true;
+        } catch (e) {
+            console.error(e);
+            return false;
+        }
+    }
+
+    function showMessage(msg: string, type: "success" | "error") {
+        if (statusMessage) {
+            statusMessage.textContent = msg;
+            statusMessage.className = `message ${type}`;
+            statusMessage.classList.remove("hidden");
+        }
+    }
+
+    // If token is present, auto-unsubscribe
+    if (token) {
+        if (loading) loading.classList.remove("hidden");
+        unsubscribe({ token }).then((success) => {
+            if (loading) loading.classList.add("hidden");
+            if (success) {
+                showMessage(
+                    "Te has dado de baja correctamente. Lamentamos verte partir.",
+                    "success",
+                );
+            } else {
+                showMessage("El enlace es inválido o ha expirado.", "error");
+                if (form) form.classList.remove("hidden");
+            }
+        });
+    }
+
+    // Handle manual form submission
+    if (form) {
+        form.addEventListener("submit", async (e) => {
+            e.preventDefault();
+            const formData = new FormData(form);
+            const email = formData.get("email");
+
+            if (loading) loading.classList.remove("hidden");
+            form.classList.add("hidden");
+
+            const success = await unsubscribe({ email });
+
+            if (loading) loading.classList.add("hidden");
+            if (success) {
+                showMessage(
+                    "Si el correo existe en nuestra base de datos, recibirás un enlace para confirmar la baja.",
+                    "success",
+                );
+            } else {
+                showMessage(
+                    "Hubo un error. Por favor intenta de nuevo.",
+                    "error",
+                );
+                form.classList.remove("hidden");
+            }
+        });
+    }
+</script>
+
+<style>
+    .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 60vh;
+        padding: 1rem;
+    }
+
+    .card {
+        background: white;
+        padding: 2rem;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        max-width: 500px;
+        width: 100%;
+    }
+
+    h1 {
+        margin-top: 0;
+        color: rgb(var(--black));
+    }
+
+    p {
+        margin-bottom: 1.5rem;
+        color: rgb(var(--gray));
+    }
+
+    .input-group {
+        display: flex;
+        gap: 0.5rem;
+        flex-direction: column;
+    }
+
+    input[type="email"] {
+        padding: 0.5rem 1rem;
+        border: 1px solid rgb(var(--gray));
+        border-radius: 4px;
+        font-size: 1rem;
+    }
+
+    button {
+        padding: 0.5rem 1.5rem;
+        background-color: rgb(var(--accent));
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-weight: bold;
+        transition: background-color 0.2s;
+    }
+
+    button:hover {
+        background-color: rgb(var(--accent-dark));
+    }
+
+    .hidden {
+        display: none;
+    }
+
+    .message {
+        padding: 1rem;
+        border-radius: 4px;
+        margin-bottom: 1rem;
+    }
+
+    .message.success {
+        background-color: #d4edda;
+        color: #155724;
+    }
+
+    .message.error {
+        background-color: #f8d7da;
+        color: #721c24;
+    }
+</style>

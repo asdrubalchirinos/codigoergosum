@@ -1,0 +1,186 @@
+---
+interface Props {
+    mode?: "compact" | "full";
+}
+
+const { mode = "full" } = Astro.props;
+---
+
+<div class={`newsletter-form ${mode}`}>
+    <div class="content">
+        <h3>Suscríbete al newsletter</h3>
+        <p>
+            Recibe las últimas publicaciones directamente en tu correo. Sin
+            spam, solo contenido de calidad.
+        </p>
+
+        <form id="newsletter-form" class="form">
+            <div class="input-group">
+                <input
+                    type="email"
+                    name="email"
+                    placeholder="tu@email.com"
+                    required
+                    aria-label="Dirección de correo electrónico"
+                />
+                <button type="submit">Suscribirse</button>
+            </div>
+            <div class="message" aria-live="polite"></div>
+        </form>
+    </div>
+</div>
+
+<script>
+    const form = document.getElementById("newsletter-form") as HTMLFormElement;
+    const messageEl = form?.querySelector(".message") as HTMLDivElement;
+    const submitBtn = form?.querySelector(
+        'button[type="submit"]',
+    ) as HTMLButtonElement;
+
+    if (form) {
+        form.addEventListener("submit", async (e) => {
+            e.preventDefault();
+            const formData = new FormData(form);
+            const email = formData.get("email");
+
+            // Disable button and show loading state
+            if (submitBtn) {
+                submitBtn.disabled = true;
+                submitBtn.textContent = "Enviando...";
+            }
+            if (messageEl) {
+                messageEl.textContent = "";
+                messageEl.className = "message";
+            }
+
+            try {
+                // TODO: Replace with actual API endpoint
+                const API_URL =
+                    import.meta.env.PUBLIC_NEWSLETTER_API_URL ||
+                    "http://localhost:8787";
+
+                // Mock delay for now if no API
+                if (!import.meta.env.PUBLIC_NEWSLETTER_API_URL) {
+                    await new Promise((resolve) => setTimeout(resolve, 1000));
+                    console.log("Mock subscribe:", email);
+                } else {
+                    const response = await fetch(`${API_URL}/api/subscribe`, {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json",
+                        },
+                        body: JSON.stringify({ email }),
+                    });
+
+                    if (!response.ok) {
+                        throw new Error("Error al suscribirse");
+                    }
+                }
+
+                if (messageEl) {
+                    messageEl.textContent =
+                        "¡Gracias! Revisa tu correo para confirmar tu suscripción.";
+                    messageEl.classList.add("success");
+                }
+                form.reset();
+            } catch (error) {
+                console.error(error);
+                if (messageEl) {
+                    messageEl.textContent =
+                        "Hubo un error. Por favor intenta de nuevo.";
+                    messageEl.classList.add("error");
+                }
+            } finally {
+                if (submitBtn) {
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = "Suscribirse";
+                }
+            }
+        });
+    }
+</script>
+
+<style>
+    .newsletter-form {
+        background: rgb(var(--gray-light));
+        padding: 2rem;
+        border-radius: 8px;
+        margin: 2rem 0;
+    }
+
+    .newsletter-form.compact {
+        padding: 1.5rem;
+    }
+
+    .content h3 {
+        margin-top: 0;
+        margin-bottom: 0.5rem;
+    }
+
+    .content p {
+        margin-bottom: 1.5rem;
+        color: rgb(var(--gray));
+    }
+
+    .form {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .input-group {
+        display: flex;
+        gap: 0.5rem;
+    }
+
+    input[type="email"] {
+        flex: 1;
+        padding: 0.5rem 1rem;
+        border: 1px solid rgb(var(--gray));
+        border-radius: 4px;
+        font-size: 1rem;
+    }
+
+    button {
+        padding: 0.5rem 1.5rem;
+        background-color: rgb(var(--accent));
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-weight: bold;
+        transition: background-color 0.2s;
+    }
+
+    button:hover {
+        background-color: rgb(var(--accent-dark));
+    }
+
+    button:disabled {
+        opacity: 0.7;
+        cursor: not-allowed;
+    }
+
+    .message {
+        font-size: 0.9rem;
+        min-height: 1.2em;
+    }
+
+    .message.success {
+        color: green;
+    }
+
+    .message.error {
+        color: red;
+    }
+
+    @media (max-width: 600px) {
+        .input-group {
+            flex-direction: column;
+        }
+
+        button {
+            width: 100%;
+        }
+    }
+</style>
