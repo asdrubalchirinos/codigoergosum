@@ -1,5 +1,6 @@
 import { Hono } from 'hono';
 import { cors } from 'hono/cors';
+import { validateTurnstileToken } from './turnstile';
 
 type Bindings = {
     DB: D1Database;
@@ -37,10 +38,22 @@ app.get('/', (c) => {
 
 app.post('/api/subscribe', async (c) => {
     const body = await c.req.json();
-    const { email } = body;
+    const { email, token } = body;
 
     if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
         return c.json({ error: 'Invalid email address' }, 400);
+    }
+
+    // Validate Turnstile
+    if (c.env.TURNSTILE_SECRET_KEY && token) {
+        const ip = c.req.header('CF-Connecting-IP');
+        const isValid = await validateTurnstileToken(token, c.env.TURNSTILE_SECRET_KEY, ip);
+        if (!isValid) {
+            return c.json({ error: 'Invalid captcha' }, 400);
+        }
+    } else if (c.env.TURNSTILE_SECRET_KEY && !token) {
+        // Enforce captcha if key is set
+        return c.json({ error: 'Captcha required' }, 400);
     }
 
     try {

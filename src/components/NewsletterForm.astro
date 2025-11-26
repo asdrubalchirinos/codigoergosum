@@ -25,10 +25,20 @@ const { mode = "full" } = Astro.props;
                 />
                 <button type="submit">Suscribirse</button>
             </div>
+            <!-- Turnstile Widget -->
+            <div
+                class="cf-turnstile"
+                data-sitekey={import.meta.env.PUBLIC_TURNSTILE_SITE_KEY}
+                data-theme="light"
+            >
+            </div>
             <div class="message" aria-live="polite"></div>
         </form>
     </div>
 </div>
+
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer
+></script>
 
 <script>
     const form = document.getElementById("newsletter-form") as HTMLFormElement;
@@ -42,6 +52,7 @@ const { mode = "full" } = Astro.props;
             e.preventDefault();
             const formData = new FormData(form);
             const email = formData.get("email");
+            const token = formData.get("cf-turnstile-response");
 
             // Disable button and show loading state
             if (submitBtn) {
@@ -69,7 +80,7 @@ const { mode = "full" } = Astro.props;
                         headers: {
                             "Content-Type": "application/json",
                         },
-                        body: JSON.stringify({ email }),
+                        body: JSON.stringify({ email, token }),
                     });
 
                     if (!response.ok) {
