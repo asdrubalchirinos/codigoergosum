@@ -1,0 +1,39 @@
+name: Send Newsletter
+
+on:
+  workflow_dispatch:
+    inputs:
+      slug:
+        description: 'Post Slug (e.g., my-new-post)'
+        required: true
+        type: string
+      dryRun:
+        description: 'Dry Run (log only)'
+        required: true
+        default: 'true'
+        type: boolean
+
+jobs:
+  send:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+          
+      - name: Install Dependencies
+        run: npm ci
+        
+      - name: Build Newsletter HTML
+        run: node scripts/newsletter/build-html.mjs --slug=${{ inputs.slug }}
+        
+      - name: Send Newsletter
+        env:
+          NEWSLETTER_API_URL: ${{ secrets.NEWSLETTER_API_URL }}
+          NEWSLETTER_API_KEY: ${{ secrets.NEWSLETTER_API_KEY }}
+          DRY_RUN: ${{ inputs.dryRun }}
+        run: node scripts/newsletter/send.mjs
