@@ -97,7 +97,7 @@ app.post('/api/subscribe', async (c) => {
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({
-                    from: 'Newsletter <newsletter@codigoergosum.com>', // Update this!
+                    from: 'Newsletter <newsletter@notifications.codigoergosum.com>', // Update this!
                     to: email,
                     subject: 'Confirm your subscription',
                     html: `<p>Please confirm your subscription by clicking <a href="${confirmUrl}">here</a>.</p>`
@@ -146,8 +146,8 @@ app.get('/api/confirm', async (c) => {
             db.prepare('DELETE FROM tokens WHERE id = ?').bind(tokenRecord.id)
         ]);
 
-        // Redirect to success page
-        return c.redirect(`${c.env.ORIGIN_BASE_URL}/confirm?status=success`);
+        // Return JSON success, let frontend handle redirect
+        return c.json({ success: true, message: 'Subscription confirmed' });
 
     } catch (e) {
         console.error(e);
@@ -197,7 +197,7 @@ app.post('/api/unsubscribe', async (c) => {
                             'Content-Type': 'application/json'
                         },
                         body: JSON.stringify({
-                            from: 'Newsletter <newsletter@codigoergosum.com>',
+                            from: 'Newsletter <newsletter@notifications.codigoergosum.com>',
                             to: email,
                             subject: 'Unsubscribe from newsletter',
                             html: `<p>Click <a href="${unsubscribeUrl}">here</a> to unsubscribe.</p>`

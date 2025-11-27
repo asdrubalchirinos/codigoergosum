@@ -2,30 +2,16 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 
-const status = Astro.url.searchParams.get("status");
-const error = Astro.url.searchParams.get("error");
-
+// Initial state is loading/processing
 let title = "Confirmación de suscripción";
 let message = "Procesando tu confirmación...";
-let isSuccess = false;
-
-if (status === "success") {
-    title = "¡Suscripción confirmada!";
-    message =
-        "Gracias por confirmar tu suscripción. Pronto recibirás noticias nuestras.";
-    isSuccess = true;
-} else if (error) {
-    title = "Error en la confirmación";
-    message =
-        "Hubo un problema al confirmar tu suscripción. El enlace podría haber expirado o ser inválido.";
-}
 ---
 
 <BaseLayout title={title} description={SITE_DESCRIPTION}>
     <div class="container">
-        <div class={`card ${isSuccess ? "success" : error ? "error" : ""}`}>
-            <h1>{title}</h1>
-            <p>{message}</p>
+        <div id="card" class="card">
+            <h1 id="title">{title}</h1>
+            <p id="message">{message}</p>
             <a href="/" class="button">Volver al inicio</a>
         </div>
     </div>
@@ -83,3 +69,67 @@ if (status === "success") {
         background-color: rgb(var(--accent-dark));
     }
 </style>
+
+<script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const token = urlParams.get("token");
+    const status = urlParams.get("status");
+    const error = urlParams.get("error");
+
+    const card = document.getElementById("card");
+    const titleEl = document.getElementById("title");
+    const messageEl = document.getElementById("message");
+
+    function showSuccess() {
+        if (card) card.classList.add("success");
+        if (titleEl) titleEl.textContent = "¡Suscripción confirmada!";
+        if (messageEl)
+            messageEl.textContent =
+                "Gracias por confirmar tu suscripción. Pronto recibirás noticias nuestras.";
+    }
+
+    function showError(msg?: string) {
+        if (card) card.classList.add("error");
+        if (titleEl) titleEl.textContent = "Error en la confirmación";
+        if (messageEl)
+            messageEl.textContent =
+                msg ||
+                "Hubo un problema al confirmar tu suscripción. El enlace podría haber expirado o ser inválido.";
+    }
+
+    if (status === "success") {
+        showSuccess();
+    } else if (error) {
+        showError();
+    } else if (token) {
+        // We have a token, let's validate it
+        const apiUrl =
+            import.meta.env.PUBLIC_NEWSLETTER_API_URL ||
+            "http://localhost:8787";
+
+        fetch(`${apiUrl}/api/confirm?token=${token}`)
+            .then((response) => {
+                if (response.ok) {
+                    // Success! Update UI directly without reload
+                    showSuccess();
+                    // Optional: Update URL to reflect success without reload
+                    window.history.replaceState(
+                        {},
+                        "",
+                        "/confirm?status=success",
+                    );
+                } else {
+                    showError();
+                    window.history.replaceState(
+                        {},
+                        "",
+                        "/confirm?error=invalid_token",
+                    );
+                }
+            })
+            .catch((err) => {
+                console.error(err);
+                showError("Error de conexión. Por favor intenta de nuevo.");
+            });
+    }
+</script>

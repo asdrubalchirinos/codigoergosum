@@ -12,7 +12,7 @@ PUBLIC_NEWSLETTER_API_URL = "http://localhost:8787"
 [[d1_databases]]
 binding = "DB"
 database_name = "newsletter-db"
-database_id = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" # Dummy ID for local dev
+database_id = "df0e4157-47a2-44b8-bd24-6f77cac2a8a5"
 
 # Bind a KV Namespace. Use KV as persistent storage for small key-value pairs.
 # [[kv_namespaces]]

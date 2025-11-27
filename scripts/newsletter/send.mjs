@@ -1,10 +1,11 @@
 import fs from 'fs';
 import path from 'path';
 import fetch from 'node-fetch';
+import 'dotenv/config';
 
 const NEWSLETTER_HTML_PATH = path.join(process.cwd(), 'dist/newsletter.html');
-const API_URL = process.env.NEWSLETTER_API_URL || 'http://localhost:8787';
-const API_KEY = process.env.NEWSLETTER_API_KEY; // Optional: Add auth to your worker if needed
+const RESEND_API_KEY = process.env.RESEND_API_KEY;
+const TEST_EMAIL = process.env.TEST_EMAIL;
 
 async function send() {
     if (!fs.existsSync(NEWSLETTER_HTML_PATH)) {
@@ -12,22 +13,41 @@ async function send() {
         process.exit(1);
     }
 
+    if (!RESEND_API_KEY) {
+        console.error('RESEND_API_KEY is missing in .env');
+        process.exit(1);
+    }
+
+    if (!TEST_EMAIL) {
+        console.error('TEST_EMAIL is missing in .env');
+        process.exit(1);
+    }
+
     const html = fs.readFileSync(NEWSLETTER_HTML_PATH, 'utf-8');
     
-    console.log(`Sending newsletter via ${API_URL}...`);
+    console.log(`Sending test newsletter to ${TEST_EMAIL}...`);
 
-    // In a real scenario, you might want an endpoint like /api/broadcast
-    // For now, we don't have a broadcast endpoint in the worker.
-    // We only have subscribe/confirm/unsubscribe.
-    // 
-    // OPTION A: Add /api/broadcast to worker (requires admin auth).
-    // OPTION B: This script fetches confirmed subscribers from D1 (via worker endpoint?) and sends via Resend directly.
-    // 
-    // Given the plan said "Calls backend API to send newsletter", let's assume we need a broadcast endpoint.
-    // But for Phase 3, let's just log what we WOULD do, or implement a simple broadcast endpoint.
-    
-    console.log('TODO: Implement /api/broadcast in Worker or direct Resend call here.');
-    console.log('HTML Content Length:', html.length);
+    const res = await fetch('https://api.resend.com/emails', {
+        method: 'POST',
+        headers: {
+            'Authorization': `Bearer ${RESEND_API_KEY}`,
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            from: 'Newsletter <newsletter@notifications.codigoergosum.com>',
+            to: TEST_EMAIL,
+            subject: 'Newsletter Test: Código Ergo Sum',
+            html: html
+        })
+    });
+
+    if (!res.ok) {
+        console.error('Failed to send email:', await res.text());
+        process.exit(1);
+    }
+
+    const data = await res.json();
+    console.log('Email sent successfully!', data);
 }
 
 send().catch(console.error);

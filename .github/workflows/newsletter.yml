@@ -7,10 +7,14 @@ on:
         description: 'Post Slug (e.g., my-new-post)'
         required: true
         type: string
+      testEmail:
+        description: 'Test Email Address'
+        required: true
+        type: string
       dryRun:
         description: 'Dry Run (log only)'
         required: true
-        default: 'true'
+        default: false
         type: boolean
 
 jobs:
@@ -33,7 +37,7 @@ jobs:
         
       - name: Send Newsletter
         env:
-          NEWSLETTER_API_URL: ${{ secrets.NEWSLETTER_API_URL }}
-          NEWSLETTER_API_KEY: ${{ secrets.NEWSLETTER_API_KEY }}
+          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+          TEST_EMAIL: ${{ inputs.testEmail }}
           DRY_RUN: ${{ inputs.dryRun }}
         run: node scripts/newsletter/send.mjs
