@@ -88,7 +88,11 @@ const { mode = "full" } = Astro.props;
                     });
                     console.log("Response status:", response.status);
                     if (!response.ok) {
-                        throw new Error("Error al suscribirse");
+                        const errorData = await response.json();
+                        console.error("Server error:", errorData);
+                        throw new Error(
+                            errorData.error || "Error al suscribirse",
+                        );
                     }
                 }
 
