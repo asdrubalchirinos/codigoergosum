@@ -8,6 +8,7 @@ type Bindings = {
     PUBLIC_NEWSLETTER_API_URL: string;
     TURNSTILE_SECRET_KEY: string;
     ORIGIN_BASE_URL: string;
+    ADMIN_API_KEY: string;
 };
 
 interface Subscriber {
@@ -213,6 +214,97 @@ app.post('/api/unsubscribe', async (c) => {
         }
 
         return c.json({ error: 'Email or token required' }, 400);
+
+    } catch (e) {
+        console.error(e);
+        return c.json({ error: 'Internal server error' }, 500);
+    }
+});
+
+app.post('/api/broadcast', async (c) => {
+    const apiKey = c.req.header('X-Admin-Key');
+
+    if (apiKey !== c.env.ADMIN_API_KEY) {
+        return c.json({ error: 'Unauthorized' }, 401);
+    }
+
+    const body = await c.req.json();
+    const { subject, html, testEmail } = body;
+
+    if (!subject || !html) {
+        return c.json({ error: 'Subject and HTML content are required' }, 400);
+    }
+
+    try {
+        const db = c.env.DB;
+
+        // If testEmail is provided, send only to that address
+        if (testEmail) {
+            if (c.env.RESEND_API_KEY) {
+                const res = await fetch('https://api.resend.com/emails', {
+                    method: 'POST',
+                    headers: {
+                        'Authorization': `Bearer ${c.env.RESEND_API_KEY}`,
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        from: 'Newsletter <newsletter@notifications.codigoergosum.com>',
+                        to: testEmail,
+                        subject: `[TEST] ${subject}`,
+                        html: html
+                    })
+                });
+
+                if (!res.ok) {
+                    const errorText = await res.text();
+                    console.error('Resend Error:', errorText);
+                    return c.json({ error: 'Failed to send test email', details: errorText }, 500);
+                }
+            } else {
+                console.log(`[MOCK BROADCAST TEST] To: ${testEmail}, Subject: ${subject}`);
+            }
+            return c.json({ message: 'Test email sent', count: 1 });
+        }
+
+        // Production Broadcast
+        const { results } = await db.prepare('SELECT email FROM subscribers WHERE status = \'confirmed\'').all<Subscriber>();
+
+        if (!results || results.length === 0) {
+            return c.json({ message: 'No confirmed subscribers found', count: 0 });
+        }
+
+        let sentCount = 0;
+        let errorCount = 0;
+
+        // Simple loop for now. For larger lists, consider Resend Batch API or Cloudflare Queues.
+        for (const sub of results) {
+            if (c.env.RESEND_API_KEY) {
+                const res = await fetch('https://api.resend.com/emails', {
+                    method: 'POST',
+                    headers: {
+                        'Authorization': `Bearer ${c.env.RESEND_API_KEY}`,
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        from: 'Newsletter <newsletter@notifications.codigoergosum.com>',
+                        to: sub.email,
+                        subject: subject,
+                        html: html,
+                        headers: {
+                            'List-Unsubscribe': `<${c.env.ORIGIN_BASE_URL}/unsubscribe>`
+                        }
+                    })
+                });
+
+                if (res.ok) sentCount++;
+                else errorCount++;
+            } else {
+                console.log(`[MOCK BROADCAST] To: ${sub.email}`);
+                sentCount++;
+            }
+        }
+
+        return c.json({ message: 'Broadcast completed', sent: sentCount, errors: errorCount });
 
     } catch (e) {
         console.error(e);

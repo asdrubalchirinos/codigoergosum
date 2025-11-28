@@ -66,6 +66,10 @@ npx wrangler secret put TURNSTILE_SECRET_KEY
 # Your Blog URL
 npx wrangler secret put ORIGIN_BASE_URL
 # Value: https://codigoergosum.com
+
+# Admin Key for Broadcast
+npx wrangler secret put ADMIN_API_KEY
+# Value: Generate a random string (e.g. `openssl rand -hex 32`)
 ```
 
 ## 4. Deployment
@@ -93,7 +97,8 @@ To enable the "Send Newsletter" workflow:
 1. Go to your GitHub Repo > **Settings > Secrets and variables > Actions**.
 2. Add Repository Secrets:
    - `NEWSLETTER_API_URL`: Your Worker URL.
-   - `NEWSLETTER_API_KEY`: (Optional, if you added auth to the worker).
+   - `ADMIN_API_KEY`: The same key you set in Worker secrets.
+   - `RESEND_API_KEY`: (Optional, only needed if you want to run other scripts directly, but broadcast uses Worker's key).
 
 **To Send a Newsletter:**
 1. Go to **Actions** tab in GitHub.
