@@ -1,6 +1,8 @@
 import { Hono } from 'hono';
 import { cors } from 'hono/cors';
 import { validateTurnstileToken } from './turnstile';
+import { RateLimiter } from './rate-limiter';
+import { sanitizeHtml } from './sanitize';
 
 type Bindings = {
     DB: D1Database;
@@ -31,13 +33,45 @@ interface Token {
 
 const app = new Hono<{ Bindings: Bindings }>();
 
-app.use('/*', cors());
+// Security Headers Middleware
+app.use('*', async (c, next) => {
+    await next();
+    c.header('X-Content-Type-Options', 'nosniff');
+    c.header('X-Frame-Options', 'DENY');
+    c.header('X-XSS-Protection', '1; mode=block');
+    c.header('Referrer-Policy', 'strict-origin-when-cross-origin');
+});
+
+// CORS Configuration
+app.use('/*', cors({
+    origin: [
+        'https://www.codigoergosum.com',
+        'https://codigoergosum.com',
+        'http://localhost:4321'
+    ],
+    allowMethods: ['POST', 'GET', 'OPTIONS'],
+    allowHeaders: ['Content-Type', 'Authorization', 'X-Admin-Key'],
+    exposeHeaders: ['Content-Length'],
+    maxAge: 600,
+    credentials: true,
+}));
 
 app.get('/', (c) => {
     return c.text('Newsletter API is running!');
 });
 
 app.post('/api/subscribe', async (c) => {
+    const ip = c.req.header('CF-Connecting-IP') || 'unknown';
+    const db = c.env.DB;
+
+    // Rate Limiting: 10 requests per 15 minutes
+    const rateLimiter = new RateLimiter(db);
+    const isAllowed = await rateLimiter.check(ip, 10, 15 * 60);
+
+    if (!isAllowed) {
+        return c.json({ error: 'Too many requests. Please try again later.' }, 429);
+    }
+
     const body = await c.req.json();
     const { email, token } = body;
 
@@ -47,7 +81,6 @@ app.post('/api/subscribe', async (c) => {
 
     // Validate Turnstile
     if (c.env.TURNSTILE_SECRET_KEY && token) {
-        const ip = c.req.header('CF-Connecting-IP');
         const isValid = await validateTurnstileToken(token, c.env.TURNSTILE_SECRET_KEY, ip);
         if (!isValid) {
             return c.json({ error: 'Invalid captcha' }, 400);
@@ -58,8 +91,6 @@ app.post('/api/subscribe', async (c) => {
     }
 
     try {
-        const db = c.env.DB;
-
         // Check if subscriber exists
         const existing = await db.prepare('SELECT * FROM subscribers WHERE email = ?').bind(email).first<Subscriber>();
 
@@ -223,23 +254,39 @@ app.post('/api/unsubscribe', async (c) => {
 
 app.post('/api/broadcast', async (c) => {
     const apiKey = c.req.header('X-Admin-Key');
+    const envApiKey = c.env.ADMIN_API_KEY;
 
-    if (apiKey !== c.env.ADMIN_API_KEY) {
+    // Timing-safe comparison
+    if (!apiKey || !envApiKey || apiKey.length !== envApiKey.length) {
+        return c.json({ error: 'Unauthorized' }, 401);
+    }
+
+    let isEqual = true;
+    for (let i = 0; i < apiKey.length; i++) {
+        if (apiKey[i] !== envApiKey[i]) isEqual = false;
+    }
+
+    if (!isEqual) {
         return c.json({ error: 'Unauthorized' }, 401);
     }
 
     const body = await c.req.json();
-    const { subject, html, testEmail } = body;
+    let { subject, html, testEmail } = body;
 
     if (!subject || !html) {
         return c.json({ error: 'Subject and HTML content are required' }, 400);
     }
+
+    // Sanitize HTML
+    html = sanitizeHtml(html);
 
     try {
         const db = c.env.DB;
 
         // If testEmail is provided, send only to that address
         if (testEmail) {
+            console.log(`[AUDIT] Broadcast TEST initiated by admin. Subject: ${subject}, To: ${testEmail}`);
+
             if (c.env.RESEND_API_KEY) {
                 const res = await fetch('https://api.resend.com/emails', {
                     method: 'POST',
@@ -267,6 +314,8 @@ app.post('/api/broadcast', async (c) => {
         }
 
         // Production Broadcast
+        console.log(`[AUDIT] Broadcast PRODUCTION initiated by admin. Subject: ${subject}`);
+
         const { results } = await db.prepare('SELECT email FROM subscribers WHERE status = \'confirmed\'').all<Subscriber>();
 
         if (!results || results.length === 0) {

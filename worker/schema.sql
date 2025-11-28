@@ -21,3 +21,10 @@ CREATE TABLE IF NOT EXISTS tokens (
 
 CREATE INDEX IF NOT EXISTS idx_tokens_token ON tokens(token);
 CREATE INDEX IF NOT EXISTS idx_tokens_subscriber_type ON tokens(subscriber_id, type);
+
+-- Rate limits table
+CREATE TABLE IF NOT EXISTS rate_limits (
+    ip TEXT PRIMARY KEY,
+    count INTEGER NOT NULL DEFAULT 1,
+    expires_at INTEGER NOT NULL
+);
