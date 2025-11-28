@@ -78,6 +78,7 @@ const { mode = "full" } = Astro.props;
                     await new Promise((resolve) => setTimeout(resolve, 1000));
                     console.log("Mock subscribe:", email);
                 } else {
+                    console.log("Submitting to:", API_URL);
                     const response = await fetch(`${API_URL}/api/subscribe`, {
                         method: "POST",
                         headers: {
@@ -85,7 +86,7 @@ const { mode = "full" } = Astro.props;
                         },
                         body: JSON.stringify({ email, token }),
                     });
-
+                    console.log("Response status:", response.status);
                     if (!response.ok) {
                         throw new Error("Error al suscribirse");
                     }

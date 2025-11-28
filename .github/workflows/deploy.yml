@@ -19,6 +19,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       PUBLIC_TWITTER_HANDLE: '@achirinos'
+      PUBLIC_NEWSLETTER_API_URL: ${{ secrets.NEWSLETTER_API_URL }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
