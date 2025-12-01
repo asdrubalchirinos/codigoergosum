@@ -1,0 +1,286 @@
+---
+import type { GetStaticPaths, Page } from 'astro';
+import type { CollectionEntry } from 'astro:content';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Sidebar from '../../../components/Sidebar.astro';
+import { getCollection } from 'astro:content';
+import { SITE_TITLE } from '../../../consts';
+
+export const getStaticPaths: GetStaticPaths = async ({ paginate }) => {
+  const allPosts = await getCollection('blog', ({ data }) => {
+    return import.meta.env.PROD ? data.draft !== true : true;
+  });
+  const uniqueTags = [...new Set(allPosts.map((post) => post.data.tags).flat())];
+
+  const paths = [];
+  const pageSize = 10;
+
+  for (const tag of uniqueTags) {
+    const filteredPosts = allPosts
+      .filter((post) => post.data.tags.includes(tag))
+      .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+
+    if (filteredPosts.length === 0) continue;
+
+    // Use paginate for each tag
+    const paginatedResults = paginate(filteredPosts, {
+      pageSize,
+      params: { tag },
+    });
+
+    // paginate can return a single object or array
+    const results = Array.isArray(paginatedResults) ? paginatedResults : [paginatedResults];
+    paths.push(...results);
+  }
+
+  return paths;
+}
+
+interface Props {
+  page: Page<CollectionEntry<'blog'>>;
+}
+
+const { page } = Astro.props;
+const { tag } = Astro.params;
+const rawBase = import.meta.env.BASE_URL;
+const base = rawBase === '/' ? '' : rawBase.replace(/\/$/, '');
+---
+
+<BaseLayout title={`Etiqueta: ${tag} - ${SITE_TITLE}`} description={`Posts etiquetados con ${tag}`}>
+    <div class="container">
+        <div class="content">
+            <h1>Etiqueta: <span>#{tag}</span></h1>
+            <ul class="post-list">
+                {page.data.map((post) => (
+                    <li>
+                        <a href={`${base}/blog/${post.slug}/`}>
+                            <div class="post-content">
+                                <h2 class="title">{post.data.title}</h2>
+                                <p class="date">
+                                    {post.data.pubDate.toLocaleDateString('es-ES', {
+                                        year: 'numeric',
+                                        month: 'short',
+                                        day: 'numeric',
+                                    })}
+                                </p>
+                                {post.data.subtitle && <p class="subtitle">{post.data.subtitle}</p>}
+                            </div>
+                            {post.data.heroImage && (
+                                <div class="post-image">
+                                    <img width={120} height={120} src={`${base}${post.data.heroImage}`} alt="" />
+                                </div>
+                            )}
+                        </a>
+                    </li>
+                ))}
+            </ul>
+            <nav class="pagination" aria-label="Navegación de páginas">
+                {page.url.prev ? (
+                    <a href={page.url.prev} rel="prev" aria-label="Página anterior">
+                        <span class="arrow">←</span>
+                        <span class="label">Anterior</span>
+                    </a>
+                ) : (
+                    <span class="disabled" aria-label="Sin página anterior">
+                        <span class="arrow">←</span>
+                        <span class="label">Anterior</span>
+                    </span>
+                )}
+                <span class="page-number">
+                    <span class="long">Página {page.currentPage} de {page.lastPage}</span>
+                    <span class="short" aria-hidden="true">{page.currentPage}/{page.lastPage}</span>
+                </span>
+                {page.url.next ? (
+                    <a href={page.url.next} rel="next" aria-label="Página siguiente">
+                        <span class="label">Siguiente</span>
+                        <span class="arrow">→</span>
+                    </a>
+                ) : (
+                    <span class="disabled" aria-label="Sin página siguiente">
+                        <span class="label">Siguiente</span>
+                        <span class="arrow">→</span>
+                    </span>
+                )}
+            </nav>
+        </div>
+        <aside>
+            <Sidebar />
+        </aside>
+    </div>
+</BaseLayout>
+
+<style>
+    .container {
+        display: flex;
+        gap: 2rem;
+        margin-top: 2rem;
+    }
+    .content {
+        flex: 2;
+    }
+    aside {
+        flex: 1;
+    }
+    h1 span {
+        color: rgb(var(--accent));
+    }
+    .post-list {
+        list-style: none;
+        padding: 0;
+        margin-top: 2rem;
+    }
+    .post-list li {
+        margin-bottom: 2rem;
+    }
+    .post-list a {
+        text-decoration: none;
+        color: inherit;
+        display: flex;
+        justify-content: space-between;
+        gap: 1.5rem;
+        align-items: flex-start;
+    }
+    .post-content {
+        flex: 1;
+    }
+    .post-image img {
+        width: 120px;
+        height: 120px;
+        object-fit: cover;
+        border-radius: 8px;
+        display: block;
+    }
+    .post-list .title {
+        font-size: 1.5rem;
+        margin-bottom: 0.5rem;
+        margin-top: 0;
+    }
+    .post-list .date {
+        color: rgb(var(--gray));
+        font-size: 0.9rem;
+        margin-bottom: 0.25rem;
+    }
+    .post-list .subtitle {
+        color: rgb(var(--gray-dark));
+        font-size: 1rem;
+        margin: 0;
+    }
+    .pagination {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: .5rem;
+        margin-top: 3rem;
+        padding: .5rem .75rem;
+        background: rgba(var(--gray-light), 0.4);
+        border-radius: 8px;
+        white-space: nowrap;
+    }
+    .pagination a,
+    .pagination .disabled {
+        flex: 0 0 auto;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: .4rem;
+        min-width: 40px;
+        height: 40px;
+        padding: 0 .75rem;
+        font-size: 1.2rem;
+        line-height: 1;
+        text-decoration: none;
+        background: rgba(var(--white), 0.8);
+        color: rgb(var(--gray-dark));
+        border: 1px solid rgba(var(--gray), 0.2);
+        border-radius: 6px;
+        transition: background .2s, color .2s, border-color .2s;
+    }
+    .pagination .arrow {
+        font-size: 1.2rem;
+    }
+    .pagination .label {
+        font-size: .85rem;
+        font-weight: 600;
+    }
+    .pagination a:hover {
+        background: rgb(var(--accent));
+        color: #fff;
+        border-color: rgb(var(--accent));
+    }
+    .pagination .disabled {
+        background: rgba(var(--gray-light), 0.5);
+        color: rgba(var(--gray), 0.5);
+        cursor: not-allowed;
+        opacity: 0.6;
+    }
+    .page-number {
+        flex: 1;
+        text-align: center;
+        font-size: .85rem;
+        font-weight: 600;
+        color: rgb(var(--gray-dark));
+    }
+    .page-number .long {
+        display: inline;
+    }
+    .page-number .short {
+        display: none;
+    }
+    @media (max-width: 400px) {
+        .pagination {
+            padding: .4rem .5rem;
+            gap: .3rem;
+        }
+        .pagination a,
+        .pagination .disabled {
+            min-width: 36px;
+            height: 36px;
+            padding: 0 .4rem;
+            gap: 0;
+        }
+        .pagination .label {
+            display: none;
+        }
+        .pagination .arrow {
+            font-size: 1rem;
+        }
+        .page-number {
+            font-size: .75rem;
+        }
+        .page-number .long {
+            display: none;
+        }
+        .page-number .short {
+            display: inline;
+        }
+    }
+    @media (prefers-color-scheme: dark) {
+        .pagination {
+            background: rgba(var(--white), 0.06);
+        }
+        .pagination a,
+        .pagination .disabled {
+            background: rgba(var(--white), 0.1);
+            color: rgb(var(--black));
+            border-color: rgba(var(--gray-light), 0.3);
+        }
+        .pagination a:hover {
+            background: rgb(var(--accent));
+            color: #fff;
+            border-color: rgb(var(--accent));
+        }
+        .pagination .disabled {
+            background: rgba(var(--white), 0.05);
+            color: rgba(var(--gray), 0.4);
+        }
+        .page-number {
+            color: rgb(var(--black));
+        }
+    }
+    @media (max-width: 768px) {
+        .container {
+            flex-direction: column;
+        }
+    }
+</style>
+
