@@ -37,12 +37,35 @@ const base = rawBase === "/" ? "" : rawBase.replace(/\/$/, "");
                         <li>
                             <a href={`${base}/blog/${post.slug}/`}>
                                 {post.data.heroImage && (
-                                    <img
-                                        width={720}
-                                        height={360}
-                                        src={`${base}${post.data.heroImage}`}
-                                        alt=""
-                                    />
+                                    <div class="image-wrapper">
+                                        <img
+                                            width={720}
+                                            height={360}
+                                            src={`${base}${post.data.heroImage}`}
+                                            alt=""
+                                        />
+                                        {!import.meta.env.PROD &&
+                                            post.data.draft && (
+                                                <span class="badge badge-draft">
+                                                    DRAFT
+                                                </span>
+                                            )}
+                                        {!import.meta.env.PROD &&
+                                            !post.data.draft &&
+                                            post.data.pubDate > new Date() && (
+                                                <span class="badge badge-scheduled">
+                                                    SCHEDULED:{" "}
+                                                    {post.data.pubDate.toLocaleDateString(
+                                                        "es-ES",
+                                                        {
+                                                            year: "numeric",
+                                                            month: "short",
+                                                            day: "numeric",
+                                                        },
+                                                    )}
+                                                </span>
+                                            )}
+                                    </div>
                                 )}
                                 <h2 class="title">{post.data.title}</h2>
                                 {post.data.subtitle && (
@@ -140,6 +163,9 @@ const base = rawBase === "/" ? "" : rawBase.replace(/\/$/, "");
     }
     .post-list li:last-child {
         border-bottom: none;
+    }
+    .post-list .image-wrapper {
+        position: relative;
     }
     .post-list img {
         width: 100%;
@@ -278,6 +304,28 @@ const base = rawBase === "/" ? "" : rawBase.replace(/\/$/, "");
         .page-number {
             color: rgb(var(--black));
         }
+    }
+    /* Badge styles */
+    .badge {
+        position: absolute;
+        top: 8px;
+        right: 8px;
+        padding: 6px 14px;
+        font-size: 0.75rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        border-radius: 4px;
+        z-index: 10;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+    .badge-draft {
+        background-color: #f59e0b;
+        color: white;
+    }
+    .badge-scheduled {
+        background-color: #3b82f6;
+        color: white;
     }
     @media (max-width: 768px) {
         .container {

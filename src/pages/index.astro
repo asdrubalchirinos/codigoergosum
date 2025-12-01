@@ -29,14 +29,37 @@ const base = rawBase === "/" ? "" : rawBase.replace(/\/$/, "");
                 featuredPost && (
                     <section class="featured-post">
                         <a href={`${base}/blog/${featuredPost.slug}/`}>
-                            {featuredPost.data.heroImage && (
-                                <img
-                                    width={720}
-                                    height={360}
-                                    src={`${base}${featuredPost.data.heroImage}`}
-                                    alt=""
-                                />
-                            )}
+                            <div class="post-wrapper">
+                                {featuredPost.data.heroImage && (
+                                    <img
+                                        width={720}
+                                        height={360}
+                                        src={`${base}${featuredPost.data.heroImage}`}
+                                        alt=""
+                                    />
+                                )}
+                                {!import.meta.env.PROD &&
+                                    featuredPost.data.draft && (
+                                        <span class="badge badge-draft">
+                                            DRAFT
+                                        </span>
+                                    )}
+                                {!import.meta.env.PROD &&
+                                    !featuredPost.data.draft &&
+                                    featuredPost.data.pubDate > new Date() && (
+                                        <span class="badge badge-scheduled">
+                                            SCHEDULED:{" "}
+                                            {featuredPost.data.pubDate.toLocaleDateString(
+                                                "es-ES",
+                                                {
+                                                    year: "numeric",
+                                                    month: "short",
+                                                    day: "numeric",
+                                                },
+                                            )}
+                                        </span>
+                                    )}
+                            </div>
                             <h2 class="title">{featuredPost.data.title}</h2>
                             {featuredPost.data.subtitle && (
                                 <p class="subtitle">
@@ -87,12 +110,28 @@ const base = rawBase === "/" ? "" : rawBase.replace(/\/$/, "");
                                     </div>
                                     {post.data.heroImage && (
                                         <div class="post-image">
-                                            <img
-                                                width={120}
-                                                height={120}
-                                                src={`${base}${post.data.heroImage}`}
-                                                alt=""
-                                            />
+                                            <div class="image-wrapper">
+                                                <img
+                                                    width={120}
+                                                    height={120}
+                                                    src={`${base}${post.data.heroImage}`}
+                                                    alt=""
+                                                />
+                                                {!import.meta.env.PROD &&
+                                                    post.data.draft && (
+                                                        <span class="badge badge-draft">
+                                                            DRAFT
+                                                        </span>
+                                                    )}
+                                                {!import.meta.env.PROD &&
+                                                    !post.data.draft &&
+                                                    post.data.pubDate >
+                                                        new Date() && (
+                                                        <span class="badge badge-scheduled">
+                                                            SCHEDULED
+                                                        </span>
+                                                    )}
+                                            </div>
                                         </div>
                                     )}
                                 </a>
@@ -127,6 +166,9 @@ const base = rawBase === "/" ? "" : rawBase.replace(/\/$/, "");
     }
     .featured-post {
         margin-bottom: 3rem;
+    }
+    .featured-post .post-wrapper {
+        position: relative;
     }
     .featured-post img {
         width: 100%;
@@ -175,6 +217,9 @@ const base = rawBase === "/" ? "" : rawBase.replace(/\/$/, "");
     .post-content {
         flex: 1;
     }
+    .post-image .image-wrapper {
+        position: relative;
+    }
     .post-image img {
         width: 120px;
         height: 120px;
@@ -214,6 +259,34 @@ const base = rawBase === "/" ? "" : rawBase.replace(/\/$/, "");
         color: rgb(var(--gray-dark));
         font-size: 1rem;
         margin: 0;
+    }
+    /* Badge styles */
+    .badge {
+        position: absolute;
+        top: 8px;
+        right: 8px;
+        padding: 4px 12px;
+        font-size: 0.75rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        border-radius: 4px;
+        z-index: 10;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+    .badge-draft {
+        background-color: #f59e0b;
+        color: white;
+    }
+    .badge-scheduled {
+        background-color: #3b82f6;
+        color: white;
+    }
+    .post-image .badge {
+        font-size: 0.65rem;
+        padding: 3px 8px;
+        top: 4px;
+        right: 4px;
     }
     @media (max-width: 768px) {
         .container {
