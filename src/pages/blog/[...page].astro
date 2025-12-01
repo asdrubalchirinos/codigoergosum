@@ -45,6 +45,9 @@ const base = rawBase === "/" ? "" : rawBase.replace(/\/$/, "");
                                     />
                                 )}
                                 <h2 class="title">{post.data.title}</h2>
+                                {post.data.subtitle && (
+                                    <p class="subtitle">{post.data.subtitle}</p>
+                                )}
                                 <p class="date">
                                     {post.data.pubDate.toLocaleDateString(
                                         "es-ES",
@@ -55,7 +58,6 @@ const base = rawBase === "/" ? "" : rawBase.replace(/\/$/, "");
                                         },
                                     )}
                                 </p>
-                                <p>{post.data.subtitle}</p>
                             </a>
                         </li>
                     ))
@@ -152,9 +154,15 @@ const base = rawBase === "/" ? "" : rawBase.replace(/\/$/, "");
         font-size: 2rem;
         margin-bottom: 0.5rem;
     }
+    .post-list .subtitle {
+        color: rgb(var(--gray-dark));
+        font-size: 1.5rem;
+        margin: 0;
+    }
     .post-list .date {
         color: rgb(var(--gray));
         margin-bottom: 0.5rem;
+        margin-top: 0;
     }
     .pagination {
         display: flex;
