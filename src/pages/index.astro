@@ -6,7 +6,9 @@ import { getCollection } from "astro:content";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 
 const posts = await getCollection("blog", ({ data }) => {
-    return import.meta.env.PROD ? data.draft !== true : true;
+    return import.meta.env.PROD
+        ? data.draft !== true && data.pubDate <= new Date()
+        : true;
 });
 const sortedPosts = posts.sort(
     (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
@@ -51,7 +53,6 @@ const base = rawBase === "/" ? "" : rawBase.replace(/\/$/, "");
                                     },
                                 )}
                             </p>
-                            
                         </a>
                     </section>
                 )
@@ -82,7 +83,7 @@ const base = rawBase === "/" ? "" : rawBase.replace(/\/$/, "");
                                                     day: "numeric",
                                                 },
                                             )}
-                                        </p>                                       
+                                        </p>
                                     </div>
                                     {post.data.heroImage && (
                                         <div class="post-image">
@@ -141,7 +142,7 @@ const base = rawBase === "/" ? "" : rawBase.replace(/\/$/, "");
         margin-bottom: 0.5rem;
         margin-top: 0;
     }
-    .featured-post .subtitle {        
+    .featured-post .subtitle {
         color: rgb(var(--gray-dark));
         font-size: 1.5rem;
         margin: 0;
