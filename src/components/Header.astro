@@ -1,18 +1,25 @@
 ---
-import { SITE_TITLE } from '../consts';
+import { SITE_TITLE } from "../consts";
+import Search from "./Search.astro";
 const rawBase = import.meta.env.BASE_URL;
-const base = rawBase === '/' ? '' : rawBase.replace(/\/$/, '');
+const base = rawBase === "/" ? "" : rawBase.replace(/\/$/, "");
 ---
 
 <header>
 	<nav>
-        <div class="logo">
-            <a href={`${base}/`}>
-                <img src={`${base}/codigoergosum.webp`} alt="Código Ergo Sum" class="logo-img" />
-            </a>
-        </div>
+		<div class="logo">
+			<a href={`${base}/`}>
+				<img
+					src={`${base}/codigoergosum.webp`}
+					alt="Código Ergo Sum"
+					class="logo-img"
+				/>
+			</a>
+		</div>
 		<h2><a href={`${base}/`}>{SITE_TITLE}</a></h2>
-        <div class="spacer"></div>
+		<div class="search-container">
+			<Search />
+		</div>
 	</nav>
 </header>
 
@@ -36,27 +43,29 @@ const base = rawBase === '/' ? '' : rawBase.replace(/\/$/, '');
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-        max-width: 1024px;
-        margin: 0 auto;
-        padding: 1em 0;
+		max-width: 1024px;
+		margin: 0 auto;
+		padding: 1em 0;
 	}
-    .logo {
-        flex: 1;
-        display: flex;
-        justify-content: flex-start;
-    }
-    .logo-img {
-        height: 40px;
-        width: auto;
-        display: block;
-    }
-    .spacer {
-        flex: 1;
-    }
-    h2 {
-        flex: 2;
-        text-align: center;
-    }
+	.logo {
+		flex: 1;
+		display: flex;
+		justify-content: flex-start;
+	}
+	.logo-img {
+		height: 40px;
+		width: auto;
+		display: block;
+	}
+	.search-container {
+		flex: 1;
+		display: flex;
+		justify-content: flex-end;
+	}
+	h2 {
+		flex: 2;
+		text-align: center;
+	}
 	nav a {
 		padding: 1em 0.5em;
 		color: rgb(var(--black));
@@ -77,8 +86,13 @@ const base = rawBase === '/' ? '' : rawBase.replace(/\/$/, '');
 		}
 	}
 
-  @media (prefers-color-scheme: dark) {
-    header { background: rgba(var(--white), 0.06); backdrop-filter: blur(6px); }
-    nav a { color: rgb(var(--black)); }
-  }
+	@media (prefers-color-scheme: dark) {
+		header {
+			background: rgba(var(--white), 0.06);
+			backdrop-filter: blur(6px);
+		}
+		nav a {
+			color: rgb(var(--black));
+		}
+	}
 </style>
