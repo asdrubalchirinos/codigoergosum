@@ -5,7 +5,7 @@ pubDate: "2025-12-01"
 heroImage: "/images/blog/24-dias-de-navidad-dia-1/hero.png"
 author: Asdrúbal Chirinos
 featured: true
-tags: ["funciones", "node", "javascript"]
+tags: ["web","javascript"]
 ---
 Cada diciembre aparecen calendarios de adviento llenos de chocolates, galletas y curiosidades. Este año haré una versión para desarrolladores: en lugar de dulces, compartiré 24 funciones útiles en Node. Son pequeñas, enfocadas en un solo propósito y listas para copiar en cualquier proyecto sin depender de paquetes adicionales.
 
