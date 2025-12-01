@@ -1,26 +1,30 @@
 ---
-import type { GetStaticPaths, Page } from 'astro';
-import type { CollectionEntry } from 'astro:content';
-import BaseLayout from '../../layouts/BaseLayout.astro';
-import Sidebar from '../../components/Sidebar.astro';
-import { getCollection } from 'astro:content';
-import { SITE_TITLE, SITE_DESCRIPTION } from '../../consts';
+import type { GetStaticPaths, Page } from "astro";
+import type { CollectionEntry } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Sidebar from "../../components/Sidebar.astro";
+import { getCollection } from "astro:content";
+import { SITE_TITLE, SITE_DESCRIPTION } from "../../consts";
 
 export const getStaticPaths: GetStaticPaths = async ({ paginate }) => {
-  const posts = await getCollection('blog', ({ data }) => {
-    return import.meta.env.PROD ? data.draft !== true : true;
-  });
-  const sortedPosts = posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
-  return paginate(sortedPosts, { pageSize: 10 });
-}
+    const posts = await getCollection("blog", ({ data }) => {
+        return import.meta.env.PROD
+            ? data.draft !== true && data.pubDate <= new Date()
+            : true;
+    });
+    const sortedPosts = posts.sort(
+        (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+    );
+    return paginate(sortedPosts, { pageSize: 10 });
+};
 
 interface Props {
-  page: Page<CollectionEntry<'blog'>>;
+    page: Page<CollectionEntry<"blog">>;
 }
 
 const { page } = Astro.props;
 const rawBase = import.meta.env.BASE_URL;
-const base = rawBase === '/' ? '' : rawBase.replace(/\/$/, '');
+const base = rawBase === "/" ? "" : rawBase.replace(/\/$/, "");
 ---
 
 <BaseLayout title={`Blog - ${SITE_TITLE}`} description={SITE_DESCRIPTION}>
@@ -28,50 +32,81 @@ const base = rawBase === '/' ? '' : rawBase.replace(/\/$/, '');
         <div class="content">
             <h1>Blog</h1>
             <ul class="post-list">
-                {page.data.map((post) => (
-                    <li>
-                        <a href={`${base}/blog/${post.slug}/`}>
-                            {post.data.heroImage && <img width={720} height={360} src={`${base}${post.data.heroImage}`} alt="" />}
-                            <h2 class="title">{post.data.title}</h2>
-                            <p class="date">
-                                {post.data.pubDate.toLocaleDateString('es-ES', {
-                                    year: 'numeric',
-                                    month: 'short',
-                                    day: 'numeric',
-                                })}
-                            </p>
-                            <p>{post.data.subtitle}</p>
-                        </a>
-                    </li>
-                ))}
+                {
+                    page.data.map((post) => (
+                        <li>
+                            <a href={`${base}/blog/${post.slug}/`}>
+                                {post.data.heroImage && (
+                                    <img
+                                        width={720}
+                                        height={360}
+                                        src={`${base}${post.data.heroImage}`}
+                                        alt=""
+                                    />
+                                )}
+                                <h2 class="title">{post.data.title}</h2>
+                                <p class="date">
+                                    {post.data.pubDate.toLocaleDateString(
+                                        "es-ES",
+                                        {
+                                            year: "numeric",
+                                            month: "short",
+                                            day: "numeric",
+                                        },
+                                    )}
+                                </p>
+                                <p>{post.data.subtitle}</p>
+                            </a>
+                        </li>
+                    ))
+                }
             </ul>
             <nav class="pagination" aria-label="Navegación de páginas">
-                {page.url.prev ? (
-                    <a href={page.url.prev} rel="prev" aria-label="Página anterior">
-                        <span class="arrow">←</span>
-                        <span class="label">Anterior</span>
-                    </a>
-                ) : (
-                    <span class="disabled" aria-label="Sin página anterior">
-                        <span class="arrow">←</span>
-                        <span class="label">Anterior</span>
-                    </span>
-                )}
+                {
+                    page.url.prev ? (
+                        <a
+                            href={page.url.prev}
+                            rel="prev"
+                            aria-label="Página anterior"
+                        >
+                            <span class="arrow">←</span>
+                            <span class="label">Anterior</span>
+                        </a>
+                    ) : (
+                        <span class="disabled" aria-label="Sin página anterior">
+                            <span class="arrow">←</span>
+                            <span class="label">Anterior</span>
+                        </span>
+                    )
+                }
                 <span class="page-number">
-                    <span class="long">Página {page.currentPage} de {page.lastPage}</span>
-                    <span class="short" aria-hidden="true">{page.currentPage}/{page.lastPage}</span>
+                    <span class="long"
+                        >Página {page.currentPage} de {page.lastPage}</span
+                    >
+                    <span class="short" aria-hidden="true"
+                        >{page.currentPage}/{page.lastPage}</span
+                    >
                 </span>
-                {page.url.next ? (
-                    <a href={page.url.next} rel="next" aria-label="Página siguiente">
-                        <span class="label">Siguiente</span>
-                        <span class="arrow">→</span>
-                    </a>
-                ) : (
-                    <span class="disabled" aria-label="Sin página siguiente">
-                        <span class="label">Siguiente</span>
-                        <span class="arrow">→</span>
-                    </span>
-                )}
+                {
+                    page.url.next ? (
+                        <a
+                            href={page.url.next}
+                            rel="next"
+                            aria-label="Página siguiente"
+                        >
+                            <span class="label">Siguiente</span>
+                            <span class="arrow">→</span>
+                        </a>
+                    ) : (
+                        <span
+                            class="disabled"
+                            aria-label="Sin página siguiente"
+                        >
+                            <span class="label">Siguiente</span>
+                            <span class="arrow">→</span>
+                        </span>
+                    )
+                }
             </nav>
         </div>
         <aside>
@@ -125,9 +160,9 @@ const base = rawBase === '/' ? '' : rawBase.replace(/\/$/, '');
         display: flex;
         justify-content: space-between;
         align-items: center;
-        gap: .5rem;
+        gap: 0.5rem;
         margin-top: 3rem;
-        padding: .5rem .75rem;
+        padding: 0.5rem 0.75rem;
         background: rgba(var(--gray-light), 0.4);
         border-radius: 8px;
         white-space: nowrap;
@@ -138,10 +173,10 @@ const base = rawBase === '/' ? '' : rawBase.replace(/\/$/, '');
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        gap: .4rem;
+        gap: 0.4rem;
         min-width: 40px;
         height: 40px;
-        padding: 0 .75rem;
+        padding: 0 0.75rem;
         font-size: 1.2rem;
         line-height: 1;
         text-decoration: none;
@@ -149,13 +184,16 @@ const base = rawBase === '/' ? '' : rawBase.replace(/\/$/, '');
         color: rgb(var(--gray-dark));
         border: 1px solid rgba(var(--gray), 0.2);
         border-radius: 6px;
-        transition: background .2s, color .2s, border-color .2s;
+        transition:
+            background 0.2s,
+            color 0.2s,
+            border-color 0.2s;
     }
     .pagination .arrow {
         font-size: 1.2rem;
     }
     .pagination .label {
-        font-size: .85rem;
+        font-size: 0.85rem;
         font-weight: 600;
     }
     .pagination a:hover {
@@ -172,7 +210,7 @@ const base = rawBase === '/' ? '' : rawBase.replace(/\/$/, '');
     .page-number {
         flex: 1;
         text-align: center;
-        font-size: .85rem;
+        font-size: 0.85rem;
         font-weight: 600;
         color: rgb(var(--gray-dark));
     }
@@ -184,14 +222,14 @@ const base = rawBase === '/' ? '' : rawBase.replace(/\/$/, '');
     }
     @media (max-width: 400px) {
         .pagination {
-            padding: .4rem .5rem;
-            gap: .3rem;
+            padding: 0.4rem 0.5rem;
+            gap: 0.3rem;
         }
         .pagination a,
         .pagination .disabled {
             min-width: 36px;
             height: 36px;
-            padding: 0 .4rem;
+            padding: 0 0.4rem;
             gap: 0;
         }
         .pagination .label {
@@ -201,7 +239,7 @@ const base = rawBase === '/' ? '' : rawBase.replace(/\/$/, '');
             font-size: 1rem;
         }
         .page-number {
-            font-size: .75rem;
+            font-size: 0.75rem;
         }
         .page-number .long {
             display: none;
