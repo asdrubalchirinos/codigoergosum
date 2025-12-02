@@ -94,13 +94,13 @@ const modifiedDate = post.data.updatedDate;
       </div>
       <Content />
 
-      <div class="post-actions">
+      <div class="article-links">
         <h3>Compartir:</h3>
         <a
           href={`https://x.com/intent/tweet?text=${encodedShareText}&url=${encodedShareUrl}`}
           target="_blank"
           rel="noopener noreferrer"
-          class="action-btn share-x"
+          class="icon-link lnk-x"
           aria-label="Compartir en X (Twitter)"
         >
           <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"
@@ -113,7 +113,7 @@ const modifiedDate = post.data.updatedDate;
           href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodedShareUrl}`}
           target="_blank"
           rel="noopener noreferrer"
-          class="action-btn share-li"
+          class="icon-link lnk-i"
           aria-label="Compartir en LinkedIn"
         >
           <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"
@@ -126,7 +126,7 @@ const modifiedDate = post.data.updatedDate;
           href={`https://www.facebook.com/sharer/sharer.php?u=${encodedShareUrl}`}
           target="_blank"
           rel="noopener noreferrer"
-          class="action-btn share-fb"
+          class="icon-link lnk-f"
           aria-label="Compartir en Facebook"
         >
           <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"
@@ -139,7 +139,7 @@ const modifiedDate = post.data.updatedDate;
           href={`https://wa.me/?text=${encodedShareText}%20${encodedShareUrl}`}
           target="_blank"
           rel="noopener noreferrer"
-          class="action-btn share-wa"
+          class="icon-link lnk-w"
           aria-label="Compartir en WhatsApp"
         >
           <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"
@@ -218,7 +218,7 @@ const modifiedDate = post.data.updatedDate;
   .last-updated-on {
     font-style: italic;
   }
-  .post-actions {
+  .article-links {
     margin-top: 4rem;
     padding-top: 2rem;
     border-top: 1px solid rgb(var(--gray-light));
@@ -226,12 +226,12 @@ const modifiedDate = post.data.updatedDate;
     gap: 1rem;
     align-items: center;
   }
-  .post-actions h3 {
+  .article-links h3 {
     margin: 0;
     font-size: 1rem;
     margin-right: 0.5rem;
   }
-  .action-btn {
+  .icon-link {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -242,19 +242,19 @@ const modifiedDate = post.data.updatedDate;
     text-decoration: none;
     transition: transform 0.2s;
   }
-  .action-btn:hover {
+  .icon-link:hover {
     transform: translateY(-2px);
   }
-  .action-btn.share-x {
+  .icon-link.lnk-x {
     background-color: #000;
   }
-  .action-btn.share-li {
+  .icon-link.lnk-i {
     background-color: #0077b5;
   }
-  .action-btn.share-fb {
+  .icon-link.lnk-f {
     background-color: #1877f2;
   }
-  .action-btn.share-wa {
+  .icon-link.lnk-w {
     background-color: #25d366;
   }
   .tags {
