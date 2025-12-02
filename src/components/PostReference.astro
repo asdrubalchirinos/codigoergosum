@@ -1,0 +1,51 @@
+---
+import { getEntry } from "astro:content";
+
+interface Props {
+    slug: string;
+}
+
+const { slug } = Astro.props;
+const post = await getEntry("blog", slug);
+
+if (!post) {
+    console.warn(`Post not found: ${slug}`);
+    return null;
+}
+
+const { data } = post;
+const url = `/blog/${slug}`;
+const formattedDate = data.pubDate.toLocaleDateString("es-ES", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+});
+---
+
+<div class="post-reference-card" data-href={url}>
+    <div class="post-reference-content">
+        <span class="post-reference-title">{data.title}</span>
+        {
+            data.subtitle && (
+                <span class="post-reference-subtitle">{data.subtitle}</span>
+            )
+        }
+        <span class="post-reference-date">{formattedDate}</span>
+    </div>
+    {
+        data.heroImage && (
+            <div class="post-reference-image">
+                <img src={data.heroImage} alt={data.title} />
+            </div>
+        )
+    }
+</div>
+
+<script>
+    document.querySelectorAll(".post-reference-card").forEach((card) => {
+        card.addEventListener("click", () => {
+            const url = (card as HTMLElement).dataset.href;
+            if (url) window.location.href = url;
+        });
+    });
+</script>
