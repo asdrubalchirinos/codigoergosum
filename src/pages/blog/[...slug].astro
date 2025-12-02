@@ -100,7 +100,7 @@ const modifiedDate = post.data.updatedDate;
           href={`https://x.com/intent/tweet?text=${encodedShareText}&url=${encodedShareUrl}`}
           target="_blank"
           rel="noopener noreferrer"
-          class="action-btn x"
+          class="action-btn share-x"
           aria-label="Compartir en X (Twitter)"
         >
           <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"
@@ -113,7 +113,7 @@ const modifiedDate = post.data.updatedDate;
           href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodedShareUrl}`}
           target="_blank"
           rel="noopener noreferrer"
-          class="action-btn linkedin"
+          class="action-btn share-li"
           aria-label="Compartir en LinkedIn"
         >
           <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"
@@ -126,7 +126,7 @@ const modifiedDate = post.data.updatedDate;
           href={`https://www.facebook.com/sharer/sharer.php?u=${encodedShareUrl}`}
           target="_blank"
           rel="noopener noreferrer"
-          class="action-btn facebook"
+          class="action-btn share-fb"
           aria-label="Compartir en Facebook"
         >
           <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"
@@ -139,7 +139,7 @@ const modifiedDate = post.data.updatedDate;
           href={`https://wa.me/?text=${encodedShareText}%20${encodedShareUrl}`}
           target="_blank"
           rel="noopener noreferrer"
-          class="action-btn whatsapp"
+          class="action-btn share-wa"
           aria-label="Compartir en WhatsApp"
         >
           <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"
@@ -245,16 +245,16 @@ const modifiedDate = post.data.updatedDate;
   .action-btn:hover {
     transform: translateY(-2px);
   }
-  .action-btn.x {
+  .action-btn.share-x {
     background-color: #000;
   }
-  .action-btn.linkedin {
+  .action-btn.share-li {
     background-color: #0077b5;
   }
-  .action-btn.facebook {
+  .action-btn.share-fb {
     background-color: #1877f2;
   }
-  .action-btn.whatsapp {
+  .action-btn.share-wa {
     background-color: #25d366;
   }
   .tags {
