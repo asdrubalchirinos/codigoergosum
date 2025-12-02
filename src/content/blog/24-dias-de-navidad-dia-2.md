@@ -5,7 +5,7 @@ pubDate: "2025-12-02"
 heroImage: "/images/blog/24-dias-de-navidad-dia-2/hero.png"
 author: Asdrúbal Chirinos
 featured: true
-tags: ["nostalgia", "devops"]
+tags: ["web","javascript"]
 ---
 
 Continúa nuestra cuenta regresiva. Ayer comenzamos con una función sencilla para capitalizar textos y hoy seguimos con otra herramienta práctica para cualquier interfaz, API o contenido dinámico. La idea de esta serie es compartir pequeñas piezas listas para usarse en cualquier proyecto, sin dependencias innecesarias y con una sola responsabilidad bien definida.
