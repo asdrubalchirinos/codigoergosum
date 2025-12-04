@@ -22,7 +22,11 @@ const rawBase = import.meta.env.BASE_URL;
 const base = rawBase === "/" ? "" : rawBase.replace(/\/$/, "");
 ---
 
-<BaseLayout title={SITE_TITLE} description={SITE_DESCRIPTION}>
+<BaseLayout
+    title={SITE_TITLE}
+    description={SITE_DESCRIPTION}
+    image="/codigoergosum.webp"
+>
     <div class="container">
         <div class="content">
             {
