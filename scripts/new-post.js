@@ -46,6 +46,16 @@ async function createPost() {
   fs.mkdirSync(targetDir, { recursive: true });
   fs.mkdirSync(imageDir, { recursive: true });
 
+  // Copy placeholder image
+  const placeholderPath = path.join(__dirname, '../public/placeholder.png');
+  const heroPath = path.join(imageDir, 'hero.png');
+  
+  try {
+    fs.copyFileSync(placeholderPath, heroPath);
+  } catch (err) {
+    console.warn('⚠️  Warning: Could not copy placeholder image.', err.message);
+  }
+
   const fileName = `${slug}.${fileType}`;
   const filePath = path.join(targetDir, fileName);
 
