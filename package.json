@@ -7,6 +7,7 @@
     "build": "astro check && astro build && pagefind --site dist",
     "preview": "astro preview",
     "astro": "astro",
+    "new-post": "node scripts/new-post.js",
     "deploy": "npm run build && touch dist/.nojekyll",
     "migrate": "cd ../substack-migrator && npm run",
     "migrate:help": "cd ../substack-migrator && npm run start -- --help",
@@ -25,7 +26,9 @@
   "devDependencies": {
     "gray-matter": "^4.0.3",
     "handlebars": "^4.7.8",
+    "inquirer": "^13.0.2",
     "mjml": "^4.17.1",
-    "pagefind": "^1.4.0"
+    "pagefind": "^1.4.0",
+    "slugify": "^1.6.6"
   }
 }
