@@ -61,7 +61,7 @@ async function createPost() {
 
   let fileContent = `---
 title: ${answers.title}
-subtitle: 
+subtitle: ''
 pubDate: '${pubDate}'
 heroImage: /images/blog/${slug}/hero.png
 author: Asdrúbal Chirinos
