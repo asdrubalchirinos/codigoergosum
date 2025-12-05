@@ -1,0 +1,91 @@
+---
+title: 'Día 6 de 24: maskString'
+subtitle: Las 24 funciones antes de navidad
+pubDate: '2025-12-06'
+heroImage: /images/blog/24-dias-de-navidad-dia-6/hero.png
+author: Asdrúbal Chirinos
+featured: true
+tags:
+  - web
+  - javascript
+slug: 24-dias-de-navidad-dia-6
+---
+import PostReference from '@components/PostReference.astro';
+
+Seguimos avanzando en esta serie donde cada jornada exploramos un pequeño helper pensado para facilitar tareas comunes en proyectos reales. Ayer trabajamos con utilidades centradas en manipulación de texto y hoy continuamos esa línea con una función práctica y usada con frecuencia al manejar datos sensibles. Su propósito es sencillo y muy útil: ocultar información sin alterar la longitud original.
+
+<PostReference slug="24-dias-de-navidad-dia-5" />
+
+
+## maskString
+
+La función `maskString` ofrece una forma controlada de enmascarar partes de una cadena mientras mantiene su tamaño intacto. Es ideal para mostrar versiones protegidas de datos como correos, teléfonos, tokens o identificadores sin exponerlos por completo. A diferencia de una solución manual basada en substrings, esta función es consciente de puntos de código Unicode, lo que ayuda a evitar errores con emojis o caracteres combinados.
+
+Además permite decidir cuántos caracteres dejar visibles al inicio y al final, así como elegir el carácter de máscara, lo que la hace flexible en diversos contextos como interfaces, logs o reportes.
+
+## Código de la función
+
+```js
+/**
+ * Enmascara una cadena preservando longitud con un carácter dado.
+ * @param {string} str Cadena fuente.
+ * @param {object} [options]
+ * @param {number} [options.keepStart=0] Caracteres visibles al inicio.
+ * @param {number} [options.keepEnd=0] Caracteres visibles al final.
+ * @param {string} [options.maskChar='*'] Carácter máscara (un code point recomendado).
+ * @returns {string}
+ */
+export function maskString(str, options = {}) {
+  if (typeof str !== 'string') return '';
+  const { keepStart = 0, keepEnd = 0, maskChar = '*' } = options;
+  if (keepStart < 0 || keepEnd < 0) throw new Error('keepStart/keepEnd deben ser >= 0');
+  const arr = Array.from(str); // code point aware
+  const len = arr.length;
+  const start = arr.slice(0, keepStart).join('');
+  const end = keepEnd ? arr.slice(len - keepEnd).join('') : '';
+  const maskedCount = Math.max(0, len - keepStart - keepEnd);
+  const middle = maskChar.repeat(maskedCount);
+  return start + middle + end;
+}
+````
+
+## Cómo usarla
+
+### Caso básico
+
+```js
+maskString('supersecreto');
+// Resultado: ***********
+```
+
+### Manteniendo caracteres visibles al inicio
+
+```js
+maskString('supersecreto', { keepStart: 2 });
+// Resultado: su*********
+```
+
+### Inicio y final visibles
+
+```js
+maskString('supersecreto', { keepStart: 2, keepEnd: 3 });
+// Resultado: su*******eto
+```
+
+### Usando un carácter de máscara diferente
+
+```js
+maskString('token-12345', { keepStart: 1, keepEnd: 2, maskChar: '#' });
+// Resultado: t#######45
+```
+
+### Funciona correctamente con emojis y Unicode
+
+```js
+maskString('🔥ClaveUltra🔥', { keepStart: 1, keepEnd: 1 });
+// Resultado: 🔥********🔥
+```
+
+## Cierre
+
+Una herramienta sencilla puede marcar la diferencia cuando se trata de proteger datos sin perder legibilidad. Mañana seguiremos explorando funciones que complementan estas tareas y mantienen tu caja de utilidades cada vez más completa.
