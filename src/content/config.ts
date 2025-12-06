@@ -3,9 +3,9 @@ import { defineCollection, z } from 'astro:content';
 // Función para parsear fechas preservando exactamente año/mes/día sin conversiones de zona horaria
 function parseDateExact(dateValue: unknown): Date {
 	if (dateValue instanceof Date) return dateValue;
-	
+
 	const dateStr = String(dateValue);
-	
+
 	// Si el formato es YYYY-MM-DD, parsearlo como fecha local explícitamente
 	const match = dateStr.match(/^(\d{4})-(\d{2})-(\d{2})(?:T.*)?$/);
 	if (match) {
@@ -14,7 +14,7 @@ function parseDateExact(dateValue: unknown): Date {
 		// month - 1 porque Date usa meses base 0 (0 = enero, 11 = diciembre)
 		return new Date(parseInt(year), parseInt(month) - 1, parseInt(day));
 	}
-	
+
 	// Para otros formatos, intentar parse normal
 	return new Date(dateStr);
 }
@@ -35,10 +35,14 @@ const blog = defineCollection({
 			z.date().optional()
 		),
 		heroImage: z.string().optional(),
-        author: z.string().optional(),
-        tags: z.array(z.string()).default([]),
-        featured: z.boolean().default(false),
+		author: z.string().optional(),
+		tags: z.array(z.string()).default([]),
+		featured: z.boolean().default(false),
 		draft: z.boolean().default(false),
+		// Language support: 'es' (Spanish) is default, 'en' for English posts
+		lang: z.enum(['es', 'en']).default('es'),
+		// Optional: link to the original post slug when this is a translation
+		translationOf: z.string().optional(),
 	}),
 });
 

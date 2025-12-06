@@ -74,11 +74,19 @@ const modifiedDate = post.data.updatedDate;
       <div class="title">
         <div class="date">
           {
-            post.data.pubDate.toLocaleDateString("es-ES", {
-              year: "numeric",
-              month: "long",
-              day: "numeric",
-            })
+            post.data.lang === "en" && (
+              <span class="lang-indicator">🌐 English</span>
+            )
+          }
+          {
+            post.data.pubDate.toLocaleDateString(
+              post.data.lang === "en" ? "en-US" : "es-ES",
+              {
+                year: "numeric",
+                month: "long",
+                day: "numeric",
+              },
+            )
           }
         </div>
         <h1>{post.data.title}</h1>
@@ -86,7 +94,9 @@ const modifiedDate = post.data.updatedDate;
         <div class="meta">
           {
             post.data.author && (
-              <span class="author">Por {post.data.author}</span>
+              <span class="author">
+                {post.data.lang === "en" ? "By" : "Por"} {post.data.author}
+              </span>
             )
           }
         </div>
@@ -215,6 +225,16 @@ const modifiedDate = post.data.updatedDate;
   .date {
     margin-bottom: 0.5em;
     color: rgb(var(--gray));
+  }
+  .lang-indicator {
+    display: inline-block;
+    margin-right: 0.5em;
+    padding: 0.15em 0.5em;
+    background-color: #10b981;
+    color: white;
+    border-radius: 4px;
+    font-size: 0.85em;
+    font-weight: 600;
   }
   .last-updated-on {
     font-style: italic;

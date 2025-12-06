@@ -24,6 +24,12 @@ async function createPost() {
       message: 'Is this an MDX post?',
       default: false,
     },
+    {
+      type: 'confirm',
+      name: 'isEnglish',
+      message: 'Is this post in English?',
+      default: false,
+    },
   ]);
 
   const fileType = answers.isMdx ? 'mdx' : 'md';
@@ -59,6 +65,9 @@ async function createPost() {
   const fileName = `${slug}.${fileType}`;
   const filePath = path.join(targetDir, fileName);
 
+  // Build frontmatter with optional lang field for English posts
+  const langLine = answers.isEnglish ? `\nlang: en` : '';
+  
   let fileContent = `---
 title: ${answers.title}
 subtitle: ''
@@ -67,7 +76,7 @@ heroImage: /images/blog/${slug}/hero.png
 author: Asdrúbal Chirinos
 featured: false
 tags: []
-slug: ${slug}
+slug: ${slug}${langLine}
 ---
 `;
 

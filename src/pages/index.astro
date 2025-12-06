@@ -63,6 +63,9 @@ const base = rawBase === "/" ? "" : rawBase.replace(/\/$/, "");
                                             )}
                                         </span>
                                     )}
+                                {featuredPost.data.lang === "en" && (
+                                    <span class="badge badge-lang">EN</span>
+                                )}
                             </div>
                             <h2 class="title">{featuredPost.data.title}</h2>
                             {featuredPost.data.subtitle && (
@@ -135,6 +138,11 @@ const base = rawBase === "/" ? "" : rawBase.replace(/\/$/, "");
                                                             SCHEDULED
                                                         </span>
                                                     )}
+                                                {post.data.lang === "en" && (
+                                                    <span class="badge badge-lang">
+                                                        EN
+                                                    </span>
+                                                )}
                                             </div>
                                         </div>
                                     )}
@@ -284,6 +292,10 @@ const base = rawBase === "/" ? "" : rawBase.replace(/\/$/, "");
     }
     .badge-scheduled {
         background-color: #3b82f6;
+        color: white;
+    }
+    .badge-lang {
+        background-color: #10b981;
         color: white;
     }
     .post-image .badge {
