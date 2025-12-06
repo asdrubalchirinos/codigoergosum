@@ -1,0 +1,92 @@
+---
+import { getCollection } from "astro:content";
+
+interface Props {
+    currentSlug: string;
+    currentLang: "es" | "en";
+    translationOf?: string;
+}
+
+const { currentSlug, currentLang, translationOf } = Astro.props;
+const allPosts = await getCollection("blog", ({ data }) => {
+    return import.meta.env.PROD
+        ? data.draft !== true && data.pubDate <= new Date()
+        : true;
+});
+
+// Case 1: This post IS a translation → find the original
+let linkedPost = translationOf
+    ? allPosts.find((p) => p.slug === translationOf)
+    : null;
+
+// Case 2: This post IS the original → find if someone translated it
+if (!linkedPost) {
+    linkedPost = allPosts.find((p) => p.data.translationOf === currentSlug);
+}
+
+// Determine the link label based on linked post's language
+const isLinkedEnglish = linkedPost?.data.lang === "en";
+const linkLabel = isLinkedEnglish ? "🇺🇸 Read in English" : "🇪🇸 Leer en español";
+const linkUrl = linkedPost ? `/blog/${linkedPost.slug}/` : null;
+---
+
+{
+    linkedPost && linkUrl && (
+        <a href={linkUrl} class="translation-link">
+            {linkLabel}
+        </a>
+    )
+}
+
+<style>
+    .translation-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        margin-top: 1.5rem;
+        padding: 0.5rem 1rem;
+        background: linear-gradient(
+            135deg,
+            rgba(var(--accent-light), 0.3) 0%,
+            rgba(var(--accent-light), 0.1) 100%
+        );
+        border: 1px solid rgba(var(--accent), 0.4);
+        border-radius: 8px;
+        color: rgb(var(--accent-dark));
+        text-decoration: none;
+        font-weight: 500;
+        font-size: 0.95rem;
+        transition: all 0.2s ease;
+    }
+
+    .translation-link:hover {
+        background: linear-gradient(
+            135deg,
+            rgba(var(--accent-light), 0.5) 0%,
+            rgba(var(--accent-light), 0.25) 100%
+        );
+        border-color: rgba(var(--accent), 0.6);
+        transform: translateY(-1px);
+    }
+
+    @media (prefers-color-scheme: dark) {
+        .translation-link {
+            background: linear-gradient(
+                135deg,
+                rgba(var(--accent-dark), 0.4) 0%,
+                rgba(var(--accent-dark), 0.2) 100%
+            );
+            border-color: rgba(var(--accent-light), 0.3);
+            color: rgb(var(--accent-light));
+        }
+
+        .translation-link:hover {
+            background: linear-gradient(
+                135deg,
+                rgba(var(--accent-dark), 0.6) 0%,
+                rgba(var(--accent-dark), 0.35) 100%
+            );
+            border-color: rgba(var(--accent-light), 0.5);
+        }
+    }
+</style>

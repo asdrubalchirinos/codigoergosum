@@ -1,6 +1,7 @@
 ---
 import { type CollectionEntry, getCollection } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import TranslationLink from "../../components/TranslationLink.astro";
 
 export async function getStaticPaths() {
   const posts = await getCollection("blog", ({ data }) => {
@@ -100,6 +101,11 @@ const modifiedDate = post.data.updatedDate;
             )
           }
         </div>
+        <TranslationLink
+          currentSlug={post.slug}
+          currentLang={post.data.lang || "es"}
+          translationOf={post.data.translationOf}
+        />
         <hr />
       </div>
       <Content />
