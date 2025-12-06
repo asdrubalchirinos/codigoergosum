@@ -20,7 +20,7 @@ Cuando descubrí el método, algo hizo clic. Su simplicidad, su ritmo y su estru
 
 Ahí nació la pregunta que inició todo:
 
-**¿Qué pasaría si el método P1.express pudiera vivir dentro de una app pequeña y ligera, una que fuera totalmente tuya y que funcionara incluso sin internet?**
+>**¿Qué pasaría si el método P1.express pudiera vivir dentro de una app pequeña y ligera, una que fuera totalmente tuya y que funcionara incluso sin internet?**
 
 Esa idea se convirtió en  
 **[P1express.app](https://p1express.app)**
