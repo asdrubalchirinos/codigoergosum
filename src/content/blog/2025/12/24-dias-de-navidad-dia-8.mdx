@@ -1,0 +1,90 @@
+---
+title: 'Día 8 de 24: addDays'
+subtitle: 'Las 24 funciones antes de navidad'
+pubDate: '2025-12-08'
+heroImage: /images/blog/24-dias-de-navidad-dia-8/hero.png
+author: Asdrúbal Chirinos
+featured: false
+tags: []
+slug: 24-dias-de-navidad-dia-8
+---
+import PostReference from '@components/PostReference.astro';
+
+Ayer exploramos cómo presentar una fecha de forma clara con formatDate, un paso clave para hacer más legible cualquier aplicación. Hoy continuamos avanzando en esa misma línea, pero desde otro ángulo. No se trata de mostrar fechas, sino de movernos entre ellas de manera segura y sin efectos secundarios. Con esta idea llega la función que nos acompaña en este nuevo día.
+
+<PostReference slug="24-dias-de-navidad-dia-7" />
+
+---
+
+### addDays
+
+Trabajar con fechas suele ser más complejo de lo que parece. Sumar o restar días puede volverse un dolor de cabeza cuando se modifica por accidente el objeto original o cuando se reciben valores inválidos. Esta función evita esos problemas creando siempre una nueva instancia.
+
+---
+
+### Por qué es útil en proyectos reales
+
+En aplicaciones que manejan plazos, vencimientos, intervalos de tiempo o cálculos basados en fechas, la pureza del dato es clave. addDays permite mantener la fecha original intacta mientras calcula fechas futuras o pasadas con precisión.
+
+### Qué la hace diferente de soluciones nativas
+
+La API nativa de JavaScript permite ajustar la fecha, pero lo hace mutando el objeto. Aquí se prioriza la seguridad, validando entradas y generando un nuevo objeto para evitar efectos secundarios.
+
+### Ventajas o casos típicos de uso
+
+* Calcular fechas de vencimiento.
+* Obtener fechas relativas en tareas programadas.
+* Generar intervalos de tiempo sin alterar datos base.
+* Trabajar con operaciones negativas para retroceder días.
+
+### Código de la función
+
+```js
+/**
+ * Añade un número de días a una fecha (puede ser negativo para restar).
+ * No muta la fecha original; retorna una nueva instancia.
+ * @param {Date|string|number} date Fecha base.
+ * @param {number} days Número de días a añadir (negativo para restar).
+ * @returns {Date}
+ */
+export function addDays(date, days) {
+  const dateObj = date instanceof Date ? new Date(date) : new Date(date);
+  if (isNaN(dateObj.getTime())) throw new Error('Fecha inválida');
+  if (typeof days !== 'number' || isNaN(days)) throw new Error('days debe ser un número');
+  
+  const result = new Date(dateObj);
+  result.setDate(result.getDate() + days);
+  return result;
+}
+```
+
+### Cómo usarla
+
+#### Caso básico
+
+```js
+const hoy = new Date('2025-01-10');
+const dentroDeTres = addDays(hoy, 3);
+// Resultado: 2025-01-13
+```
+
+#### Restar días
+
+```js
+const fecha = new Date('2025-01-10');
+const haceCincoDias = addDays(fecha, -5);
+// Resultado: 2025-01-05
+```
+
+#### Trabajar con entradas flexibles
+
+```js
+addDays('2025-02-01', 10);    // Acepta strings ISO
+addDays(1738368000000, 2);    // Acepta timestamps
+```
+
+En todos los casos, la fecha original permanece intacta.
+
+---
+
+La serie sigue tomando forma función por función, construyendo pequeñas piezas que facilitan tareas comunes y evitan errores sutiles. Mañana llegará una nueva utilidad que continuará este recorrido hacia un código más claro y práctico.

@@ -1,0 +1,89 @@
+---
+title: 'Día 7 de 24: formatDate'
+subtitle: 'Las 24 funciones antes de navidad'
+pubDate: '2025-12-07'
+heroImage: /images/blog/24-dias-de-navidad-dia-7/hero.png
+author: Asdrúbal Chirinos
+featured: false
+tags: []
+slug: 24-dias-de-navidad-dia-7
+---
+
+import PostReference from '@components/PostReference.astro';
+
+En este nuevo día avanzamos un paso más en nuestra serie dedicada a pequeñas utilidades que hacen más fluido el desarrollo. Ayer trabajamos con cadenas y hoy nos movemos hacia algo que todos usamos en proyectos reales: fechas. La función de hoy busca que mostrar una fecha sea simple, legible y consistente en cualquier parte del código.
+
+<PostReference slug="24-dias-de-navidad-dia-6" />
+
+### formatDate
+
+Trabajar con fechas suele ser más complejo de lo que parece. Diferentes formatos, locales y estilos hacen que obtener un resultado claro no siempre sea trivial. `formatDate` resuelve ese problema ofreciendo una interfaz pequeña y práctica para formatear fechas con presets o configuraciones personalizadas. Resulta útil cuando se necesita uniformidad en interfaces, logs, reportes o elementos que cambian según idioma o región. Su ventaja frente a soluciones nativas es la simplicidad y la capacidad de elegir entre presets rápidos o un control fino cuando se requiere.
+
+#### Código de la función
+
+```js
+/**
+ * Formatea una fecha en un formato legible usando Intl.DateTimeFormat.
+ * @param {Date|string|number} date Fecha a formatear (Date, ISO string, o timestamp).
+ * @param {object} [options]
+ * @param {string} [options.locale='es-ES'] Locale para formateo.
+ * @param {string} [options.format='medium'] Preset: 'short', 'medium', 'long', 'full' o config custom.
+ * @param {object} [options.customFormat] Opciones de Intl.DateTimeFormat si se desea control fino.
+ * @returns {string}
+ */
+export function formatDate(date, options = {}) {
+  const { locale = 'es-ES', format = 'medium', customFormat } = options;
+  
+  const dateObj = date instanceof Date ? date : new Date(date);
+  if (isNaN(dateObj.getTime())) throw new Error('Fecha inválida');
+  
+  if (customFormat) {
+    return new Intl.DateTimeFormat(locale, customFormat).format(dateObj);
+  }
+  
+  const presets = {
+    short: { dateStyle: 'short' },
+    medium: { dateStyle: 'medium' },
+    long: { dateStyle: 'long' },
+    full: { dateStyle: 'full', timeStyle: 'short' }
+  };
+  
+  const formatOptions = presets[format] || presets.medium;
+  return new Intl.DateTimeFormat(locale, formatOptions).format(dateObj);
+}
+```
+
+### Cómo usarla
+
+#### Caso básico
+
+```js
+formatDate('2025-12-24');
+// Ejemplo: '24 dic 2025'
+```
+
+#### Usando un preset
+
+```js
+formatDate(Date.now(), { format: 'long' });
+// Ejemplo: '24 de diciembre de 2025'
+```
+
+#### Con un locale distinto
+
+```js
+formatDate('2025-12-24', { locale: 'en-US', format: 'full' });
+// Ejemplo: 'Wednesday, December 24, 2025 at 10:00 AM'
+```
+
+#### Con formato completamente personalizado
+
+```js
+formatDate('2025-12-24', {
+  customFormat: { weekday: 'long', month: 'long', day: 'numeric' }
+});
+// Ejemplo: 'miércoles, 24 de diciembre'
+```
+--- 
+
+Cerramos este día con otra pieza pequeña pero útil que fortalece tu caja de herramientas. Mañana llegará una nueva función para seguir construyendo este camino de utilidades prácticas antes de Navidad.
