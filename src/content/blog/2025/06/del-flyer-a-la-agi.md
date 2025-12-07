@@ -10,10 +10,6 @@ tags:
 slug: del-flyer-a-la-agi
 ---
 
-![Generated image](/images/blog/del-flyer-a-la-agi/fc316402-4680-4bd4-843e-4ac324677a2d_1024x1024.png "Generated image")
-
-Imagen creada por IA: ChatGPT
-
 En un reciente estudio, investigadores de Apple analizan los *Large Reasoning Models* (LRMs) una evolución de los grandes modelos de lenguaje que no solo dan respuestas, sino que generan procesos de razonamiento explícitos. El estudio es riguroso y revelador: los LRMs colapsan ante tareas de alta complejidad, muestran patrones de razonamiento inconsistentes, y revelan que más "pensamiento" computacional no siempre equivale a mejores respuestas.
 
 La crítica es válida. Pero al leer el trabajo, no puedo evitar una comparación histórica inevitable: **el primer vuelo de los hermanos Wright**.
@@ -48,5 +44,3 @@ Sí, la AGI sigue siendo una promesa lejana. Pero pretender que su progreso se m
 Evaluar las primeras formas de una nueva tecnología con las exigencias de su madurez es un error tan común como peligroso. No se trata de negar las limitaciones de los modelos actuales, sino de verlas por lo que son: evidencia de que **ya despegamos**.
 
 Y ahora que estamos en el aire, la pregunta no es si volaremos mejor. La pregunta es **cuánto más lejos podremos llegar**.
-
-![](/images/blog/del-flyer-a-la-agi/content-1.png)
