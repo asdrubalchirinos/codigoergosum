@@ -10,13 +10,66 @@ const __dirname = path.dirname(__filename);
 const POSTS_DIR = path.join(__dirname, '../src/content/blog');
 const IMAGES_DIR = path.join(__dirname, '../public/images/blog');
 
+// Helper to get today's date in dd/mm/yyyy format
+function getTodayFormatted() {
+  const today = new Date();
+  const day = String(today.getDate()).padStart(2, '0');
+  const month = String(today.getMonth() + 1).padStart(2, '0');
+  const year = today.getFullYear();
+  return `${day}/${month}/${year}`;
+}
+
+// Helper to validate dd/mm/yyyy format and convert to yyyy-mm-dd
+function parseAndValidateDate(input) {
+  const trimmed = input.trim();
+  
+  // Check format with regex
+  const regex = /^(\d{2})\/(\d{2})\/(\d{4})$/;
+  const match = trimmed.match(regex);
+  
+  if (!match) {
+    return { valid: false, error: 'Invalid format. Use dd/mm/yyyy' };
+  }
+  
+  const day = parseInt(match[1], 10);
+  const month = parseInt(match[2], 10);
+  const year = parseInt(match[3], 10);
+  
+  // Basic validation
+  if (month < 1 || month > 12) {
+    return { valid: false, error: 'Invalid month (01-12)' };
+  }
+  
+  const daysInMonth = new Date(year, month, 0).getDate();
+  if (day < 1 || day > daysInMonth) {
+    return { valid: false, error: `Invalid day for month ${month} (01-${daysInMonth})` };
+  }
+  
+  // Convert to yyyy-mm-dd format
+  const pubDate = `${year}-${String(month).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+  
+  return { valid: true, pubDate, year, month: String(month).padStart(2, '0') };
+}
+
 async function createPost() {
+  const todayFormatted = getTodayFormatted();
+  
   const answers = await inquirer.prompt([
     {
       type: 'input',
       name: 'title',
       message: 'Post Title:',
       validate: (input) => input ? true : 'Title is required',
+    },
+    {
+      type: 'input',
+      name: 'pubDateInput',
+      message: `Publication Date (dd/mm/yyyy):`,
+      default: todayFormatted,
+      validate: (input) => {
+        const result = parseAndValidateDate(input);
+        return result.valid ? true : result.error;
+      },
     },
     {
       type: 'confirm',
@@ -39,11 +92,11 @@ async function createPost() {
     strict: true,
   });
 
-  const date = new Date();
-  const year = date.getFullYear();
-  const month = String(date.getMonth() + 1).padStart(2, '0');
-  const day = String(date.getDate()).padStart(2, '0');
-  const pubDate = `${year}-${month}-${day}`;
+  // Parse the validated date
+  const dateResult = parseAndValidateDate(answers.pubDateInput);
+  const pubDate = dateResult.pubDate;
+  const year = dateResult.year;
+  const month = dateResult.month;
 
   const targetDir = path.join(POSTS_DIR, String(year), month);
   const imageDir = path.join(IMAGES_DIR, slug);
@@ -75,6 +128,7 @@ pubDate: '${pubDate}'
 heroImage: /images/blog/${slug}/hero.png
 author: Asdrúbal Chirinos
 featured: false
+draft: true
 tags: []
 slug: ${slug}${langLine}
 ---
