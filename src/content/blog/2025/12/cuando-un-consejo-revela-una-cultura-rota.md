@@ -1,11 +1,11 @@
 ---
 title: Cuando un consejo revela una cultura rota
-subtitle: ''
+subtitle: 'Autenticidad como ventaja: equipos que hablan, empresas que crecen.'
 pubDate: '2025-12-10'
 heroImage: /images/blog/cuando-un-consejo-revela-una-cultura-rota/hero.png
 author: Asdrúbal Chirinos
 featured: true
-draft: true
+draft: false
 tags: []
 slug: cuando-un-consejo-revela-una-cultura-rota
 ---
