@@ -1,0 +1,68 @@
+---
+title: 'Día 10 de 24: isWeekend'
+subtitle: 'Las 24 funciones antes de navidad'
+pubDate: '2025-12-10'
+heroImage: /images/blog/24-dias-de-navidad-dia-10/hero.png
+author: Asdrúbal Chirinos
+featured: false
+draft: false
+tags: []
+slug: 24-dias-de-navidad-dia-10
+---
+
+import PostReference from '@components/PostReference.astro';
+
+En este nuevo día seguimos sumando piezas útiles para trabajar con fechas. Después de explorar formatos, diferencias y transformaciones, hoy añadimos una función pequeña pero clave para muchas validaciones comunes. Evaluar si una fecha cae en fin de semana parece simple, pero tenerlo encapsulado de forma clara y confiable hace que tu código sea más expresivo y menos propenso a errores.
+
+<PostReference slug="24-dias-de-navidad-dia-9" />
+
+## isWeekend
+
+Determinar si una fecha corresponde a sábado o domingo es una necesidad recurrente en proyectos reales. Desde reglas de negocio que dependen del calendario hasta flujos automatizados que deben evitar días no laborables, esta función ofrece una forma directa de saberlo sin repetir lógica en cada módulo. Además, valida el tipo de dato recibido para evitar comportamientos inesperados, lo que la hace más segura que una simple comparación nativa.
+
+### Código de la función
+
+```js
+/**
+ * Verifica si una fecha cae en fin de semana (sábado=6 o domingo=0).
+ * @param {Date|string|number} date Fecha a verificar.
+ * @returns {boolean}
+ */
+export function isWeekend(date) {
+  const dateObj = date instanceof Date ? date : new Date(date);
+  if (isNaN(dateObj.getTime())) throw new Error('Fecha inválida');
+  
+  const day = dateObj.getDay();
+  return day === 0 || day === 6;
+}
+````
+
+### Cómo usarla
+
+#### Caso básico
+
+```js
+isWeekend('2024-12-14');  
+// true porque es sábado
+```
+
+```js
+isWeekend(new Date());  
+// Dependiendo del día actual
+```
+
+#### Caso con timestamp
+
+```js
+isWeekend(1734249600000);  
+// true o false según corresponda al timestamp
+```
+
+#### Validación de errores
+
+```js
+isWeekend('fecha no válida');  
+// Lanza Error('Fecha inválida')
+```
+
+Con esta función seguimos reforzando el conjunto de utilidades que harán más fluido el trabajo con fechas durante la serie. Mañana llega una pieza nueva para continuar complementando este pequeño toolkit navideño.
