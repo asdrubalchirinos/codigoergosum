@@ -26,6 +26,4 @@ Te invito a reflexionar: ¿Cuánto tiempo dedicas realmente a lo que importa? ¿
 
 * * *
 
-El éxito profesional es dulce, pero la vida plena es el verdadero triunfo. No esperes a que una crisis te despierte. El balance no es un lujo; es una necesidad vital. Porque al final, nadie en su lecho de muerte ha dicho jamás: "Ojalá hubiera pasado más tiempo en la oficina”
-
-[Apoya mi GoFundMe](https://gofund.me/5c723005)
+El éxito profesional es dulce, pero la vida plena es el verdadero triunfo. No esperes a que una crisis te despierte. El balance no es un lujo; es una necesidad vital. Porque al final, nadie en su lecho de muerte ha dicho jamás: "Ojalá hubiera pasado más tiempo en la oficina"
