@@ -3,6 +3,7 @@ title: 'La Vida, el Proyecto Más Importante'
 subtitle: Aprendiendo a vivir más allá del trabajo
 pubDate: '2025-02-11'
 author: Asdrúbal Chirinos
+heroImage: /images/blog/la-vida-el-proyecto-mas-importante/hero.png
 tags:
   - carrera
   - soft-skills
@@ -27,3 +28,8 @@ Te invito a reflexionar: ¿Cuánto tiempo dedicas realmente a lo que importa? ¿
 * * *
 
 El éxito profesional es dulce, pero la vida plena es el verdadero triunfo. No esperes a que una crisis te despierte. El balance no es un lujo; es una necesidad vital. Porque al final, nadie en su lecho de muerte ha dicho jamás: "Ojalá hubiera pasado más tiempo en la oficina"
+
+---
+#### Actualización — diciembre de 2025 ￼
+
+Hoy puedo decir que me encuentro sano y curado. Gracias, con todo el corazón, al extraordinario equipo médico que me acompañó en mi cirugía, hospitalización y quimioterapia; su profesionalismo y humanidad hicieron posible este renacer. También agradezco a mi familia y amigos por su amor incondicional: cada mensaje y cada abrazo contaron. Sigo aprendiendo a vivir con propósito, disfrutando cada día como el regalo que es.   
