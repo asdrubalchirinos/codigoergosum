@@ -4,6 +4,7 @@ import mjml2html from 'mjml';
 import matter from 'gray-matter';
 import Handlebars from 'handlebars';
 import { parseArgs } from 'node:util';
+import { marked } from 'marked';
 
 const POSTS_DIR = path.join(process.cwd(), 'src/content/blog');
 const TEMPLATE_PATH = path.join(process.cwd(), 'src/templates/newsletter.mjml');
@@ -42,18 +43,32 @@ async function getPost(slug) {
     const { data, content: markdownBody } = matter(content);
 
     // Extract a clean excerpt from the markdown body if description is missing
-    // Simple heuristic: first paragraph
     let excerpt = data.description;
     if (!excerpt) {
-        const paragraphs = markdownBody.split('\n\n');
-        // Find first paragraph that is not an image (starts with !) and has text
-        excerpt = paragraphs.find(p => {
-            const trimmed = p.trim();
-            return trimmed.length > 0 && !trimmed.startsWith('!') && !trimmed.startsWith('#') && !trimmed.startsWith('<');
-        }) || '';
-        
-        // Strip markdown syntax roughly
-        excerpt = excerpt.replace(/\[([^\]]+)\]\([^\)]+\)/g, '$1').replace(/[*_`]/g, '');
+        const paragraphs = markdownBody.split('\n\n').filter(p => {
+             const trimmed = p.trim();
+             return trimmed.length > 0 && !trimmed.startsWith('!') && !trimmed.startsWith('#') && !trimmed.startsWith('<');
+        });
+
+        if (paragraphs.length > 0) {
+            let selectedText = paragraphs[0];
+            
+            // If the first paragraph is a quote, take it AND the next paragraph for context
+            if (selectedText.trim().startsWith('>')) {
+                 if (paragraphs.length > 1) {
+                     selectedText += '\n\n' + paragraphs[1];
+                 }
+            }
+            
+            // Convert markdown to HTML using marked
+            excerpt = marked.parse(selectedText);
+        } else {
+            excerpt = '';
+        }
+    } else {
+        // If description exists (from frontmatter), treat it as plain text or simple markdown
+        // Just in case, parse it too so styles are consistent
+        excerpt = marked.parse(excerpt);
     }
 
     return {

@@ -27,6 +27,7 @@
     "gray-matter": "^4.0.3",
     "handlebars": "^4.7.8",
     "inquirer": "^13.0.2",
+    "marked": "^17.0.1",
     "mjml": "^4.17.1",
     "pagefind": "^1.4.0",
     "slugify": "^1.6.6"

@@ -53,7 +53,7 @@
 
         <!-- Excerpt -->
         <mj-text>
-          {{excerpt}}
+          {{{excerpt}}}
         </mj-text>
 
         <!-- CTA Button -->
