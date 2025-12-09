@@ -129,7 +129,7 @@ app.post('/api/subscribe', async (c) => {
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({
-                    from: 'Newsletter <newsletter@notifications.codigoergosum.com>', // Update this!
+                    from: 'Código Ergo Sum <newsletter@notifications.codigoergosum.com>', // Update this!
                     to: email,
                     subject: 'Confirm your subscription',
                     html: `<p>Please confirm your subscription by clicking <a href="${confirmUrl}">here</a>.</p>`
@@ -229,7 +229,7 @@ app.post('/api/unsubscribe', async (c) => {
                             'Content-Type': 'application/json'
                         },
                         body: JSON.stringify({
-                            from: 'Newsletter <newsletter@notifications.codigoergosum.com>',
+                            from: 'Código Ergo Sum <newsletter@notifications.codigoergosum.com>',
                             to: email,
                             subject: 'Unsubscribe from newsletter',
                             html: `<p>Click <a href="${unsubscribeUrl}">here</a> to unsubscribe.</p>`
@@ -295,7 +295,7 @@ app.post('/api/broadcast', async (c) => {
                         'Content-Type': 'application/json'
                     },
                     body: JSON.stringify({
-                        from: 'Newsletter <newsletter@notifications.codigoergosum.com>',
+                        from: 'Código Ergo Sum <newsletter@notifications.codigoergosum.com>',
                         to: testEmail,
                         subject: `[TEST] ${subject}`,
                         html: html
@@ -335,7 +335,7 @@ app.post('/api/broadcast', async (c) => {
                         'Content-Type': 'application/json'
                     },
                     body: JSON.stringify({
-                        from: 'Newsletter <newsletter@notifications.codigoergosum.com>',
+                        from: 'Código Ergo Sum <newsletter@notifications.codigoergosum.com>',
                         to: sub.email,
                         subject: subject,
                         html: html,
