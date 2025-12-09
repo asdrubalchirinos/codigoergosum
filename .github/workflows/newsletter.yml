@@ -9,7 +9,7 @@ on:
         type: string
       testEmail:
         description: 'Test Email Address'
-        required: true
+        required: false
         type: string
       dryRun:
         description: 'Dry Run (log only)'
@@ -40,6 +40,4 @@ jobs:
           NEWSLETTER_API_URL: ${{ secrets.NEWSLETTER_API_URL }}
           ADMIN_API_KEY: ${{ secrets.ADMIN_API_KEY }}
           RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
-          TEST_EMAIL: ${{ inputs.testEmail }}
-          DRY_RUN: ${{ inputs.dryRun }}
-        run: node scripts/newsletter/send.mjs
+        run: node scripts/newsletter/send.mjs --dryRun="${{ inputs.dryRun }}" --testEmail="${{ inputs.testEmail }}"
