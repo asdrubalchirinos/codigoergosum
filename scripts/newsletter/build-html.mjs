@@ -16,10 +16,25 @@ if (!fs.existsSync(OUTPUT_DIR)) {
     fs.mkdirSync(OUTPUT_DIR, { recursive: true });
 }
 
-async function getPost(slug) {
-    const filePath = path.join(POSTS_DIR, `${slug}.md`);
+// Helper to recursively find file
+function findPostFile(dir, slug) {
+    const files = fs.readdirSync(dir, { withFileTypes: true });
     
-    if (!fs.existsSync(filePath)) {
+    for (const file of files) {
+        if (file.isDirectory()) {
+            const found = findPostFile(path.join(dir, file.name), slug);
+            if (found) return found;
+        } else if (file.name === `${slug}.md` || file.name === `${slug}.mdx`) {
+            return path.join(dir, file.name);
+        }
+    }
+    return null;
+}
+
+async function getPost(slug) {
+    const filePath = findPostFile(POSTS_DIR, slug);
+    
+    if (!filePath) {
         throw new Error(`Post not found: ${slug}`);
     }
 
