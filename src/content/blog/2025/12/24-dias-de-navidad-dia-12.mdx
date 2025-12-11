@@ -1,0 +1,79 @@
+---
+title: 'Día 12 de 24: endOfDay'
+subtitle: 'Las 24 funciones antes de navidad'
+pubDate: '2025-12-12'
+heroImage: /images/blog/24-dias-de-navidad-dia-12/hero.png
+author: Asdrúbal Chirinos
+featured: false
+draft: false
+tags: []
+slug: 24-dias-de-navidad-dia-12
+---
+
+import PostReference from '@components/PostReference.astro';
+
+Seguimos avanzando en esta serie donde cada jornada suma una pieza clave para trabajar con fechas de forma más clara y confiable. Ayer nos enfocamos en obtener el inicio del día y hoy continuamos ese recorrido llevando la idea al extremo opuesto. Esta vez exploramos una utilidad sencilla y precisa para determinar el último instante de una fecha, algo muy útil cuando necesitamos definir rangos completos o realizar comparaciones exactas.
+
+
+<PostReference slug="24-dias-de-navidad-dia-11" />
+
+## endOfDay
+
+La función `endOfDay` resuelve un problema muy común en aplicaciones que manejan fechas: definir el límite superior de un día sin errores de interpretación. Establece de forma exacta el instante final de una fecha, ajustándolo a las 23:59:59.999. Esto evita inconsistencias al calcular rangos, filtrar datos o generar reportes.
+
+Es especialmente útil en sistemas donde se necesita obtener todos los eventos ocurridos dentro de un día completo, validar si un valor cae dentro de un periodo o normalizar entradas antes de operaciones más complejas. Además, conserva la fecha original, lo que facilita usarla en flujos sin efectos secundarios.
+
+#### Código de la función
+
+```javascript
+/**
+ * Obtiene el final del día (23:59:59.999) para una fecha dada.
+ * No muta la fecha original; retorna una nueva instancia.
+ * @param {Date|string|number} date Fecha base.
+ * @returns {Date}
+ */
+export function endOfDay(date) {
+  const dateObj = date instanceof Date ? new Date(date) : new Date(date);
+  if (isNaN(dateObj.getTime())) throw new Error('Fecha inválida');
+  
+  const result = new Date(dateObj);
+  result.setHours(23, 59, 59, 999);
+  return result;
+}
+````
+
+### Cómo usarla
+
+#### Caso básico
+
+```javascript
+endOfDay('2025-12-09');
+// Resultado: 2025-12-09T23:59:59.999Z (dependiendo de tu zona horaria)
+```
+
+#### Normalizar rangos de búsqueda
+
+```javascript
+const start = new Date('2025-12-01');
+const end = endOfDay('2025-12-01');
+
+// Ideal para consultas o filtros de datos
+db.find({
+  createdAt: { $gte: start, $lte: end }
+});
+```
+
+#### Validar si un evento ocurre antes de que termine el día
+
+```javascript
+const limite = endOfDay(new Date());
+const evento = new Date('2025-12-09T22:30:00');
+
+if (evento <= limite) {
+  console.log('El evento ocurre hoy');
+}
+```
+
+---
+
+Cada día seguimos construyendo un conjunto de funciones que te ayudarán a trabajar con fechas de forma más limpia y predecible. Mañana continuaremos con otra pieza que complementa esta colección y que hará tu caja de herramientas aún más completa. Nos vemos en el próximo día.

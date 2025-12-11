@@ -1,0 +1,72 @@
+---
+title: 'Día 11 de 24: startOfDay'
+subtitle: 'Las 24 funciones antes de navidad'
+pubDate: '2025-12-11'
+heroImage: /images/blog/24-dias-de-navidad-dia-11/hero.png
+author: Asdrúbal Chirinos
+featured: false
+draft: false
+tags: []
+slug: 24-dias-de-navidad-dia-11
+---
+
+import PostReference from '@components/PostReference.astro';
+
+Cada jornada de esta serie nos permite seguir construyendo un pequeño kit de utilidades que resuelven tareas cotidianas con precisión. Ayer exploramos cómo identificar si una fecha cae en fin de semana y hoy avanzamos con otra pieza fundamental para cualquier operación temporal: obtener el inicio exacto de un día sin perder la integridad de la fecha original.
+
+<PostReference slug="24-dias-de-navidad-dia-10" />
+
+## startOfDay
+
+Esta función simplifica un problema clásico cuando trabajamos con fechas: normalizar una instancia al momento preciso en que inicia la jornada. Es especialmente útil al comparar días, generar rangos, agrupar valores o preparar datos para consultas y validaciones. Lo mejor es que no muta la fecha original, lo que evita efectos secundarios y facilita su uso en flujos donde la pureza de datos es clave. Aunque existen opciones nativas, esta versión ofrece una forma clara, segura y más fácil de integrar.
+
+#### Código de la función
+
+```js
+/**
+ * Obtiene el inicio del día (00:00:00.000) para una fecha dada.
+ * No muta la fecha original; retorna una nueva instancia.
+ * @param {Date|string|number} date Fecha base.
+ * @returns {Date}
+ */
+export function startOfDay(date) {
+  const dateObj = date instanceof Date ? new Date(date) : new Date(date);
+  if (isNaN(dateObj.getTime())) throw new Error('Fecha inválida');
+  
+  const result = new Date(dateObj);
+  result.setHours(0, 0, 0, 0);
+  return result;
+}
+```
+
+### Cómo usarla
+
+#### Caso básico
+
+```js
+startOfDay('2025-12-09');
+// Retorna: 2025-12-09T00:00:00.000Z (dependiendo de la zona horaria)
+```
+
+#### Normalizar antes de comparar fechas
+
+```js
+const a = startOfDay('2025-12-09T15:32:10');
+const b = startOfDay('2025-12-09T03:01:44');
+
+a.getTime() === b.getTime(); // true, ambos días comienzan igual
+```
+
+#### Generar rangos de consulta
+
+```js
+const inicio = startOfDay(Date.now());
+const fin = new Date(inicio);
+fin.setDate(fin.getDate() + 1);
+
+// útil para filtrar registros del día actual
+```
+
+---
+
+Cada día seguimos completando un conjunto de funciones que hacen el trabajo con fechas más claro y confiable. Mañana sumaremos otra pieza para seguir afinando este pequeño toolkit navideño.
