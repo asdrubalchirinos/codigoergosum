@@ -14,7 +14,7 @@ En los primeros días de la revolución del PC sucedió algo transformador. Las 
 
 Con el paso del tiempo esa libertad se fue diluyendo. La industria se profesionalizó, el desarrollo se volvió complejo y el mundo del software quedó dominado por un grupo reducido de expertos. El resto del mundo aprendió a esperar. Esperar funciones nuevas. Esperar mejoras. Esperar soluciones. La distancia entre una necesidad y la herramienta que la resuelve se volvió demasiado grande.
 
-### Mi inicio en la programación y el eco de esa promesa
+#### Mi inicio en la programación y el eco de esa promesa
 
 Esa visión de libertad resonó conmigo desde muy temprano. Tenía nueve años cuando tomé mi primer curso de programación. En ese momento no estaba pensando en carreras ni en industria. Estaba resolviendo los problemas reales de un niño. Organizar mis cosas, jugar con ideas, automatizar pequeñas tareas que me parecían mágicas. Crear código no era un acto técnico. Era una extensión natural de mi **curiosidad**.
 
