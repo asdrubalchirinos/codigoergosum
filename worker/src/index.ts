@@ -325,31 +325,52 @@ app.post('/api/broadcast', async (c) => {
         let sentCount = 0;
         let errorCount = 0;
 
-        // Simple loop for now. For larger lists, consider Resend Batch API or Cloudflare Queues.
-        for (const sub of results) {
+        // Batch sending limit for Resend is 100
+        const BATCH_SIZE = 100;
+        const chunks = [];
+
+        for (let i = 0; i < results.length; i += BATCH_SIZE) {
+            chunks.push(results.slice(i, i + BATCH_SIZE));
+        }
+
+        console.log(`Sending ${results.length} emails in ${chunks.length} batches...`);
+
+        for (const chunk of chunks) {
             if (c.env.RESEND_API_KEY) {
-                const res = await fetch('https://api.resend.com/emails', {
+                // Map chunk to Resend batch format
+                const batchEmails = chunk.map(sub => ({
+                    from: 'Código Ergo Sum <newsletter@notifications.codigoergosum.com>',
+                    to: sub.email,
+                    subject: subject,
+                    html: html,
+                    headers: {
+                        'List-Unsubscribe': `<${c.env.ORIGIN_BASE_URL}/unsubscribe>`
+                    }
+                }));
+
+                const res = await fetch('https://api.resend.com/emails/batch', {
                     method: 'POST',
                     headers: {
                         'Authorization': `Bearer ${c.env.RESEND_API_KEY}`,
                         'Content-Type': 'application/json'
                     },
-                    body: JSON.stringify({
-                        from: 'Código Ergo Sum <newsletter@notifications.codigoergosum.com>',
-                        to: sub.email,
-                        subject: subject,
-                        html: html,
-                        headers: {
-                            'List-Unsubscribe': `<${c.env.ORIGIN_BASE_URL}/unsubscribe>`
-                        }
-                    })
+                    body: JSON.stringify(batchEmails) // Array of email objects
                 });
 
-                if (res.ok) sentCount++;
-                else errorCount++;
+                if (res.ok) {
+                    const data = await res.json() as { data: { id: string }[] };
+                    // Access 'data' property if it exists, otherwise assume success based on res.ok
+                    const count = data?.data?.length || chunk.length;
+                    sentCount += count;
+                } else {
+                    console.error('Batch Send Failed:', await res.text());
+                    errorCount += chunk.length;
+                }
             } else {
-                console.log(`[MOCK BROADCAST] To: ${sub.email}`);
-                sentCount++;
+                // Mock Batch
+                console.log(`[MOCK BATCH] Sending ${chunk.length} emails...`);
+                chunk.forEach(sub => console.log(`  -> ${sub.email}`));
+                sentCount += chunk.length;
             }
         }
 
