@@ -1,0 +1,129 @@
+---
+title: 'Día 14 de 24: throttle'
+subtitle: 'Las 24 funciones antes de navidad'
+pubDate: '2025-12-14'
+heroImage: /images/blog/24-dias-de-navidad-dia-14/hero.png
+author: Asdrúbal Chirinos
+featured: true
+draft: false
+tags: ["web", "javascript"]
+slug: 24-dias-de-navidad-dia-14
+---
+
+import PostReference from '@components/PostReference.astro';
+
+En esta serie hemos ido construyendo pequeñas utilidades que resuelven problemas muy concretos del día a día. Ayer hablamos de cómo controlar la frecuencia de ejecución hacia el final de una ráfaga de eventos, y hoy damos el siguiente paso. La función de este día se enfoca en poner un límite claro y constante a cuántas veces se ejecuta una acción en un período de tiempo determinado.
+
+<PostReference slug="24-dias-de-navidad-dia-13" />
+
+## throttle
+
+`throttle` resuelve un problema común en interfaces y sistemas reactivos: evitar que una función se ejecute demasiadas veces en intervalos muy cortos. A diferencia de otras estrategias, aquí se define un ritmo fijo. Como máximo, la función se ejecuta una vez cada cierto número de milisegundos.
+
+Es especialmente útil en escenarios reales como scroll, resize, listeners de mouse o eventos que dependen de sensores o streams continuos. En estos casos no quieres ignorar el flujo, pero tampoco reaccionar a cada microevento.
+
+A diferencia de soluciones nativas o implementaciones improvisadas, esta versión ofrece un control claro mediante opciones y expone un método `cancel` que permite limpiar ejecuciones pendientes, algo clave cuando el ciclo de vida del componente o proceso cambia.
+
+Casos típicos de uso incluyen:
+- Controlar actualizaciones de UI en eventos de scroll.
+- Limitar llamadas a APIs disparadas por eventos frecuentes.
+- Reducir carga en procesos que reaccionan a streams continuos.
+- Mantener una cadencia estable de ejecución.
+
+### Código de la función
+
+```js
+/**
+ * Throttle: limita la ejecución de una función a una vez cada `interval` ms.
+ * Durante el intervalo, llamadas adicionales son ignoradas.
+ * @param {Function} func Función a ejecutar.
+ * @param {number} interval Intervalo mínimo en ms entre ejecuciones.
+ * @param {object} [options]
+ * @param {boolean} [options.trailing=true] Si true, ejecuta al final del intervalo si hubo llamadas pendientes.
+ * @returns {Function} Función throttled con método .cancel().
+ */
+export function throttle(func, interval, options = {}) {
+  if (typeof func !== 'function') throw new Error('func debe ser una función');
+  if (typeof interval !== 'number' || interval < 0) throw new Error('interval debe ser un número >= 0');
+  
+  const { trailing = true } = options;
+  let lastExecTime = 0;
+  let timeoutId = null;
+  let pendingArgs = null;
+  
+  const throttled = function (...args) {
+    const now = Date.now();
+    const timeSinceLastExec = now - lastExecTime;
+    
+    if (timeSinceLastExec >= interval) {
+      lastExecTime = now;
+      func.apply(this, args);
+      clearTimeout(timeoutId);
+      timeoutId = null;
+    } else if (trailing && !timeoutId) {
+      pendingArgs = args;
+      const remainingTime = interval - timeSinceLastExec;
+      timeoutId = setTimeout(() => {
+        lastExecTime = Date.now();
+        func.apply(this, pendingArgs);
+        timeoutId = null;
+        pendingArgs = null;
+      }, remainingTime);
+    }
+  };
+  
+  throttled.cancel = function () {
+    clearTimeout(timeoutId);
+    timeoutId = null;
+    pendingArgs = null;
+  };
+  
+  return throttled;
+}
+````
+
+### Cómo usarla
+
+#### Caso básico
+
+Limitar una función para que solo se ejecute una vez cada segundo.
+
+```js
+const onScroll = throttle(() => {
+  console.log('Scroll procesado');
+}, 1000);
+
+window.addEventListener('scroll', onScroll);
+```
+
+Aunque el evento de scroll se dispare muchas veces por segundo, la función solo se ejecutará como máximo una vez cada 1000 ms.
+
+#### Con ejecución final habilitada
+
+Por defecto, `trailing` está activo. Esto significa que si hubo llamadas durante el intervalo, se ejecutará una última vez al final.
+
+```js
+const onResize = throttle(
+  () => {
+    console.log('Resize final');
+  },
+  500,
+  { trailing: true }
+);
+```
+
+Este patrón es ideal cuando quieres una respuesta inmediata y una confirmación final del estado.
+
+#### Cancelar ejecuciones pendientes
+
+Cuando ya no necesitas la función, puedes cancelar cualquier ejecución programada.
+
+```js
+onResize.cancel();
+```
+
+Esto es muy útil al desmontar componentes o detener procesos reactivos.
+
+---
+
+Con `throttle` añadimos otra pieza clave a nuestro set de utilidades para manejar eventos intensivos sin perder control ni rendimiento. Mañana seguiremos avanzando en esta colección, sumando una función que complementa muy bien este tipo de patrones y mantiene el código simple, predecible y fácil de razonar.

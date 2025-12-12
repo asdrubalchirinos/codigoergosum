@@ -1,0 +1,126 @@
+---
+title: 'Día 13 de 24: debounce'
+subtitle: 'Las 24 funciones para navidad'
+pubDate: '2025-12-13'
+heroImage: /images/blog/24-dias-de-navidad-dia-13/hero.png
+author: Asdrúbal Chirinos
+featured: true
+draft: false
+tags: ["web", "javascript"]
+slug: 24-dias-de-navidad-dia-13
+---
+
+import PostReference from '@components/PostReference.astro';
+
+En esta serie hemos venido construyendo pequeñas funciones pensadas para el día a día, utilidades que resuelven problemas reales sin depender de frameworks ni soluciones pesadas. En el día anterior hablamos de control y precisión en el manejo del tiempo. Hoy damos un paso más y nos enfocamos en algo clave cuando trabajamos con interfaces y eventos frecuentes: saber cuándo ejecutar una función, no solo cómo hacerlo.
+
+<PostReference slug="24-dias-de-navidad-dia-12" />
+
+## debounce
+
+La función `debounce` resuelve un problema muy común en aplicaciones web y scripts interactivos: evitar que una función se ejecute demasiadas veces en un corto período de tiempo.
+
+Eventos como `scroll`, `resize` o `input` pueden dispararse decenas o cientos de veces por segundo. Ejecutar lógica pesada en cada uno de esos disparos suele ser innecesario y costoso. `debounce` permite retrasar la ejecución hasta que el usuario haya dejado de generar eventos durante un tiempo determinado.
+
+Esto es especialmente útil en proyectos reales para:
+- Validaciones de formularios en tiempo real.
+- Búsquedas con autocompletado.
+- Recalcular layouts al redimensionar la ventana.
+- Evitar llamadas innecesarias a APIs.
+
+A diferencia de soluciones nativas como `setTimeout` manual en cada uso, esta implementación encapsula el patrón completo, agrega validaciones y expone una API clara, incluyendo soporte para ejecución inmediata y cancelación.
+
+### Código de la función
+
+```js
+/**
+ * Debounce: retrasa la ejecución de una función hasta que hayan pasado
+ * `delay` milisegundos desde la última invocación.
+ * Útil para eventos de alta frecuencia (scroll, resize, input).
+ * @param {Function} func Función a ejecutar.
+ * @param {number} delay Tiempo de espera en ms.
+ * @param {object} [options]
+ * @param {boolean} [options.leading=false] Si true, ejecuta inmediatamente en la primera llamada.
+ * @returns {Function} Función debounced con método .cancel() para cancelar ejecuciones pendientes.
+ */
+export function debounce(func, delay, options = {}) {
+  if (typeof func !== 'function') throw new Error('func debe ser una función');
+  if (typeof delay !== 'number' || delay < 0) throw new Error('delay debe ser un número >= 0');
+  
+  const { leading = false } = options;
+  let timeoutId = null;
+  let lastCallTime = 0;
+  
+  const debounced = function (...args) {
+    const now = Date.now();
+    const isFirstCall = lastCallTime === 0;
+    
+    clearTimeout(timeoutId);
+    lastCallTime = now;
+    
+    if (leading && isFirstCall) {
+      func.apply(this, args);
+    } else {
+      timeoutId = setTimeout(() => {
+        func.apply(this, args);
+        lastCallTime = 0;
+      }, delay);
+    }
+  };
+  
+  debounced.cancel = function () {
+    clearTimeout(timeoutId);
+    timeoutId = null;
+    lastCallTime = 0;
+  };
+  
+  return debounced;
+}
+````
+
+### Cómo usarla
+
+#### Caso básico
+
+Ejecutar una función solo cuando el usuario deja de escribir durante 300 ms:
+
+```js
+const onInput = debounce((value) => {
+  console.log('Buscar:', value);
+}, 300);
+
+input.addEventListener('input', (e) => {
+  onInput(e.target.value);
+});
+```
+
+#### Ejecución inmediata (leading)
+
+Útil cuando quieres reaccionar al primer evento y luego esperar:
+
+```js
+const onResize = debounce(() => {
+  console.log('Resize inicial');
+}, 500, { leading: true });
+
+window.addEventListener('resize', onResize);
+```
+
+Aquí la función se ejecuta de inmediato en el primer `resize` y luego se bloquea hasta que pase el tiempo indicado sin nuevos eventos.
+
+### Cancelar una ejecución pendiente
+
+En algunos flujos es importante abortar la acción programada:
+
+```js
+const saveDraft = debounce(() => {
+  console.log('Guardando borrador');
+}, 1000);
+
+// Cancelar si el usuario navega a otra vista
+saveDraft.cancel();
+```
+
+---
+
+Con `debounce` añadimos una pieza fundamental para construir interfaces más eficientes y predecibles. Es una función pequeña, pero con un impacto enorme en rendimiento y experiencia de usuario. Mañana seguiremos sumando utilidades que, combinadas, forman una caja de herramientas sólida para proyectos reales y código que se siente bien usar.
