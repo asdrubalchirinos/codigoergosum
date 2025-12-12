@@ -4,6 +4,7 @@ import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
 import mdx from '@astrojs/mdx';
 import rehypeExternalLinks from 'rehype-external-links';
+import remarkBreaks from 'remark-breaks';
 
 // https://astro.build/config
 export default defineConfig({
@@ -22,6 +23,7 @@ export default defineConfig({
           },
         ],
       ],
+      remarkPlugins: [remarkBreaks],
     }),
   ],
   output: 'static',
@@ -41,5 +43,6 @@ export default defineConfig({
         },
       ],
     ],
+    remarkPlugins: [remarkBreaks],
   },
 });
