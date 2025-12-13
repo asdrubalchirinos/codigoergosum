@@ -1,0 +1,158 @@
+---
+title: 'Día 15 de 24: deepClone'
+subtitle: 'Las 24 funciones antes de navidad'
+pubDate: '2025-12-15'
+heroImage: /images/blog/24-dias-de-navidad-dia-15/hero.png
+author: Asdrúbal Chirinos
+featured: false
+draft: false
+tags: ["web", "javascript"]
+slug: 24-dias-de-navidad-dia-15
+---
+
+import PostReference from '@components/PostReference.astro';
+
+Ayer seguimos afinando cómo controlar la frecuencia de ejecución y hoy damos un giro hacia algo que casi siempre aparece cuando empiezas a construir herramientas reales: copiar datos sin romper nada en el proceso. **deepClone** existe para que puedas duplicar estructuras complejas de forma segura, incluyendo arrays y objetos anidados, y además sobrevivir a referencias circulares sin explotar.
+
+<PostReference slug="24-dias-de-navidad-dia-14" />
+
+## deepClone
+
+Cuando trabajas con estado, payloads de APIs, configs, caches o estructuras que viajan entre capas, copiar por referencia es una receta para bugs invisibles. Modificas “la copia” y sin darte cuenta cambias el original.
+
+**deepClone** resuelve ese problema: hace una clonación profunda de valores, copiando recursivamente objetos y arrays. Lo más útil es que **maneja referencias circulares** usando `WeakMap`, así que si tu estructura se apunta a sí misma (o comparte subárboles), la función devuelve un clon consistente en vez de entrar en recursión infinita.
+
+En proyectos reales es común usarla para:
+
+* Evitar mutaciones accidentales cuando transformas datos.
+* Duplicar estado antes de aplicar cambios, sin tocar el original.
+* Trabajar con estructuras que vienen de librerías o SDKs y no quieres “ensuciar”.
+* Normalizar payloads antes de persistir o enviar.
+
+Y a diferencia de hacer `JSON.parse(JSON.stringify(obj))`, aquí no pierdes `Date` o `RegExp`, y sí soportas ciclos.
+
+### Código de la función
+
+```js
+/**
+ * Realiza una clonación profunda de objetos, arrays y tipos primitivos.
+ * Maneja referencias circulares usando WeakMap para rastreo.
+ * No clona funciones, símbolos, ni tipos especiales (Date, RegExp, Map, Set se copian superficialmente).
+ * @param {*} value Valor a clonar.
+ * @param {WeakMap} [_cache] Cache interno para referencias circulares (uso interno).
+ * @returns {*} Clon profundo del valor.
+ */
+export function deepClone(value, _cache = new WeakMap()) {
+  // Primitivos y null
+  if (value === null || typeof value !== 'object') return value;
+  
+  // Verificar cache para referencias circulares
+  if (_cache.has(value)) return _cache.get(value);
+  
+  // Date
+  if (value instanceof Date) return new Date(value);
+  
+  // RegExp
+  if (value instanceof RegExp) return new RegExp(value.source, value.flags);
+  
+  // Array
+  if (Array.isArray(value)) {
+    const arrClone = [];
+    _cache.set(value, arrClone);
+    value.forEach((item, index) => {
+      arrClone[index] = deepClone(item, _cache);
+    });
+    return arrClone;
+  }
+  
+  // Map
+  if (value instanceof Map) {
+    const mapClone = new Map();
+    _cache.set(value, mapClone);
+    value.forEach((val, key) => {
+      mapClone.set(key, deepClone(val, _cache));
+    });
+    return mapClone;
+  }
+  
+  // Set
+  if (value instanceof Set) {
+    const setClone = new Set();
+    _cache.set(value, setClone);
+    value.forEach(item => {
+      setClone.add(deepClone(item, _cache));
+    });
+    return setClone;
+  }
+  
+  // Object plano
+  const objClone = {};
+  _cache.set(value, objClone);
+  Object.keys(value).forEach(key => {
+    objClone[key] = deepClone(value[key], _cache);
+  });
+  
+  return objClone;
+}
+```
+
+### Cómo usarla
+
+#### Caso básico
+
+Clonar un objeto con anidación para poder modificar la copia sin tocar el original.
+
+```js
+import { deepClone } from './deepClone.js';
+
+const original = {
+  user: { name: 'Astro', roles: ['admin'] },
+  flags: { beta: true }
+};
+
+const copy = deepClone(original);
+copy.user.name = 'Otro';
+copy.user.roles.push('editor');
+
+console.log(original.user.name);      // "Astro"
+console.log(original.user.roles);     // ["admin"]
+console.log(copy.user.roles);         // ["admin", "editor"]
+```
+
+#### Caso especial: referencias circulares
+
+Estructuras que se apuntan a sí mismas suelen romper clones ingenuos. Aquí no.
+
+```js
+const a = { name: 'A' };
+a.self = a;
+
+const a2 = deepClone(a);
+
+console.log(a2 !== a);        // true
+console.log(a2.self === a2);  // true
+```
+
+#### Caso especial: Map y Set
+
+Funciona bien para clonar el contenedor y clonar profundamente los valores. En `Map`, las llaves se mantienen tal cual están (no se clonan).
+
+```js
+const m = new Map();
+m.set('config', { retries: 3 });
+
+const s = new Set([{ id: 1 }, { id: 2 }]);
+
+const m2 = deepClone(m);
+const s2 = deepClone(s);
+
+m2.get('config').retries = 10;
+[...s2][0].id = 99;
+
+console.log(m.get('config').retries);     // 3
+console.log([...s][0].id);                // 1
+```
+
+---
+
+Con **deepClone** ya tienes una herramienta pequeña pero poderosa para reducir bugs de mutación y manejar estructuras reales sin miedo a ciclos. Mañana seguimos con otra función lista para tu kit de utilidades, de esas que cuando la tienes, te preguntas cómo vivías sin ella.
