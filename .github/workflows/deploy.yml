@@ -23,6 +23,7 @@ jobs:
       PUBLIC_TWITTER_HANDLE: '@achirinos'
       PUBLIC_NEWSLETTER_API_URL: ${{ secrets.NEWSLETTER_API_URL }}
       PUBLIC_TURNSTILE_SITE_KEY: ${{ secrets.TURNSTILE_SITE_KEY }}
+      TZ: 'America/Mexico_City'
     steps:
       - name: Checkout
         uses: actions/checkout@v4
