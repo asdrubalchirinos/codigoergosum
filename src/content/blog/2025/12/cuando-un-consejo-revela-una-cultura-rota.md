@@ -6,7 +6,7 @@ heroImage: /images/blog/cuando-un-consejo-revela-una-cultura-rota/hero.png
 author: Asdrúbal Chirinos
 featured: true
 draft: false
-tags: []
+tags: ['liderazgo','soft-skills','opinion']
 slug: cuando-un-consejo-revela-una-cultura-rota
 ---
 Hace unos días leí una frase que se repite con demasiada frecuencia en redes profesionales:

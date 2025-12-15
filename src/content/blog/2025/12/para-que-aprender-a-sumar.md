@@ -6,7 +6,7 @@ heroImage: /images/blog/para-que-aprender-a-sumar/hero.png
 author: Asdrúbal Chirinos
 featured: true
 draft: false
-tags: []
+tags: ['ia','tendencias','programacion']
 slug: para-que-aprender-a-sumar
 ---
 ¿Para qué aprender a sumar si existen calculadoras?

@@ -5,7 +5,7 @@ pubDate: '2025-12-09'
 heroImage: /images/blog/el-humo-dura-poco-si-no-hay-fuego-que-lo-produzca/hero.png
 author: Asdrúbal Chirinos
 featured: true
-tags: []
+tags: ['liderazgo','soft-skills','opinion']
 slug: el-humo-dura-poco-si-no-hay-fuego-que-lo-produzca
 ---
 

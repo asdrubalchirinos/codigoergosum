@@ -6,7 +6,7 @@ heroImage: /images/blog/el-nacimiento-del-personal-software/hero.png
 author: Asdrúbal Chirinos
 featured: true
 draft: false
-tags: [tendencias, ia, motivacion]
+tags: [tendencias, ia, motivacion, 'personal-software','solvers']
 slug: el-nacimiento-del-personal-software
 ---
 
