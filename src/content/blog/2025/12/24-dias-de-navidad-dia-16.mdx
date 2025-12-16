@@ -1,0 +1,86 @@
+---
+title: 'Día 16 de 24: simpleUUID'
+subtitle: 'Las 24 funciones antes de navidad'
+pubDate: '2025-12-16'
+heroImage: /images/blog/24-dias-de-navidad-dia-16/hero.png
+author: Asdrúbal Chirinos
+featured: false
+draft: false
+tags: ['web','javascript']
+slug: 24-dias-de-navidad-dia-16
+---
+
+import PostReference from '@components/PostReference.astro';
+
+En este recorrido de pequeñas utilidades, cada día vamos sumando piezas prácticas que resuelven problemas comunes del día a día. Después de trabajar con control de ejecución y temporización, hoy toca algo más fundamental pero igual de frecuente: generar identificadores únicos de forma sencilla y confiable.
+
+<PostReference slug="24-dias-de-navidad-dia-15" />
+
+## simpleUUID
+
+Esta función resuelve una necesidad muy común en cualquier proyecto JavaScript: contar con un identificador único para objetos, registros temporales, claves de listas o referencias internas.
+
+Es especialmente útil en aplicaciones frontend, scripts utilitarios o herramientas personales donde no siempre se requiere una solución pesada o una dependencia externa solo para generar UUIDs.
+
+Lo interesante de `simpleUUID` es que aprovecha lo mejor de ambos mundos:
+
+* Usa `crypto.randomUUID` cuando está disponible, delegando en la plataforma una implementación estándar y segura.
+* Incluye un fallback compatible con entornos más antiguos, suficiente para casos no críticos.
+* Mantiene una API mínima y predecible.
+* Evita dependencias externas para algo que debería ser simple.
+
+Casos típicos de uso incluyen generar IDs para componentes, claves temporales antes de persistir datos o identificadores internos en herramientas de Personal Software.
+
+## Código de la función
+
+```js
+/**
+ * Genera un UUID simple v4 usando crypto.randomUUID si está disponible,
+ * o un fallback con Math.random. No es criptográficamente seguro en fallback.
+ * @returns {string} UUID en formato xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx
+ */
+export function simpleUUID() {
+  // Usar crypto.randomUUID si está disponible (Node 16+, navegadores modernos)
+  if (typeof crypto !== 'undefined' && crypto.randomUUID) {
+    return crypto.randomUUID();
+  }
+  
+  // Fallback con Math.random (no criptográficamente seguro)
+  return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, (c) => {
+    const r = (Math.random() * 16) | 0;
+    const v = c === 'x' ? r : (r & 0x3) | 0x8;
+    return v.toString(16);
+  });
+}
+```
+
+## Cómo usarla
+
+### Caso básico
+
+```js
+const id = simpleUUID();
+console.log(id);
+// Ejemplo: "c1f2a8e4-7b9d-4c2a-9f3e-8a6d2e1b4c90"
+```
+
+Ideal para asignar identificadores rápidos sin configuración adicional.
+
+### Uso en listas o estructuras temporales
+
+```js
+const items = [
+  { id: simpleUUID(), name: 'Item A' },
+  { id: simpleUUID(), name: 'Item B' }
+];
+```
+
+Muy útil en interfaces donde necesitas claves estables antes de guardar datos en backend.
+
+### Consideración importante
+
+Cuando se usa el fallback con `Math.random`, el UUID no es criptográficamente seguro. Para tokens de seguridad, autenticación o datos sensibles, siempre debe preferirse una solución basada en `crypto`.
+
+---
+
+Una función pequeña, directa y sin sorpresas, justo el tipo de utilidad que uno agradece tener a mano. Mañana seguimos sumando otra pieza a este calendario de helpers, acercándonos cada vez más a una caja de herramientas práctica y lista para usar en cualquier proyecto.

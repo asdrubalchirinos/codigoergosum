@@ -1,0 +1,119 @@
+---
+title: 'Día 17 de 24: objectDeepFreeze'
+subtitle: 'Las 24 funciones antes de navidad'
+pubDate: '2025-12-17'
+heroImage: /images/blog/24-dias-de-navidad-dia-17/hero.png
+author: Asdrúbal Chirinos
+featured: false
+draft: false
+tags: ['web','javascript']
+slug: 24-dias-de-navidad-dia-17
+---
+
+import PostReference from '@components/PostReference.astro';
+
+En esta serie hemos ido sumando pequeñas funciones que apuntan a un mismo objetivo: escribir código más claro, más seguro y más fácil de razonar. Después de haber trabajado con clonación, control de ejecución y utilidades defensivas, hoy toca reforzar una idea clave en muchos proyectos modernos: la inmutabilidad. La función de hoy está pensada para cuando quieres declarar algo como definitivo y asegurarte de que nadie, ni siquiera por accidente, lo modifique más adelante.
+
+<PostReference slug="24-dias-de-navidad-dia-16" />
+
+## objectDeepFreeze
+
+`objectDeepFreeze` resuelve un problema muy concreto pero frecuente: congelar un objeto completo, incluyendo todos sus niveles internos, para que no pueda ser modificado en ningún punto de su estructura.
+
+En JavaScript, `Object.freeze` solo congela el objeto de primer nivel. Si el objeto contiene otros objetos anidados, estos siguen siendo mutables. Esta función va un paso más allá y aplica el congelado de forma recursiva.
+
+Es especialmente útil en proyectos reales cuando trabajas con:
+
+* Configuraciones globales
+* Constantes complejas
+* Objetos compartidos entre múltiples módulos
+* Estados que no deberían cambiar después de inicializarse
+
+Su diferencia frente a la solución nativa es precisamente esa profundidad. Además, maneja referencias circulares usando `WeakSet`, evitando bucles infinitos y errores difíciles de detectar.
+
+### Código de la función
+
+```js
+/**
+ * Congela un objeto de forma profunda (recursiva), haciendo inmutables
+ * todos los objetos anidados. Útil para constantes complejas.
+ * @param {object} obj Objeto a congelar.
+ * @param {WeakSet} [_frozen] Set interno para evitar ciclos infinitos (uso interno).
+ * @returns {object} El mismo objeto, ahora congelado profundamente.
+ */
+export function objectDeepFreeze(obj, _frozen = new WeakSet()) {
+  if (obj === null || typeof obj !== 'object') return obj;
+  if (Object.isFrozen(obj) || _frozen.has(obj)) return obj;
+  
+  _frozen.add(obj);
+  Object.freeze(obj);
+  
+  Object.getOwnPropertyNames(obj).forEach(prop => {
+    const value = obj[prop];
+    if (value !== null && typeof value === 'object') {
+      objectDeepFreeze(value, _frozen);
+    }
+  });
+  
+  return obj;
+}
+```
+
+## Cómo usarla
+
+### Caso básico
+
+Congelar una configuración completa para evitar modificaciones accidentales.
+
+```js
+const config = {
+  api: {
+    url: 'https://api.example.com',
+    timeout: 5000
+  },
+  features: {
+    darkMode: true
+  }
+};
+
+objectDeepFreeze(config);
+
+// Cualquiera de estas líneas fallará en modo estricto
+config.api.timeout = 3000;
+config.features.darkMode = false;
+```
+
+### Objetos con múltiples niveles
+
+La función recorre todos los niveles anidados, sin importar cuán profunda sea la estructura.
+
+```js
+const constants = {
+  roles: {
+    admin: {
+      permissions: ['read', 'write', 'delete']
+    }
+  }
+};
+
+objectDeepFreeze(constants);
+
+// No se puede modificar ningún nivel
+constants.roles.admin.permissions.push('execute');
+```
+
+### Manejo de referencias circulares
+
+Gracias al uso de `WeakSet`, la función es segura incluso con estructuras que se referencian a sí mismas.
+
+```js
+const node = {};
+node.self = node;
+
+objectDeepFreeze(node);
+// No hay error ni recursión infinita
+```
+
+---
+
+La inmutabilidad no es una moda, es una herramienta para reducir errores y hacer el código más predecible. `objectDeepFreeze` encaja perfecto cuando quieres declarar una intención clara: esto no se toca. Mañana seguimos sumando funciones que ayudan a escribir JavaScript más robusto y fácil de mantener.
