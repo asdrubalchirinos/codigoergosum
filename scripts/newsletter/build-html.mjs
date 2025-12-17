@@ -47,7 +47,11 @@ async function getPost(slug) {
     if (!excerpt) {
         const paragraphs = markdownBody.split('\n\n').filter(p => {
              const trimmed = p.trim();
-             return trimmed.length > 0 && !trimmed.startsWith('!') && !trimmed.startsWith('#') && !trimmed.startsWith('<');
+             return trimmed.length > 0 && 
+                    !trimmed.startsWith('!') && 
+                    !trimmed.startsWith('#') && 
+                    !trimmed.startsWith('<') &&
+                    !trimmed.match(/^(import|export)\s/);
         });
 
         if (paragraphs.length > 0) {
