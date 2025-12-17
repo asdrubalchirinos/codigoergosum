@@ -1,0 +1,102 @@
+---
+title: 'Día 19 de 24: stripHTML'
+subtitle: 'Las 24 funciones antes de navidad'
+pubDate: '2025-12-19'
+heroImage: /images/blog/24-dias-de-navidad-dia-19/hero.png
+author: Asdrúbal Chirinos
+featured: false
+draft: false
+tags: ['web','javascript']
+slug: 24-dias-de-navidad-dia-19
+---
+
+import PostReference from '@components/PostReference.astro';
+
+Cada día de esta serie seguimos sumando pequeñas funciones pensadas para resolver problemas reales de forma simple y directa. Después de trabajar con utilidades más orientadas a flujo y control, hoy nos detenemos en un caso muy común: limpiar texto que viene contaminado con HTML. Una necesidad frecuente cuando procesamos contenido externo o queremos mostrar texto plano sin sorpresas.
+
+<PostReference slug="24-dias-de-navidad-dia-18" />
+
+### stripHTML
+
+La función `stripHTML` se encarga de eliminar todas las etiquetas HTML de un texto, dejando únicamente su contenido en formato plano.
+
+Es especialmente útil cuando recibimos texto desde editores WYSIWYG, feeds externos, correos o campos que permiten HTML, y necesitamos sanitizar o extraer solo lo que el usuario escribió realmente.
+
+En proyectos reales suele aparecer en escenarios como:
+
+- Limpieza básica de contenido antes de indexarlo o analizarlo.
+- Generación de previews o resúmenes en texto plano.
+- Sanitización ligera para logs, notificaciones o exportaciones.
+- Procesamiento previo antes de aplicar otras transformaciones de texto.
+
+A diferencia de soluciones más pesadas o librerías completas de sanitización, esta función apunta a ser simple, predecible y fácil de entender. No intenta validar HTML ni proteger contra ataques complejos. Hace una cosa y la hace bien: quitar etiquetas y normalizar espacios.
+
+### Código de la función
+
+```js
+/**
+ * Elimina todas las etiquetas HTML de un texto, dejando solo el contenido.
+ * Útil para sanitización básica y extracción de texto plano.
+ * @param {string} html Cadena con HTML.
+ * @param {object} [options]
+ * @param {boolean} [options.preserveSpaces=true] Si true, reemplaza tags con espacio para evitar palabras pegadas.
+ * @returns {string} Texto sin etiquetas HTML.
+ */
+export function stripHTML(html, options = {}) {
+  if (typeof html !== 'string') return '';
+  const { preserveSpaces = true } = options;
+  
+  // Remover scripts y styles con su contenido
+  let cleaned = html
+    .replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, '')
+    .replace(/<style\b[^<]*(?:(?!<\/style>)<[^<]*)*<\/style>/gi, '');
+  
+  // Reemplazar tags con espacio o vacío
+  cleaned = cleaned.replace(/<[^>]+>/g, preserveSpaces ? ' ' : '');
+  
+  // Limpiar espacios múltiples y trim
+  return cleaned.replace(/\s+/g, ' ').trim();
+}
+````
+
+## Cómo usarla
+
+#### Caso básico
+
+Eliminar etiquetas HTML de una cadena simple.
+
+```js
+stripHTML('<p>Hola <strong>mundo</strong></p>');
+// "Hola mundo"
+```
+
+#### Preservando separación entre palabras
+
+Por defecto, las etiquetas se reemplazan por espacios para evitar que las palabras queden pegadas.
+
+```js
+stripHTML('<span>Hola</span><span>mundo</span>');
+// "Hola mundo"
+```
+
+#### Sin preservar espacios
+
+Si sabes que el HTML ya tiene separaciones claras o quieres un control más estricto, puedes desactivar esta opción.
+
+```js
+stripHTML('<span>Hola</span><span>mundo</span>', { preserveSpaces: false });
+// "Holamundo"
+```
+
+#### Eliminando scripts y estilos
+
+El contenido dentro de `<script>` y `<style>` se elimina por completo, no solo las etiquetas.
+
+```js
+stripHTML('<style>body { color: red }</style><p>Texto</p>');
+// "Texto"
+```
+
+---
+
+Con `stripHTML` sumamos otra herramienta pequeña pero muy práctica al arsenal diario. Una función pensada para cuando solo necesitas texto limpio, sin ruido y sin dependencias extra. Mañana seguimos avanzando en este recorrido, agregando una nueva función para seguir construyendo paso a paso este calendario de utilidades.

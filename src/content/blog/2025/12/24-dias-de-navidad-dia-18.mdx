@@ -1,0 +1,129 @@
+---
+title: 'Día 18 de 24: retryAsync'
+subtitle: 'Las 24 funciones antes de navidad'
+pubDate: '2025-12-18'
+heroImage: /images/blog/24-dias-de-navidad-dia-18/hero.png
+author: Asdrúbal Chirinos
+featured: false
+draft: false
+tags: ['web','javascript']
+slug: 24-dias-de-navidad-dia-18
+---
+
+import PostReference from '@components/PostReference.astro';
+
+En este recorrido ya hemos visto cómo pequeñas funciones bien pensadas pueden resolver problemas reales de forma elegante. El día anterior nos llevó a pensar en control y previsibilidad del código. Hoy seguimos en esa línea, pero enfocándonos en un escenario muy común en sistemas modernos: operaciones asíncronas que fallan y necesitan una segunda oportunidad.
+
+<PostReference slug="24-dias-de-navidad-dia-17" />
+
+La función de hoy existe para eso. Darle resiliencia a operaciones async sin llenar el código de `try/catch`, contadores manuales y timers repetidos.
+
+## retryAsync
+
+`retryAsync` resuelve un problema clásico en aplicaciones reales: llamadas a servicios externos, lecturas de red o procesos que pueden fallar de forma transitoria y que no deberían romper el flujo a la primera.
+
+Es especialmente útil cuando trabajas con APIs, colas, integraciones externas o cualquier operación que dependa de factores fuera de tu control inmediato.
+
+Lo que la hace diferente de una solución improvisada es que encapsula toda la lógica de reintentos en un solo lugar, con opciones claras y extensibles:
+
+- Número máximo de reintentos configurable.
+- Delay entre intentos.
+- Callback para reaccionar ante cada fallo.
+- Soporte opcional para exponential backoff.
+- Código más legible y fácil de mantener.
+
+En lugar de repetir la misma estructura una y otra vez, esta función te permite expresar la intención: intenta esto y reintenta si algo sale mal.
+
+### Código de la función
+
+```js
+/**
+ * Reintenta una operación asíncrona un número determinado de veces con delays opcionales.
+ * @param {Function} asyncFn Función async a ejecutar (debe retornar Promise).
+ * @param {object} [options]
+ * @param {number} [options.retries=3] Número máximo de reintentos.
+ * @param {number} [options.delay=1000] Delay en ms entre reintentos.
+ * @param {Function} [options.onRetry] Callback ejecutado antes de cada reintento: (attempt, error) => void
+ * @param {boolean} [options.exponentialBackoff=false] Si true, delay se duplica en cada intento.
+ * @returns {Promise} Resultado de asyncFn o rechazo tras agotar reintentos.
+ */
+export async function retryAsync(asyncFn, options = {}) {
+  if (typeof asyncFn !== 'function') throw new Error('asyncFn debe ser una función');
+  
+  const {
+    retries = 3,
+    delay = 1000,
+    onRetry = null,
+    exponentialBackoff = false
+  } = options;
+  
+  let lastError;
+  let currentDelay = delay;
+  
+  for (let attempt = 0; attempt <= retries; attempt++) {
+    try {
+      return await asyncFn();
+    } catch (error) {
+      lastError = error;
+      
+      if (attempt < retries) {
+        if (onRetry) onRetry(attempt + 1, error);
+        
+        await new Promise(resolve => setTimeout(resolve, currentDelay));
+        
+        if (exponentialBackoff) {
+          currentDelay *= 2;
+        }
+      }
+    }
+  }
+  
+  throw new Error(`Falló tras ${retries + 1} intentos: ${lastError.message}`);
+}
+````
+
+### Cómo usarla
+
+#### Caso básico
+
+Reintentar una llamada async hasta 3 veces con un delay fijo de 1 segundo.
+
+```js
+await retryAsync(async () => {
+  return fetch('/api/data').then(res => res.json());
+});
+```
+
+#### Con configuración personalizada
+
+Ajustar el número de reintentos y el tiempo de espera entre ellos.
+
+```js
+await retryAsync(fetchData, {
+  retries: 5,
+  delay: 2000
+});
+```
+
+#### Con exponential backoff y callback
+
+Ideal para integraciones externas donde no quieres saturar el servicio remoto.
+
+```js
+await retryAsync(fetchFromApi, {
+  retries: 4,
+  delay: 500,
+  exponentialBackoff: true,
+  onRetry: (attempt, error) => {
+    console.log(`Reintento ${attempt} tras error:`, error.message);
+  }
+});
+```
+
+En este caso, el delay irá creciendo progresivamente, reduciendo la presión sobre el servicio y aumentando las probabilidades de éxito.
+
+---
+
+Las aplicaciones robustas no son las que nunca fallan, sino las que saben cómo reaccionar cuando algo falla. `retryAsync` es una de esas pequeñas utilidades que aportan calma al código y claridad a la intención.
+
+Mañana seguimos sumando piezas a este calendario, explorando otra función pensada para hacer tu día a día como desarrollador un poco más simple y predecible.
