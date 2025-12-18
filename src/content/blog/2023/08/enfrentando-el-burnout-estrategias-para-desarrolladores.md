@@ -4,7 +4,8 @@ subtitle: >-
   Consejos para evitar el agotamiento en el desarrollo de software y mantener tu
   motivación al máximo
 pubDate: '2023-08-29'
-heroImage: /images/blog/enfrentando-el-burnout-estrategias-para-desarrolladores/hero.jpeg
+heroImage: >-
+  /images/blog/2023/08/enfrentando-el-burnout-estrategias-para-desarrolladores/hero.jpeg
 author: Asdrúbal Chirinos
 tags:
   - motivacion
@@ -13,7 +14,7 @@ tags:
 slug: enfrentando-el-burnout-estrategias-para-desarrolladores
 ---
 
-![](/images/blog/enfrentando-el-burnout-estrategias-para-desarrolladores/hero.jpeg)
+![](/images/blog/2023/08/enfrentando-el-burnout-estrategias-para-desarrolladores/hero.jpeg)
 
 ¡Peligro Burnout!. Imagen generada por inteligencia artificial. Bing Image Creator. Prompt: Burnout person sitting on a computer hands on head. photo realistic
 

@@ -1,7 +1,7 @@
 ---
 title: ¿Qué idioma habla tu código?
 pubDate: '2023-07-25'
-heroImage: /images/blog/que-idioma-habla-tu-codigo/hero.jpeg
+heroImage: /images/blog/2023/07/que-idioma-habla-tu-codigo/hero.jpeg
 author: Asdrúbal Chirinos
 tags:
   - javascript
@@ -11,7 +11,7 @@ tags:
 slug: que-idioma-habla-tu-codigo
 ---
 
-![](/images/blog/que-idioma-habla-tu-codigo/hero.jpeg)
+![](/images/blog/2023/07/que-idioma-habla-tu-codigo/hero.jpeg)
 
 Siempre he defendido la idea de escribir código en inglés. Desde el nombre de variables y funciones hasta los campos de la base de datos, considero que utilizar el inglés como idioma estándar para programar es fundamental. En este artículo, exploraremos en profundidad mi perspectiva, destacando la relevancia cada vez mayor de escribir código en inglés, especialmente en el contexto del trabajo remoto global. Además, discutiremos cómo esta práctica puede beneficiar a los desarrolladores y a aquellos que necesiten entender o modificar el código en el futuro.
 

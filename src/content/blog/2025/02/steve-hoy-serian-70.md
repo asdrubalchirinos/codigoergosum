@@ -5,7 +5,7 @@ subtitle: >-
   discurso en Stanford, lleno de lecciones sobre pasión, resiliencia y
   propósito.
 pubDate: '2025-02-24'
-heroImage: /images/blog/steve-hoy-serian-70/hero.jpeg
+heroImage: /images/blog/2025/02/steve-hoy-serian-70/hero.jpeg
 author: Asdrúbal Chirinos
 tags:
   - carrera
@@ -15,7 +15,7 @@ tags:
 slug: steve-hoy-serian-70
 ---
 
-![A black and white portrait of Steve looking directly into the camera, resting his chin in his hand.](/images/blog/steve-hoy-serian-70/cd97449c-5df4-4a36-bcb2-04189419704e_1167x1200.jpeg "A black and white portrait of Steve looking directly into the camera, resting his chin in his hand.")
+![A black and white portrait of Steve looking directly into the camera, resting his chin in his hand.](/images/blog/2025/02/steve-hoy-serian-70/cd97449c-5df4-4a36-bcb2-04189419704e_1167x1200.jpeg "A black and white portrait of Steve looking directly into the camera, resting his chin in his hand.")
 
 Hoy, 24 de febrero de 2025, celebramos lo que habría sido el 70º cumpleaños de Steve Jobs, un visionario cuyo legado sigue influyendo en nuestra vida cotidiana. Aunque nos dejó en 2011, su espíritu innovador y sus enseñanzas permanecen vigentes.
 

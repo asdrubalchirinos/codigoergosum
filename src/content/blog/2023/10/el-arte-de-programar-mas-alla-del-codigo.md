@@ -2,7 +2,7 @@
 title: 'El Arte de Programar: Más Allá del Código'
 subtitle: Descubre por qué la programación es 90% planificación y 10% código.
 pubDate: '2023-10-25'
-heroImage: /images/blog/el-arte-de-programar-mas-alla-del-codigo/hero.jpeg
+heroImage: /images/blog/2023/10/el-arte-de-programar-mas-alla-del-codigo/hero.jpeg
 author: Asdrúbal Chirinos
 tags:
   - clean-code
@@ -12,7 +12,7 @@ slug: el-arte-de-programar-mas-alla-del-codigo
 
 *En el apasionante universo de la programación, es común caer en la trampa de creer que nuestra principal tarea es escribir interminables líneas de código. Sin embargo, la programación va mucho más allá. En realidad, es un proceso que requiere una comprensión profunda del problema a resolver. En otras palabras, programar es 90% entender y resolver lo que se quiere lograr y solo un 10% plasmarlo en código.*
 
-![](/images/blog/el-arte-de-programar-mas-alla-del-codigo/hero.jpeg)
+![](/images/blog/2023/10/el-arte-de-programar-mas-alla-del-codigo/hero.jpeg)
 
 ## **Evitar Errores Comunes**
 

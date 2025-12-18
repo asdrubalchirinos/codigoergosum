@@ -4,7 +4,7 @@ subtitle: >-
   Aprende cómo este propósito transforma decisiones, motiva equipos y construye
   lealtad.
 pubDate: '2024-07-19'
-heroImage: /images/blog/la-importancia-de-descubrir-tu-por-que/hero.webp
+heroImage: /images/blog/2024/07/la-importancia-de-descubrir-tu-por-que/hero.webp
 author: Asdrúbal Chirinos
 tags:
   - liderazgo
@@ -14,7 +14,7 @@ slug: la-importancia-de-descubrir-tu-por-que
 
 En el competitivo panorama empresarial actual, las compañías que prosperan suelen ser aquellas con un sentido claro de propósito. Este propósito, frecuentemente conocido como el 'Por Qué', va más allá de los objetivos financieros y actúa como la fuerza motriz detrás de cada decisión, acción e interacción con el cliente. Aquí exploramos por qué descubrir tu 'Por Qué' es crucial para el crecimiento sostenible y el éxito a largo plazo.
 
-![](/images/blog/la-importancia-de-descubrir-tu-por-que/hero.webp)
+![](/images/blog/2024/07/la-importancia-de-descubrir-tu-por-que/hero.webp)
 
 #### Definición de tu 'Por Qué'
 

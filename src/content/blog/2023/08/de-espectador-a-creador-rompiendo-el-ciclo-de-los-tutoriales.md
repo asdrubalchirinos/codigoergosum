@@ -6,7 +6,7 @@ subtitle: >-
   principiante a creador. ¡Acompáñanos en este Viaje!
 pubDate: '2023-08-07'
 heroImage: >-
-  /images/blog/de-espectador-a-creador-rompiendo-el-ciclo-de-los-tutoriales/hero.jpeg
+  /images/blog/2023/08/de-espectador-a-creador-rompiendo-el-ciclo-de-los-tutoriales/hero.jpeg
 author: Asdrúbal Chirinos
 tags:
   - carrera
@@ -15,7 +15,7 @@ tags:
 slug: de-espectador-a-creador-rompiendo-el-ciclo-de-los-tutoriales
 ---
 
-![](/images/blog/de-espectador-a-creador-rompiendo-el-ciclo-de-los-tutoriales/hero.jpeg)
+![](/images/blog/2023/08/de-espectador-a-creador-rompiendo-el-ciclo-de-los-tutoriales/hero.jpeg)
 
 De Espectador a Creador. [Foto de Pixabay](https://www.pexels.com/photo/black-claw-hammer-on-brown-wooden-plank-209235/)
 

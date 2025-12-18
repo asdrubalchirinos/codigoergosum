@@ -1,7 +1,7 @@
 ---
 title: 'La IA: De desconocida a imprescindible'
 pubDate: '2023-07-18'
-heroImage: /images/blog/la-ia-de-desconocida-a-imprescindible/hero.jpeg
+heroImage: /images/blog/2023/07/la-ia-de-desconocida-a-imprescindible/hero.jpeg
 author: Asdrúbal Chirinos
 tags:
   - ia
@@ -9,7 +9,7 @@ tags:
 slug: la-ia-de-desconocida-a-imprescindible
 ---
 
-![](/images/blog/la-ia-de-desconocida-a-imprescindible/hero.jpeg)
+![](/images/blog/2023/07/la-ia-de-desconocida-a-imprescindible/hero.jpeg)
 
 Imagen generada por IA: Bing Image Creator. A picture of people working together in a collaborative environment, using AI-based technology to drive innovation and progress.
 

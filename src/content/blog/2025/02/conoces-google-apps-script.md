@@ -2,7 +2,7 @@
 title: ¿Conoces Google Apps Script?
 subtitle: Descubre cómo automatizar tus tareas con Google Workspace
 pubDate: '2025-02-17'
-heroImage: /images/blog/conoces-google-apps-script/hero.png
+heroImage: /images/blog/2025/02/conoces-google-apps-script/hero.png
 author: Asdrúbal Chirinos
 tags:
   - javascript
@@ -10,7 +10,7 @@ tags:
 slug: conoces-google-apps-script
 ---
 
-![¿Qué es Google Apps Script y para qué Sirve?](/images/blog/conoces-google-apps-script/bc2e480f-bab4-41d8-b475-924ba1853ff6_996x409.png "¿Qué es Google Apps Script y para qué Sirve?")
+![¿Qué es Google Apps Script y para qué Sirve?](/images/blog/2025/02/conoces-google-apps-script/bc2e480f-bab4-41d8-b475-924ba1853ff6_996x409.png "¿Qué es Google Apps Script y para qué Sirve?")
 
 ¿Has oído hablar de Google Apps Script? Si aún no lo conoces, estás a punto de descubrir una herramienta poderosa para automatizar tu trabajo y optimizar tu tiempo dentro del ecosistema de Google.
 

@@ -4,7 +4,7 @@ subtitle: >-
   Explora las diferencias entre Programación Funcional y Orientada a Objetos,
   junto a la importancia de controlar los efectos secundarios en tu código.
 pubDate: '2023-08-08'
-heroImage: /images/blog/que-sabes-sobre-programacion-funcional/hero.jpeg
+heroImage: /images/blog/2023/08/que-sabes-sobre-programacion-funcional/hero.jpeg
 author: Asdrúbal Chirinos
 tags:
   - funcional
@@ -14,7 +14,7 @@ tags:
 slug: que-sabes-sobre-programacion-funcional
 ---
 
-![](/images/blog/que-sabes-sobre-programacion-funcional/hero.jpeg)
+![](/images/blog/2023/08/que-sabes-sobre-programacion-funcional/hero.jpeg)
 
 Programación Funcional. [Foto de Jeswin Thomas](https://www.pexels.com/photo/person-writing-on-white-board-3781338/)
 

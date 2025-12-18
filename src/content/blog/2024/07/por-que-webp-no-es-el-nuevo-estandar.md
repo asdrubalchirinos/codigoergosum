@@ -5,7 +5,7 @@ subtitle: >-
   digitales. Descubre sus ventajas, desventajas y el futuro prometedor de este
   formato innovador de Google.
 pubDate: '2024-07-10'
-heroImage: /images/blog/por-que-webp-no-es-el-nuevo-estandar/hero.avif
+heroImage: /images/blog/2024/07/por-que-webp-no-es-el-nuevo-estandar/hero.avif
 author: Asdrúbal Chirinos
 tags:
   - web
@@ -16,7 +16,7 @@ slug: por-que-webp-no-es-el-nuevo-estandar
 
 Con frecuencia surgen nuevos formatos que prometen mejor rendimiento y calidad. WebP, introducido por Google en 2010, es uno de estos formatos. A pesar de sus ventajas, WebP aún no se ha convertido en el nuevo estándar. Este artículo explora las razones detrás de esto, examinando sus pros y contras, y especulando sobre el futuro del formato
 
-![](/images/blog/por-que-webp-no-es-el-nuevo-estandar/hero.avif)
+![](/images/blog/2024/07/por-que-webp-no-es-el-nuevo-estandar/hero.avif)
 
 #### Pros de WebP
 

@@ -5,7 +5,7 @@ subtitle: >-
   y el cuidado personal. Consejos clave para desarrolladores en un mundo
   competitivo. Equilibrio para triunfar.
 pubDate: '2023-11-01'
-heroImage: /images/blog/buscando-el-balance-en-el-mundo-tech/hero.jpeg
+heroImage: /images/blog/2023/10/buscando-el-balance-en-el-mundo-tech/hero.jpeg
 author: Asdrúbal Chirinos
 tags:
   - carrera
@@ -15,7 +15,7 @@ slug: buscando-el-balance-en-el-mundo-tech
 
 *En el acelerado mundo de la tecnología, la constante búsqueda de la excelencia profesional puede generar una presión abrumadora. Para los desarrolladores inmersos en este entorno, la competencia intensa y las expectativas desafiantes son habituales. Sin embargo, en medio de este panorama, es crucial recordar un punto fundamental: la importancia de equilibrar el crecimiento profesional con el bienestar personal.*
 
-![](/images/blog/buscando-el-balance-en-el-mundo-tech/hero.jpeg)
+![](/images/blog/2023/10/buscando-el-balance-en-el-mundo-tech/hero.jpeg)
 
 Imagen generada por inteligencia artificial: Ideogram.ai
 

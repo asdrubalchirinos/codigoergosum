@@ -4,7 +4,7 @@ subtitle: >-
   Descubre cómo la IA está transformando el futuro de los desarrolladores junior
   en el desarrollo de software.
 pubDate: '2023-10-04'
-heroImage: /images/blog/desarrolladores-junior-en-peligro-de-extincion/hero.jpeg
+heroImage: /images/blog/2023/10/desarrolladores-junior-en-peligro-de-extincion/hero.jpeg
 author: Asdrúbal Chirinos
 tags:
   - ia
@@ -14,7 +14,7 @@ tags:
 slug: desarrolladores-junior-en-peligro-de-extincion
 ---
 
-![](/images/blog/desarrolladores-junior-en-peligro-de-extincion/hero.jpeg)
+![](/images/blog/2023/10/desarrolladores-junior-en-peligro-de-extincion/hero.jpeg)
 
 La Inteligencia Artificial (IA) está en constante evolución y seguirá transformando la forma en que abordamos los desafíos tecnológicos en el desarrollo de software. A medida que avanzamos hacia el futuro, los modelos de lenguaje asistentes, como ChatGPT, jugarán un papel cada vez más importante en la eficiencia y productividad de los equipos de desarrollo. Si bien la IA no reemplazará por completo a los desarrolladores junior, su uso cada vez más experto por parte de los desarrolladores seniors tendrá un impacto significativo en la necesidad y el número de desarrolladores junior en los equipos.
 

@@ -4,7 +4,7 @@ subtitle: >-
   Descubre cómo equilibrar idea, tiempo y dinero en tu camino hacia el éxito.
   Supera el dilema de las tres patas y alcanza tus metas
 pubDate: '2024-03-13'
-heroImage: /images/blog/las-tres-patas-del-exito/hero.jpeg
+heroImage: /images/blog/2024/03/las-tres-patas-del-exito/hero.jpeg
 author: Asdrúbal Chirinos
 tags:
   - emprendimiento
@@ -13,7 +13,7 @@ tags:
 slug: las-tres-patas-del-exito
 ---
 
-![](/images/blog/las-tres-patas-del-exito/hero.jpeg)
+![](/images/blog/2024/03/las-tres-patas-del-exito/hero.jpeg)
 
 Cuando miramos a nuestro alrededor, a menudo encontramos personas atrapadas en lo que he llamado el dilema de las tres patas. Un vívido ejemplo de esto es el de Carlos, un hombre trabajador con un empleo estable y única fuente de ingresos. Carlos tiene una idea brillante, una visión que podría cambiar su vida significativamente. Sin embargo, su trabajo lo consume por completo, dejándole poco o ningún tiempo para dedicarse a su sueño. Pero aquí radica el problema: si Carlos deja su trabajo para perseguir su idea, ¿cómo cubrirá sus necesidades básicas sin el dinero que su trabajo proporciona?
 

@@ -1,12 +1,17 @@
 ---
 title: ¿Para qué aprender a sumar?
-subtitle: 'Por qué aprender a programar importa incluso cuando la IA escribe el código por nosotros.'
+subtitle: >-
+  Por qué aprender a programar importa incluso cuando la IA escribe el código
+  por nosotros.
 pubDate: '2025-12-11'
-heroImage: /images/blog/para-que-aprender-a-sumar/hero.png
+heroImage: /images/blog/2025/12/para-que-aprender-a-sumar/hero.png
 author: Asdrúbal Chirinos
 featured: true
 draft: false
-tags: ['ia','tendencias','programacion']
+tags:
+  - ia
+  - tendencias
+  - programacion
 slug: para-que-aprender-a-sumar
 ---
 ¿Para qué aprender a sumar si existen calculadoras?

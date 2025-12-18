@@ -5,7 +5,8 @@ subtitle: >-
   enfrentar desafíos, corregir rápidamente y crecer en este blog sobre el poder
   del aprendizaje a través de los errores.
 pubDate: '2023-08-04'
-heroImage: /images/blog/aprender-de-los-errores-el-camino-hacia-el-exito/hero.jpeg
+heroImage: >-
+  /images/blog/2023/08/aprender-de-los-errores-el-camino-hacia-el-exito/hero.jpeg
 author: Asdrúbal Chirinos
 tags:
   - carrera
@@ -13,7 +14,7 @@ tags:
 slug: aprender-de-los-errores-el-camino-hacia-el-exito
 ---
 
-![](/images/blog/aprender-de-los-errores-el-camino-hacia-el-exito/hero.jpeg)
+![](/images/blog/2023/08/aprender-de-los-errores-el-camino-hacia-el-exito/hero.jpeg)
 
 ¡Aprender de los errores nos impulsa al éxito!
 

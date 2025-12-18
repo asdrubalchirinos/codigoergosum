@@ -5,7 +5,7 @@ subtitle: >-
   importante, delegando o automatizando tareas.
 pubDate: '2025-07-23'
 heroImage: >-
-  /images/blog/la-regla-12-el-metodo-para-liberar-tiempo-y-enfocarte-en-lo-esencial/hero.png
+  /images/blog/2025/07/la-regla-12-el-metodo-para-liberar-tiempo-y-enfocarte-en-lo-esencial/hero.png
 author: Asdrúbal Chirinos
 tags:
   - productividad
@@ -17,7 +17,7 @@ slug: la-regla-12-el-metodo-para-liberar-tiempo-y-enfocarte-en-lo-esencial
 
 En un mundo donde la presión por ser productivos es constante, existe un principio sencillo pero revolucionario: la regla 1:2. Esta herramienta práctica propone que, por cada nueva tarea o proyecto que asumas (“uno que entra”), deberías delegar, automatizar o eliminar dos tareas actuales (“dos que salen”). Así no solo mantienes tu carga bajo control, sino que te aseguras de invertir tu energía en lo que realmente importa
 
-![](/images/blog/la-regla-12-el-metodo-para-liberar-tiempo-y-enfocarte-en-lo-esencial/hero.png)
+![](/images/blog/2025/07/la-regla-12-el-metodo-para-liberar-tiempo-y-enfocarte-en-lo-esencial/hero.png)
 
 ### ¿Por qué funciona?
 

@@ -1,7 +1,7 @@
 ---
 title: ¿Nostalgia de Norton Commander?
 pubDate: '2023-04-20'
-heroImage: /images/blog/nostalgia-de-norton-commander/hero.png
+heroImage: /images/blog/2023/04/nostalgia-de-norton-commander/hero.png
 author: Asdrúbal Chirinos
 tags:
   - nostalgia
@@ -11,7 +11,7 @@ slug: nostalgia-de-norton-commander
 
 Hola, amigos entusiastas de la consola. Si eres como yo y echas de menos aquellos viejos tiempos de Norton Commander, tengo fantásticas noticias para ti. He encontrado un moderno gestor de archivos de consola que te traerá de vuelta todos esos recuerdos nostálgicos, Se llama Midnight Commander, y es una verdadera alternativa a Norton Commander para usuarios de consola.
 
-![](/images/blog/nostalgia-de-norton-commander/hero.png)
+![](/images/blog/2023/04/nostalgia-de-norton-commander/hero.png)
 
 Y si! aunque Midnight Commander no es para nada nuevo, se que para muchos puede ser un gran y útil descubrimiento, sobre todo para aquellos que han estado alejado de la consola por mucho tiempo.
 

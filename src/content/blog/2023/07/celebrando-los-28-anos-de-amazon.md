@@ -1,7 +1,7 @@
 ---
 title: Celebrando los 28 años de Amazon
 pubDate: '2023-07-11'
-heroImage: /images/blog/celebrando-los-28-anos-de-amazon/hero.png
+heroImage: /images/blog/2023/07/celebrando-los-28-anos-de-amazon/hero.png
 author: Asdrúbal Chirinos
 tags:
   - emprendimiento
@@ -9,7 +9,7 @@ tags:
 slug: celebrando-los-28-anos-de-amazon
 ---
 
-![](/images/blog/celebrando-los-28-anos-de-amazon/hero.png)
+![](/images/blog/2023/07/celebrando-los-28-anos-de-amazon/hero.png)
 
 Disclaimer: El logo de Amazon utilizado en este artículo es propiedad de Amazon.com, Inc. Se utiliza únicamente con fines ilustrativos y no tenemos afiliación oficial con Amazon.com, Inc.
 

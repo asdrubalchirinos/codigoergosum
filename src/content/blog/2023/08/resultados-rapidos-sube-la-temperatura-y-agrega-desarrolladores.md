@@ -6,7 +6,7 @@ subtitle: >-
   cocina: el equilibrio es clave.
 pubDate: '2023-08-09'
 heroImage: >-
-  /images/blog/resultados-rapidos-sube-la-temperatura-y-agrega-desarrolladores/hero.jpeg
+  /images/blog/2023/08/resultados-rapidos-sube-la-temperatura-y-agrega-desarrolladores/hero.jpeg
 author: Asdrúbal Chirinos
 tags:
   - agile
@@ -19,7 +19,7 @@ En el ámbito de la gestión de proyectos, existe una idea equivocada común de 
 
 Qué estupidez hornear el pan a 350º durante 55 minutos cuando puedes simplemente sacar cuentas y ponerlo a 19250º durante un minuto.
 
-![](/images/blog/resultados-rapidos-sube-la-temperatura-y-agrega-desarrolladores/hero.jpeg)
+![](/images/blog/2023/08/resultados-rapidos-sube-la-temperatura-y-agrega-desarrolladores/hero.jpeg)
 
 Resultados rápidos: sube la temperatura y agrega desarrolladores. [Foto de Elle Hughes](https://www.pexels.com/photo/person-pulling-out-freshly-baked-bread-from-oven-5764070/)
 

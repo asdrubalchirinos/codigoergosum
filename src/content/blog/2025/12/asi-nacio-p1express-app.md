@@ -4,7 +4,7 @@ subtitle: >-
   Cómo una idea simple se convirtió en una herramienta mínima, privada y
   totalmente tuya
 pubDate: '2025-12-08'
-heroImage: /images/blog/asi-nacio-p1express-app/hero.png
+heroImage: /images/blog/2025/12/asi-nacio-p1express-app/hero.png
 author: Asdrúbal Chirinos
 featured: true
 tags:

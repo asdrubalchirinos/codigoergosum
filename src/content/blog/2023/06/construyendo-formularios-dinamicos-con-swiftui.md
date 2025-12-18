@@ -1,7 +1,7 @@
 ---
 title: Construyendo formularios dinámicos con SwiftUI
 pubDate: '2023-06-24'
-heroImage: /images/blog/construyendo-formularios-dinamicos-con-swiftui/hero.png
+heroImage: /images/blog/2023/06/construyendo-formularios-dinamicos-con-swiftui/hero.png
 author: Asdrúbal Chirinos
 tags:
   - mobile
@@ -35,7 +35,7 @@ Las vistas `TextField` están vinculadas a los elementos de la matriz `fieldValu
 
 Aplicamos el estilo `RoundedBorderTextFieldStyle()` para dar a nuestras vistas `TextField` una apariencia limpia y visualmente atractiva.
 
-![](/images/blog/construyendo-formularios-dinamicos-con-swiftui/hero.png)
+![](/images/blog/2023/06/construyendo-formularios-dinamicos-con-swiftui/hero.png)
 
 **Poniéndolo en acción**
 

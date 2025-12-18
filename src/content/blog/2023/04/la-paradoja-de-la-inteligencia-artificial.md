@@ -2,7 +2,7 @@
 title: La paradoja de la inteligencia artificial
 subtitle: 'Más eficacia, menos oportunidades para los desarrolladores'
 pubDate: '2023-04-21'
-heroImage: /images/blog/la-paradoja-de-la-inteligencia-artificial/hero.jpeg
+heroImage: /images/blog/2023/04/la-paradoja-de-la-inteligencia-artificial/hero.jpeg
 author: Asdrúbal Chirinos
 tags:
   - ia
@@ -11,7 +11,7 @@ tags:
 slug: la-paradoja-de-la-inteligencia-artificial
 ---
 
-![](/images/blog/la-paradoja-de-la-inteligencia-artificial/hero.jpeg)
+![](/images/blog/2023/04/la-paradoja-de-la-inteligencia-artificial/hero.jpeg)
 
 La inteligencia artificial (IA) es una tecnología en crecimiento que tiene muchos beneficios para los desarrolladores de software. Sin embargo, tengo la preocupación de que la IA podría reducir la cantidad de trabajos para los desarrolladores junior y tener implicaciones para la industria en su conjunto. En este artículo discutiré mi posición sobre el impacto de la IA en los desarrolladores, centrándose en la posible pérdida de puestos de trabajo para los desarrolladores inicialmente juniors y las posibles implicaciones para la industria.
 

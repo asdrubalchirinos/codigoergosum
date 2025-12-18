@@ -4,7 +4,8 @@ subtitle: >-
   Descubre por qué los Programadores 3.0 son expertos en múltiples lenguajes y
   cómo esta habilidad define el futuro de la tecnología.
 pubDate: '2023-09-14'
-heroImage: /images/blog/programadores-30-la-habilidad-de-ser-multilingues/hero.jpeg
+heroImage: >-
+  /images/blog/2023/09/programadores-30-la-habilidad-de-ser-multilingues/hero.jpeg
 author: Asdrúbal Chirinos
 tags:
   - carrera
@@ -14,7 +15,7 @@ tags:
 slug: programadores-30-la-habilidad-de-ser-multilingues
 ---
 
-![](/images/blog/programadores-30-la-habilidad-de-ser-multilingues/hero.jpeg)
+![](/images/blog/2023/09/programadores-30-la-habilidad-de-ser-multilingues/hero.jpeg)
 
 Habilidad camaleónica de un programador. Imagen generada por inteligencia artificial. [Ideogram.ai](https://ideogram.ai/g/NGzNi8aVSYifpz4_5mzEEQ/1). Prompt: Create an image of a chameleon-man in front of a laptop to symbolize the versatility of multilingual programmers. The chameleon-man should be vibrant and eye-catching, blending into the laptop as a metaphor for adapting to different programming languages. The image should be detailed and visually striking.
 

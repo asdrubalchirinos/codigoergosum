@@ -2,7 +2,7 @@
 title: Ahora nadie es influencer
 subtitle: 'Por qué influir sigue siendo clave para conectar ideas, personas y propósito.'
 pubDate: '2025-11-24'
-heroImage: /images/blog/ahora-nadie-es-influencer/hero.png
+heroImage: /images/blog/2025/11/ahora-nadie-es-influencer/hero.png
 author: Asdrúbal Chirinos
 featured: true
 tags:
@@ -13,7 +13,7 @@ tags:
 slug: ahora-nadie-es-influencer
 ---
 
-![](/images/blog/ahora-nadie-es-influencer/hero.png)
+![](/images/blog/2025/11/ahora-nadie-es-influencer/hero.png)
 
 Hace unos días tuve una interacción interesante con Freddy Vega, fundador y CEO de Platzi, alguien ampliamente reconocido en el mundo de la tecnología y la educación.
 
@@ -26,7 +26,7 @@ La frase me llamó la atención y me llevó a responder con una pregunta seria, 
 Su respuesta fue directa:
 **“No. Yo soy el fundador y CEO de Platzi.”**
 
-![](/images/blog/ahora-nadie-es-influencer/content-1.jpeg)
+![](/images/blog/2025/11/ahora-nadie-es-influencer/content-1.jpeg)
 
 ## El peso de la palabra influencer
 

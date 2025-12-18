@@ -4,7 +4,7 @@ subtitle: >-
   Impulsando la innovación y el crecimiento en un mundo tecnológico en constante
   cambio.
 pubDate: '2024-03-27'
-heroImage: /images/blog/la-trampa-del-si-no-esta-roto-no-lo-arregles/hero.jpeg
+heroImage: /images/blog/2024/03/la-trampa-del-si-no-esta-roto-no-lo-arregles/hero.jpeg
 author: Asdrúbal Chirinos
 tags:
   - devops
@@ -16,7 +16,7 @@ slug: la-trampa-del-si-no-esta-roto-no-lo-arregles
 
 "Si no está roto, no lo arregles" ha sido considerado durante mucho tiempo como un consejo pragmático para mantener sistemas funcionales. Sin embargo, en mi opinión, este es un pésimo consejo ya que invita a la complacencia y al estancamiento, restando espacio a la innovación. En una era marcada por los rápidos avances tecnológicos, adherirse ciegamente a esta "máxima" puede ser desastroso.
 
-![](/images/blog/la-trampa-del-si-no-esta-roto-no-lo-arregles/hero.jpeg)
+![](/images/blog/2024/03/la-trampa-del-si-no-esta-roto-no-lo-arregles/hero.jpeg)
 
 Imagen generada por Inteligencia Artificial. Copilot | Designer
 

@@ -1,14 +1,14 @@
 ---
 title: 'Tragedia en el Océano: Adiós al Titan'
 pubDate: '2023-06-22'
-heroImage: /images/blog/tragedia-en-el-oceano-adios-al-titan/hero.webp
+heroImage: /images/blog/2023/06/tragedia-en-el-oceano-adios-al-titan/hero.webp
 author: Asdrúbal Chirinos
 tags:
   - opinion
 slug: tragedia-en-el-oceano-adios-al-titan
 ---
 
-![](/images/blog/tragedia-en-el-oceano-adios-al-titan/hero.webp)
+![](/images/blog/2023/06/tragedia-en-el-oceano-adios-al-titan/hero.webp)
 
 En una reciente tragedia que ha conmocionado a la comunidad científica y de exploración submarina, los restos encontrados en el fondo del Atlántico Norte han sido confirmados como pertenecientes al submarino Titan de OceanGate, un vehículo diseñado para la exploración de las profundidades oceánicas. El incidente ha sido descrito por la Guardia Costera de los Estados Unidos como una "implosión catastrófica"​
 

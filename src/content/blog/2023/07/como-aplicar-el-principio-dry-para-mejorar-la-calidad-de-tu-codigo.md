@@ -2,7 +2,7 @@
 title: Cómo aplicar el principio DRY para mejorar la calidad de tu código
 pubDate: '2023-07-21'
 heroImage: >-
-  /images/blog/como-aplicar-el-principio-dry-para-mejorar-la-calidad-de-tu-codigo/hero.jpeg
+  /images/blog/2023/07/como-aplicar-el-principio-dry-para-mejorar-la-calidad-de-tu-codigo/hero.jpeg
 author: Asdrúbal Chirinos
 tags:
   - clean-code
@@ -11,7 +11,7 @@ tags:
 slug: como-aplicar-el-principio-dry-para-mejorar-la-calidad-de-tu-codigo
 ---
 
-![](/images/blog/como-aplicar-el-principio-dry-para-mejorar-la-calidad-de-tu-codigo/hero.jpeg)
+![](/images/blog/2023/07/como-aplicar-el-principio-dry-para-mejorar-la-calidad-de-tu-codigo/hero.jpeg)
 
 Imagen generada por Inteligencia Artificial. Bing Image Creator. Prompt: A forbidden sign with the figure of 3 men
 

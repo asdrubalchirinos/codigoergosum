@@ -1,7 +1,8 @@
 ---
 title: 'Desarrolladores vs. no-code: Una batalla de enfoques'
 pubDate: '2023-07-15'
-heroImage: /images/blog/desarrolladores-vs-no-code-una-batalla-de-enfoques/hero.jpeg
+heroImage: >-
+  /images/blog/2023/07/desarrolladores-vs-no-code-una-batalla-de-enfoques/hero.jpeg
 author: Asdrúbal Chirinos
 tags:
   - opinion
@@ -10,7 +11,7 @@ tags:
 slug: desarrolladores-vs-no-code-una-batalla-de-enfoques
 ---
 
-![](/images/blog/desarrolladores-vs-no-code-una-batalla-de-enfoques/hero.jpeg)
+![](/images/blog/2023/07/desarrolladores-vs-no-code-una-batalla-de-enfoques/hero.jpeg)
 
 Imagen generada por IA: Bing Image Creator. Prompt: Dual personality half developer and half a business person. Developer should look relax and casual. business person should look serious and formal. photo realistic
 

@@ -2,7 +2,7 @@
 title: ¿Para qué guardarlo en la memoria?
 subtitle: De la memorización al pensamiento crítico en la era de un internet ubicuo
 pubDate: '2024-05-10'
-heroImage: /images/blog/para-que-guardarlo-en-la-memoria/hero.png
+heroImage: /images/blog/2024/05/para-que-guardarlo-en-la-memoria/hero.png
 author: Asdrúbal Chirinos
 tags:
   - carrera
@@ -14,7 +14,7 @@ En la era actual, la capacidad de retener información en nuestra mente ya no es
 
 Imagina esta situación común: un programador experimentado se enfrenta a la tarea de validar direcciones de correo electrónico utilizando expresiones regulares. A pesar de su experiencia, recurre a una búsqueda rápida en Google para recordar el patrón exacto. Un amigo bromea diciendo: "¿Por qué molestarse en memorizarlo cuando puedes simplemente buscarlo en línea?". Esta anécdota reafirma un cambio significativo en el enfoque educativo y profesional en la era del internet ubicuo.
 
-![](/images/blog/para-que-guardarlo-en-la-memoria/hero.png)
+![](/images/blog/2024/05/para-que-guardarlo-en-la-memoria/hero.png)
 
 Hoy en día, el valor no radica en memorizar datos específicos, sino en comprender conceptos, aplicaciones y contextos más amplios. La disponibilidad instantánea de información nos permite concentrarnos en desarrollar habilidades de análisis, razonamiento y resolución de problemas. ¿Por qué deberíamos preocuparnos por recordar un dato cuando podemos acceder a él con unos pocos clicks?
 

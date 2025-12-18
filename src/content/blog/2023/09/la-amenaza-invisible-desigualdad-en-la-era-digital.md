@@ -4,14 +4,15 @@ subtitle: >-
   Explorando la brecha tecnológica en la sociedad actual y cómo abordarla para
   un futuro más equitativo.
 pubDate: '2023-09-07'
-heroImage: /images/blog/la-amenaza-invisible-desigualdad-en-la-era-digital/hero.jpeg
+heroImage: >-
+  /images/blog/2023/09/la-amenaza-invisible-desigualdad-en-la-era-digital/hero.jpeg
 author: Asdrúbal Chirinos
 tags:
   - ia
 slug: la-amenaza-invisible-desigualdad-en-la-era-digital
 ---
 
-![](/images/blog/la-amenaza-invisible-desigualdad-en-la-era-digital/hero.jpeg)
+![](/images/blog/2023/09/la-amenaza-invisible-desigualdad-en-la-era-digital/hero.jpeg)
 
 Asalto a robots de delivery. Imagen generada por inteligencia artificial. Ideogram.ai. Prompt: [a young punk smashing a delivery robot on the streets of a modern city, the robot is in pieces, the guy stole a box](https://ideogram.ai/g/v3LHV540Q4eFTPHfws53WQ/1)
 
@@ -25,7 +26,7 @@ El ataque y robo a los robots de delivery destaca un problema más grande y preo
 
 ### **Desigualdad Económica: El Verdadero Desafío**
 
-![](/images/blog/la-amenaza-invisible-desigualdad-en-la-era-digital/content-1.png)
+![](/images/blog/2023/09/la-amenaza-invisible-desigualdad-en-la-era-digital/content-1.png)
 
 El concepto de una sociedad altamente tecnológica pero dividida en clases sociales, como se ilustró en la película "Demolition Man", puede parecer lejano, pero la realidad nos demuestra que estamos avanzando en esa dirección. La brecha entre aquellos que han visto un incremento en su calidad de vida gracias a la tecnología y aquellos que luchan por adaptarse a estos cambios se amplía a un ritmo preocupante. La tecnología avanza, pero no todos la abrazan por igual. La desigualdad económica se convierte en una barrera insalvable para muchos.
 
@@ -47,7 +48,7 @@ Uno de los aspectos más críticos en el camino hacia una sociedad más justa en
 
 **Ingreso Básico Universal (UBI):** Esta idea ha estado ganando tracción en todo el mundo. Propone proporcionar a todos los ciudadanos un ingreso regular, independientemente de su situación económica o empleo. El UBI o Universal Basic Income, por sus siglas en inglés, no solo aliviaría la pobreza, sino que también proporcionaría un colchón financiero a medida que la automatización altera los patrones de empleo. Si bien se enfrenta a desafíos de financiamiento y diseño, el UBI representa una forma de garantizar que todos tengan acceso a una vida digna.
 
-![](/images/blog/la-amenaza-invisible-desigualdad-en-la-era-digital/content-2.jpeg)
+![](/images/blog/2023/09/la-amenaza-invisible-desigualdad-en-la-era-digital/content-2.jpeg)
 
 Elon Musk. UBI. Imagen generada por inteligencia artificial. Ideogram.ai.
 

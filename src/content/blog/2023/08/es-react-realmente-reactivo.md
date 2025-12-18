@@ -4,7 +4,7 @@ subtitle: >-
   Descubre si React es verdaderamente reactivo. Exploramos diferencias clave y
   cómo combinar enfoques para aplicaciones eficientes.
 pubDate: '2023-08-14'
-heroImage: /images/blog/es-react-realmente-reactivo/hero.jpeg
+heroImage: /images/blog/2023/08/es-react-realmente-reactivo/hero.jpeg
 author: Asdrúbal Chirinos
 tags:
   - javascript
@@ -12,7 +12,7 @@ tags:
 slug: es-react-realmente-reactivo
 ---
 
-![](/images/blog/es-react-realmente-reactivo/hero.jpeg)
+![](/images/blog/2023/08/es-react-realmente-reactivo/hero.jpeg)
 
 En el fascinante mundo del desarrollo de software, los conceptos a menudo pueden parecer similares, pero tienen diferencias fundamentales. Así como JavaScript no tiene nada que ver con Java, podemos encontrar otro ejemplo claro en relación entre React y la programación reactiva. En este artículo, desentrañaremos por qué React no es completamente reactivo y exploraremos las diferencias esenciales entre estos conceptos. Además, te proporcionaremos formas prácticas de adentrarte en el emocionante mundo de la programación reactiva.
 
@@ -39,7 +39,7 @@ La programación reactiva se centra en el manejo de secuencias de datos asíncro
 
 Si bien React y la programación reactiva son diferentes enfoques, no están reñidos entre sí. De hecho, pueden complementarse de manera efectiva para crear aplicaciones más robustas y sofisticadas. Al usar bibliotecas reactivas como RxJS junto con React, puedes aprovechar la potencia de los flujos de datos asincrónicos para manejar eventos en tiempo real y operaciones concurrentes, mientras aprovechas las ventajas de la eficiencia de representación de la interfaz de usuario de React.
 
-![](/images/blog/es-react-realmente-reactivo/content-1.webp)
+![](/images/blog/2023/08/es-react-realmente-reactivo/content-1.webp)
 
 #### **Ejemplo de Programación Reactiva con RxJS en React**
 

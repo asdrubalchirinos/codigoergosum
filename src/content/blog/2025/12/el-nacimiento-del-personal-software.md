@@ -1,12 +1,19 @@
 ---
 title: El nacimiento del Personal Software
-subtitle: 'Un movimiento que pone al Solver en el centro y devuelve a las personas el control creativo.'
+subtitle: >-
+  Un movimiento que pone al Solver en el centro y devuelve a las personas el
+  control creativo.
 pubDate: '2025-12-12'
-heroImage: /images/blog/el-nacimiento-del-personal-software/hero.png
+heroImage: /images/blog/2025/12/el-nacimiento-del-personal-software/hero.png
 author: Asdrúbal Chirinos
 featured: true
 draft: false
-tags: [tendencias, ia, motivacion, 'personal-software','solvers']
+tags:
+  - tendencias
+  - ia
+  - motivacion
+  - personal-software
+  - solvers
 slug: el-nacimiento-del-personal-software
 ---
 

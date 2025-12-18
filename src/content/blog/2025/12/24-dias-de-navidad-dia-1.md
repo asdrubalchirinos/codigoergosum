@@ -2,7 +2,7 @@
 title: 'Día 1 de 24: capitalizeFirst'
 subtitle: Las 24 funciones antes de navidad
 pubDate: '2025-12-01'
-heroImage: /images/blog/24-dias-de-navidad-dia-1/hero.png
+heroImage: /images/blog/2025/11/24-dias-de-navidad-dia-1/hero.png
 author: Asdrúbal Chirinos
 featured: true
 tags:

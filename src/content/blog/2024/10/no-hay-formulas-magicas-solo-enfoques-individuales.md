@@ -5,7 +5,8 @@ subtitle: >-
   sino de entender las motivaciones individuales de cada miembro del equipo para
   potenciar su rendimiento y compromiso.
 pubDate: '2024-10-18'
-heroImage: /images/blog/no-hay-formulas-magicas-solo-enfoques-individuales/hero.webp
+heroImage: >-
+  /images/blog/2024/10/no-hay-formulas-magicas-solo-enfoques-individuales/hero.webp
 author: Asdrúbal Chirinos
 tags:
   - liderazgo
@@ -16,7 +17,7 @@ slug: no-hay-formulas-magicas-solo-enfoques-individuales
 
 A menudo buscamos aplicar métodos y estrategias de manera universal en todo el equipo con la esperanza de obtener éxito. Sin embargo, liderar no es como seguir una receta de cocina; no existen fórmulas mágicas que funcionen de la misma manera para todos. Cada persona es única, con sus propias motivaciones, talentos y formas de trabajar.
 
-![](/images/blog/no-hay-formulas-magicas-solo-enfoques-individuales/hero.webp)
+![](/images/blog/2024/10/no-hay-formulas-magicas-solo-enfoques-individuales/hero.webp)
 
 ### El Arte de Conocer a Tu Equipo
 

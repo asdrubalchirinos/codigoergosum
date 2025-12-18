@@ -4,7 +4,7 @@ subtitle: >-
   Reconoce si eres rehén de tu propia empresa y aprende a romper las cadenas
   invisibles que te atan a un trabajo que no te valora.
 pubDate: '2024-06-28'
-heroImage: /images/blog/el-sindrome-de-estocolmo-laboral/hero.webp
+heroImage: /images/blog/2024/06/el-sindrome-de-estocolmo-laboral/hero.webp
 author: Asdrúbal Chirinos
 tags:
   - carrera
@@ -13,7 +13,7 @@ tags:
 slug: el-sindrome-de-estocolmo-laboral
 ---
 
-![](/images/blog/el-sindrome-de-estocolmo-laboral/hero.webp)
+![](/images/blog/2024/06/el-sindrome-de-estocolmo-laboral/hero.webp)
 
 A menudo dedicamos tiempo y esfuerzo considerables a nuestro trabajo, esperando que esto se vea reflejado en reconocimiento, oportunidades de crecimiento y una sensación de logro. Sin embargo, llega un momento crucial en el que debemos pausar y reflexionar sobre si la empresa para la que trabajamos realmente valora nuestras contribuciones y si está alineada con nuestros objetivos profesionales.
 

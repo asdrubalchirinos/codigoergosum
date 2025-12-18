@@ -1,14 +1,14 @@
 ---
 title: Recordando a Atari
 pubDate: '2023-06-27'
-heroImage: /images/blog/recordando-a-atari/hero.jpeg
+heroImage: /images/blog/2023/06/recordando-a-atari/hero.jpeg
 author: Asdrúbal Chirinos
 tags:
   - nostalgia
 slug: recordando-a-atari
 ---
 
-![](/images/blog/recordando-a-atari/hero.jpeg)
+![](/images/blog/2023/06/recordando-a-atari/hero.jpeg)
 
 [Foto por Kevin Bidwell de Pexels](https://www.pexels.com/es-es/foto/cartuchos-de-juego-1373100/)
 
@@ -30,6 +30,6 @@ Aunque Atari enfrentó desafíos y cambios a lo largo de los años, su legado si
 
 Atari no es solo una compañía de videojuegos para mí. Es una ventana a mi infancia, llena de risas, amistades y aventuras. Cada vez que veo el logotipo de Atari o escucho los sonidos de aquellos juegos clásicos, mi corazón se llena de nostalgia y gratitud. Gracias, Atari, por darme una experiencia inolvidable y por ser parte de mi historia personal en el apasionante mundo de los videojuegos.
 
-![](/images/blog/recordando-a-atari/content-1.jpeg)
+![](/images/blog/2023/06/recordando-a-atari/content-1.jpeg)
 
 Descargo de responsabilidad: El logo de Atari utilizado en este artículo es propiedad de Atari Interactive, Inc. Se utiliza únicamente con fines ilustrativos y referenciales. No estamos afiliados, respaldados ni patrocinados por Atari Interactive, Inc. Este artículo se basa en opiniones personales y no refleja necesariamente las opiniones o políticas de Atari Interactive, Inc. Se insta a los lectores a visitar el sitio web oficial de Atari para obtener información precisa y actualizada sobre la compañía y sus producto

@@ -4,7 +4,8 @@ subtitle: >-
   Descubre cómo los Headless CMS impulsan la flexibilidad y la eficiencia en el
   desarrollo web.
 pubDate: '2023-09-20'
-heroImage: /images/blog/los-headless-cms-transformando-el-desarrollo-web/hero.jpeg
+heroImage: >-
+  /images/blog/2023/09/los-headless-cms-transformando-el-desarrollo-web/hero.jpeg
 author: Asdrúbal Chirinos
 tags:
   - web
@@ -13,7 +14,7 @@ tags:
 slug: los-headless-cms-transformando-el-desarrollo-web
 ---
 
-![](/images/blog/los-headless-cms-transformando-el-desarrollo-web/hero.jpeg)
+![](/images/blog/2023/09/los-headless-cms-transformando-el-desarrollo-web/hero.jpeg)
 
 Los Headless CMS han ganado terreno en la industria de la tecnología debido a sus ventajas sobre los CMS tradicionales. En lugar de unir la gestión de contenido y la presentación en una sola plataforma, los Headless CMS separan la gestión de contenido de la presentación, permitiendo a los equipos de desarrollo centrarse en mejorar la experiencia del usuario sin limitarse por las restricciones de la plataforma de CMS.
 

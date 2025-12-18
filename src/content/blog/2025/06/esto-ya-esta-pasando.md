@@ -2,7 +2,7 @@
 title: Esto ya está pasando
 subtitle: 'La IA no viene por tu trabajo, viene por tu forma de trabajar.'
 pubDate: '2025-06-19'
-heroImage: /images/blog/esto-ya-esta-pasando/hero.png
+heroImage: /images/blog/2025/06/esto-ya-esta-pasando/hero.png
 author: Asdrúbal Chirinos
 tags:
   - ia
@@ -16,7 +16,7 @@ slug: esto-ya-esta-pasando
 
 Es una frase que escuchamos cada vez con mas frecuencia, y a menudo es acompañada de la gran pregunta: **¿pero cuándo?** Incluso personas con experiencia técnica tienden a imaginar este proceso como si fuera un interruptor: un día todo sigue igual, y al siguiente, la inteligencia artificial lo cambia todo.
 
-![](/images/blog/esto-ya-esta-pasando/hero.png)
+![](/images/blog/2025/06/esto-ya-esta-pasando/hero.png)
 
 Pero ahí esta el error. **No se trata de un momento único, de un antes y un después.**
 Es un proceso, y ya está en marcha. Está ocurriendo mientras lees estas líneas, mientras trabajas, mientras piensas en el futuro. No va a haber un “blip” a lo Thanos. No hay un evento que marque el inicio. Lo que hay es una transición silenciosa, constante, y que se acelera cada día.
@@ -78,4 +78,4 @@ No es el apocalipsis del desarrollo de software, sino el inicio de una nueva eta
 Por eso, lo importante no es resistirse ni paralizarse. Lo importante es **moverse**, aprender, adaptarse y estar dispuesto a reinventarse.
 Porque no hay duda: esto ya está pasando.
 
-![](/images/blog/esto-ya-esta-pasando/content-1.png)
+![](/images/blog/2025/06/esto-ya-esta-pasando/content-1.png)

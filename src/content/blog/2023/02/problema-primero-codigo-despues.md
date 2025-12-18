@@ -2,7 +2,7 @@
 title: 'Problema primero, código después'
 subtitle: La mejor práctica para programar
 pubDate: '2023-02-18'
-heroImage: /images/blog/problema-primero-codigo-despues/hero.jpeg
+heroImage: /images/blog/2023/02/problema-primero-codigo-despues/hero.jpeg
 author: Asdrúbal Chirinos
 tags:
   - clean-code
@@ -12,7 +12,7 @@ slug: problema-primero-codigo-despues
 
 ¿Ya tienes resuelto el problema? Si no es así, ¡detente!: no escribas una línea de código.
 
-![](/images/blog/problema-primero-codigo-despues/hero.jpeg)
+![](/images/blog/2023/02/problema-primero-codigo-despues/hero.jpeg)
 
 Como desarrollador, es fácil caer en la trampa de comenzar a escribir código tan pronto como se te presenta un problema. Después de todo, ¿no es esa nuestra tarea principal? No, la verdad no, nuestra tarea principal es resolver problemas, y el código es simplemente una herramienta para hacerlo.
 

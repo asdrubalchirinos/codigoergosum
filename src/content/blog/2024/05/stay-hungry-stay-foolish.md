@@ -2,7 +2,7 @@
 title: 'Stay Hungry, Stay Foolish'
 subtitle: La llamada de Steve Jobs a la mantener la curiosidad.
 pubDate: '2024-05-29'
-heroImage: /images/blog/stay-hungry-stay-foolish/hero.png
+heroImage: /images/blog/2024/05/stay-hungry-stay-foolish/hero.png
 author: Asdrúbal Chirinos
 tags:
   - emprendimiento
@@ -14,7 +14,7 @@ slug: stay-hungry-stay-foolish
 
 Steve Jobs, el cofundador de Apple y uno de los empresarios más influyentes del mundo, pronunció un discurso [memorable en la Universidad de Stanford en 2005.](https://www.youtube.com/watch?v=UF8uR6Z6KLc) Durante su discurso, Jobs compartió su historia personal y sus reflexiones sobre la vida, el trabajo y la muerte. Una de las citas más memorables de su discurso fue "Stay hungry, stay foolish", la cual ha inspirado a muchos desde entonces.
 
-![Steve Jobs PNG](/images/blog/stay-hungry-stay-foolish/288a1936-c82f-45c6-83c1-ffa0e17c94fe_2163x2000.png "Steve Jobs PNG")
+![Steve Jobs PNG](/images/blog/2024/05/stay-hungry-stay-foolish/288a1936-c82f-45c6-83c1-ffa0e17c94fe_2163x2000.png "Steve Jobs PNG")
 
 Steve Jobs. 1955 - 2011
 
@@ -22,7 +22,7 @@ Curiosamente, esta frase "Stay hungry, stay foolish" no fue acuñada originalmen
 
 La frase "Stay hungry, stay foolish" apareció en la contraportada de la edición final de la revista, junto a una fotografía de un camino rural. La frase se convirtió en un lema para la cultura de Silicon Valley y para los jóvenes emprendedores que buscaban cambiar el mundo con sus ideas.
 
-![Stay hungry, stay foolish](/images/blog/stay-hungry-stay-foolish/5e04d2a6-f37b-4e9c-a4e7-de5c45baeee6_820x513.jpeg "Stay hungry, stay foolish")
+![Stay hungry, stay foolish](/images/blog/2024/05/stay-hungry-stay-foolish/5e04d2a6-f37b-4e9c-a4e7-de5c45baeee6_820x513.jpeg "Stay hungry, stay foolish")
 
 #### ¿Qué importancia tenía para Steve Jobs?
 

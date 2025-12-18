@@ -5,7 +5,7 @@ subtitle: >-
   aprendizaje constante, abrazar los errores como oportunidades y cultivar la
   humildad son clave para seguir creciendo.
 pubDate: '2024-06-19'
-heroImage: /images/blog/aun-hay-oportunidad-para-mas-errores/hero.png
+heroImage: /images/blog/2024/06/aun-hay-oportunidad-para-mas-errores/hero.png
 author: Asdrúbal Chirinos
 tags:
   - carrera
@@ -17,7 +17,7 @@ slug: aun-hay-oportunidad-para-mas-errores
 
 Muchos de nosotros tenemos la tendencia de creer que una vez que alcanzamos un cierto nivel de experiencia en un área, somos "expertos" y lo sabemos todo. Sin embargo, esta mentalidad puede ser peligrosa y limitante. La expresión ***"Experto es el que ha cometido todos los errores posibles en un área"** s*ugiere que una vez que hemos cometido cada error imaginable, entonces podemos considerarnos expertos. Pero la realidad es que el aprendizaje es un proceso interminable, y siempre hay oportunidad para más errores y más crecimiento.
 
-![](/images/blog/aun-hay-oportunidad-para-mas-errores/hero.png)
+![](/images/blog/2024/06/aun-hay-oportunidad-para-mas-errores/hero.png)
 
 #### Un mundo en constante cambio
 

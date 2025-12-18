@@ -7,7 +7,7 @@ subtitle: >-
   por qué es crucial adaptarse a esta nueva era tecnológica.
 pubDate: '2025-05-24'
 heroImage: >-
-  /images/blog/adios-a-los-devs-la-agentic-ai-esta-cambiando-la-industria-y-eso-es-innegable/hero.jpeg
+  /images/blog/2025/05/adios-a-los-devs-la-agentic-ai-esta-cambiando-la-industria-y-eso-es-innegable/hero.jpeg
 author: Asdrúbal Chirinos
 tags:
   - ia
@@ -46,7 +46,7 @@ Es un **hecho** que redefine lo que significa ser desarrollador.
 
 ## Realidad indetenible
 
-![Microsoft Build 2025: All the big AI announcements you need to know - Tech Startups](/images/blog/adios-a-los-devs-la-agentic-ai-esta-cambiando-la-industria-y-eso-es-innegable/75935f1f-f553-4933-ae5e-9b39356e4726_960x632.jpeg "Microsoft Build 2025: All the big AI announcements you need to know - Tech Startups")
+![Microsoft Build 2025: All the big AI announcements you need to know - Tech Startups](/images/blog/2025/05/adios-a-los-devs-la-agentic-ai-esta-cambiando-la-industria-y-eso-es-innegable/75935f1f-f553-4933-ae5e-9b39356e4726_960x632.jpeg "Microsoft Build 2025: All the big AI announcements you need to know - Tech Startups")
 
 Hablemos claro: la llegada de la IA Agéntica, es decir, **inteligencia artificial autónoma**, no es ciencia ficción ni futurismo.
 **Ya está aquí.**
@@ -66,7 +66,7 @@ Tampoco que la demanda se derrumbará de un día para otro.
 
 ## La redefinición del rol del desarrollador
 
-![Tech Chilli: "Dario Amodei Net Worth, CEO of…" - Mastodon](/images/blog/adios-a-los-devs-la-agentic-ai-esta-cambiando-la-industria-y-eso-es-innegable/e3f3116f-1e91-4b8c-8166-914f8b5d4097_800x400.png "Tech Chilli: "Dario Amodei Net Worth, CEO of…" - Mastodon")
+![Tech Chilli: "Dario Amodei Net Worth, CEO of…" - Mastodon](/images/blog/2025/05/adios-a-los-devs-la-agentic-ai-esta-cambiando-la-industria-y-eso-es-innegable/e3f3116f-1e91-4b8c-8166-914f8b5d4097_800x400.png "Tech Chilli: "Dario Amodei Net Worth, CEO of…" - Mastodon")
 
 > “Los desarrolladores humanos pasarán gradualmente a gestionar una "flota de agentes" que pueden ser enviados para realizar diversas tareas.” — [Dario Amodei](https://www.youtube.com/watch?v=EvtPBaaykdo&t=5048s)
 

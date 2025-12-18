@@ -5,14 +5,14 @@ subtitle: >-
   informática.
 pubDate: '2023-09-13'
 heroImage: >-
-  /images/blog/celebrando-el-legado-de-ada-lovelace-en-el-dia-del-programador/hero.jpeg
+  /images/blog/2023/09/celebrando-el-legado-de-ada-lovelace-en-el-dia-del-programador/hero.jpeg
 author: Asdrúbal Chirinos
 tags:
   - ia
 slug: celebrando-el-legado-de-ada-lovelace-en-el-dia-del-programador
 ---
 
-![](/images/blog/celebrando-el-legado-de-ada-lovelace-en-el-dia-del-programador/hero.jpeg)
+![](/images/blog/2023/09/celebrando-el-legado-de-ada-lovelace-en-el-dia-del-programador/hero.jpeg)
 
 Homenaje a Ada Lovelace en el Día del Programador. Imagen creada por inteligencia artificial. Ideogram.ai
 

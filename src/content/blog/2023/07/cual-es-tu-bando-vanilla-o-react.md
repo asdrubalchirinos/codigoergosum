@@ -1,7 +1,7 @@
 ---
 title: ¿Cuál es tu bando? Vanilla o React
 pubDate: '2023-07-01'
-heroImage: /images/blog/cual-es-tu-bando-vanilla-o-react/hero.jpeg
+heroImage: /images/blog/2023/06/cual-es-tu-bando-vanilla-o-react/hero.jpeg
 author: Asdrúbal Chirinos
 tags:
   - javascript
@@ -15,7 +15,7 @@ En esta ocasión, nos adentramos en una entretenida discusión ficticia entre do
 
 ¡Acompáñanos a descubrir que resulta de esta discusión!
 
-![](/images/blog/cual-es-tu-bando-vanilla-o-react/hero.jpeg)
+![](/images/blog/2023/06/cual-es-tu-bando-vanilla-o-react/hero.jpeg)
 
 [Foto por fauxels de Pexels](https://www.pexels.com/photo/photo-of-man-holding-pen-3182752/)
 

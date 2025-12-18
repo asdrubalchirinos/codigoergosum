@@ -4,7 +4,7 @@ subtitle: >-
   Descubre por qué hacer preguntas es esencial en el desarrollo de software.
   Evita suposiciones, logra claridad y promueve la excelencia.
 pubDate: '2023-08-23'
-heroImage: /images/blog/dominando-el-arte-de-preguntar/hero.jpeg
+heroImage: /images/blog/2023/08/dominando-el-arte-de-preguntar/hero.jpeg
 author: Asdrúbal Chirinos
 tags:
   - soft-skills
@@ -12,7 +12,7 @@ tags:
 slug: dominando-el-arte-de-preguntar
 ---
 
-![](/images/blog/dominando-el-arte-de-preguntar/hero.jpeg)
+![](/images/blog/2023/08/dominando-el-arte-de-preguntar/hero.jpeg)
 
 El arte de preguntar. [Foto de Beyzaa Yurtkuran](https://www.pexels.com/photo/a-person-solving-a-crossword-puzzle-13533591/)
 

@@ -1,7 +1,7 @@
 ---
 title: 'Kindle: No apta para desarrolladores'
 pubDate: '2023-04-10'
-heroImage: /images/blog/kindle-no-apta-para-desarrolladores/hero.jpeg
+heroImage: /images/blog/2023/04/kindle-no-apta-para-desarrolladores/hero.jpeg
 author: Asdrúbal Chirinos
 tags:
   - carrera
@@ -9,7 +9,7 @@ tags:
 slug: kindle-no-apta-para-desarrolladores
 ---
 
-![](/images/blog/kindle-no-apta-para-desarrolladores/hero.jpeg)
+![](/images/blog/2023/04/kindle-no-apta-para-desarrolladores/hero.jpeg)
 
 ¡Amo a mi Kindle, pero la odio! Como desarrollador, siempre estoy buscando maneras de mejorar mi habilidades, y uno de los métodos que uso es leyendo libros sobre programación. Me encanta leer y siempre tengo mi Kindle a mano, pero cuando se trata de libros de programación, mi amor por mi Kindle se convierte en odio.
 

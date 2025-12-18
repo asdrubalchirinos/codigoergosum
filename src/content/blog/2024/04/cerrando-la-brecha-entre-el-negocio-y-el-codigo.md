@@ -2,7 +2,7 @@
 title: Cerrando la brecha entre el negocio y el código
 subtitle: Estrategias prácticas para fusionar visión empresarial y tecnología
 pubDate: '2024-04-29'
-heroImage: /images/blog/cerrando-la-brecha-entre-el-negocio-y-el-codigo/hero.png
+heroImage: /images/blog/2024/04/cerrando-la-brecha-entre-el-negocio-y-el-codigo/hero.png
 author: Asdrúbal Chirinos
 tags:
   - liderazgo
@@ -11,7 +11,7 @@ tags:
 slug: cerrando-la-brecha-entre-el-negocio-y-el-codigo
 ---
 
-![](/images/blog/cerrando-la-brecha-entre-el-negocio-y-el-codigo/hero.png)
+![](/images/blog/2024/04/cerrando-la-brecha-entre-el-negocio-y-el-codigo/hero.png)
 
 > El mundo de los negocios está pasando por una transformación fascinante de las cosas a los servicios, y, en el futuro, todas las empresas serán empresas de software. ***Satya Nadella***
 

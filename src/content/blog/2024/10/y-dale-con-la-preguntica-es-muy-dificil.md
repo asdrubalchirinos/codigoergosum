@@ -2,7 +2,7 @@
 title: ¡Y Dale con la Preguntica! "¿Es Muy Difícil?"
 subtitle: La Frustrante Simplificación del Desarrollo de Software
 pubDate: '2024-10-22'
-heroImage: /images/blog/y-dale-con-la-preguntica-es-muy-dificil/hero.webp
+heroImage: /images/blog/2024/10/y-dale-con-la-preguntica-es-muy-dificil/hero.webp
 author: Asdrúbal Chirinos
 tags:
   - devops
@@ -14,7 +14,7 @@ slug: y-dale-con-la-preguntica-es-muy-dificil
 
 Como desarrollador, hay pocas cosas más molestas que escuchar la pregunta: "¿Es muy difícil…?" Cuando alguien solicita una nueva funcionalidad, un ajuste en el sistema o cualquier tarea relacionada con el desarrollo de software, esta pregunta puede resultar frustrante. Aunque puede parecer inofensiva, para quienes trabajamos en tecnología, es simplificada y vaga. ¿Qué significa exactamente "difícil"? ¿Difícil para quién? ¿Difícil en qué sentido?
 
-![](/images/blog/y-dale-con-la-preguntica-es-muy-dificil/hero.webp)
+![](/images/blog/2024/10/y-dale-con-la-preguntica-es-muy-dificil/hero.webp)
 
 La realidad es que la complejidad y el esfuerzo no siempre son sinónimos de "difícil", y ahí es donde surge la confusión.
 

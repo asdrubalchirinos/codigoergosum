@@ -2,7 +2,7 @@
 title: La peligrosa jerarquía entre ingenieros y desarrolladores de software
 pubDate: '2023-02-17'
 heroImage: >-
-  /images/blog/la-peligrosa-jerarquia-entre-ingenieros-y-desarrolladores-de-software/hero.jpeg
+  /images/blog/2023/02/la-peligrosa-jerarquia-entre-ingenieros-y-desarrolladores-de-software/hero.jpeg
 author: Asdrúbal Chirinos
 tags:
   - carrera
@@ -15,7 +15,7 @@ En la industria del software, existe un debate en curso sobre si la programació
 
 Personalmente, considero que la programación es un oficio valioso en la industria del software. Si bien la educación formal y la comprensión teórica son importantes, la práctica y la experiencia son esenciales para perfeccionar las habilidades de programación.
 
-![](/images/blog/la-peligrosa-jerarquia-entre-ingenieros-y-desarrolladores-de-software/hero.jpeg)
+![](/images/blog/2023/02/la-peligrosa-jerarquia-entre-ingenieros-y-desarrolladores-de-software/hero.jpeg)
 
 Sin embargo, debemos tener mucho cuidado al estimular esta división entre ingenieros y desarrolladores de software, ya que al segregar los ingenieros de software de los desarrolladores, podemos incentivar una jerarquía de poder que puede llevar a la falta de respeto y consideración hacia los desarrolladores de software. Además, puede generar resentimiento y desmotivación entre los desarrolladores, quienes pueden sentir que su trabajo no es valorado.
 

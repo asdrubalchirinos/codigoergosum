@@ -1,7 +1,7 @@
 ---
 title: 'No necesitas más tiempo, necesitas concentración'
 pubDate: '2023-07-20'
-heroImage: /images/blog/no-necesitas-mas-tiempo-necesitas-concentracion/hero.jpeg
+heroImage: /images/blog/2023/07/no-necesitas-mas-tiempo-necesitas-concentracion/hero.jpeg
 author: Asdrúbal Chirinos
 tags:
   - productividad
@@ -9,7 +9,7 @@ tags:
 slug: no-necesitas-mas-tiempo-necesitas-concentracion
 ---
 
-![](/images/blog/no-necesitas-mas-tiempo-necesitas-concentracion/hero.jpeg)
+![](/images/blog/2023/07/no-necesitas-mas-tiempo-necesitas-concentracion/hero.jpeg)
 
 Imagen generada por IA: [Bing Image Creator](https://www.bing.com/images/create). Prompt: A person coding on a laptop with a small sand clock near by.
 

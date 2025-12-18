@@ -4,7 +4,7 @@ subtitle: >-
   Aprende a aplicar el consejo iterativo: busca orientación de quienes están 1 o
   2 pasos adelante. Avanza con soluciones prácticas y pasos pequeños.
 pubDate: '2024-11-18'
-heroImage: /images/blog/el-poder-del-consejo-iterativo/hero.png
+heroImage: /images/blog/2024/11/el-poder-del-consejo-iterativo/hero.png
 author: Asdrúbal Chirinos
 tags:
   - carrera
@@ -22,7 +22,7 @@ Jobs hablaba de crear productos que cambiaran el mundo, pero, ¿qué pasa cuando
 
 Se trata de buscar orientación de personas que estén solo un paso o dos por delante de ti. **¿Por qué?** Porque estas personas han enfrentado desafíos similares muy recientemente y pueden ofrecerte soluciones frescas y prácticas que realmente puedes aplicar ahora.
 
-![](/images/blog/el-poder-del-consejo-iterativo/hero.png)
+![](/images/blog/2024/11/el-poder-del-consejo-iterativo/hero.png)
 
 Imagina que estás desarrollando tu primera app. Pedirle a un CTO con años de experiencia consejos sobre cómo escalar sistemas globalmente puede sonar interesante, pero no te va a ayudar a decidir cómo organizar tu proyecto ni a resolver ese primer bug complicado.
 

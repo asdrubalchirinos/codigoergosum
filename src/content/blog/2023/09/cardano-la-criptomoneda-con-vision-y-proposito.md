@@ -4,7 +4,7 @@ subtitle: >-
   Descubre Cardano y su revolucionario protocolo Ouroboros: criptomoneda con
   visión y propósito.
 pubDate: '2023-09-08'
-heroImage: /images/blog/cardano-la-criptomoneda-con-vision-y-proposito/hero.jpeg
+heroImage: /images/blog/2023/09/cardano-la-criptomoneda-con-vision-y-proposito/hero.jpeg
 author: Asdrúbal Chirinos
 tags:
   - criptomonedas
@@ -12,7 +12,7 @@ tags:
 slug: cardano-la-criptomoneda-con-vision-y-proposito
 ---
 
-![](/images/blog/cardano-la-criptomoneda-con-vision-y-proposito/hero.jpeg)
+![](/images/blog/2023/09/cardano-la-criptomoneda-con-vision-y-proposito/hero.jpeg)
 
 Cardano, una plataforma de blockchain que lleva el nombre del matemático italiano Gerolamo Cardano, se ha convertido en un nombre destacado en el mundo de las criptomonedas desde su fundación en 2017. Su misión es nada menos que revolucionar el panorama financiero global, democratizando el poder y promoviendo la seguridad, la transparencia y la justicia en la sociedad.
 

@@ -2,7 +2,7 @@
 title: ¿Cansado de try/catch?
 subtitle: Manejo limpio de errores en JavaScript reduciendo el uso del try/catch
 pubDate: '2025-05-29'
-heroImage: /images/blog/cansado-de-trycatch/hero.png
+heroImage: /images/blog/2025/05/cansado-de-trycatch/hero.png
 author: Asdrúbal Chirinos
 tags:
   - javascript
@@ -11,7 +11,7 @@ tags:
 slug: cansado-de-trycatch
 ---
 
-![JavaScript Banner](/images/blog/cansado-de-trycatch/a8f92ba8-79fe-427e-9a69-b354f5176657_1000x420.png "JavaScript Banner")
+![JavaScript Banner](/images/blog/2025/05/cansado-de-trycatch/a8f92ba8-79fe-427e-9a69-b354f5176657_1000x420.png "JavaScript Banner")
 
 Una queja común entre quienes escribimos JavaScript es lo rápido que los bloques try/catch invaden nuestro código, especialmente al trabajar con lógica asíncrona o funciones que pueden fallar.
 
@@ -129,4 +129,4 @@ No te exime del manejo de errores, pero te da un marco más limpio para hacerlo.
 
 En un lenguaje tan flexible (y caótico) como *JavaScript*, vale la pena encontrar patrones que te den orden sin perder libertad.
 
-![](/images/blog/cansado-de-trycatch/content-1.png)
+![](/images/blog/2025/05/cansado-de-trycatch/content-1.png)

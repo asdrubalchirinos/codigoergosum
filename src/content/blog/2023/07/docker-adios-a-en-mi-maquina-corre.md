@@ -1,7 +1,7 @@
 ---
 title: 'Docker: Adiós a "En mi máquina corre"'
 pubDate: '2023-07-07'
-heroImage: /images/blog/docker-adios-a-en-mi-maquina-corre/hero.jpeg
+heroImage: /images/blog/2023/07/docker-adios-a-en-mi-maquina-corre/hero.jpeg
 author: Asdrúbal Chirinos
 tags:
   - devops
@@ -9,7 +9,7 @@ tags:
 slug: docker-adios-a-en-mi-maquina-corre
 ---
 
-![](/images/blog/docker-adios-a-en-mi-maquina-corre/hero.jpeg)
+![](/images/blog/2023/07/docker-adios-a-en-mi-maquina-corre/hero.jpeg)
 
 [Foto de Ian Taylor en Unsplash](https://unsplash.com/photos/jOqJbvo1P9g)
 

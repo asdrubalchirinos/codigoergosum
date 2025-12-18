@@ -1,7 +1,7 @@
 ---
 title: 'IA: Liberadora de la Esencia Humana'
 pubDate: '2023-07-19'
-heroImage: /images/blog/ia-liberadora-de-la-esencia-humana/hero.jpeg
+heroImage: /images/blog/2023/07/ia-liberadora-de-la-esencia-humana/hero.jpeg
 author: Asdrúbal Chirinos
 tags:
   - ia
@@ -11,7 +11,7 @@ tags:
 slug: ia-liberadora-de-la-esencia-humana
 ---
 
-![](/images/blog/ia-liberadora-de-la-esencia-humana/hero.jpeg)
+![](/images/blog/2023/07/ia-liberadora-de-la-esencia-humana/hero.jpeg)
 
 Imagen generada por IA: Bing Image Creator. Prompt: An open door with a bright light emanating from it, while a person walks toward the horizon
 

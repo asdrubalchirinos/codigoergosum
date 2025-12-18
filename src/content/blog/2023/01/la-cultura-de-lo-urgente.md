@@ -2,7 +2,7 @@
 title: La cultura de lo urgente
 subtitle: ¿Cómo mejorar nuestra gestión del tiempo en la empresa?
 pubDate: '2023-01-24'
-heroImage: /images/blog/la-cultura-de-lo-urgente/hero.png
+heroImage: /images/blog/2023/01/la-cultura-de-lo-urgente/hero.png
 author: Asdrúbal Chirinos
 tags:
   - productividad
@@ -12,7 +12,7 @@ slug: la-cultura-de-lo-urgente
 
 En la mayoría de las empresas, es común encontrar una cultura en la que gran parte del tiempo se dedica a trabajar en el cuadrante de lo urgente e importante. Este enfoque reactivo puede ser necesario en algunos casos, pero convertirlo en la norma puede impedir la planificación adecuada de nuestras actividades y nuestros objetivos a largo plazo.
 
-![](/images/blog/la-cultura-de-lo-urgente/hero.png)
+![](/images/blog/2023/01/la-cultura-de-lo-urgente/hero.png)
 
 Según la metodología de los 4 cuadrantes de *Stephen Covey*, este cuadrante representa las tareas que son inmediatas y necesarias (apagar fuegos), pero no necesariamente significativas. Esta metodología se enfoca en clasificar las tareas en cuatro categorías: importantes y urgentes, importantes pero no urgentes, no importantes pero urgentes, y no importantes ni urgentes. El objetivo es enfocarse en las tareas del segundo cuadrante, las importantes pero no urgentes, ya que son las que contribuyen a nuestros objetivos a largo plazo.
 

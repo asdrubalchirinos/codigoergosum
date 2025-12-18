@@ -2,7 +2,7 @@
 title: Los 4 Pilares de la Programación Orientada a Objetos (POO)
 pubDate: '2023-08-03'
 heroImage: >-
-  /images/blog/los-4-pilares-de-la-programacion-orientada-a-objetos-poo/hero.jpeg
+  /images/blog/2023/08/los-4-pilares-de-la-programacion-orientada-a-objetos-poo/hero.jpeg
 author: Asdrúbal Chirinos
 tags:
   - poo
@@ -13,7 +13,7 @@ slug: los-4-pilares-de-la-programacion-orientada-a-objetos-poo
 
 La Programación Orientada a Objetos (POO) es un paradigma de programación que permite organizar el código de manera más estructurada y modular, facilitando la creación y mantenimiento de sistemas complejos. En la POO, existen cuatro pilares fundamentales que son clave para comprender cómo se estructuran los programas y cómo interactúan los objetos entre sí. Estos pilares son: **Abstracción, Encapsulación, Herencia y Polimorfismo**. En este artículo, explicaremos cada uno de ellos utilizando ejemplos en C# de fácil comprensión.
 
-![](/images/blog/los-4-pilares-de-la-programacion-orientada-a-objetos-poo/hero.jpeg)
+![](/images/blog/2023/08/los-4-pilares-de-la-programacion-orientada-a-objetos-poo/hero.jpeg)
 
 **Los cuatro (4) pilares de la POO: Abstracción, Encapsulación, Herencia y Polimorfismo**.
 

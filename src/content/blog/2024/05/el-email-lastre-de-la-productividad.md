@@ -2,7 +2,7 @@
 title: 'El Email: Lastre de la productividad'
 subtitle: Cómo una herramienta revolucionaria se convirtió en una maldición
 pubDate: '2024-05-24'
-heroImage: /images/blog/el-email-lastre-de-la-productividad/hero.png
+heroImage: /images/blog/2024/05/el-email-lastre-de-la-productividad/hero.png
 author: Asdrúbal Chirinos
 tags:
   - productividad
@@ -12,7 +12,7 @@ slug: el-email-lastre-de-la-productividad
 
 En sus inicios, el correo electrónico fue toda una revolución para la comunicación. Pero tres décadas después, esa herramienta pionera del internet se ha convertido en un lastre tecnológico.
 
-![](/images/blog/el-email-lastre-de-la-productividad/hero.png)
+![](/images/blog/2024/05/el-email-lastre-de-la-productividad/hero.png)
 
 #### Confesión incómoda
 

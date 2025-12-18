@@ -4,7 +4,7 @@ subtitle: >-
   Explora la complejidad real del desarrollo web. Descubre cómo los frameworks
   modernos y las arquitecturas backend van más allá de HTML, CSS y CRUD.
 pubDate: '2024-09-06'
-heroImage: /images/blog/la-eterna-discusion-entre-frontend-y-backend/hero.webp
+heroImage: /images/blog/2024/09/la-eterna-discusion-entre-frontend-y-backend/hero.webp
 author: Asdrúbal Chirinos
 tags:
   - backend
@@ -14,7 +14,7 @@ slug: la-eterna-discusion-entre-frontend-y-backend
 
 En el desarrollo web, es común encontrar una percepción simplificada de estas disciplinas. Mientras algunos creen que el frontend es solo HTML y CSS, otros ven el backend como una mera implementación de operaciones CRUD. Sin embargo, esta visión reduccionista no refleja las verdaderas complejidades de cada campo.
 
-![](/images/blog/la-eterna-discusion-entre-frontend-y-backend/hero.webp)
+![](/images/blog/2024/09/la-eterna-discusion-entre-frontend-y-backend/hero.webp)
 
 ### **El Frontend: Más Allá del HTML y CSS**
 

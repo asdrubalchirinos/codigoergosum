@@ -1,7 +1,7 @@
 ---
 title: Hábitos para ser un mejor desarrollador
 pubDate: '2023-03-08'
-heroImage: /images/blog/habitos-para-ser-un-mejor-desarrollador/hero.jpeg
+heroImage: /images/blog/2023/03/habitos-para-ser-un-mejor-desarrollador/hero.jpeg
 author: Asdrúbal Chirinos
 tags:
   - productividad
@@ -9,7 +9,7 @@ tags:
 slug: habitos-para-ser-un-mejor-desarrollador
 ---
 
-![](/images/blog/habitos-para-ser-un-mejor-desarrollador/hero.jpeg)
+![](/images/blog/2023/03/habitos-para-ser-un-mejor-desarrollador/hero.jpeg)
 
 Habla con tú patito de goma. Imagen generada por inteligencia artificial. ideogram.ia. Prompt: A rubber duck swimming in pool wearing sunglasses., painting, poster, illustration
 

@@ -4,7 +4,7 @@ subtitle: >-
   Descubre estrategias efectivas para eliminar el exceso de IF en tu código y
   mejorar su claridad y mantenibilidad.
 pubDate: '2023-09-27'
-heroImage: /images/blog/los-if-son-malvados/hero.jpeg
+heroImage: /images/blog/2023/09/los-if-son-malvados/hero.jpeg
 author: Asdrúbal Chirinos
 tags:
   - clean-code
@@ -12,7 +12,7 @@ tags:
 slug: los-if-son-malvados
 ---
 
-![](/images/blog/los-if-son-malvados/hero.jpeg)
+![](/images/blog/2023/09/los-if-son-malvados/hero.jpeg)
 
 Las declaraciones condicionales, a menudo conocidas como "IF" en la programación, son una parte fundamental de los lenguajes de programación. Nos permiten tomar decisiones y controlar el flujo de nuestro código. Sin embargo, el abuso de las declaraciones IF puede llevar a un código difícil de leer, mantener y depurar. En este artículo, exploraremos diversas estrategias para evitar el uso y el abuso de las declaraciones IF, y por qué es esencial hacerlo.
 

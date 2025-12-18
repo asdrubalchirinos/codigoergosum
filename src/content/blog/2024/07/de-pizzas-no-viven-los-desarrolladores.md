@@ -4,7 +4,7 @@ subtitle: >-
   Descubre por qué la "estrategia de la pizza" deja a los desarrolladores con
   hambre de algo más que pepperoni.
 pubDate: '2024-07-24'
-heroImage: /images/blog/de-pizzas-no-viven-los-desarrolladores/hero.webp
+heroImage: /images/blog/2024/07/de-pizzas-no-viven-los-desarrolladores/hero.webp
 author: Asdrúbal Chirinos
 tags:
   - motivacion
@@ -15,7 +15,7 @@ slug: de-pizzas-no-viven-los-desarrolladores
 
 En el mundo del desarrollo de software, es común encontrar empresas que utilizan la "estrategia de la pizza" para motivar a sus desarrolladores a trabajar horas extras. Aunque la idea de disfrutar una pizza caliente después de un largo día de trabajo puede parecer tentadora, esta práctica aparentemente inofensiva oculta problemas más profundos que afectan tanto a los empleados como a la gestión de proyectos.
 
-![](/images/blog/de-pizzas-no-viven-los-desarrolladores/hero.webp)
+![](/images/blog/2024/07/de-pizzas-no-viven-los-desarrolladores/hero.webp)
 
 ## Impacto en la Moral de los Desarrolladores
 

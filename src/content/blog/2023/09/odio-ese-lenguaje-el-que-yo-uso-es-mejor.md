@@ -4,7 +4,7 @@ subtitle: >-
   Fanatismo vs. Pragmatismo: Rompe con los prejuicios hacia los lenguajes de
   programación. Aprende a seleccionar la mejor herramienta para el trabajo.
 pubDate: '2023-09-25'
-heroImage: /images/blog/odio-ese-lenguaje-el-que-yo-uso-es-mejor/hero.jpeg
+heroImage: /images/blog/2023/09/odio-ese-lenguaje-el-que-yo-uso-es-mejor/hero.jpeg
 author: Asdrúbal Chirinos
 tags:
   - python
@@ -14,7 +14,7 @@ tags:
 slug: odio-ese-lenguaje-el-que-yo-uso-es-mejor
 ---
 
-![](/images/blog/odio-ese-lenguaje-el-que-yo-uso-es-mejor/hero.jpeg)
+![](/images/blog/2023/09/odio-ese-lenguaje-el-que-yo-uso-es-mejor/hero.jpeg)
 
 ¿Qué lenguajes llevas en tu caja de herramientas?. Imagen creada por inteligencia artificial. Ideogram.ai
 

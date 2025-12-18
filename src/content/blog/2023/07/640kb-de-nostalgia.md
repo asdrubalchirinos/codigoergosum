@@ -1,7 +1,7 @@
 ---
 title: 640Kb de nostalgia
 pubDate: '2023-07-08'
-heroImage: /images/blog/640kb-de-nostalgia/hero.jpeg
+heroImage: /images/blog/2023/07/640kb-de-nostalgia/hero.jpeg
 author: Asdrúbal Chirinos
 tags:
   - nostalgia
@@ -9,7 +9,7 @@ tags:
 slug: 640kb-de-nostalgia
 ---
 
-![](/images/blog/640kb-de-nostalgia/hero.jpeg)
+![](/images/blog/2023/07/640kb-de-nostalgia/hero.jpeg)
 
 Recuerdo con cariño aquellos días en los que la tecnología apenas comenzaba a despegar. Mi primera PC, una 8086 con 640Kb de RAM y un disco duro de 20MB, se convirtió en mi ventana al mundo digital. A pesar de su limitada configuración según los estándares actuales, este equipo me permitió hacer todo lo que un joven podría desear. En él, profundicé mis conocimientos de programación, utilicé programas como MS Word (DOS), Lotus 123 y dBase III, y descubrí un mundo de posibilidades.
 

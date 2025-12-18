@@ -99,7 +99,7 @@ async function createPost() {
   const month = dateResult.month;
 
   const targetDir = path.join(POSTS_DIR, String(year), month);
-  const imageDir = path.join(IMAGES_DIR, slug);
+  const imageDir = path.join(IMAGES_DIR, String(year), month, slug);
 
   // Create directories
   fs.mkdirSync(targetDir, { recursive: true });
@@ -125,7 +125,7 @@ async function createPost() {
 title: ${answers.title}
 subtitle: ''
 pubDate: '${pubDate}'
-heroImage: /images/blog/${slug}/hero.png
+heroImage: /images/blog/${year}/${month}/${slug}/hero.png
 author: Asdrúbal Chirinos
 featured: false
 draft: true

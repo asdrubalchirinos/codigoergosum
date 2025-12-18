@@ -1,7 +1,8 @@
 ---
 title: 'SCRUM Tropical: Adaptando la Agilidad a tu Empresa'
 pubDate: '2023-08-01'
-heroImage: /images/blog/scrum-tropical-adaptando-la-agilidad-a-tu-empresa/hero.jpeg
+heroImage: >-
+  /images/blog/2023/07/scrum-tropical-adaptando-la-agilidad-a-tu-empresa/hero.jpeg
 author: Asdrúbal Chirinos
 tags:
   - agile
@@ -10,7 +11,7 @@ tags:
 slug: scrum-tropical-adaptando-la-agilidad-a-tu-empresa
 ---
 
-![](/images/blog/scrum-tropical-adaptando-la-agilidad-a-tu-empresa/hero.jpeg)
+![](/images/blog/2023/07/scrum-tropical-adaptando-la-agilidad-a-tu-empresa/hero.jpeg)
 
 Imagen generada por inteligencia artificial. Bing Create, prompt: Tropical cocktail with an umbrella on the beach. Ultra realistic photo
 

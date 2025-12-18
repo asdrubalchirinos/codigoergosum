@@ -1,7 +1,7 @@
 ---
 title: 'Les presento a Otter, mi nuevo asistente'
 pubDate: '2023-06-21'
-heroImage: /images/blog/les-presento-a-otter-mi-nuevo-asistente/hero.png
+heroImage: /images/blog/2023/06/les-presento-a-otter-mi-nuevo-asistente/hero.png
 author: Asdrúbal Chirinos
 tags:
   - ia
@@ -13,7 +13,7 @@ En el mundo de los negocios modernos, cada detalle importa. La eficiencia y la o
 
 No, Otter no es ningún pasante Noruego del cual me estoy aprovechando, no y tampoco me robé la nutria del [Parque del Este](https://es.wikipedia.org/wiki/Parque_General%C3%ADsimo_Francisco_de_Miranda). Otter.ai es un innovador servicio de transcripción impulsado por inteligencia artificial.
 
-![](/images/blog/les-presento-a-otter-mi-nuevo-asistente/hero.png)
+![](/images/blog/2023/06/les-presento-a-otter-mi-nuevo-asistente/hero.png)
 
 Conozcamos a este asistente digital que está listo para revolucionar la forma en que manejamos nuestro flujo de trabajo diario.
 

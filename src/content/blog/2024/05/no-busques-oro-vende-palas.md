@@ -4,7 +4,7 @@ subtitle: >-
   Cómo prosperar apoyando el éxito de otros en industrias tecnológicas
   emergentes.
 pubDate: '2024-05-28'
-heroImage: /images/blog/no-busques-oro-vende-palas/hero.jpeg
+heroImage: /images/blog/2024/05/no-busques-oro-vende-palas/hero.jpeg
 author: Asdrúbal Chirinos
 tags:
   - emprendimiento
@@ -37,7 +37,7 @@ En lugar de unirse directamente a la frenética "fiebre del oro" de la IA, las e
 
 La reconocida empresa de tarjetas gráficas, Nvidia, ha empleado hábilmente esta filosofía durante el reciente auge de la IA. Mientras que los gigantes tecnológicos vierten fortunas en el desarrollo de modelos avanzados de IA, Nvidia se ha consolidado como un proveedor vital de GPU de alto rendimiento y tecnologías de chips que alimentan los motores de computación detrás de la IA.
 
-![](/images/blog/no-busques-oro-vende-palas/hero.jpeg)
+![](/images/blog/2024/05/no-busques-oro-vende-palas/hero.jpeg)
 
 Los ingresos de Nvidia por ventas de computación de IA para centros de datos han aumentado de forma exponencial. Entre sus principales clientes se encuentran Microsoft, Meta, Google y otros líderes de IA, todos hambrientos por el hardware de Nvidia, incluso mientras compiten ferozmente en el frente del software.
 

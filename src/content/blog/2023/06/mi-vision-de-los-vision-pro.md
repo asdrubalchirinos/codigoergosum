@@ -1,7 +1,7 @@
 ---
 title: Mi visión de los Vision Pro
 pubDate: '2023-06-13'
-heroImage: /images/blog/mi-vision-de-los-vision-pro/hero.png
+heroImage: /images/blog/2023/06/mi-vision-de-los-vision-pro/hero.png
 author: Asdrúbal Chirinos
 tags:
   - ia
@@ -10,7 +10,7 @@ tags:
 slug: mi-vision-de-los-vision-pro
 ---
 
-![](/images/blog/mi-vision-de-los-vision-pro/hero.png)
+![](/images/blog/2023/06/mi-vision-de-los-vision-pro/hero.png)
 
 Cuando Apple presentó los Vision Pro en el reciente WWDC2023, nos mostró una vez más su capacidad para innovar y repensar completamente los paradigmas tecnológicos existentes. Los Vision Pro son una revolución, repletos de tecnología y presentando una visión radicalmente diferente a la de otros productos similares en el mercado.
 

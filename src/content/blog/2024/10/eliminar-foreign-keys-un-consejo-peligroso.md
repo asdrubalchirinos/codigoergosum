@@ -4,7 +4,7 @@ subtitle: >-
   Descubre por qué eliminar Foreign Keys puede comprometer la integridad de tus
   datos y crear problemas mayores que los que intenta resolver.
 pubDate: '2024-10-28'
-heroImage: /images/blog/eliminar-foreign-keys-un-consejo-peligroso/hero.webp
+heroImage: /images/blog/2024/10/eliminar-foreign-keys-un-consejo-peligroso/hero.webp
 author: Asdrúbal Chirinos
 tags:
   - backend
@@ -13,7 +13,7 @@ tags:
 slug: eliminar-foreign-keys-un-consejo-peligroso
 ---
 
-![](/images/blog/eliminar-foreign-keys-un-consejo-peligroso/hero.webp)
+![](/images/blog/2024/10/eliminar-foreign-keys-un-consejo-peligroso/hero.webp)
 
 “Las FK en MySQL (o en cualquier otra base de datos) añaden una gran cantidad de carga. No usen FK; esa lógica la pueden controlar con la aplicación.”
 

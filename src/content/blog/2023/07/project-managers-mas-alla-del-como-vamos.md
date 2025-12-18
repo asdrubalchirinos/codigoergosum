@@ -1,7 +1,7 @@
 ---
 title: Project Managers más allá del ¿Cómo vamos?
 pubDate: '2023-07-17'
-heroImage: /images/blog/project-managers-mas-alla-del-como-vamos/hero.jpeg
+heroImage: /images/blog/2023/07/project-managers-mas-alla-del-como-vamos/hero.jpeg
 author: Asdrúbal Chirinos
 tags:
   - liderazgo
@@ -10,7 +10,7 @@ tags:
 slug: project-managers-mas-alla-del-como-vamos
 ---
 
-![Image](/images/blog/project-managers-mas-alla-del-como-vamos/ad58a6ce-f7cd-40d5-8bc1-4f72257b98ec_640x480.jpeg "Image")
+![Image](/images/blog/2023/07/project-managers-mas-alla-del-como-vamos/ad58a6ce-f7cd-40d5-8bc1-4f72257b98ec_640x480.jpeg "Image")
 
 Hablemos del famoso meme del "¿Cómo vamos?" asociado a los Project Managers. Es importante reflexionar sobre cómo este estereotipo ha influido en la percepción del rol y la responsabilidad de los Project Managers dentro de los equipos de trabajo. Sin embargo, es fundamental ir más allá de esta generalización y explorar tanto el papel de los Project Managers como la perspectiva de los desarrolladores en relación con ellos. En este artículo, examinaremos el papel y las responsabilidades de los Project Managers desde ambos puntos de vista, con el objetivo de fomentar una mayor comprensión y colaboración entre los equipos de desarrollo y los Project Managers.
 

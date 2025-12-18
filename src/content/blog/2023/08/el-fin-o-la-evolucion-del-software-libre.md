@@ -4,7 +4,7 @@ subtitle: >-
   Explora el impacto de la licencia BSL en la industria del software y el
   software libre. ¿Equilibrio entre control y colaboración?
 pubDate: '2023-08-24'
-heroImage: /images/blog/el-fin-o-la-evolucion-del-software-libre/hero.jpeg
+heroImage: /images/blog/2023/08/el-fin-o-la-evolucion-del-software-libre/hero.jpeg
 author: Asdrúbal Chirinos
 tags:
   - devops
@@ -12,7 +12,7 @@ tags:
 slug: el-fin-o-la-evolucion-del-software-libre
 ---
 
-![](/images/blog/el-fin-o-la-evolucion-del-software-libre/hero.jpeg)
+![](/images/blog/2023/08/el-fin-o-la-evolucion-del-software-libre/hero.jpeg)
 
 ¿Que diría Richard Stallman? Imagen generada por inteligencia artificial. Bing Image Creator. Prompt: Richard Stallman protesting. cartoon.
 

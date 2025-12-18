@@ -1,7 +1,8 @@
 ---
 title: 'ReactPy: De analista de datos a desarrollador Frontend'
 pubDate: '2023-06-23'
-heroImage: /images/blog/reactpy-de-analista-de-datos-a-desarrollador-frontend/hero.jpeg
+heroImage: >-
+  /images/blog/2023/06/reactpy-de-analista-de-datos-a-desarrollador-frontend/hero.jpeg
 author: Asdrúbal Chirinos
 tags:
   - python
@@ -9,7 +10,7 @@ tags:
 slug: reactpy-de-analista-de-datos-a-desarrollador-frontend
 ---
 
-![](/images/blog/reactpy-de-analista-de-datos-a-desarrollador-frontend/hero.jpeg)
+![](/images/blog/2023/06/reactpy-de-analista-de-datos-a-desarrollador-frontend/hero.jpeg)
 
 ¿Eres un analista de datos que secretamente anhela sumergirse en el fascinante mundo del desarrollo frontend?… ¿pero la sola mención de JavaScript te provoca escalofríos? No te preocupes, mi amigo amantes de los números, ¡ahora hay una solución diseñada especialmente para ustedes! Les presentamos **ReactPy**, la biblioteca de **Python** que brinda la alegría de construir interfaces de usuario sin necesidad de dominar JavaScript. ¡Prepárate para desatar tu destreza analítica en el mundo del frontend con ReactPy!
 
@@ -17,7 +18,7 @@ slug: reactpy-de-analista-de-datos-a-desarrollador-frontend
 
 ReactPy es una biblioteca revolucionaria diseñada para simplificar el desarrollo frontend para entusiastas de Python que pueden no tener experiencia previa en desarrollo web. Permite a los analistas de datos, científicos y a todos los aficionados de Python crear impresionantes interfaces de usuario utilizando la sintaxis familiar de Python, evitándoles la “tortura” de lidiar con JavaScript.
 
-![](/images/blog/reactpy-de-analista-de-datos-a-desarrollador-frontend/content-1.webp)
+![](/images/blog/2023/06/reactpy-de-analista-de-datos-a-desarrollador-frontend/content-1.webp)
 
 **Beneficios en abundancia**
 

@@ -2,7 +2,7 @@
 title: 'Destino: La luna'
 subtitle: Un equipo unido por la comunicación del objetivo
 pubDate: '2023-02-06'
-heroImage: /images/blog/destino-la-luna/hero.jpeg
+heroImage: /images/blog/2023/02/destino-la-luna/hero.jpeg
 author: Asdrúbal Chirinos
 tags:
   - liderazgo
@@ -14,7 +14,7 @@ La comunicación efectiva del objetivo final es un elemento clave para el éxito
 
 La historia de la misión para llevar un hombre a la luna es un ejemplo clásico de cómo la inspiración y motivación de un líder, junto con el conocimiento y el trabajo en equipo, pueden llevar a la consecución de un objetivo ambicioso. El presidente John F. Kennedy inspiró a una nación entera con su discurso en el que afirmó que Estados Unidos iría a la luna "no porque sea fácil, sino porque es difícil".
 
-![](/images/blog/destino-la-luna/hero.jpeg)
+![](/images/blog/2023/02/destino-la-luna/hero.jpeg)
 
 En un equipo de trabajo, es importante que el líder comunique claramente el objetivo final y proporcione a los miembros del equipo el contexto y la visión necesarios para comprender por qué es importante. Al hacer que todos los miembros se sientan valorados y comprometidos con el objetivo, se pueden aprovechar al máximo las habilidades y conocimientos individuales y trabajar juntos hacia el éxito.
 

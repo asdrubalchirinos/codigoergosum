@@ -5,7 +5,7 @@ subtitle: >-
   programación en pares. Colaboración efectiva, mejora calidad y aprendizaje
   continuo
 pubDate: '2023-08-10'
-heroImage: /images/blog/conductor-y-navegante-la-programacion-en-pares/hero.jpeg
+heroImage: /images/blog/2023/08/conductor-y-navegante-la-programacion-en-pares/hero.jpeg
 author: Asdrúbal Chirinos
 tags:
   - agile
@@ -15,7 +15,7 @@ tags:
 slug: conductor-y-navegante-la-programacion-en-pares
 ---
 
-![](/images/blog/conductor-y-navegante-la-programacion-en-pares/hero.jpeg)
+![](/images/blog/2023/08/conductor-y-navegante-la-programacion-en-pares/hero.jpeg)
 
 Conductor y Navegante: La Programación en Pares. Imagen creada por Bing Image Creator. Prompt: Driver and navigator rally car inside cockpit
 

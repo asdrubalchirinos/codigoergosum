@@ -4,7 +4,7 @@ subtitle: >-
   Descubre cómo 4 horas de trabajo profundo pueden ser más productivas que 8
   horas desenfocadas.
 pubDate: '2024-05-22'
-heroImage: /images/blog/la-magia-del-trabajo-profundo/hero.png
+heroImage: /images/blog/2024/05/la-magia-del-trabajo-profundo/hero.png
 author: Asdrúbal Chirinos
 tags:
   - productividad
@@ -12,7 +12,7 @@ tags:
 slug: la-magia-del-trabajo-profundo
 ---
 
-![](/images/blog/la-magia-del-trabajo-profundo/hero.png)
+![](/images/blog/2024/05/la-magia-del-trabajo-profundo/hero.png)
 
 La productividad no siempre se mide por la cantidad de horas que pasamos frente a la pantalla, sino por la calidad del tiempo invertido. Imagina un día en el que, en lugar de trabajar 8 horas con múltiples distracciones, pudieras dedicar 4 horas de trabajo profundo y lograr más. Este concepto, popularizado por Cal Newport en su libro "Deep Work", es particularmente relevante para desarrolladores, líderes y gerentes que buscan maximizar su impacto diario. Como desarrolladores, buscamos constantemente formas de mejorar nuestra productividad, y el trabajo profundo puede ser la clave.
 

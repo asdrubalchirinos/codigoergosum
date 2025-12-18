@@ -2,7 +2,7 @@
 title: "The Birth of Personal Software"
 subtitle: "A movement that puts the Solver at the center and gives people back creative control."
 pubDate: "2025-12-12"
-heroImage: "/images/blog/el-nacimiento-del-personal-software/hero.png"
+heroImage: "/images/blog/2025/12/el-nacimiento-del-personal-software/hero.png"
 author: "Asdrúbal Chirinos"
 featured: true
 draft: false

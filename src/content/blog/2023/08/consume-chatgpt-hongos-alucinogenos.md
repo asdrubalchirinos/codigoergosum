@@ -1,7 +1,7 @@
 ---
 title: ¿Consume ChatGPT Hongos Alucinógenos?
 pubDate: '2023-08-11'
-heroImage: /images/blog/consume-chatgpt-hongos-alucinogenos/hero.jpeg
+heroImage: /images/blog/2023/08/consume-chatgpt-hongos-alucinogenos/hero.jpeg
 author: Asdrúbal Chirinos
 tags:
   - ia
@@ -9,7 +9,7 @@ tags:
 slug: consume-chatgpt-hongos-alucinogenos
 ---
 
-![](/images/blog/consume-chatgpt-hongos-alucinogenos/hero.jpeg)
+![](/images/blog/2023/08/consume-chatgpt-hongos-alucinogenos/hero.jpeg)
 
 Alucinaciones un problema de las IA. Imagen creada por inteligencia artificial. Bing Image Creator. Prompt: Image of a robot having Hallucinations. cartoon
 

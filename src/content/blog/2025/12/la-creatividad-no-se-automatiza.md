@@ -1,12 +1,17 @@
 ---
 title: La creatividad no se automatiza
-subtitle: 'La tecnología cambia las herramientas, pero la intención creativa, la narrativa y el significado siguen naciendo de las personas.'
+subtitle: >-
+  La tecnología cambia las herramientas, pero la intención creativa, la
+  narrativa y el significado siguen naciendo de las personas.
 pubDate: '2025-12-16'
-heroImage: /images/blog/la-creatividad-no-se-automatiza/hero.png
+heroImage: /images/blog/2025/12/la-creatividad-no-se-automatiza/hero.png
 author: Asdrúbal Chirinos
 featured: true
 draft: false
-tags: ['ia','tendencias','opinion']
+tags:
+  - ia
+  - tendencias
+  - opinion
 slug: la-creatividad-no-se-automatiza
 ---
 Hay un miedo y un rechazo crecientes al uso de la IA para generar arte, imágenes y video. Parece que se nos hubiera olvidado que gran parte de la fotografía y el video que hacemos hoy ya es una creación digital. Sí, hecha por humanos, pero mediada por herramientas como Photoshop, Lightroom o Premiere. Muy distinta a como era la fotografía o el video tradicional hace un par de décadas.

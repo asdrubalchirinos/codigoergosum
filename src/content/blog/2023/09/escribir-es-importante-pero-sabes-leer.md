@@ -4,7 +4,7 @@ subtitle: >-
   Descubre por qué saber leer y escribir código es esencial en el desarrollo de
   software. Domina ambas habilidades para triunfar.
 pubDate: '2023-09-21'
-heroImage: /images/blog/escribir-es-importante-pero-sabes-leer/hero.jpeg
+heroImage: /images/blog/2023/09/escribir-es-importante-pero-sabes-leer/hero.jpeg
 author: Asdrúbal Chirinos
 tags:
   - clean-code
@@ -15,7 +15,7 @@ slug: escribir-es-importante-pero-sabes-leer
 
 *Imagine que está en una sala de entrevistas, listo para demostrar sus habilidades técnicas en un proceso de selección para su trabajo ideal en una empresa de renombre. Preparado para enfrentar preguntas sobre algoritmos y resolver desafíos de programación, se siente confiado en sus capacidades de codificación. Sin embargo, para su sorpresa, en lugar del típico problema algorítmico, el entrevistador le entrega una sola cosa: una clase de un programa ya existente de la compañía.*
 
-![](/images/blog/escribir-es-importante-pero-sabes-leer/hero.jpeg)
+![](/images/blog/2023/09/escribir-es-importante-pero-sabes-leer/hero.jpeg)
 
 Imagen generada por inteligencia artificial. Ideogram.ai
 

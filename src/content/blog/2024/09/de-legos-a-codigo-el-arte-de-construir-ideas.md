@@ -4,7 +4,7 @@ subtitle: >-
   Cómo mi pasión por los Legos en la infancia me preparó para el mundo de la
   programación.
 pubDate: '2024-09-09'
-heroImage: /images/blog/de-legos-a-codigo-el-arte-de-construir-ideas/hero.webp
+heroImage: /images/blog/2024/09/de-legos-a-codigo-el-arte-de-construir-ideas/hero.webp
 author: Asdrúbal Chirinos
 tags:
   - opinion
@@ -13,7 +13,7 @@ slug: de-legos-a-codigo-el-arte-de-construir-ideas
 
 Desde muy pequeño, los Legos se convirtieron en mi juguete favorito. No me limitaba a seguir las instrucciones del manual; para mí, la verdadera magia estaba en crear algo nuevo. Tomaba las piezas y, partiendo de una idea en mi cabeza, construía mis propias creaciones.
 
-![](/images/blog/de-legos-a-codigo-el-arte-de-construir-ideas/hero.webp)
+![](/images/blog/2024/09/de-legos-a-codigo-el-arte-de-construir-ideas/hero.webp)
 
 ### El descubrimiento de la programación
 

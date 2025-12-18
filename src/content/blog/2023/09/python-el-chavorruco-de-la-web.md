@@ -4,7 +4,7 @@ subtitle: >-
   Explora la historia de Python y su resurgimiento en la web. Desde la 'época
   oscura' hasta la actualidad.
 pubDate: '2023-09-18'
-heroImage: /images/blog/python-el-chavorruco-de-la-web/hero.jpeg
+heroImage: /images/blog/2023/09/python-el-chavorruco-de-la-web/hero.jpeg
 author: Asdrúbal Chirinos
 tags:
   - python
@@ -14,7 +14,7 @@ tags:
 slug: python-el-chavorruco-de-la-web
 ---
 
-![](/images/blog/python-el-chavorruco-de-la-web/hero.jpeg)
+![](/images/blog/2023/09/python-el-chavorruco-de-la-web/hero.jpeg)
 
 Guido van Rossum creador de Python. Imagen generada por inteligencia artificial. Ideofram.ai
 

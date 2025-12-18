@@ -4,14 +4,14 @@ subtitle: >-
   Alpine Linux: Ligereza y seguridad en una distribución Linux independiente.
   Descubre cómo instalarla y personalizarla para tus proyectos
 pubDate: '2023-09-06'
-heroImage: /images/blog/que-onda-con-alpine-linux/hero.png
+heroImage: /images/blog/2023/09/que-onda-con-alpine-linux/hero.png
 author: Asdrúbal Chirinos
 tags:
   - devops
 slug: que-onda-con-alpine-linux
 ---
 
-![](/images/blog/que-onda-con-alpine-linux/hero.png)
+![](/images/blog/2023/09/que-onda-con-alpine-linux/hero.png)
 
 Si estás buscando una distribución Linux diferente, que sea como ese amigo ligero y seguro que nunca te falla, entonces es hora de que conozcas a Alpine Linux. Pero, ¿por qué elegir a Alpine Linux en lugar de las opciones más populares? Déjame contarte qué onda con esta distribución.
 
@@ -47,7 +47,7 @@ Inserta el medio de instalación preparado en tu computadora y reinicia. Asegúr
 
 La instalación de Alpine Linux es como una charla directa en la consola, nada de interfaces gráficas. Pero no te asustes, ¡Alpine te tiene cubierto! Alpine Linux incluye scripts útiles que te guiarán a través de la configuración inicial. El más importante es **setup-alpine**. Este script te preguntará sobre tu diseño de teclado, zona horaria y te ayudará en la partición de tu disco. Puedes optar por aceptar las opciones predeterminadas si no deseas personalizar mucho en este punto.
 
-![](/images/blog/que-onda-con-alpine-linux/content-1.webp)
+![](/images/blog/2023/09/que-onda-con-alpine-linux/content-1.webp)
 
 #### **Paso 5: ¡Listo!**
 
@@ -72,7 +72,7 @@ Alpine Linux proporciona una experiencia de usuario única al no depender de GNU
 
 Pero, espera, hay más. Alpine Linux también puede ser tu compañero en el escritorio. ¿Quieres un entorno de escritorio elegante? No hay problema. Ejecuta el siguiente comando en la terminal: `setup-desktop` y elige entre Xfce, KDE Plasma, GNOME o LXQt. Personaliza a tu gusto y listo.
 
-![](/images/blog/que-onda-con-alpine-linux/content-2.webp)
+![](/images/blog/2023/09/que-onda-con-alpine-linux/content-2.webp)
 
 * * *
 

@@ -2,7 +2,7 @@
 title: '¡Atlas ha muerto, larga vida a Altas!'
 subtitle: Boston Dynamics presenta una nueva generación de robots humanoides
 pubDate: '2024-04-18'
-heroImage: /images/blog/atlas-ha-muerto-larga-vida-a-altas/hero.png
+heroImage: /images/blog/2024/04/atlas-ha-muerto-larga-vida-a-altas/hero.png
 author: Asdrúbal Chirinos
 tags:
   - tendencias
@@ -12,7 +12,7 @@ slug: atlas-ha-muerto-larga-vida-a-altas
 
 Boston Dynamics, la empresa pionera en robótica, ha anunciado el retiro de su icónico robot Atlas. Mismo que nos cautivo durante casi una década con su impresionante agilidad y fuerza, sus volteretas hacia atrás y acrobacias estilo parkour. Mientras decimos adios al Atlas original, comienza una nueva era con la introducción de un modelo Atlas totalmente eléctrico centrado en aplicaciones comerciales.
 
-![The Old Atlas bot](/images/blog/atlas-ha-muerto-larga-vida-a-altas/6d237cd2-6e46-48df-b7b1-3c0cb92b304d_1536x877.png "The Old Atlas bot")
+![The Old Atlas bot](/images/blog/2024/04/atlas-ha-muerto-larga-vida-a-altas/6d237cd2-6e46-48df-b7b1-3c0cb92b304d_1536x877.png "The Old Atlas bot")
 
 ¡Atlas ha muerto, larga vida a Altas!
 

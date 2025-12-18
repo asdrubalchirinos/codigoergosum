@@ -2,7 +2,7 @@
 title: Tras la Verdad del Regreso a la Oficina
 subtitle: ¿Realmente se Trata de Productividad?
 pubDate: '2024-05-03'
-heroImage: /images/blog/tras-la-verdad-del-regreso-a-la-oficina/hero.png
+heroImage: /images/blog/2024/05/tras-la-verdad-del-regreso-a-la-oficina/hero.png
 author: Asdrúbal Chirinos
 tags:
   - productividad
@@ -13,7 +13,7 @@ slug: tras-la-verdad-del-regreso-a-la-oficina
 
 En los últimos meses, numerosas empresas han convocado a sus empleados a regresar a la oficina tras un largo período de trabajo remoto. Si bien en la superficie las preocupaciones sobre la productividad parecen ser el principal impulsor de esta decisión, un análisis más profundo revela que los factores económicos relacionados con la posible depreciación de los activos inmobiliarios comerciales podrían ser la verdadera razón de tal insistencia.
 
-![](/images/blog/tras-la-verdad-del-regreso-a-la-oficina/hero.png)
+![](/images/blog/2024/05/tras-la-verdad-del-regreso-a-la-oficina/hero.png)
 
 Imagen generada por IA. Ideogram.ai
 

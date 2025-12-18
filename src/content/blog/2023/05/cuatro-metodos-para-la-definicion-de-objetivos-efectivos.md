@@ -2,7 +2,7 @@
 title: Cuatro Métodos para la Definición de Objetivos Efectivos
 pubDate: '2023-05-09'
 heroImage: >-
-  /images/blog/cuatro-metodos-para-la-definicion-de-objetivos-efectivos/hero.jpeg
+  /images/blog/2023/05/cuatro-metodos-para-la-definicion-de-objetivos-efectivos/hero.jpeg
 author: Asdrúbal Chirinos
 tags:
   - productividad
@@ -10,7 +10,7 @@ tags:
 slug: cuatro-metodos-para-la-definicion-de-objetivos-efectivos
 ---
 
-![](/images/blog/cuatro-metodos-para-la-definicion-de-objetivos-efectivos/hero.jpeg)
+![](/images/blog/2023/05/cuatro-metodos-para-la-definicion-de-objetivos-efectivos/hero.jpeg)
 
 Establecer objetivos claros y efectivos es fundamental para alcanzar el éxito, tanto a nivel personal como profesional. Existen varios métodos que proporcionan estructuras y enfoques útiles para la definición de metas. En este artículo, exploraremos en brevemente cuatro de ellos: **SMART**, **GROW**, **PURE** y **CLEAR**. Cada uno de estos métodos presenta un acrónimo que representa los elementos clave a considerar al establecer objetivos. Descubramos cómo aplicar cada uno de ellos para mejorar nuestra capacidad de fijar y alcanzar metas significativas.
 

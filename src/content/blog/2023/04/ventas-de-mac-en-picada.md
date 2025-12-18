@@ -1,7 +1,7 @@
 ---
 title: Ventas de Mac en picada
 pubDate: '2023-04-12'
-heroImage: /images/blog/ventas-de-mac-en-picada/hero.jpeg
+heroImage: /images/blog/2023/04/ventas-de-mac-en-picada/hero.jpeg
 author: Asdrúbal Chirinos
 tags:
   - industria
@@ -9,7 +9,7 @@ tags:
 slug: ventas-de-mac-en-picada
 ---
 
-![](/images/blog/ventas-de-mac-en-picada/hero.jpeg)
+![](/images/blog/2023/04/ventas-de-mac-en-picada/hero.jpeg)
 
 Recientemente, Apple anunció una fuerte caída en las ventas de Mac, con una disminución del **28,7%** en comparación con el trimestre anterior. Esta noticia ha sorprendido a muchos entusiastas de Apple y expertos de la industria, ya que los Mac han sido la columna vertebral de la línea de productos de la empresa durante décadas. En este artículo, exploraremos las razones detrás de la caída en las ventas de Mac, las implicaciones para Apple y los consumidores, y las oportunidades que surgen de esta situación.
 

@@ -1,14 +1,14 @@
 ---
 title: ¡Los Dominios malvados de Google!
 pubDate: '2023-05-30'
-heroImage: /images/blog/los-dominios-malvados-de-google/hero.jpeg
+heroImage: /images/blog/2023/05/los-dominios-malvados-de-google/hero.jpeg
 author: Asdrúbal Chirinos
 tags:
   - web
 slug: los-dominios-malvados-de-google
 ---
 
-![](/images/blog/los-dominios-malvados-de-google/hero.jpeg)
+![](/images/blog/2023/05/los-dominios-malvados-de-google/hero.jpeg)
 
 Google ha introducido recientemente dos nuevos dominios de nivel superior (TLDs) - **.zip** y .**mov**. ¡Muy la idea Google!. estas extensiones son bien conocidas como formatos de archivo populares y su introducción como TLDs plantea algunas preguntas de seguridad importantes.
 

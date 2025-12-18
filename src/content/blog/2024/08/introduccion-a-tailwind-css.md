@@ -2,7 +2,7 @@
 title: Introducción a Tailwind CSS
 subtitle: Filosofía Básica y Beneficios
 pubDate: '2024-08-28'
-heroImage: /images/blog/introduccion-a-tailwind-css/hero.jpeg
+heroImage: /images/blog/2024/08/introduccion-a-tailwind-css/hero.jpeg
 author: Asdrúbal Chirinos
 tags:
   - css
@@ -14,7 +14,7 @@ Si estás considerando adoptar Tailwind CSS para tus proyectos, es crucial compr
 
 Tailwind CSS ha ganado popularidad en la comunidad de desarrollo web gracias a su enfoque innovador para el diseño y el estilo.
 
-![](/images/blog/introduccion-a-tailwind-css/hero.jpeg)
+![](/images/blog/2024/08/introduccion-a-tailwind-css/hero.jpeg)
 
 ### **La Filosofía de Tailwind CSS**
 

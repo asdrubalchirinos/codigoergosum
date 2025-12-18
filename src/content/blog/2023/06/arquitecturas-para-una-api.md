@@ -1,7 +1,7 @@
 ---
 title: Arquitecturas para una API
 pubDate: '2023-06-27'
-heroImage: /images/blog/arquitecturas-para-una-api/hero.jpeg
+heroImage: /images/blog/2023/06/arquitecturas-para-una-api/hero.jpeg
 author: Asdrúbal Chirinos
 tags:
   - arquitectura
@@ -9,7 +9,7 @@ tags:
 slug: arquitecturas-para-una-api
 ---
 
-![](/images/blog/arquitecturas-para-una-api/hero.jpeg)
+![](/images/blog/2023/06/arquitecturas-para-una-api/hero.jpeg)
 
 Cuando hablamos de los estilos de arquitectura de una API hacemos referencia a los principios y patrones de diseño fundamentales utilizados para su desarrollo. Existen diferentes tipos de estilos de arquitectura para una API, cada uno con sus propios puntos fuertes y débiles. En este artículo hablaremos de algunos de los estilos de arquitectura de API más populares.
 
@@ -17,7 +17,7 @@ Cuando hablamos de los estilos de arquitectura de una API hacemos referencia a l
 
 SOAP (Simple Object Access Protocol) es un protocolo para el intercambio de datos estructurados en la implementación de servicios web. Es un protocolo basado en XML que se utiliza habitualmente en aplicaciones empresariales. SOAP utiliza HTTP o HTTPS como protocolo de transporte y XML como formato de mensaje. Admite una gran variedad de protocolos de comunicación y formatos de mensaje, lo que lo convierte en un estilo de arquitectura de API versátil.
 
-![No alt text provided for this image](/images/blog/arquitecturas-para-una-api/167ed97a-6e4f-4af6-bf8d-6e5264f8d276_294x73.png "No alt text provided for this image")
+![No alt text provided for this image](/images/blog/2023/06/arquitecturas-para-una-api/167ed97a-6e4f-4af6-bf8d-6e5264f8d276_294x73.png "No alt text provided for this image")
 
 SOAP
 
@@ -27,7 +27,7 @@ SOAP es altamente extensible y ofrece sólidas capacidades de gestión de errore
 
 RESTful (Representational State Transfer) es un estilo arquitectónico que utiliza HTTP para acceder a servicios web. Las API RESTful se basan en el concepto de recursos, que se identifican mediante URI (Identificadores Uniformes de Recursos). Las API RESTful utilizan métodos HTTP como GET, POST, PUT y DELETE para realizar operaciones con los recursos.
 
-![No alt text provided for this image](/images/blog/arquitecturas-para-una-api/92850694-c3e3-42e9-a2d9-5db23152177a_294x73.png "No alt text provided for this image")
+![No alt text provided for this image](/images/blog/2023/06/arquitecturas-para-una-api/92850694-c3e3-42e9-a2d9-5db23152177a_294x73.png "No alt text provided for this image")
 
 RESTful
 
@@ -37,7 +37,7 @@ Las API RESTful son ligeras y escalables, lo que las convierte en una opción po
 
 GraphQL es un lenguaje de consulta para API desarrollado por Facebook. Permite a los clientes especificar los datos que necesitan y recibir sólo esos datos como respuesta. Esto reduce la carga de la red y mejora el rendimiento al reducir el exceso y la falta de obtención de datos.
 
-![No alt text provided for this image](/images/blog/arquitecturas-para-una-api/af942577-3d0a-48a0-97a2-588c0451229a_294x73.png "No alt text provided for this image")
+![No alt text provided for this image](/images/blog/2023/06/arquitecturas-para-una-api/af942577-3d0a-48a0-97a2-588c0451229a_294x73.png "No alt text provided for this image")
 
 GraphQL
 
@@ -47,7 +47,7 @@ GraphQL ofrece un sólido sistema de tipos y admite la introspección, que permi
 
 gRPC es un estilo de arquitectura de API de alto rendimiento diseñado para microservicios. Utiliza buffers de protocolo para la serialización y proporciona capacidades de streaming bidireccional, por lo que es ideal para el intercambio de datos de baja latencia.
 
-![No alt text provided for this image](/images/blog/arquitecturas-para-una-api/8a5cab99-9401-46f0-8b58-53ce10a6d9a2_294x73.png "No alt text provided for this image")
+![No alt text provided for this image](/images/blog/2023/06/arquitecturas-para-una-api/8a5cab99-9401-46f0-8b58-53ce10a6d9a2_294x73.png "No alt text provided for this image")
 
 gRPC
 
@@ -57,7 +57,7 @@ gRPC es compatible con varios lenguajes y plataformas y ofrece funciones como eq
 
 WebSocket es un protocolo de comunicación en tiempo real a través de la web. Proporciona canales de comunicación bidireccionales que permiten a los servidores enviar actualizaciones a los clientes en tiempo real. WebSocket es ideal para aplicaciones que requieren un intercambio de datos de baja latencia, como los juegos en línea o las aplicaciones de chat.
 
-![No alt text provided for this image](/images/blog/arquitecturas-para-una-api/1e92c93e-e22d-4a78-81ef-e1dc582c8e70_294x73.png "No alt text provided for this image")
+![No alt text provided for this image](/images/blog/2023/06/arquitecturas-para-una-api/1e92c93e-e22d-4a78-81ef-e1dc582c8e70_294x73.png "No alt text provided for this image")
 
 WebSocket
 
@@ -67,7 +67,7 @@ WebSocket es compatible con la mayoría de los navegadores modernos y puede util
 
 Los webhooks son una forma sencilla de enviar notificaciones de eventos entre aplicaciones web. Permiten a un servidor enviar un mensaje a una URL cuando se produce un evento específico, como el registro de un nuevo usuario o la realización de un nuevo pedido.
 
-![No alt text provided for this image](/images/blog/arquitecturas-para-una-api/b6a9856a-ffd9-4908-b6dc-aea24f7e61eb_294x73.png "No alt text provided for this image")
+![No alt text provided for this image](/images/blog/2023/06/arquitecturas-para-una-api/b6a9856a-ffd9-4908-b6dc-aea24f7e61eb_294x73.png "No alt text provided for this image")
 
 Webhook
 

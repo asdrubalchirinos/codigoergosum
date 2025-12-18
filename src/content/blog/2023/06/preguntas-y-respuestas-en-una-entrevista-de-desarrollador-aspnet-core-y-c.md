@@ -2,7 +2,7 @@
 title: Preguntas y Respuestas en una Entrevista de Desarrollador ASP.NET Core y C#
 pubDate: '2023-06-21'
 heroImage: >-
-  /images/blog/preguntas-y-respuestas-en-una-entrevista-de-desarrollador-aspnet-core-y-c/hero.jpeg
+  /images/blog/2023/06/preguntas-y-respuestas-en-una-entrevista-de-desarrollador-aspnet-core-y-c/hero.jpeg
 author: Asdrúbal Chirinos
 tags:
   - web
@@ -13,7 +13,7 @@ slug: preguntas-y-respuestas-en-una-entrevista-de-desarrollador-aspnet-core-y-c
 
 Las entrevistas son una parte fundamental en cualquier proceso de contratación para desarrolladores. En este artículo, simularemos una conversación entre un entrevistador y un entrevistado, donde exploraremos las respuestas a las preguntas mas comunes que un entrevistador podría hacer para cargo de desarrollador web ASP.NET Core y C#.
 
-![](/images/blog/preguntas-y-respuestas-en-una-entrevista-de-desarrollador-aspnet-core-y-c/hero.jpeg)
+![](/images/blog/2023/06/preguntas-y-respuestas-en-una-entrevista-de-desarrollador-aspnet-core-y-c/hero.jpeg)
 
 **Entrevistador:** ¡Bienvenido a la entrevista! Permíteme empezar haciéndote la primera pregunta:
 
@@ -45,7 +45,7 @@ Las entrevistas son una parte fundamental en cualquier proceso de contratación 
 
 **Entrevistado:** Una clase abstracta es una clase que no puede ser instanciada directamente y se utiliza como una base para clases derivadas. Puede contener métodos con implementación y miembros de datos. Por otro lado, una interfaz en C# define un contrato que una clase debe cumplir. Solo puede contener la firma de los métodos, pero no su implementación. Una clase puede implementar múltiples interfaces, pero solo puede heredar de una clase base.
 
-![](/images/blog/preguntas-y-respuestas-en-una-entrevista-de-desarrollador-aspnet-core-y-c/content-1.png)
+![](/images/blog/2023/06/preguntas-y-respuestas-en-una-entrevista-de-desarrollador-aspnet-core-y-c/content-1.png)
 
 **Entrevistador**: Excelente respuesta. Vamos a la siguiente pregunta.
 
@@ -53,7 +53,7 @@ Las entrevistas son una parte fundamental en cualquier proceso de contratación 
 
 **Entrevistado:** LINQ (Language Integrated Query) es una característica de C# que permite realizar consultas y manipulación de datos en diferentes fuentes de datos, como colecciones, bases de datos y servicios web. LINQ proporciona una sintaxis expresiva y tipo seguro para escribir consultas, lo que facilita el trabajo con datos de manera más eficiente y legible.
 
-![](/images/blog/preguntas-y-respuestas-en-una-entrevista-de-desarrollador-aspnet-core-y-c/content-2.png)
+![](/images/blog/2023/06/preguntas-y-respuestas-en-una-entrevista-de-desarrollador-aspnet-core-y-c/content-2.png)
 
 En este ejemplo, se crea una lista de personas y se utiliza el método `Where` de LINQ para filtrar las personas mayores de 18 años. Luego, se recorre la colección filtrada y se muestra el nombre y la edad de cada persona.
 

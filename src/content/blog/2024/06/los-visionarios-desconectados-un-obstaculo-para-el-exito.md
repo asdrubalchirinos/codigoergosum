@@ -6,7 +6,7 @@ subtitle: >-
   comunicación efectiva, empatía y liderazgo inspirador
 pubDate: '2024-06-17'
 heroImage: >-
-  /images/blog/los-visionarios-desconectados-un-obstaculo-para-el-exito/hero.webp
+  /images/blog/2024/06/los-visionarios-desconectados-un-obstaculo-para-el-exito/hero.webp
 author: Asdrúbal Chirinos
 tags:
   - liderazgo
@@ -16,7 +16,7 @@ slug: los-visionarios-desconectados-un-obstaculo-para-el-exito
 
 En mi búsqueda por cumplir mi misión de vida de “**Ayudar a construir puentes entre aquellos que sueñan y aquellos que hacen**”, me he encontrado con un obstáculo recurrente: los visionarios desconectados. Líderes visionarios, a pesar de sus ideas brillantes, fallan en la tarea fundamental de transmitir eficazmente su visión a quienes tienen el poder de convertirla en realidad.
 
-![](/images/blog/los-visionarios-desconectados-un-obstaculo-para-el-exito/hero.webp)
+![](/images/blog/2024/06/los-visionarios-desconectados-un-obstaculo-para-el-exito/hero.webp)
 
 Si no logras inspirar a otros a seguir tu visión, ¿eres realmente un líder?
 

@@ -2,7 +2,7 @@
 title: Emprendedor Agotado
 subtitle: Cuando el cansancio habla de tu propósito
 pubDate: '2024-08-27'
-heroImage: /images/blog/emprendedor-agotado/hero.webp
+heroImage: /images/blog/2024/08/emprendedor-agotado/hero.webp
 author: Asdrúbal Chirinos
 tags:
   - emprendimiento
@@ -14,7 +14,7 @@ slug: emprendedor-agotado
 
 Todo emprendimiento es emocionante, lleno de oportunidades y la adrenalina de convertir ideas en realidad. Pero toda esa emoción viene con un costo inevitable, el agotamiento. La fatiga en este entorno es común, pero no siempre es lo que parece.
 
-![](/images/blog/emprendedor-agotado/hero.webp)
+![](/images/blog/2024/08/emprendedor-agotado/hero.webp)
 
 #### ¿Fatiga Física? Toma un Respiro
 

@@ -4,7 +4,7 @@ subtitle: >-
   Desglosa tus proyectos grandes en tareas más pequeñas para un progreso rápido
   y una gestión efectiva. Descubre el poder de la modularidad en el desarrollo.
 pubDate: '2023-08-22'
-heroImage: /images/blog/tareas-pequenas-exito-en-grande/hero.jpeg
+heroImage: /images/blog/2023/08/tareas-pequenas-exito-en-grande/hero.jpeg
 author: Asdrúbal Chirinos
 tags:
   - agile
@@ -13,7 +13,7 @@ tags:
 slug: tareas-pequenas-exito-en-grande
 ---
 
-![](/images/blog/tareas-pequenas-exito-en-grande/hero.jpeg)
+![](/images/blog/2023/08/tareas-pequenas-exito-en-grande/hero.jpeg)
 
 Imagen generada por inteligencia artificial. Bing Image Creator. Prompt: an image showing a step by step process on building a lego car
 

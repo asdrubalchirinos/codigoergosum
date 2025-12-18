@@ -1,7 +1,7 @@
 ---
 title: '¿Sabes la diferencia entre URL, URI, URN?'
 pubDate: '2023-06-29'
-heroImage: /images/blog/sabes-la-diferencia-entre-url-uri-urn/hero.webp
+heroImage: /images/blog/2023/06/sabes-la-diferencia-entre-url-uri-urn/hero.webp
 author: Asdrúbal Chirinos
 tags:
   - web
@@ -10,7 +10,7 @@ tags:
 slug: sabes-la-diferencia-entre-url-uri-urn
 ---
 
-![](/images/blog/sabes-la-diferencia-entre-url-uri-urn/hero.webp)
+![](/images/blog/2023/06/sabes-la-diferencia-entre-url-uri-urn/hero.webp)
 
 En el mundo del desarrollo web y la búsqueda de información, es común encontrarse con términos y siglas que pueden generar confusión. Entre ellos se encuentran URL, URI y URN, que a menudo se usan de manera intercambiable. Sin embargo, cada uno de estos conceptos tiene un significado específico y cumple una función distinta. Es importante comprender las diferencias entre URL, URI y URN, especialmente si te dedicas al desarrollo web o la ingeniería de software. En este artículo, exploraremos y compararemos estos términos para que puedas entender su definición, funcionalidad y aplicaciones.
 

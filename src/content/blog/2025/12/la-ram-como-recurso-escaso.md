@@ -1,12 +1,18 @@
 ---
 title: La RAM como recurso escaso
-subtitle: 'Por qué la crisis de la memoria es una oportunidad para escribir mejor software.'
+subtitle: >-
+  Por qué la crisis de la memoria es una oportunidad para escribir mejor
+  software.
 pubDate: '2025-12-18'
-heroImage: /images/blog/la-ram-como-recurso-escaso/hero.png
+heroImage: /images/blog/2025/12/la-ram-como-recurso-escaso/hero.png
 author: Asdrúbal Chirinos
 featured: true
 draft: false
-tags: ['tendencias','opinion','industria','nostalgia']
+tags:
+  - tendencias
+  - opinion
+  - industria
+  - nostalgia
 slug: la-ram-como-recurso-escaso
 ---
 

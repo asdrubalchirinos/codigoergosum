@@ -4,7 +4,7 @@ subtitle: >-
   Descubre cómo las convenciones de nombres, como CamelCase y snake_case,
   mejoran el código y facilitan la colaboración.
 pubDate: '2023-10-27'
-heroImage: /images/blog/sapos-culebras-lagartos/hero.jpeg
+heroImage: /images/blog/2023/10/sapos-culebras-lagartos/hero.jpeg
 author: Asdrúbal Chirinos
 tags:
   - clean-code
@@ -15,7 +15,7 @@ slug: sapos-culebras-lagartos
 
 *"¡Sapos, culebras, lagartos!.. o, mejor dicho, culebras y camellos, al menos en el contexto de este artículo. Hablemos de convenciones de nombres."*
 
-![](/images/blog/sapos-culebras-lagartos/hero.jpeg)
+![](/images/blog/2023/10/sapos-culebras-lagartos/hero.jpeg)
 
 Las convenciones de nombres son un aspecto fundamental a considerar al escribir código limpio y fácil de mantener. La forma en que nombramos nuestras variables, funciones, clases y otros elementos del código tiene un impacto significativo en su legibilidad y comprensión. En este artículo, exploraremos tres de las convenciones de nombres más comunes: `CamelCase`, `PascalCase` y `snake_case`, discutiendo sus ventajas, desventajas y cuándo es apropiado utilizar cada una.
 

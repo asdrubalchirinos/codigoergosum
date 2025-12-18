@@ -1,7 +1,7 @@
 ---
 title: ¡No me voy hasta que me echen!
 pubDate: '2023-07-13'
-heroImage: /images/blog/no-me-voy-hasta-que-me-echen/hero.jpeg
+heroImage: /images/blog/2023/07/no-me-voy-hasta-que-me-echen/hero.jpeg
 author: Asdrúbal Chirinos
 tags:
   - tendencias
@@ -9,7 +9,7 @@ tags:
 slug: no-me-voy-hasta-que-me-echen
 ---
 
-![Twinder: Así puedes encontrar a tu otra mitad en Twitter](/images/blog/no-me-voy-hasta-que-me-echen/e25ec36c-9041-4bbf-9e57-2d58d44d9dc6_1280x720.jpeg "Twinder: Así puedes encontrar a tu otra mitad en Twitter")
+![Twinder: Así puedes encontrar a tu otra mitad en Twitter](/images/blog/2023/07/no-me-voy-hasta-que-me-echen/e25ec36c-9041-4bbf-9e57-2d58d44d9dc6_1280x720.jpeg "Twinder: Así puedes encontrar a tu otra mitad en Twitter")
 
 En un mundo en constante evolución de las redes sociales, surge un nuevo contendiente llamado Threads, una aplicación que promete revolucionar el panorama del microblogging. El lanzamiento de Threads ha generado un gran entusiasmo y expectativas en el mundo digital, pero permítanme decirles algo: Twitter sigue siendo una de mis plataformas preferidas, y no tengo la menor intención de abandonarla.
 
@@ -17,7 +17,7 @@ Como apasionado de las redes sociales, he sido testigo de la emoción que rodea 
 
 Sígueme en Threads: [achirinos](https://www.threads.net/@achirinos)
 
-![](/images/blog/no-me-voy-hasta-que-me-echen/content-1.jpeg)
+![](/images/blog/2023/07/no-me-voy-hasta-que-me-echen/content-1.jpeg)
 
 Sin embargo, Twitter tiene un lugar especial en mi corazón y en mi vida digital. A lo largo de los años, he construido amistades, encontrado inspiración en los tweets de personas creativas y he aprendido de expertos en diversos campos. Además, me he acostumbrado a utilizar ciertas funcionalidades que para mí se han convertido en indispensables.
 

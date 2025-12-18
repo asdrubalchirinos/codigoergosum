@@ -1,7 +1,7 @@
 ---
 title: ¡Me Echaron de Twitter! Bienvenidos a la Era X
 pubDate: '2023-07-31'
-heroImage: /images/blog/me-echaron-de-twitter-bienvenidos-a-la-era-x/hero.webp
+heroImage: /images/blog/2023/07/me-echaron-de-twitter-bienvenidos-a-la-era-x/hero.webp
 author: Asdrúbal Chirinos
 tags:
   - tendencias
@@ -9,7 +9,7 @@ tags:
 slug: me-echaron-de-twitter-bienvenidos-a-la-era-x
 ---
 
-![](/images/blog/me-echaron-de-twitter-bienvenidos-a-la-era-x/hero.webp)
+![](/images/blog/2023/07/me-echaron-de-twitter-bienvenidos-a-la-era-x/hero.webp)
 
 ¡Adiós, Twitter! O mejor dicho, ¡hola, X! El mundo de las redes sociales ha dado un giro inesperado y ha dejado atrás al icónico pajarito azul para dar paso a una nueva era. Como apasionado usuario de Twitter, la noticia de que Elon Musk ha decidido cambiar el nombre de la plataforma y eliminar cualquier rastro de su emblemático logo no podía pasarme desapercibida.
 

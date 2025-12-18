@@ -2,7 +2,7 @@
 title: Más allá del smartphone
 subtitle: ¿Los primeros pasos hacia el futuro post-smartphone?
 pubDate: '2024-04-19'
-heroImage: /images/blog/mas-alla-del-smartphone/hero.webp
+heroImage: /images/blog/2024/04/mas-alla-del-smartphone/hero.webp
 author: Asdrúbal Chirinos
 tags:
   - mobile
@@ -16,7 +16,7 @@ Es innegable que vivimos en la era de los teléfonos inteligentes. Atrás quedó
 
 Si tomamos 2007 como punto de partida, estaríamos a las puertas de cumplir los 20 años de la era del smartphone. En ese tiempo, saltándonos las distancias, el form factor y las capacidades básicas han permanecido casi iguales: un dispositivo "todo pantalla" sin teclado físico, con capacidad de reproducir y generar contenido multimedia.
 
-![](/images/blog/mas-alla-del-smartphone/hero.webp)
+![](/images/blog/2024/04/mas-alla-del-smartphone/hero.webp)
 
 El primer **iPhone** fue presentado el **9 de enero de 2007** por Steve Jobs, entonces CEO de Apple, en la conferencia Macworld en San Francisco, California.
 
@@ -36,7 +36,7 @@ En mi opinión, la innovación sigue allí, estamos a un paso de una explosión,
 
 Esto no quiere decir reemplazar por completo a los smartphones, así como no hemos reemplazado por completo a los PC de escritorio o las laptops en esta era móvil. Pero nuevas iniciativas como el Humane AI Pin o el Rabbit R1 son una bocanada de aire fresco para la industria.
 
-![](/images/blog/mas-alla-del-smartphone/content-1.webp)
+![](/images/blog/2024/04/mas-alla-del-smartphone/content-1.webp)
 
 El R**abbit R1** es un gadget con inteligencia artificial (IA) generativa que funciona como un asistente de bolsillo.
 

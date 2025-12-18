@@ -5,14 +5,14 @@ subtitle: >-
   hacer realidad la computación cuántica práctica mediante qubits más estables y
   escalables.
 pubDate: '2025-02-20'
-heroImage: /images/blog/nace-un-nuevo-estado-de-la-materia/hero.jpeg
+heroImage: /images/blog/2025/02/nace-un-nuevo-estado-de-la-materia/hero.jpeg
 author: Asdrúbal Chirinos
 tags:
   - ia
 slug: nace-un-nuevo-estado-de-la-materia
 ---
 
-![Microsofts-Majorana-Chip-Advances-Quantum-Computing](/images/blog/nace-un-nuevo-estado-de-la-materia/4f8f7889-36f1-4abd-9f7a-61e2355c1675_990x661.jpeg "Microsofts-Majorana-Chip-Advances-Quantum-Computing")
+![Microsofts-Majorana-Chip-Advances-Quantum-Computing](/images/blog/2025/02/nace-un-nuevo-estado-de-la-materia/4f8f7889-36f1-4abd-9f7a-61e2355c1675_990x661.jpeg "Microsofts-Majorana-Chip-Advances-Quantum-Computing")
 
 La computación cuántica es una disciplina emergente que utiliza los principios de la mecánica cuántica para procesar información de manera más eficiente que las computadoras clásicas. A diferencia de los bits tradicionales, que representan un estado binario (0 o 1), los qubits pueden existir en múltiples estados simultáneamente gracias a la superposición cuántica. Esta capacidad permite a las computadoras cuánticas realizar cálculos complejos de forma paralela, abordando problemas intrincados en campos como la criptografía, la química y la inteligencia artificial.
 

@@ -2,7 +2,7 @@
 title: 'El Futuro de la Economía: Desdolarización, BRICS y Criptomonedas'
 pubDate: '2023-06-26'
 heroImage: >-
-  /images/blog/el-futuro-de-la-economia-desdolarizacion-brics-y-criptomonedas/hero.jpeg
+  /images/blog/2023/06/el-futuro-de-la-economia-desdolarizacion-brics-y-criptomonedas/hero.jpeg
 author: Asdrúbal Chirinos
 tags:
   - tendencias
@@ -10,7 +10,7 @@ tags:
 slug: el-futuro-de-la-economia-desdolarizacion-brics-y-criptomonedas
 ---
 
-![](/images/blog/el-futuro-de-la-economia-desdolarizacion-brics-y-criptomonedas/hero.jpeg)
+![](/images/blog/2023/06/el-futuro-de-la-economia-desdolarizacion-brics-y-criptomonedas/hero.jpeg)
 
 [Foto de Karolina Grabowska de Pexels](https://www.pexels.com/photo/american-and-chinese-flags-and-usa-dollars-4386371/)
 

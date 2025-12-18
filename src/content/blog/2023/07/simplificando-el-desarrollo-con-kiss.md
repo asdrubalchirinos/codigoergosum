@@ -1,7 +1,7 @@
 ---
 title: Simplificando el desarrollo con KISS
 pubDate: '2023-07-24'
-heroImage: /images/blog/simplificando-el-desarrollo-con-kiss/hero.jpeg
+heroImage: /images/blog/2023/07/simplificando-el-desarrollo-con-kiss/hero.jpeg
 author: Asdrúbal Chirinos
 tags:
   - clean-code
@@ -9,7 +9,7 @@ tags:
 slug: simplificando-el-desarrollo-con-kiss
 ---
 
-![four band members in black and white facepaint in front of the word 'Kiss'](/images/blog/simplificando-el-desarrollo-con-kiss/990c4884-6593-48de-8db7-ca5afdf3b2f4_794x447.jpeg "four band members in black and white facepaint in front of the word 'Kiss'")
+![four band members in black and white facepaint in front of the word 'Kiss'](/images/blog/2023/07/simplificando-el-desarrollo-con-kiss/990c4884-6593-48de-8db7-ca5afdf3b2f4_794x447.jpeg "four band members in black and white facepaint in front of the word 'Kiss'")
 
 La imagen de la banda KISS se utiliza con fines humorísticos y no pretende infringir los derechos de autor ni menoscabar la integridad de la banda..
 

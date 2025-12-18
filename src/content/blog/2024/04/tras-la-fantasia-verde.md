@@ -4,7 +4,7 @@ subtitle: >-
   Desmitificando la realidad "Verde" de los Vehículos Eléctricos de Batería
   (BEV)
 pubDate: '2024-04-25'
-heroImage: /images/blog/tras-la-fantasia-verde/hero.png
+heroImage: /images/blog/2024/04/tras-la-fantasia-verde/hero.png
 author: Asdrúbal Chirinos
 tags:
   - tendencias
@@ -14,7 +14,7 @@ slug: tras-la-fantasia-verde
 
 Por lo general, no suelo escribir sobre temas ambientales. Mi interés suele estar principalmente en el ámbito tecnológico y el crecimiento personal. Sin embargo, hay un tema que ha estado rondando mi mente: los vehículos eléctricos de batería (BEV).
 
-![](/images/blog/tras-la-fantasia-verde/hero.png)
+![](/images/blog/2024/04/tras-la-fantasia-verde/hero.png)
 
 La industria automotriz ha estado promoviendo enérgicamente los vehículos eléctricos de batería (BEV) como una solución "verde" y ambientalmente amigable. Sin embargo, un análisis exhaustivo revela una realidad mucho más compleja y preocupante detrás de esta supuesta solución sostenible.
 

@@ -5,7 +5,7 @@ subtitle: >-
   económica.
 pubDate: '2023-09-29'
 heroImage: >-
-  /images/blog/el-dilema-de-la-automatizacion-un-mundo-sin-trabajadores/hero.jpeg
+  /images/blog/2023/09/el-dilema-de-la-automatizacion-un-mundo-sin-trabajadores/hero.jpeg
 author: Asdrúbal Chirinos
 tags:
   - ia
@@ -15,7 +15,7 @@ tags:
 slug: el-dilema-de-la-automatizacion-un-mundo-sin-trabajadores
 ---
 
-![](/images/blog/el-dilema-de-la-automatizacion-un-mundo-sin-trabajadores/hero.jpeg)
+![](/images/blog/2023/09/el-dilema-de-la-automatizacion-un-mundo-sin-trabajadores/hero.jpeg)
 
 En una época en la que los robots y la inteligencia artificial están cada vez más presentes, un futuro en el que la automatización ocupe un lugar central en nuestros lugares de trabajo ya no es un sueño lejano. Es una realidad que ya se está desarrollando ante nuestros ojos. Pero, ¿qué sucede cuando la mayoría de los empleos ya no son desempeñados por seres humanos? Bienvenidos al Dilema de la Automatización, donde tu café diario es servido por un barista robot, los drones entregan tus paquetes y el carro que te lleva al trabajo se conduce solo. ¡Oh, espera! ¿Adivina qué? ¡Tú ya no tienes trabajo!
 

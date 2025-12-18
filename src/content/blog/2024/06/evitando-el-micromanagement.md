@@ -2,7 +2,7 @@
 title: Evitando el Micromanagement
 subtitle: La Clave para el Éxito del CEO Moderno
 pubDate: '2024-06-26'
-heroImage: /images/blog/evitando-el-micromanagement/hero.webp
+heroImage: /images/blog/2024/06/evitando-el-micromanagement/hero.webp
 author: Asdrúbal Chirinos
 tags:
   - liderazgo
@@ -16,7 +16,7 @@ Entiendo que como CEO de una empresa pequeña, la tentación de involucrarte en 
 
 Esta cita de Steve Jobs encapsula perfectamente la antítesis del micromanagement. Jobs, conocido por su visión innovadora, entendía que el verdadero poder de una organización radica en aprovechar el talento y la creatividad de sus empleados. Al contratar personas inteligentes y darles la libertad de pensar y actuar por sí mismas, Jobs fomentaba un ambiente de innovación y autonomía.
 
-![](/images/blog/evitando-el-micromanagement/hero.webp)
+![](/images/blog/2024/06/evitando-el-micromanagement/hero.webp)
 
 ### **¿Cómo reconocer el Micromanagement?**
 

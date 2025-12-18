@@ -3,7 +3,7 @@ title: 'La Vida, el Proyecto Más Importante'
 subtitle: Aprendiendo a vivir más allá del trabajo
 pubDate: '2025-02-11'
 author: Asdrúbal Chirinos
-heroImage: /images/blog/la-vida-el-proyecto-mas-importante/hero.png
+heroImage: /images/blog/2025/02/la-vida-el-proyecto-mas-importante/hero.png
 tags:
   - carrera
   - soft-skills

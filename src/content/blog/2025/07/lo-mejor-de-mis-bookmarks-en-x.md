@@ -2,7 +2,7 @@
 title: Lo Mejor de mis Bookmarks en X
 subtitle: 'Semana del 21 de julio, 2025'
 pubDate: '2025-07-21'
-heroImage: /images/blog/lo-mejor-de-mis-bookmarks-en-x/hero.png
+heroImage: /images/blog/2025/07/lo-mejor-de-mis-bookmarks-en-x/hero.png
 author: Asdrúbal Chirinos
 tags:
   - ia
@@ -12,7 +12,7 @@ tags:
 slug: lo-mejor-de-mis-bookmarks-en-x
 ---
 
-![](/images/blog/lo-mejor-de-mis-bookmarks-en-x/hero.png)
+![](/images/blog/2025/07/lo-mejor-de-mis-bookmarks-en-x/hero.png)
 
 Cada semana comparto lo más interesante que guardé en mis bookmarks de X: ideas útiles, herramientas y reflexiones breves para inspirar y potenciar tu día a día digital.
 

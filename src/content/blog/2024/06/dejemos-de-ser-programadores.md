@@ -4,7 +4,7 @@ subtitle: >-
   La evolución del desarrollo de software desafía el papel tradicional del
   programador en favor de habilidades más amplias y estratégicas.
 pubDate: '2024-06-27'
-heroImage: /images/blog/dejemos-de-ser-programadores/hero.webp
+heroImage: /images/blog/2024/06/dejemos-de-ser-programadores/hero.webp
 author: Asdrúbal Chirinos
 tags:
   - carrera
@@ -26,7 +26,7 @@ Históricamente, los programadores eran vistos como traductores de código, toma
 
 ### El Desarrollador Moderno
 
-![](/images/blog/dejemos-de-ser-programadores/hero.webp)
+![](/images/blog/2024/06/dejemos-de-ser-programadores/hero.webp)
 
 Hoy en día, se espera que los desarrolladores de software hagan mucho más que simplemente escribir código. Son solucionadores de problemas, innovadores y contribuidores clave a la estrategia del producto. Los desarrolladores modernos deben entender las necesidades del negocio, los requisitos de los usuarios y el contexto más amplio en el cual operará su software. Están involucrados en todo el ciclo de vida del desarrollo de software, desde la conceptualización y diseño hasta la implementación, prueba y mantenimiento.
 

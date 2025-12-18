@@ -4,7 +4,7 @@ subtitle: >-
   Aprende por qué Bun es una elección prometedora para desarrolladores web y
   Node.js
 pubDate: '2023-09-12'
-heroImage: /images/blog/que-onda-con-bun/hero.jpeg
+heroImage: /images/blog/2023/09/que-onda-con-bun/hero.jpeg
 author: Asdrúbal Chirinos
 tags:
   - javascript
@@ -13,7 +13,7 @@ tags:
 slug: que-onda-con-bun
 ---
 
-![](/images/blog/que-onda-con-bun/hero.jpeg)
+![](/images/blog/2023/09/que-onda-con-bun/hero.jpeg)
 
 Bun, listo para producción. Imagen generada por inteligencia artificial. Ideogram.ai
 

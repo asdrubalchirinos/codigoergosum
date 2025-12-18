@@ -4,7 +4,8 @@ subtitle: >-
   Descubre cómo la simplicidad en la arquitectura monolítica puede impulsar el
   éxito en el desarrollo de software.
 pubDate: '2023-10-06'
-heroImage: /images/blog/el-poder-de-lo-monolitico-mas-alla-de-las-tendencias/hero.jpeg
+heroImage: >-
+  /images/blog/2023/10/el-poder-de-lo-monolitico-mas-alla-de-las-tendencias/hero.jpeg
 author: Asdrúbal Chirinos
 tags:
   - arquitectura
@@ -12,7 +13,7 @@ tags:
 slug: el-poder-de-lo-monolitico-mas-alla-de-las-tendencias
 ---
 
-![](/images/blog/el-poder-de-lo-monolitico-mas-alla-de-las-tendencias/hero.jpeg)
+![](/images/blog/2023/10/el-poder-de-lo-monolitico-mas-alla-de-las-tendencias/hero.jpeg)
 
 Imagen creada por inteligencia artificial. Bing Image Creator
 

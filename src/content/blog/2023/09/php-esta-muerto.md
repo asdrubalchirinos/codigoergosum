@@ -4,7 +4,7 @@ subtitle: >-
   PHP: A pesar de las críticas pasadas, continúa evolucionando y sigue siendo
   esencial para internet y el desarrollo web.
 pubDate: '2023-09-11'
-heroImage: /images/blog/php-esta-muerto/hero.jpeg
+heroImage: /images/blog/2023/09/php-esta-muerto/hero.jpeg
 author: Asdrúbal Chirinos
 tags:
   - web
@@ -13,7 +13,7 @@ tags:
 slug: php-esta-muerto
 ---
 
-![](/images/blog/php-esta-muerto/hero.jpeg)
+![](/images/blog/2023/09/php-esta-muerto/hero.jpeg)
 
 La Mala Fama de PHP. Imagen generada por inteligencia artificial. Ideogram.ai
 

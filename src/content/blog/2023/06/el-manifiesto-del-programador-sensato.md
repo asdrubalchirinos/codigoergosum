@@ -1,7 +1,7 @@
 ---
 title: El Manifiesto del Programador Sensato
 pubDate: '2023-06-15'
-heroImage: /images/blog/el-manifiesto-del-programador-sensato/hero.jpeg
+heroImage: /images/blog/2023/06/el-manifiesto-del-programador-sensato/hero.jpeg
 author: Asdrúbal Chirinos
 tags:
   - clean-code
@@ -10,7 +10,7 @@ tags:
 slug: el-manifiesto-del-programador-sensato
 ---
 
-![](/images/blog/el-manifiesto-del-programador-sensato/hero.jpeg)
+![](/images/blog/2023/06/el-manifiesto-del-programador-sensato/hero.jpeg)
 
 El Manifiesto del Programador Sensato. Imagen generada por Bing Image Create. Prompt: Programmer in a computer. comunist propaganda style
 

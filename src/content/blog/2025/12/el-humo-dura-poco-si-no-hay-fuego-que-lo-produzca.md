@@ -1,15 +1,21 @@
 ---
 title: El humo dura poco si no hay fuego que lo produzca
-subtitle: Muchos profesionales crean valor, pocos saben comunicarlo. Aprende a hacer visible tu trabajo sin exagerarlo.
+subtitle: >-
+  Muchos profesionales crean valor, pocos saben comunicarlo. Aprende a hacer
+  visible tu trabajo sin exagerarlo.
 pubDate: '2025-12-09'
-heroImage: /images/blog/el-humo-dura-poco-si-no-hay-fuego-que-lo-produzca/hero.png
+heroImage: >-
+  /images/blog/2025/12/el-humo-dura-poco-si-no-hay-fuego-que-lo-produzca/hero.png
 author: Asdrúbal Chirinos
 featured: true
-tags: ['liderazgo','soft-skills','opinion']
+tags:
+  - liderazgo
+  - soft-skills
+  - opinion
 slug: el-humo-dura-poco-si-no-hay-fuego-que-lo-produzca
 ---
 
-![](/images/blog/el-humo-dura-poco-si-no-hay-fuego-que-lo-produzca/content-1.jpeg)
+![](/images/blog/2025/12/el-humo-dura-poco-si-no-hay-fuego-que-lo-produzca/content-1.jpeg)
 
 
 > “Tarde aprendí que en la vida profesional no se valora el trabajo sino el humo que se vende.”
@@ -28,7 +34,7 @@ En tecnología, muchos grandes desarrolladores ganan hasta **40% menos** porque 
 
 ### El juego de las gallinas
 
-![](/images/blog/el-humo-dura-poco-si-no-hay-fuego-que-lo-produzca/content-2.jpeg)
+![](/images/blog/2025/12/el-humo-dura-poco-si-no-hay-fuego-que-lo-produzca/content-2.jpeg)
 
 Entre las respuestas, esta me parecio genial: 
 >“Las gallinas no solo ponen huevos, también los cacarean”. 

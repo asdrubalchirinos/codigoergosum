@@ -5,7 +5,7 @@ subtitle: >-
   repasamos las predicciones fallidas y cómo el iPhone redefinió la tecnología.
 pubDate: '2024-11-04'
 heroImage: >-
-  /images/blog/el-fracaso-que-nunca-fue-reflexion-sobre-las-predicciones-sobre-el-iphone/hero.jpeg
+  /images/blog/2024/11/el-fracaso-que-nunca-fue-reflexion-sobre-las-predicciones-sobre-el-iphone/hero.jpeg
 author: Asdrúbal Chirinos
 tags:
   - mobile
@@ -14,7 +14,7 @@ tags:
 slug: el-fracaso-que-nunca-fue-reflexion-sobre-las-predicciones-sobre-el-iphone
 ---
 
-![](/images/blog/el-fracaso-que-nunca-fue-reflexion-sobre-las-predicciones-sobre-el-iphone/hero.jpeg)
+![](/images/blog/2024/11/el-fracaso-que-nunca-fue-reflexion-sobre-las-predicciones-sobre-el-iphone/hero.jpeg)
 
 **Cuando el iPhone fue anunciado en 2007, pocos imaginaron que este 'nuevo juguete' cambiaría el mundo.** En un mercado dominado por gigantes como Nokia y BlackBerry, había razones válidas para pensar que Apple no tendría éxito. De hecho, el artículo “Por qué el iPhone fracasará” de David Platt presentaba argumentos sólidos que auguraban un destino oscuro para el iPhone. Hoy conocemos el desenlace de esa historia, pero es interesante revisar esos argumentos iniciales y reflexionar sobre mi propia experiencia al unirme al ecosistema Apple con el iPhone 4.
 
@@ -33,7 +33,7 @@ David Platt basó su predicción en tres puntos clave:
 
 No tuve la oportunidad de experimentar el iPhone original cuando salió al mercado. Mi primer contacto llegó varias generaciones después, con un iPhone 4. Para ese momento, Apple había mejorado varios aspectos del dispositivo, y muchas de las dudas iniciales sobre su funcionamiento se habían disipado.
 
-![](/images/blog/el-fracaso-que-nunca-fue-reflexion-sobre-las-predicciones-sobre-el-iphone/content-1.jpeg)
+![](/images/blog/2024/11/el-fracaso-que-nunca-fue-reflexion-sobre-las-predicciones-sobre-el-iphone/content-1.jpeg)
 
 Venía de usar dispositivos Nokia estilo PDA, como el E71, que también intentaban combinar funciones en un solo equipo, pero lo hacían de una forma mucho más complicada. En comparación, usar el iPhone fue un cambio total: a pesar de las críticas sobre la falta de botones físicos, su pantalla táctil era tan intuitiva que la interacción se sentía natural. Los gestos y toques creaban una conexión directa con el dispositivo, algo que no había experimentado antes. Una vez acostumbrado, no había vuelta atrás; el camino que marcaría el futuro de los teléfonos móviles estaba claro.
 

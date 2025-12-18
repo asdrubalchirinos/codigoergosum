@@ -4,7 +4,8 @@ subtitle: >-
   Cuando entiendes por qué haces lo que haces, descubres que no todos son tu
   público y que está bien elegir a quién servimos.
 pubDate: '2025-11-17'
-heroImage: /images/blog/hay-publico-para-todo-pero-no-todos-son-tu-publico/hero.png
+heroImage: >-
+  /images/blog/2025/11/hay-publico-para-todo-pero-no-todos-son-tu-publico/hero.png
 author: Asdrúbal Chirinos
 tags:
   - carrera
@@ -16,7 +17,7 @@ Imagina que un cliente te ofrece un proyecto grande, estable y muy bien pagado. 
 
 Pero para entender por qué una decisión así tiene sentido, vale la pena ver el cuadro completo.
 
-![](/images/blog/hay-publico-para-todo-pero-no-todos-son-tu-publico/hero.png)
+![](/images/blog/2025/11/hay-publico-para-todo-pero-no-todos-son-tu-publico/hero.png)
 
 * * *
 

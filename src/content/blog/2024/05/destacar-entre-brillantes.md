@@ -4,7 +4,7 @@ subtitle: >-
   Descubre cómo rodearte de un entorno de excelencia y desafío puede impulsar tu
   crecimiento personal y profesional.
 pubDate: '2024-05-17'
-heroImage: /images/blog/destacar-entre-brillantes/hero.jpeg
+heroImage: /images/blog/2024/05/destacar-entre-brillantes/hero.jpeg
 author: Asdrúbal Chirinos
 tags:
   - carrera
@@ -18,7 +18,7 @@ slug: destacar-entre-brillantes
 
 Nos encontramos inmersos en un mundo de innovación y constante evolución. En este entorno tan dinámico, rodearnos de personas brillantes, que desafíen nuestros límites puede marcar la diferencia entre el estancamiento y el crecimiento continuo. La cita con la que abro este articulo encapsula perfectamente la mentalidad que debemos adoptar para alcanzar nuestro máximo potencial tanto personal como profesionalmente.
 
-![](/images/blog/destacar-entre-brillantes/hero.jpeg)
+![](/images/blog/2024/05/destacar-entre-brillantes/hero.jpeg)
 
 En el mundo del desarrollo de software, la competencia es salvaje y los estándares que se nos imponen son cada vez más altos. Para destacar y sobresalir en este campo, o cualquier otro aspecto de la vida, es fundamental rodearse de un entorno de excelencia que nos impulse a superarnos constantemente. Trabajar con colegas talentosos y motivados no solo nos inspira a ser mejores, sino que también nos desafía a alcanzar nuevos niveles de excelencia.
 

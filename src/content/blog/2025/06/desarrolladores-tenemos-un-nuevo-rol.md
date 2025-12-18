@@ -2,7 +2,7 @@
 title: 'Desarrolladores, tenemos un nuevo rol'
 subtitle: De escribir código a pensar en soluciones de negocio.
 pubDate: '2025-06-09'
-heroImage: /images/blog/desarrolladores-tenemos-un-nuevo-rol/hero.png
+heroImage: /images/blog/2025/06/desarrolladores-tenemos-un-nuevo-rol/hero.png
 author: Asdrúbal Chirinos
 tags:
   - devops
@@ -12,7 +12,7 @@ tags:
 slug: desarrolladores-tenemos-un-nuevo-rol
 ---
 
-![Generated image](/images/blog/desarrolladores-tenemos-un-nuevo-rol/7232c70d-181c-48c0-9449-0c5de31222c5_1536x1024.png "Generated image")
+![Generated image](/images/blog/2025/06/desarrolladores-tenemos-un-nuevo-rol/7232c70d-181c-48c0-9449-0c5de31222c5_1536x1024.png "Generated image")
 
 Imagen generada por IA: ChatGPT
 
@@ -29,4 +29,4 @@ Hoy, los desarrolladores estamos llamados a enfocarnos en el pensamiento estrat�
 **En resumen:**
 El rol del desarrollador está evolucionando hacia una función mucho más estratégica y creativa. Adaptarse a este nuevo panorama no solo será clave para el crecimiento profesional, sino también para aportar verdadero valor en un entorno cada vez más impulsado por la inteligencia artificial. La capacidad de comprender a fondo los problemas y guiar el desarrollo de soluciones será, sin duda, el mayor diferenciador en el futuro de la tecnología.
 
-![](/images/blog/desarrolladores-tenemos-un-nuevo-rol/content-1.png)
+![](/images/blog/2025/06/desarrolladores-tenemos-un-nuevo-rol/content-1.png)

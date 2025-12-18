@@ -1,11 +1,14 @@
 ---
 title: Cinema is dead.
-subtitle: 'Long live cinema.'
+subtitle: Long live cinema.
 pubDate: '2025-12-06'
-heroImage: /images/blog/cinema-is-dead-long-live-cinema/hero.png
+heroImage: /images/blog/2025/12/cinema-is-dead-long-live-cinema/hero.png
 author: Asdrúbal Chirinos
 featured: true
-tags: ["nostalgia", "tendencias","opinion"]
+tags:
+  - nostalgia
+  - tendencias
+  - opinion
 slug: cinema-is-dead-long-live-cinema
 lang: en
 ---

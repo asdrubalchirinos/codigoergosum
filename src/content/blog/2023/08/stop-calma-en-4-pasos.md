@@ -4,7 +4,7 @@ subtitle: >-
   Encuentra calma y claridad con la técnica STOP de atención plena. Domina el
   estrés y toma decisiones conscientes. ¡Descubre cómo!
 pubDate: '2023-08-17'
-heroImage: /images/blog/stop-calma-en-4-pasos/hero.jpeg
+heroImage: /images/blog/2023/08/stop-calma-en-4-pasos/hero.jpeg
 author: Asdrúbal Chirinos
 tags:
   - productividad
@@ -12,7 +12,7 @@ tags:
 slug: stop-calma-en-4-pasos
 ---
 
-![](/images/blog/stop-calma-en-4-pasos/hero.jpeg)
+![](/images/blog/2023/08/stop-calma-en-4-pasos/hero.jpeg)
 
 STOP: Domina el estrés y toma decisiones conscientes. Imagen creada por inteligencia artificial. Bing Image Creator. Prompt: A person meditating in a road with a stop sign
 

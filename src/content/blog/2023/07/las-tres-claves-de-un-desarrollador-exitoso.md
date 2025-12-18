@@ -1,7 +1,7 @@
 ---
 title: Las tres claves de un desarrollador exitoso
 pubDate: '2023-07-26'
-heroImage: /images/blog/las-tres-claves-de-un-desarrollador-exitoso/hero.jpeg
+heroImage: /images/blog/2023/07/las-tres-claves-de-un-desarrollador-exitoso/hero.jpeg
 author: Asdrúbal Chirinos
 tags:
   - productividad
@@ -10,7 +10,7 @@ tags:
 slug: las-tres-claves-de-un-desarrollador-exitoso
 ---
 
-![](/images/blog/las-tres-claves-de-un-desarrollador-exitoso/hero.jpeg)
+![](/images/blog/2023/07/las-tres-claves-de-un-desarrollador-exitoso/hero.jpeg)
 
 Imagen generada por inteligencia artificial. Bing Image Creator. Prompt: A laptop sitting on a desk. The laptop monitor displays 3 keys
 

@@ -2,7 +2,7 @@
 title: Del Flyer a la AGI
 subtitle: 'LRMs y los hermanos Wright: más cerca de lo que crees'
 pubDate: '2025-06-10'
-heroImage: /images/blog/del-flyer-a-la-agi/hero.png
+heroImage: /images/blog/2025/06/del-flyer-a-la-agi/hero.png
 author: Asdrúbal Chirinos
 tags:
   - ia

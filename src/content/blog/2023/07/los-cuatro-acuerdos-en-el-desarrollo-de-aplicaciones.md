@@ -1,7 +1,8 @@
 ---
 title: Los Cuatro Acuerdos en el desarrollo de aplicaciones
 pubDate: '2023-07-12'
-heroImage: /images/blog/los-cuatro-acuerdos-en-el-desarrollo-de-aplicaciones/hero.png
+heroImage: >-
+  /images/blog/2023/07/los-cuatro-acuerdos-en-el-desarrollo-de-aplicaciones/hero.png
 author: Asdrúbal Chirinos
 tags:
   - clean-code
@@ -12,7 +13,7 @@ slug: los-cuatro-acuerdos-en-el-desarrollo-de-aplicaciones
 
 "Los Cuatro Acuerdos" es un libro escrito por [Don Miguel Ruiz](https://www.miguelruiz.com/) que ofrece una guía práctica para vivir una vida plena y feliz. Aunque el libro no se centra específicamente en el desarrollo de aplicaciones ni en nosotros como desarrolladores, sus enseñanzas pueden ser aplicadas para nuestro crecimiento profesional en el campo del desarrollo. En este artículo, exploraremos cómo los cuatro acuerdos pueden transformar nuestra perspectiva y práctica en el mundo del desarrollo, ayudándonos a convertirnos en profesionales más conscientes y exitosos.
 
-![](/images/blog/los-cuatro-acuerdos-en-el-desarrollo-de-aplicaciones/hero.png)
+![](/images/blog/2023/07/los-cuatro-acuerdos-en-el-desarrollo-de-aplicaciones/hero.png)
 
 La carátula del libro "Los Cuatro Acuerdos" se utiliza aquí únicamente como referencia y con fines ilustrativos. Todos los derechos de autor pertenecen al autor original y a su editorial. No hay afiliación oficial ni respaldo. Se recomienda adquirir el libro original para beneficiarse de sus enseñanzas.
 

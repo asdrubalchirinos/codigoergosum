@@ -4,7 +4,7 @@ subtitle: >-
   Descubre el verdadero poder de grep y lleva tu flujo de trabajo en la terminal
   al siguiente nivel.
 pubDate: '2025-02-24'
-heroImage: /images/blog/a-que-no-sabes-usar-grep/hero.jpeg
+heroImage: /images/blog/2025/02/a-que-no-sabes-usar-grep/hero.jpeg
 author: Asdrúbal Chirinos
 tags:
   - devops
@@ -14,7 +14,7 @@ slug: a-que-no-sabes-usar-grep
 
 Si usas la terminal todos los días, seguro has escrito `grep` más veces de las que puedes contar. Pero... ¿realmente lo usas bien?
 
-![The grep Command - What You Must Know](/images/blog/a-que-no-sabes-usar-grep/ad8a3918-f4a4-48fb-bf54-d92cc4f5209d_1240x413.jpeg "The grep Command - What You Must Know")
+![The grep Command - What You Must Know](/images/blog/2025/02/a-que-no-sabes-usar-grep/ad8a3918-f4a4-48fb-bf54-d92cc4f5209d_1240x413.jpeg "The grep Command - What You Must Know")
 
 `grep` es una de esas herramientas que todo desarrollador conoce, pero pocos aprovechan al máximo. Hoy te mostraré cómo exprimir su verdadero poder para que nunca más pierdas tiempo buscando en archivos o filtrando logs.
 
@@ -174,6 +174,6 @@ choco install ripgrep
 
 `grep` es mucho más que un simple buscador de texto. Si lo dominas, puedes ahorrar tiempo y mejorar tu flujo de trabajo en la terminal. Así que la próxima vez que uses `grep`, hazlo con estilo. 😉
 
-![](/images/blog/a-que-no-sabes-usar-grep/content-1.png)
+![](/images/blog/2025/02/a-que-no-sabes-usar-grep/content-1.png)
 
 [¡Dona, ahora!](https://gofund.me/d879b2ff)

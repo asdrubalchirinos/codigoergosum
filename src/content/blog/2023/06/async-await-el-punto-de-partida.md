@@ -1,7 +1,7 @@
 ---
 title: 'Async Await: El Punto de Partida'
 pubDate: '2023-06-28'
-heroImage: /images/blog/async-await-el-punto-de-partida/hero.jpeg
+heroImage: /images/blog/2023/06/async-await-el-punto-de-partida/hero.jpeg
 author: Asdrúbal Chirinos
 tags:
   - javascript
@@ -10,7 +10,7 @@ tags:
 slug: async-await-el-punto-de-partida
 ---
 
-![](/images/blog/async-await-el-punto-de-partida/hero.jpeg)
+![](/images/blog/2023/06/async-await-el-punto-de-partida/hero.jpeg)
 
 En el ámbito de la programación, los desarrolladores a menudo se encuentran con situaciones en las que necesitan ejecutar tareas que consumen mucho tiempo sin bloquear el hilo principal de ejecución. Tradicionalmente, el manejo de tales escenarios implicaba el uso de callbacks o la gestión explícita de hilos. Sin embargo, la introducción del paradigma "async" y "await" revolucionó la programación asíncrona, ofreciendo un enfoque más elegante y legible.
 

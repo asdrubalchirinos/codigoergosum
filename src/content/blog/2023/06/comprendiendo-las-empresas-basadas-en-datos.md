@@ -1,14 +1,14 @@
 ---
 title: Comprendiendo las Empresas Basadas en Datos
 pubDate: '2023-06-20'
-heroImage: /images/blog/comprendiendo-las-empresas-basadas-en-datos/hero.jpeg
+heroImage: /images/blog/2023/06/comprendiendo-las-empresas-basadas-en-datos/hero.jpeg
 author: Asdrúbal Chirinos
 tags:
   - opinion
 slug: comprendiendo-las-empresas-basadas-en-datos
 ---
 
-![](/images/blog/comprendiendo-las-empresas-basadas-en-datos/hero.jpeg)
+![](/images/blog/2023/06/comprendiendo-las-empresas-basadas-en-datos/hero.jpeg)
 
 En la era digital actual, los datos son más que una simple palabra de moda; son un activo valioso que puede impulsar a las empresas hacia nuevas alturas. Las empresas basadas en datos han surgido como líderes en sus industrias, aprovechando el poder de los datos para tomar decisiones más inteligentes y conducir su éxito. Pero, ¿qué es exactamente una empresa basada en datos y cómo podemos entenderlo en términos sencillos? En este artículo, desmitificaremos el concepto de las empresas basadas en datos, resaltaremos sus beneficios y arrojaremos luz sobre cómo operan.
 

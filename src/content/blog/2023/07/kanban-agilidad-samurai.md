@@ -1,7 +1,7 @@
 ---
 title: 'Kanban, agilidad Samurai'
 pubDate: '2023-07-14'
-heroImage: /images/blog/kanban-agilidad-samurai/hero.jpeg
+heroImage: /images/blog/2023/07/kanban-agilidad-samurai/hero.jpeg
 author: Asdrúbal Chirinos
 tags:
   - agile
@@ -13,7 +13,7 @@ slug: kanban-agilidad-samurai
 
 En la búsqueda constante de impulsar la eficiencia y la colaboración en los proyectos de software, es fundamental que como gerentes o líderes de desarrollo exploremos nuevas estrategias. En este artículo, nos adentraremos en los conceptos básicos de Kanban, una metodología que ha demostrado ser efectiva para lograr estos objetivos. Descubriremos cómo Kanban puede ayudar a nuestros equipos a mejorar su eficiencia y promover una colaboración más efectiva, brindando así un entorno propicio para el éxito en el desarrollo de software.
 
-![](/images/blog/kanban-agilidad-samurai/hero.jpeg)
+![](/images/blog/2023/07/kanban-agilidad-samurai/hero.jpeg)
 
 Imagen generada por IA: Bing Image Creator. Prompt: Samurai in an office with a Kanban board you can see the city through the windows. photo realistic
 

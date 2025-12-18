@@ -1,7 +1,7 @@
 ---
 title: ¿Qué pasó con Windows Phone?
 pubDate: '2023-06-26'
-heroImage: /images/blog/que-paso-con-windows-phone/hero.jpeg
+heroImage: /images/blog/2023/06/que-paso-con-windows-phone/hero.jpeg
 author: Asdrúbal Chirinos
 tags:
   - mobile
@@ -9,7 +9,7 @@ tags:
 slug: que-paso-con-windows-phone
 ---
 
-![](/images/blog/que-paso-con-windows-phone/hero.jpeg)
+![](/images/blog/2023/06/que-paso-con-windows-phone/hero.jpeg)
 
 Windows Phone, fue un sistema operativo móvil desarrollado por Microsoft que cautivó a usuarios y desarrolladores por igual con su interfaz elegante, simplicidad y funciones avanzadas. Sin embargo, a pesar de sus fortalezas, Windows Phone no logró obtener una tracción significativa en el mercado y finalmente llegó a su fin. En este artículo, profundizaremos en las razones detrás del fracaso de Windows Phone y exploraremos los desafíos que enfrentó al competir con actores establecidos como Android e iOS.
 

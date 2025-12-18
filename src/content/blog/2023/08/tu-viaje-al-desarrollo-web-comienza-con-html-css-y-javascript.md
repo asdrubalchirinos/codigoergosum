@@ -5,7 +5,7 @@ subtitle: >-
   Inicia tu viaje en la creación de sitios y aplicaciones interactivas.
 pubDate: '2023-08-16'
 heroImage: >-
-  /images/blog/tu-viaje-al-desarrollo-web-comienza-con-html-css-y-javascript/hero.png
+  /images/blog/2023/08/tu-viaje-al-desarrollo-web-comienza-con-html-css-y-javascript/hero.png
 author: Asdrúbal Chirinos
 tags:
   - web
@@ -16,7 +16,7 @@ slug: tu-viaje-al-desarrollo-web-comienza-con-html-css-y-javascript
 
 Si alguna vez te has preguntado cómo se crean esos sitios web que visitas todos los días, estás a punto de descubrirlo. En este artículo, te sumergirás en los fundamentos esenciales del desarrollo web: HTML, CSS y JavaScript. Estos tres pilares son la base sobre la cual se construyen las páginas web y las aplicaciones interactivas que definen la experiencia en línea.
 
-![](/images/blog/tu-viaje-al-desarrollo-web-comienza-con-html-css-y-javascript/hero.png)
+![](/images/blog/2023/08/tu-viaje-al-desarrollo-web-comienza-con-html-css-y-javascript/hero.png)
 
 ### HTML: La Estructura Esencial
 

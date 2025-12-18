@@ -2,7 +2,7 @@
 title: Periodismo del futuro
 subtitle: La colaboración de ChatGPT
 pubDate: '2023-02-09'
-heroImage: /images/blog/periodismo-del-futuro/hero.jpeg
+heroImage: /images/blog/2023/02/periodismo-del-futuro/hero.jpeg
 author: Asdrúbal Chirinos
 tags:
   - ia
@@ -10,7 +10,7 @@ tags:
 slug: periodismo-del-futuro
 ---
 
-![](/images/blog/periodismo-del-futuro/hero.jpeg)
+![](/images/blog/2023/02/periodismo-del-futuro/hero.jpeg)
 
 La inteligencia artificial y, en particular, los modelos de lenguaje como ChatGPT, están transformando la forma en que los periodistas y los creadores de contenido trabajan. Más allá de las tareas "tradicionales" asociadas a las IA, como la corrección gramatical y la generación de ideas de titulares, ChatGPT puede ser una herramienta valiosa en la gestión de contenidos y la producción de noticias.
 

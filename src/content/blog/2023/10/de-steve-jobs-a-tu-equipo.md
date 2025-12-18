@@ -2,7 +2,7 @@
 title: De Steve Jobs a tu Equipo
 subtitle: Cómo la Técnica de Steve Jobs Puede Transformar tu Equipo de Desarrollo.
 pubDate: '2023-10-05'
-heroImage: /images/blog/de-steve-jobs-a-tu-equipo/hero.jpeg
+heroImage: /images/blog/2023/10/de-steve-jobs-a-tu-equipo/hero.jpeg
 author: Asdrúbal Chirinos
 tags:
   - liderazgo
@@ -10,7 +10,7 @@ tags:
 slug: de-steve-jobs-a-tu-equipo
 ---
 
-![](/images/blog/de-steve-jobs-a-tu-equipo/hero.jpeg)
+![](/images/blog/2023/10/de-steve-jobs-a-tu-equipo/hero.jpeg)
 
 La Escucha Activa de Steve Jobs. Imagen generada por Inteligencia Artificial. Ideogram.ai
 

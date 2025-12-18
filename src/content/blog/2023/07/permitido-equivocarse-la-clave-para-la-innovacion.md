@@ -1,7 +1,8 @@
 ---
 title: 'Permitido equivocarse: La clave para la innovación'
 pubDate: '2023-07-04'
-heroImage: /images/blog/permitido-equivocarse-la-clave-para-la-innovacion/hero.jpeg
+heroImage: >-
+  /images/blog/2023/07/permitido-equivocarse-la-clave-para-la-innovacion/hero.jpeg
 author: Asdrúbal Chirinos
 tags:
   - liderazgo
@@ -9,7 +10,7 @@ tags:
 slug: permitido-equivocarse-la-clave-para-la-innovacion
 ---
 
-![](/images/blog/permitido-equivocarse-la-clave-para-la-innovacion/hero.jpeg)
+![](/images/blog/2023/07/permitido-equivocarse-la-clave-para-la-innovacion/hero.jpeg)
 
 [Foto por fauxels de Pexels](https://www.pexels.com/photo/photo-of-men-doing-fist-bump-3184302/)
 

@@ -2,7 +2,7 @@
 title: 'Recordando Google+: El intento de Google de conquistar las redes sociales'
 pubDate: '2023-06-28'
 heroImage: >-
-  /images/blog/recordando-google-el-intento-de-google-de-conquistar-las-redes-sociales/hero.jpeg
+  /images/blog/2023/06/recordando-google-el-intento-de-google-de-conquistar-las-redes-sociales/hero.jpeg
 author: Asdrúbal Chirinos
 tags:
   - tendencias
@@ -10,7 +10,7 @@ tags:
 slug: recordando-google-el-intento-de-google-de-conquistar-las-redes-sociales
 ---
 
-![](/images/blog/recordando-google-el-intento-de-google-de-conquistar-las-redes-sociales/hero.jpeg)
+![](/images/blog/2023/06/recordando-google-el-intento-de-google-de-conquistar-las-redes-sociales/hero.jpeg)
 
 Disclaimer: El uso del logotipo de Google+ en este artículo es solo con fines ilustrativos y descriptivos. El logotipo es propiedad exclusiva de Google LLC y está protegido por derechos de autor y marcas registradas. Su inclusión en este artículo no implica ningún respaldo o afiliación por parte de Google. Cualquier uso no autorizado del logotipo de Google+ está estrictamente prohibido y puede violar las leyes de propiedad intelectual.
 

@@ -2,7 +2,7 @@
 title: 'Nu Shell: Ideal para desarrolladores'
 subtitle: Un shell moderno para desarrolladores que buscan productividad y eficiencia.
 pubDate: '2025-02-19'
-heroImage: /images/blog/nu-shell-ideal-para-desarrolladores/hero.jpeg
+heroImage: /images/blog/2025/02/nu-shell-ideal-para-desarrolladores/hero.jpeg
 author: Asdrúbal Chirinos
 tags:
   - productividad
@@ -12,7 +12,7 @@ slug: nu-shell-ideal-para-desarrolladores
 
 Como desarrollador, tu línea de comandos es tu interfaz principal con el sistema. Ya sea que estés automatizando tareas, depurando código o gestionando entornos, el shell que utilices puede afectar significativamente tu productividad. Aunque muchos desarrolladores están familiarizados con shells tradicionales como **bash** o **zsh**, hay una alternativa moderna que está ganando atención: **Nu Shell**. Aquí te explico por qué deberías considerar probarlo.
 
-![NuShell, mais um shell](/images/blog/nu-shell-ideal-para-desarrolladores/66f08ee2-4623-4cd2-bea8-31e1587c6a19_800x450.jpeg "NuShell, mais um shell")
+![NuShell, mais um shell](/images/blog/2025/02/nu-shell-ideal-para-desarrolladores/66f08ee2-4623-4cd2-bea8-31e1587c6a19_800x450.jpeg "NuShell, mais um shell")
 
 #### 1\. **Manejo de Datos Estructurados: El Poder de las Tablas**
 
@@ -56,7 +56,7 @@ Nu Shell está diseñado para funcionar de manera consistente en macOS, Linux y 
 
 Esto lo convierte en una excelente opción para desarrolladores que crean herramientas multiplataforma o gestionan sistemas en múltiples plataformas.
 
-![](/images/blog/nu-shell-ideal-para-desarrolladores/content-1.png)
+![](/images/blog/2025/02/nu-shell-ideal-para-desarrolladores/content-1.png)
 
 #### 6\. **Extensible y Personalizable**
 

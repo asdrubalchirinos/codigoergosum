@@ -1,7 +1,7 @@
 ---
 title: Notación O nivel osito
 pubDate: '2023-03-07'
-heroImage: /images/blog/notacion-o-nivel-osito/hero.png
+heroImage: /images/blog/2023/03/notacion-o-nivel-osito/hero.png
 author: Asdrúbal Chirinos
 tags:
   - backend
@@ -9,7 +9,7 @@ tags:
 slug: notacion-o-nivel-osito
 ---
 
-![](/images/blog/notacion-o-nivel-osito/hero.png)
+![](/images/blog/2023/03/notacion-o-nivel-osito/hero.png)
 
 ¿Alguna vez te has preguntado cómo los ordenadores hacen todo lo que hacen? Bueno, una de las cosas que hacen es ordenar información. Por ejemplo, si tienes una lista de nombres y quieres encontrar uno en particular, el ordenador tiene que buscar en toda la lista hasta encontrarlo. Pero, ¿qué pasa si la lista es muy larga? ¿Podría llevar mucho tiempo encontrar lo que buscas?
 

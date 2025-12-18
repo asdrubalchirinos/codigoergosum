@@ -2,14 +2,14 @@
 title: El Fin de la Batalla
 subtitle: 'Comparativa definitiva entre Linux, macOS y Windows'
 pubDate: '2024-06-24'
-heroImage: /images/blog/el-fin-de-la-batalla/hero.webp
+heroImage: /images/blog/2024/06/el-fin-de-la-batalla/hero.webp
 author: Asdrúbal Chirinos
 tags:
   - devops
 slug: el-fin-de-la-batalla
 ---
 
-![](/images/blog/el-fin-de-la-batalla/hero.webp)
+![](/images/blog/2024/06/el-fin-de-la-batalla/hero.webp)
 
 En el mundo de la informática, la elección del sistema operativo ha sido objeto de debates interminables. Linux, macOS y Windows son los principales contendientes, cada uno con características únicas que los hacen ideales para diferentes tipos de usuarios y propósitos.
 

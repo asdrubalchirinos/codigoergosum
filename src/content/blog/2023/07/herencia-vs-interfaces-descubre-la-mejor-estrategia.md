@@ -1,7 +1,8 @@
 ---
 title: 'Herencia vs. Interfaces: Descubre la Mejor Estrategia'
 pubDate: '2023-07-31'
-heroImage: /images/blog/herencia-vs-interfaces-descubre-la-mejor-estrategia/hero.jpeg
+heroImage: >-
+  /images/blog/2023/07/herencia-vs-interfaces-descubre-la-mejor-estrategia/hero.jpeg
 author: Asdrúbal Chirinos
 tags:
   - poo
@@ -11,7 +12,7 @@ tags:
 slug: herencia-vs-interfaces-descubre-la-mejor-estrategia
 ---
 
-![](/images/blog/herencia-vs-interfaces-descubre-la-mejor-estrategia/hero.jpeg)
+![](/images/blog/2023/07/herencia-vs-interfaces-descubre-la-mejor-estrategia/hero.jpeg)
 
 caption...
 

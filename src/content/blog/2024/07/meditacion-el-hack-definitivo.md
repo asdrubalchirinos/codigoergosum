@@ -4,7 +4,7 @@ subtitle: >-
   Aprende a enfocar tu mente para mejorar la escucha activa y la resolución de
   problemas en el desarrollo.
 pubDate: '2024-07-22'
-heroImage: /images/blog/meditacion-el-hack-definitivo/hero.webp
+heroImage: /images/blog/2024/07/meditacion-el-hack-definitivo/hero.webp
 author: Asdrúbal Chirinos
 tags:
   - soft-skills
@@ -12,7 +12,7 @@ tags:
 slug: meditacion-el-hack-definitivo
 ---
 
-![](/images/blog/meditacion-el-hack-definitivo/hero.webp)
+![](/images/blog/2024/07/meditacion-el-hack-definitivo/hero.webp)
 
 Como desarrolladores, siempre buscamos formas de optimizar nuestro código y mejorar nuestros flujos de trabajo. Pero, ¿y si te dijera que una de las herramientas más poderosas para el crecimiento profesional no se encuentra en tu IDE o en Stack Overflow, sino en una práctica antigua que ha existido durante milenios? Hablo de la meditación, y no es solo para alcanzar la paz interior: es un cambio de juego en cómo interactuamos con nuestros colegas y clientes.
 

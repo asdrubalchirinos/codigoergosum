@@ -4,7 +4,7 @@ subtitle: >-
   Una visión basada en la experiencia que demuestra cómo la aplicación de los
   fundamentos del diseño puede enriquecer la calidad de tus proyectos.
 pubDate: '2023-10-03'
-heroImage: /images/blog/consejos-de-diseno-para-desarrolladores/hero.jpeg
+heroImage: /images/blog/2023/10/consejos-de-diseno-para-desarrolladores/hero.jpeg
 author: Asdrúbal Chirinos
 tags:
   - web
@@ -12,7 +12,7 @@ tags:
 slug: consejos-de-diseno-para-desarrolladores
 ---
 
-![](/images/blog/consejos-de-diseno-para-desarrolladores/hero.jpeg)
+![](/images/blog/2023/10/consejos-de-diseno-para-desarrolladores/hero.jpeg)
 
 Antes de enfocarme en el desarrollo de software, exploré el mundo del diseño gráfico, adquiriendo conocimientos sobre disposición, composición, color y tipografía. Aunque elegí el desarrollo como carrera, las enseñanzas del diseño han resultado invaluables. Los desarrolladores que comprenden el diseño pueden crear aplicaciones más atractivas y amigables. En este artículo, veremos cómo utilizar el color, la tipografía y el diseño para mejorar tus proyectos web.
 

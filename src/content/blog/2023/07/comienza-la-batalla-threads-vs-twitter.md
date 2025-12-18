@@ -1,7 +1,7 @@
 ---
 title: Comienza la batalla Threads vs Twitter
 pubDate: '2023-07-05'
-heroImage: /images/blog/comienza-la-batalla-threads-vs-twitter/hero.webp
+heroImage: /images/blog/2023/07/comienza-la-batalla-threads-vs-twitter/hero.webp
 author: Asdrúbal Chirinos
 tags:
   - tendencias
@@ -9,7 +9,7 @@ tags:
 slug: comienza-la-batalla-threads-vs-twitter
 ---
 
-![](/images/blog/comienza-la-batalla-threads-vs-twitter/hero.webp)
+![](/images/blog/2023/07/comienza-la-batalla-threads-vs-twitter/hero.webp)
 
 Un nuevo rival ha surgido en el ámbito de las redes sociales y lleva por nombre Threads. Desarrollada por Meta, esta innovadora aplicación está lista para enfrentarse al gigante establecido, Twitter, en la batalla por la supremacía del microblogging.
 

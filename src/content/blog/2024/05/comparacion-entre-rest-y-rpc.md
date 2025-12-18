@@ -2,7 +2,7 @@
 title: Comparación entre REST y RPC
 subtitle: Entendiendo las diferencias y decidiendo cuándo implementar cada enfoque
 pubDate: '2024-05-27'
-heroImage: /images/blog/comparacion-entre-rest-y-rpc/hero.png
+heroImage: /images/blog/2024/05/comparacion-entre-rest-y-rpc/hero.png
 author: Asdrúbal Chirinos
 tags:
   - backend
@@ -10,7 +10,7 @@ tags:
 slug: comparacion-entre-rest-y-rpc
 ---
 
-![](/images/blog/comparacion-entre-rest-y-rpc/hero.png)
+![](/images/blog/2024/05/comparacion-entre-rest-y-rpc/hero.png)
 
 En los servicios web y las APIs, REST y RPC son dos de los estilos arquitectónicos más comúnmente utilizados . Cada uno tiene sus características únicas, casos de uso y ventajas.
 

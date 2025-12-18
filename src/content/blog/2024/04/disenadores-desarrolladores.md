@@ -2,7 +2,7 @@
 title: Diseñadores + Desarrolladores
 subtitle: Cerrando la Brecha Entre Diseñadores y Desarrolladores
 pubDate: '2024-04-23'
-heroImage: /images/blog/disenadores-desarrolladores/hero.png
+heroImage: /images/blog/2024/04/disenadores-desarrolladores/hero.png
 author: Asdrúbal Chirinos
 tags:
   - web
@@ -12,7 +12,7 @@ tags:
 slug: disenadores-desarrolladores
 ---
 
-![](/images/blog/disenadores-desarrolladores/hero.png)
+![](/images/blog/2024/04/disenadores-desarrolladores/hero.png)
 
 Durante mucho tiempo, diseñadores y desarrolladores se han visto como entes separados en el mundo del desarrollo web y móvil. A los diseñadores se les suele representar como la fuerza creativa, mientras que a los desarrolladores se les ve como los cerebros técnicos. Sin embargo, esta percepción está desactualizada y obstaculiza la colaboración entre estos dos roles cruciales.
 

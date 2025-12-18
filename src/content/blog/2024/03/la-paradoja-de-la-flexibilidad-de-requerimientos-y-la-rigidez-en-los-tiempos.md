@@ -5,7 +5,7 @@ subtitle: >-
   tiempos estrictos en la gestión de proyectos
 pubDate: '2024-03-05'
 heroImage: >-
-  /images/blog/la-paradoja-de-la-flexibilidad-de-requerimientos-y-la-rigidez-en-los-tiempos/hero.jpeg
+  /images/blog/2024/03/la-paradoja-de-la-flexibilidad-de-requerimientos-y-la-rigidez-en-los-tiempos/hero.jpeg
 author: Asdrúbal Chirinos
 tags:
   - agile
@@ -13,7 +13,7 @@ tags:
 slug: la-paradoja-de-la-flexibilidad-de-requerimientos-y-la-rigidez-en-los-tiempos
 ---
 
-![](/images/blog/la-paradoja-de-la-flexibilidad-de-requerimientos-y-la-rigidez-en-los-tiempos/hero.jpeg)
+![](/images/blog/2024/03/la-paradoja-de-la-flexibilidad-de-requerimientos-y-la-rigidez-en-los-tiempos/hero.jpeg)
 
 Imagen creada por inteligencia artificial. Microsoft Copilot
 

@@ -2,7 +2,7 @@
 title: Atraer y retener talentos
 subtitle: ¿preparado para las nuevas exigencias?
 pubDate: '2023-01-25'
-heroImage: /images/blog/atraer-y-retener-talentos/hero.jpeg
+heroImage: /images/blog/2023/01/atraer-y-retener-talentos/hero.jpeg
 author: Asdrúbal Chirinos
 tags:
   - carrera
@@ -14,7 +14,7 @@ slug: atraer-y-retener-talentos
 
 Las empresas se enfrentan a un cambio en las expectativas de los colaboradores y deben adaptarse para atraer y retener a los mejores talentos. Una de las principales tendencias es la necesidad de trabajo remoto y flexibilidad horaria, en la búsqueda de un equilibrio entre su vida laboral y personal.
 
-![](/images/blog/atraer-y-retener-talentos/hero.jpeg)
+![](/images/blog/2023/01/atraer-y-retener-talentos/hero.jpeg)
 
 Además, los colaboradores también esperan un plan de carrera definido y ajustes salariales anuales, ya que quieren sentir que tienen un futuro en la empresa y que su esfuerzo será recompensado. El apoyo en relación a la salud mental también se ha convertido en una prioridad, ya que los empleados quieren sentir que su bienestar está siendo considerado.
 

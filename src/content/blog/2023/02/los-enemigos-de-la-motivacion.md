@@ -1,7 +1,7 @@
 ---
 title: Los enemigos de la motivación
 pubDate: '2023-02-06'
-heroImage: /images/blog/los-enemigos-de-la-motivacion/hero.jpeg
+heroImage: /images/blog/2023/02/los-enemigos-de-la-motivacion/hero.jpeg
 author: Asdrúbal Chirinos
 tags:
   - motivacion
@@ -10,7 +10,7 @@ tags:
 slug: los-enemigos-de-la-motivacion
 ---
 
-![](/images/blog/los-enemigos-de-la-motivacion/hero.jpeg)
+![](/images/blog/2023/02/los-enemigos-de-la-motivacion/hero.jpeg)
 
 La motivación es un aspecto fundamental en cualquier ámbito, especialmente en el trabajo. La motivación es lo que impulsa a una persona a actuar y lograr sus metas y objetivos. Es importante para el rendimiento y el éxito en el trabajo, así como para la satisfacción y el bienestar personal.
 

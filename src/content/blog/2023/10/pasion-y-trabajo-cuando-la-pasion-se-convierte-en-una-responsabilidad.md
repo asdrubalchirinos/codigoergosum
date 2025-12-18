@@ -5,7 +5,7 @@ subtitle: >-
   equilibrio para una vida plena.
 pubDate: '2023-10-09'
 heroImage: >-
-  /images/blog/pasion-y-trabajo-cuando-la-pasion-se-convierte-en-una-responsabilidad/hero.jpeg
+  /images/blog/2023/10/pasion-y-trabajo-cuando-la-pasion-se-convierte-en-una-responsabilidad/hero.jpeg
 author: Asdrúbal Chirinos
 tags:
   - carrera
@@ -15,7 +15,7 @@ slug: pasion-y-trabajo-cuando-la-pasion-se-convierte-en-una-responsabilidad
 
 Cualquier pasión que te exija rendir cuentas y entregar resultados se convierte automáticamente en un trabajo
 
-![](/images/blog/pasion-y-trabajo-cuando-la-pasion-se-convierte-en-una-responsabilidad/hero.jpeg)
+![](/images/blog/2023/10/pasion-y-trabajo-cuando-la-pasion-se-convierte-en-una-responsabilidad/hero.jpeg)
 
 Esta afirmación puede resonar profundamente en quienes persiguen con pasión sus intereses y sueños. En este artículo, exploraremos cómo la pasión puede evolucionar y transformarse en una tarea ardua a medida que se imponen demandas y responsabilidades. Sin embargo, también discutiremos cómo esta evolución no necesariamente elimina la pasión original, sino que, en muchos casos, puede llevar a una satisfacción aún mayor al alcanzar metas y objetivos.
 

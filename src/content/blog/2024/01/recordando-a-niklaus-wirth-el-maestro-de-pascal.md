@@ -2,7 +2,7 @@
 title: 'Recordando a Niklaus Wirth: El Maestro de Pascal'
 subtitle: Un emotivo tributo al genio que marcó la historia del código.
 pubDate: '2024-01-04'
-heroImage: /images/blog/recordando-a-niklaus-wirth-el-maestro-de-pascal/hero.webp
+heroImage: /images/blog/2024/01/recordando-a-niklaus-wirth-el-maestro-de-pascal/hero.webp
 author: Asdrúbal Chirinos
 tags:
   - nostalgia
@@ -10,7 +10,7 @@ tags:
 slug: recordando-a-niklaus-wirth-el-maestro-de-pascal
 ---
 
-![](/images/blog/recordando-a-niklaus-wirth-el-maestro-de-pascal/hero.webp)
+![](/images/blog/2024/01/recordando-a-niklaus-wirth-el-maestro-de-pascal/hero.webp)
 
 Hoy quiero rendir un sincero homenaje a un grande de la informática que nos dejó este 1º de enero de 2024: **Niklaus Wirth**. Para mí, no fue solo un pionero de la programación, sino también el creador de uno de mis lenguajes de programación favoritos: Pascal.
 

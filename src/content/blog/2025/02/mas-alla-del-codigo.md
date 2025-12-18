@@ -4,7 +4,7 @@ subtitle: >-
   Los desarrolladores aportan valor resolviendo problemas reales y no
   escribiendo líneas de código.
 pubDate: '2025-02-21'
-heroImage: /images/blog/mas-alla-del-codigo/hero.webp
+heroImage: /images/blog/2025/02/mas-alla-del-codigo/hero.webp
 author: Asdrúbal Chirinos
 tags:
   - carrera
@@ -12,7 +12,7 @@ tags:
 slug: mas-alla-del-codigo
 ---
 
-![](/images/blog/mas-alla-del-codigo/hero.webp)
+![](/images/blog/2025/02/mas-alla-del-codigo/hero.webp)
 
 Como desarrolladores, es esencial reconocer que nuestro valor no esta determinado por la cantidad de código que escribimos, sino en nuestra capacidad para resolver problemas reales y aportar soluciones efectivas. Al adoptar una mentalidad enfocada en la resolución de problemas, podemos trascender la visión tradicional de ser meros programadores y convertirnos en verdaderos desarrolladores, en solucionadores de desafíos complejos.
 

@@ -2,7 +2,7 @@
 title: Transformación digital
 subtitle: Claves para el éxito de los negocios
 pubDate: '2023-02-08'
-heroImage: /images/blog/transformacion-digital/hero.jpeg
+heroImage: /images/blog/2023/02/transformacion-digital/hero.jpeg
 author: Asdrúbal Chirinos
 tags:
   - liderazgo
@@ -13,7 +13,7 @@ Este artículo es una revisión de los planteamientos de [Néstor Luis Altuve Or
 
 * * *
 
-![](/images/blog/transformacion-digital/hero.jpeg)
+![](/images/blog/2023/02/transformacion-digital/hero.jpeg)
 
 La transformación digital se refiere a la reorientación de toda la organización hacia un modelo eficaz de relación integral digital y física. Este proceso implica una adaptación no solo en el área de tecnología, sino también en la forma en que la organización interactúa con sus clientes en cada uno de los puntos de contacto.
 

@@ -4,7 +4,7 @@ subtitle: >-
   Descubre si la recursión es realmente esencial en el desarrollo de software.
   Ejemplos reveladores te mostrarán la respuesta.
 pubDate: '2023-09-28'
-heroImage: /images/blog/es-la-recursion-tan-mala-como-la-pintan/hero.jpeg
+heroImage: /images/blog/2023/09/es-la-recursion-tan-mala-como-la-pintan/hero.jpeg
 author: Asdrúbal Chirinos
 tags:
   - clean-code
@@ -12,7 +12,7 @@ tags:
 slug: es-la-recursion-tan-mala-como-la-pintan
 ---
 
-![](/images/blog/es-la-recursion-tan-mala-como-la-pintan/hero.jpeg)
+![](/images/blog/2023/09/es-la-recursion-tan-mala-como-la-pintan/hero.jpeg)
 
 Imagen generada por inteligencia artificial. Ideogram.ai. Prompt: An image of a never-ending spiral staircase, each step repeating infinitely.
 

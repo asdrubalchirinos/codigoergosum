@@ -1,7 +1,7 @@
 ---
 title: ¿SQL o NoSQL? Cómo elegir
 pubDate: '2023-06-30'
-heroImage: /images/blog/sql-o-nosql-como-elegir/hero.png
+heroImage: /images/blog/2023/06/sql-o-nosql-como-elegir/hero.png
 author: Asdrúbal Chirinos
 tags:
   - backend
@@ -9,7 +9,7 @@ tags:
 slug: sql-o-nosql-como-elegir
 ---
 
-![](/images/blog/sql-o-nosql-como-elegir/hero.png)
+![](/images/blog/2023/06/sql-o-nosql-como-elegir/hero.png)
 
 En el mundo de las bases de datos, dos contendientes principales compiten por la supremacía: SQL y NoSQL. Estos dos tipos de bases de datos tienen características y casos de uso distintos, lo que hace que la elección entre ellos sea una decisión crucial para los desarrolladores. En este artículo, emprenderemos un viaje para explorar las diferencias entre las bases de datos SQL y NoSQL, ayudándote a entender cuándo usar cada una. ¡Prepárate para un recorrido por el paisaje de las bases de datos!
 

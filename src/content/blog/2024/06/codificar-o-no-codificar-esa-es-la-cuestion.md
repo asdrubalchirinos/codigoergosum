@@ -4,7 +4,7 @@ subtitle: >-
   Adoptando nuevas habilidades y herramientas para ir de programadores a
   solucionadores de problemas
 pubDate: '2024-06-14'
-heroImage: /images/blog/codificar-o-no-codificar-esa-es-la-cuestion/hero.webp
+heroImage: /images/blog/2024/06/codificar-o-no-codificar-esa-es-la-cuestion/hero.webp
 author: Asdrúbal Chirinos
 tags:
   - carrera
@@ -14,7 +14,7 @@ tags:
 slug: codificar-o-no-codificar-esa-es-la-cuestion
 ---
 
-![](/images/blog/codificar-o-no-codificar-esa-es-la-cuestion/hero.webp)
+![](/images/blog/2024/06/codificar-o-no-codificar-esa-es-la-cuestion/hero.webp)
 
 Como programador, a menudo somos vistos como los tipos que simplemente “echan código”. La emoción de crear líneas de sintaxis, depurar errores y, en última instancia, crear programas funcionales es una pasión que estoy seguro comparto con muchos de ustedes. Sin embargo, a medida que nuestra industria progresa, cada vez es más claro que el verdadero valor de un desarrollador va mucho más allá de solo codear.
 

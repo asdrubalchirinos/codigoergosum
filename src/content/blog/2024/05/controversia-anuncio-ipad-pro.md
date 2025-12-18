@@ -2,7 +2,7 @@
 title: Controversia Anuncio iPad Pro
 subtitle: Una oportunidad perdida y lecciones a aprender
 pubDate: '2024-05-09'
-heroImage: /images/blog/controversia-anuncio-ipad-pro/hero.jpeg
+heroImage: /images/blog/2024/05/controversia-anuncio-ipad-pro/hero.jpeg
 author: Asdrúbal Chirinos
 tags:
   - nostalgia
@@ -11,7 +11,7 @@ slug: controversia-anuncio-ipad-pro
 
 El reciente anuncio de Apple para el nuevo iPad Pro, titulado "Crush", ha generado una controversia significativa y ha suscitado importantes debates sobre la intersección entre la tecnología y la creatividad. Si bien la intención de Apple era mostrar la versatilidad de su producto, la ejecución del anuncio inadvertidamente suscitó preocupaciones sobre el papel de la tecnología en reemplazar las herramientas creativas tradicionales.
 
-![](/images/blog/controversia-anuncio-ipad-pro/hero.jpeg)
+![](/images/blog/2024/05/controversia-anuncio-ipad-pro/hero.jpeg)
 
 Youtube: **Crush! | iPad Pro | Apple**
 

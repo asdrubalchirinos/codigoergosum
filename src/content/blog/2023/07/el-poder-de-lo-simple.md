@@ -1,7 +1,7 @@
 ---
 title: El Poder de lo simple
 pubDate: '2023-07-06'
-heroImage: /images/blog/el-poder-de-lo-simple/hero.jpeg
+heroImage: /images/blog/2023/07/el-poder-de-lo-simple/hero.jpeg
 author: Asdrúbal Chirinos
 tags:
   - arquitectura
@@ -9,7 +9,7 @@ tags:
 slug: el-poder-de-lo-simple
 ---
 
-![](/images/blog/el-poder-de-lo-simple/hero.jpeg)
+![](/images/blog/2023/07/el-poder-de-lo-simple/hero.jpeg)
 
 [Foto de Nicollazzi Xiong](https://www.pexels.com/photo/four-rock-formation-668353/)
 

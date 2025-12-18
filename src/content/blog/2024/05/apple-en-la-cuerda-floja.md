@@ -2,7 +2,7 @@
 title: Apple en la cuerda floja
 subtitle: La WWDC 2024 sellará el destino de la empresa en la era de la IA
 pubDate: '2024-05-23'
-heroImage: /images/blog/apple-en-la-cuerda-floja/hero.png
+heroImage: /images/blog/2024/05/apple-en-la-cuerda-floja/hero.png
 author: Asdrúbal Chirinos
 tags:
   - ia
@@ -11,7 +11,7 @@ tags:
 slug: apple-en-la-cuerda-floja
 ---
 
-![](/images/blog/apple-en-la-cuerda-floja/hero.png)
+![](/images/blog/2024/05/apple-en-la-cuerda-floja/hero.png)
 
 Mientras el mundo tecnológico espera ansiosamente la inminente llegada de la Conferencia Mundial de Desarrolladores de Apple (WWDC), la presión de ofrecer algo extraordinario aumenta para el gigante de Cupertino. Con competidores como OpenAI, Google y Microsoft empujando los límites de la IA, la WWDC 2024 de Apple será un momento decisivo no solo para Tim Cook, CEO de Apple, sino también para el futuro de la propia empresa.
 
@@ -41,7 +41,7 @@ Es dice Horace Dediu, analista móvil de Asymco.
 
 #### **Posibles Innovaciones de IA en WWDC 2024**
 
-![Macs to Get AI-Focused M4 Chips Starting in Late 2024](/images/blog/apple-en-la-cuerda-floja/66c13ef5-90f3-4fab-9bdc-0bdd02235d6d_1280x720.jpeg "Macs to Get AI-Focused M4 Chips Starting in Late 2024")
+![Macs to Get AI-Focused M4 Chips Starting in Late 2024](/images/blog/2024/05/apple-en-la-cuerda-floja/66c13ef5-90f3-4fab-9bdc-0bdd02235d6d_1280x720.jpeg "Macs to Get AI-Focused M4 Chips Starting in Late 2024")
 
 Entonces, ¿cómo podría ser un factor "wow" de IA de Apple? Quizás un Siri 2.0 que pueda mantener una conversación de forma fluida tan capazmente como lo demostró recientemente OpenAI con su GPT-4o. O potenciando a Spotlight con algo similar a Recall, herramienta presentada por Microsoft junto a sus Copilot+PC’s, la nueva línea de PCs con chips de inteligencia artificial. Apple incluso podría superar a sus rivales con su chip de IA embebido dentro de su nuevo M4 del que nos ha revelado poco.
 

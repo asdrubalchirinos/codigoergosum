@@ -4,7 +4,7 @@ subtitle: >-
   Analizando cómo la IA puede debilitar o fortalecer nuestras habilidades según
   su uso.
 pubDate: '2025-02-14'
-heroImage: /images/blog/ia-la-eleccion-es-nuestra/hero.jpeg
+heroImage: /images/blog/2025/02/ia-la-eleccion-es-nuestra/hero.jpeg
 author: Asdrúbal Chirinos
 tags:
   - ia
@@ -14,7 +14,7 @@ slug: ia-la-eleccion-es-nuestra
 
 La Inteligencia Artificial (IA) ha transformado diversos aspectos de nuestra vida, desde la educación hasta el trabajo. Sin embargo, su influencia en nuestras capacidades cognitivas es un tema de debate. Estudios recientes, incluyendo investigaciones de Microsoft, sugieren que el uso de servicios de IA podría tener efectos tanto negativos como positivos en nuestras habilidades cognitivas.
 
-![ChatGPT : Microsoft réclame la création d'une autorité de régulation de ...](/images/blog/ia-la-eleccion-es-nuestra/6a177859-af5e-4710-9f19-40553fff9aed_1200x675.jpeg "ChatGPT : Microsoft réclame la création d'une autorité de régulation de ...")
+![ChatGPT : Microsoft réclame la création d'une autorité de régulation de ...](/images/blog/2025/02/ia-la-eleccion-es-nuestra/6a177859-af5e-4710-9f19-40553fff9aed_1200x675.jpeg "ChatGPT : Microsoft réclame la création d'une autorité de régulation de ...")
 
 #### **Investigaciones recientes de Microsoft**
 

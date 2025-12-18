@@ -1,7 +1,7 @@
 ---
 title: Escalabilidad con UUID y sin claves foráneas
 pubDate: '2023-07-05'
-heroImage: /images/blog/escalabilidad-con-uuid-y-sin-claves-foraneas/hero.jpeg
+heroImage: /images/blog/2023/07/escalabilidad-con-uuid-y-sin-claves-foraneas/hero.jpeg
 author: Asdrúbal Chirinos
 tags:
   - backend
@@ -9,7 +9,7 @@ tags:
 slug: escalabilidad-con-uuid-y-sin-claves-foraneas
 ---
 
-![](/images/blog/escalabilidad-con-uuid-y-sin-claves-foraneas/hero.jpeg)
+![](/images/blog/2023/07/escalabilidad-con-uuid-y-sin-claves-foraneas/hero.jpeg)
 
 [Foto por George Becker](https://www.pexels.com/photo/brass-colored-keys-333838/)
 

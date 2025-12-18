@@ -5,7 +5,7 @@ subtitle: >-
   "error", sé claro y asertivo.
 pubDate: '2023-08-28'
 heroImage: >-
-  /images/blog/no-todo-es-un-error-claves-para-una-comunicacion-asertiva/hero.jpeg
+  /images/blog/2023/08/no-todo-es-un-error-claves-para-una-comunicacion-asertiva/hero.jpeg
 author: Asdrúbal Chirinos
 tags:
   - soft-skills
@@ -13,7 +13,7 @@ tags:
 slug: no-todo-es-un-error-claves-para-una-comunicacion-asertiva
 ---
 
-![](/images/blog/no-todo-es-un-error-claves-para-una-comunicacion-asertiva/hero.jpeg)
+![](/images/blog/2023/08/no-todo-es-un-error-claves-para-una-comunicacion-asertiva/hero.jpeg)
 
 Imagen generada por inteligencia artificial. Bing Image Creator. Prompt: effective communication two people computers. Street art
 

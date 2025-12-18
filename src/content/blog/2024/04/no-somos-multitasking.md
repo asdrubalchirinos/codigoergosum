@@ -2,7 +2,7 @@
 title: No somos multitasking
 subtitle: Por qué la multitarea es un mito que destruye nuestra productividad
 pubDate: '2024-04-24'
-heroImage: /images/blog/no-somos-multitasking/hero.jpeg
+heroImage: /images/blog/2024/04/no-somos-multitasking/hero.jpeg
 author: Asdrúbal Chirinos
 tags:
   - productividad
@@ -10,7 +10,7 @@ tags:
 slug: no-somos-multitasking
 ---
 
-![](/images/blog/no-somos-multitasking/hero.jpeg)
+![](/images/blog/2024/04/no-somos-multitasking/hero.jpeg)
 
 Cuántas veces al día te encuentras dividiendo tu atención entre varias tareas? Revisas tu correo mientras codeas un nuevo feature, contestas mensajes mientras estás en una llamada, o navegas en redes sociales, sabes que sí, mientras estás en una reunión. Si eres como la mayoría, seguro caes frecuentemente en esta trampa de intentar hacer múltiples cosas a la vez.
 

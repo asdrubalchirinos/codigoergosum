@@ -4,7 +4,7 @@ subtitle: >-
   El cambio no será mañana. Ya empezó. Y si sigues creyendo que no va contigo,
   podrías estar quedándote atrás.
 pubDate: '2025-05-28'
-heroImage: /images/blog/preparate-para-lo-que-no-va-a-pasar/hero.jpeg
+heroImage: /images/blog/2025/05/preparate-para-lo-que-no-va-a-pasar/hero.jpeg
 author: Asdrúbal Chirinos
 tags:
   - ia
@@ -40,7 +40,7 @@ Estoy hablando de herramientas como Copilot, Cursor, Windsurf y otras que están
 De *Pair Programmer* a *Peer Programmer*.
 Una diferencia sutil en el lenguaje, pero con una inmensa implicación.
 
-![Microsoft's Big Event Was All About the 'Explosion' of AI Agents - Business Insider](/images/blog/preparate-para-lo-que-no-va-a-pasar/e451707b-9ab2-415b-b201-572e2463b396_800x447.jpeg "Microsoft's Big Event Was All About the 'Explosion' of AI Agents - Business Insider")
+![Microsoft's Big Event Was All About the 'Explosion' of AI Agents - Business Insider](/images/blog/2025/05/preparate-para-lo-que-no-va-a-pasar/e451707b-9ab2-415b-b201-572e2463b396_800x447.jpeg "Microsoft's Big Event Was All About the 'Explosion' of AI Agents - Business Insider")
 
 Una nueva generación de agentes autonomos: **GitHub Copilot Agent**, **Codex, Jules, Devin**.
 
@@ -80,4 +80,4 @@ A dejar de repetir que “la IA no nos va a reemplazar” y empezar a ver que qu
 Porque si al final estoy equivocado, no habremos perdido nada.
 Pero si tengo razón, estar preparados puede marcar la diferencia entre liderar el cambio o ser arrastrados por él.
 
-![](/images/blog/preparate-para-lo-que-no-va-a-pasar/content-1.png)
+![](/images/blog/2025/05/preparate-para-lo-que-no-va-a-pasar/content-1.png)

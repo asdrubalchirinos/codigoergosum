@@ -5,7 +5,7 @@ subtitle: >-
   enseñar, ayudar y tomar decisiones difíciles para impulsar el éxito del
   equipo.
 pubDate: '2024-03-11'
-heroImage: /images/blog/tres-reglas-esenciales-en-la-gestion-de-equipos/hero.png
+heroImage: /images/blog/2024/03/tres-reglas-esenciales-en-la-gestion-de-equipos/hero.png
 author: Asdrúbal Chirinos
 tags:
   - liderazgo
@@ -15,7 +15,7 @@ tags:
 slug: tres-reglas-esenciales-en-la-gestion-de-equipos
 ---
 
-![](/images/blog/tres-reglas-esenciales-en-la-gestion-de-equipos/hero.png)
+![](/images/blog/2024/03/tres-reglas-esenciales-en-la-gestion-de-equipos/hero.png)
 
 Hace años, cuando aún era aún era relativamente nuevo en el campo de la gestión de equipos, tuve una experiencia reveladora que me enseñó valiosas lecciones sobre el liderazgo y en manejo de equipos. Trabajaba en un proyecto desafiante con un desarrollador excepcional. Nuestro sistema estaba funcionando sin problemas, pero vislumbré la oportunidad de migrar a una nueva tecnología. Mi entusiasmo era palpable cuando le propuse este cambio a mi compañero desarrollador. Sin embargo, su respuesta me dejó atónito. "*Asdrúbal, ¿para qué vamos a hacer eso si todo funciona?"*, me dijo con total serenidad. Intenté explicarle los beneficios y el potencial de la nueva tecnología, pero su respuesta final fue aún más sorprendente: "*Asdrúbal, es que no quiero aprender más*".
 

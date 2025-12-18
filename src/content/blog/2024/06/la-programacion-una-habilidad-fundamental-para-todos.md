@@ -5,7 +5,8 @@ subtitle: >-
   todos, su papel en la educación moderna, y por qué aprender a programar no
   significa que todos seremos desarrolladores.
 pubDate: '2024-06-13'
-heroImage: /images/blog/la-programacion-una-habilidad-fundamental-para-todos/hero.webp
+heroImage: >-
+  /images/blog/2024/06/la-programacion-una-habilidad-fundamental-para-todos/hero.webp
 author: Asdrúbal Chirinos
 tags:
   - carrera
@@ -13,7 +14,7 @@ tags:
 slug: la-programacion-una-habilidad-fundamental-para-todos
 ---
 
-![](/images/blog/la-programacion-una-habilidad-fundamental-para-todos/hero.webp)
+![](/images/blog/2024/06/la-programacion-una-habilidad-fundamental-para-todos/hero.webp)
 
 En el mundo moderno, la programación se está convirtiendo en una habilidad esencial que todos deberían aprender, similar a las matemáticas. En las últimas décadas, la educación ha enfatizado la importancia de ciertas habilidades básicas que forman la base de nuestro conocimiento general. Estas incluyen las matemáticas, la lectura, la escritura y, más recientemente, la alfabetización digital. Sin embargo, existe una distinción crucial entre enseñar una habilidad básica y formar especialistas en esa área. Este artículo explora por qué la programación debería ser enseñada como una habilidad fundamental y por qué aprenderla no necesariamente convierte a una persona en programador profesional.
 

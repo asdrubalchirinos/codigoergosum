@@ -4,7 +4,7 @@ subtitle: >-
   Aprende cómo redactar commits efectivos para aumentar tu productividad y
   fortalecer la colaboración en tu equipo de desarrollo.
 pubDate: '2023-10-02'
-heroImage: /images/blog/no-mas-commits-caoticos/hero.jpeg
+heroImage: /images/blog/2023/10/no-mas-commits-caoticos/hero.jpeg
 author: Asdrúbal Chirinos
 tags:
   - git
@@ -14,7 +14,7 @@ tags:
 slug: no-mas-commits-caoticos
 ---
 
-![](/images/blog/no-mas-commits-caoticos/hero.jpeg)
+![](/images/blog/2023/10/no-mas-commits-caoticos/hero.jpeg)
 
 *¿Qué tan malo puede ser un commit?"*, te preguntarás mientras te enfrentas al historial de tu proyecto, lleno de commits enigmáticos, crípticos y, a veces, simplemente absurdos. Has llegado a ese punto en el que encuentras joyas como:
 

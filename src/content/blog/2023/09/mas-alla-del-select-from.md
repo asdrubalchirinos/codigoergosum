@@ -4,7 +4,7 @@ subtitle: >-
   Sumérgete en el mundo de las bases de datos: comprensión profunda,
   almacenamiento y optimización
 pubDate: '2023-09-15'
-heroImage: /images/blog/mas-alla-del-select-from/hero.jpeg
+heroImage: /images/blog/2023/09/mas-alla-del-select-from/hero.jpeg
 author: Asdrúbal Chirinos
 tags:
   - backend
@@ -13,7 +13,7 @@ tags:
 slug: mas-alla-del-select-from
 ---
 
-![](/images/blog/mas-alla-del-select-from/hero.jpeg)
+![](/images/blog/2023/09/mas-alla-del-select-from/hero.jpeg)
 
 Imagen creada por inteligencia artificial. Ideogram.ai
 

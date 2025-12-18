@@ -2,7 +2,7 @@
 title: Nostalgia MSN Messenger
 subtitle: El pionero que cayó ante la irrupción de la era smartphones.
 pubDate: '2024-04-26'
-heroImage: /images/blog/nostalgia-msn-messenger/hero.jpeg
+heroImage: /images/blog/2024/04/nostalgia-msn-messenger/hero.jpeg
 author: Asdrúbal Chirinos
 tags:
   - nostalgia
@@ -12,7 +12,7 @@ tags:
 slug: nostalgia-msn-messenger
 ---
 
-![MSN - WIKEDUCAÇÃO](/images/blog/nostalgia-msn-messenger/eb311fb1-fdf6-42fa-8385-dcc8822125fb_969x900.jpeg "MSN - WIKEDUCAÇÃO")
+![MSN - WIKEDUCAÇÃO](/images/blog/2024/04/nostalgia-msn-messenger/eb311fb1-fdf6-42fa-8385-dcc8822125fb_969x900.jpeg "MSN - WIKEDUCAÇÃO")
 
 Para mí y para toda una generación, MSN Messenger fue el cliente de mensajería preferido, que nos mantuvo unidos a amigos y familiares. Con él, chateábamos, compartíamos archivos e incluso hacíamos videollamadas desde nuestras PCs. En su mejor momento, a principios de los 2000, MSN tenía más de 300 millones de fans en todo el mundo.
 

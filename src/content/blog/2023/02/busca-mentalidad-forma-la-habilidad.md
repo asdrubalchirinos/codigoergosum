@@ -1,7 +1,7 @@
 ---
 title: 'Busca mentalidad, forma la habilidad'
 pubDate: '2023-02-07'
-heroImage: /images/blog/busca-mentalidad-forma-la-habilidad/hero.jpeg
+heroImage: /images/blog/2023/02/busca-mentalidad-forma-la-habilidad/hero.jpeg
 author: Asdrúbal Chirinos
 tags:
   - soft-skills
@@ -14,7 +14,7 @@ slug: busca-mentalidad-forma-la-habilidad
 
 La frase de *Simon Sinek*, autor y orador motivacional, cobra cada vez más relevancia en un mundo donde las habilidades blandas se vuelven más valoradas.
 
-![](/images/blog/busca-mentalidad-forma-la-habilidad/hero.jpeg)
+![](/images/blog/2023/02/busca-mentalidad-forma-la-habilidad/hero.jpeg)
 
 Simon Sinek
 

@@ -4,7 +4,7 @@ subtitle: >-
   Exploramos su declive en popularidad, complejidad percibida y alternativas
   emergentes en el mundo de las APIs.
 pubDate: '2024-04-16'
-heroImage: /images/blog/graphql-esta-perdiendo-impulso/hero.jpeg
+heroImage: /images/blog/2024/04/graphql-esta-perdiendo-impulso/hero.jpeg
 author: Asdrúbal Chirinos
 tags:
   - backend
@@ -14,7 +14,7 @@ slug: graphql-esta-perdiendo-impulso
 
 GraphQL, un lenguaje de consulta y manipulación de datos de código abierto para APIs, ha captado una atención significativa y entusiasmo por parte de los desarrolladores desde su introducción por Facebook en 2012. Su promesa de permitir una recuperación de datos eficiente y proporcionar una alternativa más flexible y poderosa a las APIs REST tradicionales atrajo a muchos desarrolladores y empresas a adoptarlo.
 
-![What is GraphQL & how to use it – AC's Notes](/images/blog/graphql-esta-perdiendo-impulso/fcce2166-937b-4f2f-b331-0b47242c4551_1900x997.jpeg "What is GraphQL & how to use it – AC's Notes")
+![What is GraphQL & how to use it – AC's Notes](/images/blog/2024/04/graphql-esta-perdiendo-impulso/fcce2166-937b-4f2f-b331-0b47242c4551_1900x997.jpeg "What is GraphQL & how to use it – AC's Notes")
 
 Sin embargo, en los últimos años, ha habido un cambio en de la comunidad de desarrolladores hacia GraphQL. Si bien sigue teniendo sus defensores, hay una percepción creciente de que la tecnología podría estar perdiendo impulso.
 

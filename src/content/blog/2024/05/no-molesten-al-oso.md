@@ -4,7 +4,7 @@ subtitle: >-
   Cómo las Restricciones de EE. UU. podrían fortalecer la Industria tecnológica
   China
 pubDate: '2024-05-13'
-heroImage: /images/blog/no-molesten-al-oso/hero.png
+heroImage: /images/blog/2024/05/no-molesten-al-oso/hero.png
 author: Asdrúbal Chirinos
 tags:
   - industria
@@ -12,7 +12,7 @@ tags:
 slug: no-molesten-al-oso
 ---
 
-![](/images/blog/no-molesten-al-oso/hero.png)
+![](/images/blog/2024/05/no-molesten-al-oso/hero.png)
 
 A medida que Estados Unidos continúa imponiendo restricciones a empresas tecnológicas chinas, especialmente a Huawei, muchos se preguntan cuáles podrían ser las implicaciones a largo plazo de estas acciones. Si bien está claro que estas restricciones tienen la intención de frenar el avance tecnológico de China, existe una creciente preocupación de que puedan acabar teniendo el efecto contrario, fortaleciendo una industria tecnológica china.
 

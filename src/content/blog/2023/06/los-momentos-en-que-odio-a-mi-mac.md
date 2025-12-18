@@ -1,7 +1,7 @@
 ---
 title: Los momentos en que odio a mi Mac
 pubDate: '2023-06-23'
-heroImage: /images/blog/los-momentos-en-que-odio-a-mi-mac/hero.jpeg
+heroImage: /images/blog/2023/06/los-momentos-en-que-odio-a-mi-mac/hero.jpeg
 author: Asdrúbal Chirinos
 tags:
   - productividad
@@ -11,7 +11,7 @@ slug: los-momentos-en-que-odio-a-mi-mac
 
 Hace casi más de dos años que hice la transición de ~~Windows~~ Linux a Mac, y aunque he disfrutado mucho de mi experiencia con el sistema operativo (MacOS), hay un detalle que continúa causándome frustración y rabia. Me refiero al comportamiento de los botones Inicio y Fin en el teclado de Mac. En Windows y Linux, estos botones me llevaban al inicio y al final de una línea, pero en Mac, por defecto, me llevan al inicio o al final de una página. Esto me ~~ha llevado~~ llevo por el camino de la amargura durante un largo tiempo.
 
-![](/images/blog/los-momentos-en-que-odio-a-mi-mac/hero.jpeg)
+![](/images/blog/2023/06/los-momentos-en-que-odio-a-mi-mac/hero.jpeg)
 
 Por eso quiero compartir con ustedes mi experiencia personal, expresar mi frustración y explorar las soluciones que he encontrado para adaptarme a este comportamiento único de Mac.
 

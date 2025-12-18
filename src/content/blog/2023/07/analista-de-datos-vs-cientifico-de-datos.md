@@ -1,7 +1,7 @@
 ---
 title: Analista de Datos vs Científico de Datos
 pubDate: '2023-07-10'
-heroImage: /images/blog/analista-de-datos-vs-cientifico-de-datos/hero.jpeg
+heroImage: /images/blog/2023/07/analista-de-datos-vs-cientifico-de-datos/hero.jpeg
 author: Asdrúbal Chirinos
 tags:
   - carrera
@@ -9,7 +9,7 @@ tags:
 slug: analista-de-datos-vs-cientifico-de-datos
 ---
 
-![](/images/blog/analista-de-datos-vs-cientifico-de-datos/hero.jpeg)
+![](/images/blog/2023/07/analista-de-datos-vs-cientifico-de-datos/hero.jpeg)
 
 [Foto por Artem Podrez](https://www.pexels.com/photo/fencers-doing-tournament-5941992/)
 

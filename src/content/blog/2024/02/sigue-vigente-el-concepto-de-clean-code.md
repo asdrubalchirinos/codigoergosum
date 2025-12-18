@@ -4,7 +4,7 @@ subtitle: >-
   Descubre por qué el concepto de 'Clean Code' sigue siendo crucial en el
   desarrollo de software actual, y cómo va más allá de los principios SOLID.
 pubDate: '2024-02-15'
-heroImage: /images/blog/sigue-vigente-el-concepto-de-clean-code/hero.jpeg
+heroImage: /images/blog/2024/02/sigue-vigente-el-concepto-de-clean-code/hero.jpeg
 author: Asdrúbal Chirinos
 tags:
   - clean-code
@@ -14,7 +14,7 @@ tags:
 slug: sigue-vigente-el-concepto-de-clean-code
 ---
 
-![](/images/blog/sigue-vigente-el-concepto-de-clean-code/hero.jpeg)
+![](/images/blog/2024/02/sigue-vigente-el-concepto-de-clean-code/hero.jpeg)
 
 El término "Clean Code" ha sido una piedra angular en el mundo del desarrollo de software, guiándonos hacia prácticas de codificación más efectivas y eficientes. ¿Sigue siendo relevante en la era actual? La respuesta es un rotundo sí.
 

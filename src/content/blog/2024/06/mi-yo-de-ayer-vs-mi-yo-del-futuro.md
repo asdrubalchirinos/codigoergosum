@@ -2,7 +2,7 @@
 title: Mi yo de ayer vs. mi yo del futuro
 subtitle: Compitiendo con tu pasado para moldear tu futuro.
 pubDate: '2024-06-03'
-heroImage: /images/blog/mi-yo-de-ayer-vs-mi-yo-del-futuro/hero.webp
+heroImage: /images/blog/2024/06/mi-yo-de-ayer-vs-mi-yo-del-futuro/hero.webp
 author: Asdrúbal Chirinos
 tags:
   - motivacion
@@ -12,7 +12,7 @@ slug: mi-yo-de-ayer-vs-mi-yo-del-futuro
 
 En la búsqueda del crecimiento personal, es fácil caer en la trampa de compararnos con los demás. Medir nuestro éxito, nuestro valor y nuestro progreso en comparación con los logros de quienes nos rodean. Sin embargo, si bien los puntos de referencia externos pueden brindar motivación, lo realmente significativo ocurre cuando nos enfocamos en competir con nosotros mismos. No se trata de ser mejor que alguien más; se trata de ser mejores que ayer.
 
-![](/images/blog/mi-yo-de-ayer-vs-mi-yo-del-futuro/hero.webp)
+![](/images/blog/2024/06/mi-yo-de-ayer-vs-mi-yo-del-futuro/hero.webp)
 
 #### Nuestro pasado yo
 

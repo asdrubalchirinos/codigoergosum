@@ -4,7 +4,7 @@ subtitle: >-
   Descubre las diferencias clave entre programación imperativa y declarativa.
   Explora su impacto en el desarrollo moderno.
 pubDate: '2023-08-15'
-heroImage: /images/blog/como-vs-que-imperativa-vs-declarativa/hero.jpeg
+heroImage: /images/blog/2023/08/como-vs-que-imperativa-vs-declarativa/hero.jpeg
 author: Asdrúbal Chirinos
 tags:
   - python
@@ -13,7 +13,7 @@ tags:
 slug: como-vs-que-imperativa-vs-declarativa
 ---
 
-![](/images/blog/como-vs-que-imperativa-vs-declarativa/hero.jpeg)
+![](/images/blog/2023/08/como-vs-que-imperativa-vs-declarativa/hero.jpeg)
 
 Foto de Pixabay: [Black and White Nascar Car](https://www.pexels.com/photo/black-and-white-nascar-car-39619/)
 

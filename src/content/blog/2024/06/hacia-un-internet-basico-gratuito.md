@@ -2,7 +2,7 @@
 title: Hacia un Internet Básico Gratuito
 subtitle: Un Compromiso Social de las Grandes Empresas Tecnológicas y los Estados.
 pubDate: '2024-06-11'
-heroImage: /images/blog/hacia-un-internet-basico-gratuito/hero.webp
+heroImage: /images/blog/2024/06/hacia-un-internet-basico-gratuito/hero.webp
 author: Asdrúbal Chirinos
 tags:
   - ia
@@ -10,7 +10,7 @@ tags:
 slug: hacia-un-internet-basico-gratuito
 ---
 
-![](/images/blog/hacia-un-internet-basico-gratuito/hero.webp)
+![](/images/blog/2024/06/hacia-un-internet-basico-gratuito/hero.webp)
 
 En un mundo donde la tecnología y la inteligencia artificial están transformando rápidamente la forma en que vivimos y trabajamos, surge una preocupación cada vez mayor sobre el impacto que estos avances tendrán en el empleo y la igualdad de acceso a oportunidades. Ante esta realidad, creo firmemente en que se debe establecer un acceso básico universal y gratuito a Internet, convirtiéndolo en un derecho humano fundamental y financiado en parte por las grandes empresas tecnológicas.
 

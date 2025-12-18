@@ -2,7 +2,7 @@
 title: Encontrando la felicidad
 subtitle: Las 3 preguntas de Steve Jobs
 pubDate: '2023-03-09'
-heroImage: /images/blog/encontrando-la-felicidad/hero.jpeg
+heroImage: /images/blog/2023/03/encontrando-la-felicidad/hero.jpeg
 author: Asdrúbal Chirinos
 tags:
   - carrera
@@ -10,7 +10,7 @@ tags:
 slug: encontrando-la-felicidad
 ---
 
-![](/images/blog/encontrando-la-felicidad/hero.jpeg)
+![](/images/blog/2023/03/encontrando-la-felicidad/hero.jpeg)
 
 La felicidad según Steve Jobs
 

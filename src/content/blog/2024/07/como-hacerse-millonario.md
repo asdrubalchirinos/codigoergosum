@@ -4,7 +4,7 @@ subtitle: >-
   Emprender con propósito: cómo resolver problemas y satisfacer necesidades
   lleva al éxito empresarial.
 pubDate: '2024-07-02'
-heroImage: /images/blog/como-hacerse-millonario/hero.webp
+heroImage: /images/blog/2024/07/como-hacerse-millonario/hero.webp
 author: Asdrúbal Chirinos
 tags:
   - emprendimiento
@@ -13,7 +13,7 @@ tags:
 slug: como-hacerse-millonario
 ---
 
-![](/images/blog/como-hacerse-millonario/hero.webp)
+![](/images/blog/2024/07/como-hacerse-millonario/hero.webp)
 
 Una de las preguntas más comunes al iniciar un negocio es: "¿Cómo hacerse millonario?". Sin embargo, esta perspectiva limitada pasa por alto el verdadero propósito de una empresa. Aunque la rentabilidad es crucial para su sostenibilidad y para satisfacer las necesidades de sus fundadores, el enfoque central debe estar en resolver problemas, satisfacer necesidades y crear valor genuino para clientes y sociedad.
 

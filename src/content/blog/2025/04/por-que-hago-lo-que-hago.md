@@ -2,7 +2,7 @@
 title: Por qué hago lo que hago
 subtitle: Cómo mi círculo dorado me guía para unir negocios y código
 pubDate: '2025-04-14'
-heroImage: /images/blog/por-que-hago-lo-que-hago/hero.webp
+heroImage: /images/blog/2025/04/por-que-hago-lo-que-hago/hero.webp
 author: Asdrúbal Chirinos
 tags:
   - liderazgo
@@ -12,7 +12,7 @@ tags:
 slug: por-que-hago-lo-que-hago
 ---
 
-![](/images/blog/por-que-hago-lo-que-hago/hero.webp)
+![](/images/blog/2025/04/por-que-hago-lo-que-hago/hero.webp)
 
 El Círculo Dorado: empieza por el Por Qué
 

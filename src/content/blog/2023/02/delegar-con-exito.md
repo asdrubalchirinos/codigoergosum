@@ -2,7 +2,7 @@
 title: Delegar con éxito
 subtitle: Los 4 pasos clave
 pubDate: '2023-02-04'
-heroImage: /images/blog/delegar-con-exito/hero.jpeg
+heroImage: /images/blog/2023/02/delegar-con-exito/hero.jpeg
 author: Asdrúbal Chirinos
 tags:
   - liderazgo
@@ -12,7 +12,7 @@ slug: delegar-con-exito
 
 La delegación efectiva es una habilidad clave para cualquier líder. Es la capacidad de asignar tareas y responsabilidades a los miembros de su equipo de manera efectiva, permitiéndoles desarrollar sus habilidades y al mismo tiempo lograr los objetivos de la organización. Sin embargo, muchas veces, fallamos como líderes al no saber cómo hacerlo. La delegación no es simplemente pedir y ordenar a alguien que haga algo, es un proceso mucho más complejo que requiere tiempo y dedicación.
 
-![](/images/blog/delegar-con-exito/hero.jpeg)
+![](/images/blog/2023/02/delegar-con-exito/hero.jpeg)
 
 Antes de continuar, hagamos una pregunta: ¿realmente creen que saben cómo delegar de manera efectiva? La respuesta es que la mayoría de los líderes no saben cómo hacerlo. Muchos creen que la delegación es simplemente asignar tareas, pero en realidad, es mucho más que eso. La delegación efectiva requiere una comprensión profunda de la persona a la que se está delegando, sus habilidades y fortalezas, y cómo se pueden utilizar para lograr los objetivos de la organización.
 

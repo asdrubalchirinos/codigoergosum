@@ -1,7 +1,7 @@
 ---
 title: Di adiós a las contraseñas con Passkeys
 pubDate: '2023-07-03'
-heroImage: /images/blog/di-adios-a-las-contrasenas-con-passkeys/hero.png
+heroImage: /images/blog/2023/07/di-adios-a-las-contrasenas-con-passkeys/hero.png
 author: Asdrúbal Chirinos
 tags:
   - web
@@ -9,7 +9,7 @@ tags:
 slug: di-adios-a-las-contrasenas-con-passkeys
 ---
 
-![](/images/blog/di-adios-a-las-contrasenas-con-passkeys/hero.png)
+![](/images/blog/2023/07/di-adios-a-las-contrasenas-con-passkeys/hero.png)
 
 [Imagen por Daniel Roberts de Pixabay](https://pixabay.com/vectors/fingerprint-digital-cybersecurity-6088316/)
 

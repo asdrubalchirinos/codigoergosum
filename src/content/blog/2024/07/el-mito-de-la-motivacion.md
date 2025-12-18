@@ -2,7 +2,7 @@
 title: El Mito de la Motivación
 subtitle: Descubre por qué la disciplina es la clave del éxito duradero.
 pubDate: '2024-07-23'
-heroImage: /images/blog/el-mito-de-la-motivacion/hero.webp
+heroImage: /images/blog/2024/07/el-mito-de-la-motivacion/hero.webp
 author: Asdrúbal Chirinos
 tags:
   - productividad
@@ -12,7 +12,7 @@ slug: el-mito-de-la-motivacion
 
 ¿Cuántas veces te has sentido lleno de motivación al comenzar un proyecto o un nuevo hábito, solo para ver esa motivación desvanecerse rápidamente? Es un escenario común: confiamos en la motivación para impulsarnos, pero pronto descubrimos que no es suficiente para mantenernos en el camino. La verdadera fuerza radica en la disciplina, en la capacidad de seguir adelante incluso cuando la motivación es baja o inexistente.
 
-![](/images/blog/el-mito-de-la-motivacion/hero.webp)
+![](/images/blog/2024/07/el-mito-de-la-motivacion/hero.webp)
 
 #### **La falacia de depender exclusivamente de la motivación**
 

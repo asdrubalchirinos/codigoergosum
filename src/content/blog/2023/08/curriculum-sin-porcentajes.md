@@ -4,7 +4,7 @@ subtitle: >-
   Domina tu currículum: Olvida los porcentajes y destaca tus habilidades con
   descripciones impactantes.
 pubDate: '2023-08-21'
-heroImage: /images/blog/curriculum-sin-porcentajes/hero.jpeg
+heroImage: /images/blog/2023/08/curriculum-sin-porcentajes/hero.jpeg
 author: Asdrúbal Chirinos
 tags:
   - carrera
@@ -12,7 +12,7 @@ tags:
 slug: curriculum-sin-porcentajes
 ---
 
-![](/images/blog/curriculum-sin-porcentajes/hero.jpeg)
+![](/images/blog/2023/08/curriculum-sin-porcentajes/hero.jpeg)
 
 Imagen creada por inteligencia artificial. Bing Image Creator. Prompt: trash basket with crumpled papers, office.
 

@@ -2,7 +2,7 @@
 title: El Arte de Programar
 subtitle: Cuatro Claves para Mejorar Tu Enfoque
 pubDate: '2024-12-02'
-heroImage: /images/blog/el-arte-de-programar/hero.webp
+heroImage: /images/blog/2024/12/el-arte-de-programar/hero.webp
 author: Asdrúbal Chirinos
 tags:
   - soft-skills
@@ -10,7 +10,7 @@ tags:
 slug: el-arte-de-programar
 ---
 
-![](/images/blog/el-arte-de-programar/hero.webp)
+![](/images/blog/2024/12/el-arte-de-programar/hero.webp)
 
 La programación es mucho más que escribir código; es un arte que requiere práctica, comprensión y, sobre todo, una mentalidad adecuada. Si alguna vez te has sentido estancado o abrumado al aprender a programar, no estás solo. Este artículo explora cuatro principios fundamentales que transformarán tu manera de abordar la programación y te ayudarán a convertirte en un mejor desarrollador.
 

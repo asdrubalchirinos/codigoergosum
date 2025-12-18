@@ -1,7 +1,7 @@
 ---
 title: El origen del CTRL-ALT-DEL
 pubDate: '2023-06-29'
-heroImage: /images/blog/el-origen-del-ctrl-alt-del/hero.jpeg
+heroImage: /images/blog/2023/06/el-origen-del-ctrl-alt-del/hero.jpeg
 author: Asdrúbal Chirinos
 tags:
   - nostalgia
@@ -9,7 +9,7 @@ tags:
 slug: el-origen-del-ctrl-alt-del
 ---
 
-![](/images/blog/el-origen-del-ctrl-alt-del/hero.jpeg)
+![](/images/blog/2023/06/el-origen-del-ctrl-alt-del/hero.jpeg)
 
 [ctrl alt del by Made in Pain](https://madeinpain.wordpress.com/2009/07/04/ctrl-alt-del/)
 

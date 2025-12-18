@@ -4,14 +4,14 @@ subtitle: >-
   Protege tu sistema Linux: Aprende a evitar comandos peligrosos. Advierte a la
   comunidad sobre engaños y garantiza tu seguridad.
 pubDate: '2023-08-18'
-heroImage: /images/blog/evita-comandos-peligrosos-y-enganos/hero.jpeg
+heroImage: /images/blog/2023/08/evita-comandos-peligrosos-y-enganos/hero.jpeg
 author: Asdrúbal Chirinos
 tags:
   - devops
 slug: evita-comandos-peligrosos-y-enganos
 ---
 
-![](/images/blog/evita-comandos-peligrosos-y-enganos/hero.jpeg)
+![](/images/blog/2023/08/evita-comandos-peligrosos-y-enganos/hero.jpeg)
 
 Imagen creada por inteligencia artificial. Bing Image Creator. Prompt: Red Emergency Light On Vehicle
 

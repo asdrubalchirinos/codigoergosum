@@ -2,7 +2,7 @@
 title: La Era de la Confianza
 subtitle: Desafíos y oportunidades en una nueva era de asistentes virtuales
 pubDate: '2024-05-30'
-heroImage: /images/blog/la-era-de-la-confianza/hero.jpeg
+heroImage: /images/blog/2024/05/la-era-de-la-confianza/hero.jpeg
 author: Asdrúbal Chirinos
 tags:
   - ia
@@ -12,7 +12,7 @@ slug: la-era-de-la-confianza
 
 Desde siempre hemos contado con asistentes personales, individuos que manejan los detalles más íntimos de nuestras vidas. Ellos llevan nuestras agendas, organizan citas, nos acompañan a reuniones, nos recuerdan fechas importantes e incluso se encargan de comprar regalos y enviar flores a nuestras parejas. Para esto, cedemos parte de nuestra privacidad y depositamos en ellos nuestra plena confianza.
 
-![](/images/blog/la-era-de-la-confianza/hero.jpeg)
+![](/images/blog/2024/05/la-era-de-la-confianza/hero.jpeg)
 
 El futuro de la inteligencia artificial, y de los próximos asistentes virtuales, nos empuja en esa dirección. Al dejar de ser reactivos y basados en prompts, para convertirse en una IA proactiva y capaz de interactuar con nuestro entorno físico y digital, demandará de nosotros un cambio en nuestra noción de privacidad y una apuesta por la confianza.
 

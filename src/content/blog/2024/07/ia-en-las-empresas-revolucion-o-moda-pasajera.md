@@ -4,7 +4,7 @@ subtitle: >-
   Cómo evitar el hype y aprovechar realmente el potencial de la Inteligencia
   Artificial
 pubDate: '2024-07-26'
-heroImage: /images/blog/ia-en-las-empresas-revolucion-o-moda-pasajera/hero.webp
+heroImage: /images/blog/2024/07/ia-en-las-empresas-revolucion-o-moda-pasajera/hero.webp
 author: Asdrúbal Chirinos
 tags:
   - ia
@@ -13,7 +13,7 @@ tags:
 slug: ia-en-las-empresas-revolucion-o-moda-pasajera
 ---
 
-![](/images/blog/ia-en-las-empresas-revolucion-o-moda-pasajera/hero.webp)
+![](/images/blog/2024/07/ia-en-las-empresas-revolucion-o-moda-pasajera/hero.webp)
 
 ¿Alguna vez has comprado algo solo porque "todo el mundo lo tiene"? Bueno, parece que en el mundo empresarial está pasando algo similar con la Inteligencia Artificial (IA). Spoiler alert: No todo lo que lleva la etiqueta de IA es necesariamente beneficioso. Sin una implementación adecuada, las empresas pueden encontrarse con más problemas que soluciones.
 

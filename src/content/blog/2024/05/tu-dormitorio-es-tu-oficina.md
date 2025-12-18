@@ -4,7 +4,7 @@ subtitle: >-
   Cómo la falta de separación está perjudicando tu productividad y nuestro
   bienestar general.
 pubDate: '2024-05-31'
-heroImage: /images/blog/tu-dormitorio-es-tu-oficina/hero.webp
+heroImage: /images/blog/2024/05/tu-dormitorio-es-tu-oficina/hero.webp
 author: Asdrúbal Chirinos
 tags:
   - productividad
@@ -14,7 +14,7 @@ slug: tu-dormitorio-es-tu-oficina
 
 En la era post-pandemia, el trabajo desde casa se ha convertido en la norma para muchos. Sin embargo, uno de los errores más comunes y subestimados es montar el setup de trabajo en la misma habitación donde dormimos. Así como la separación de responsabilidades es un principio de diseño que implica dividir el código y las funciones de una aplicación en componentes distintos, cada uno con una responsabilidad específica y claramente definida, separar el espacio en donde trabajamos y dormimos es esencial para mejorar la productividad y nuestro bienestar general.
 
-![](/images/blog/tu-dormitorio-es-tu-oficina/hero.webp)
+![](/images/blog/2024/05/tu-dormitorio-es-tu-oficina/hero.webp)
 
 #### Cambio de Contexto
 

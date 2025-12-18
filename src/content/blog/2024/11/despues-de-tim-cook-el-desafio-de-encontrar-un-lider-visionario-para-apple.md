@@ -6,7 +6,7 @@ subtitle: >-
   post-Cook.
 pubDate: '2024-11-07'
 heroImage: >-
-  /images/blog/despues-de-tim-cook-el-desafio-de-encontrar-un-lider-visionario-para-apple/hero.webp
+  /images/blog/2024/11/despues-de-tim-cook-el-desafio-de-encontrar-un-lider-visionario-para-apple/hero.webp
 author: Asdrúbal Chirinos
 tags:
   - liderazgo
@@ -18,7 +18,7 @@ slug: despues-de-tim-cook-el-desafio-de-encontrar-un-lider-visionario-para-apple
 
 Desde la salida de Steve Jobs, Apple ha evolucionado bajo el liderazgo pragmático y operativo de Tim Cook, transformándose en una potencia económica global. Cook ha dirigido la compañía con un enfoque en la eficiencia, expandiendo su alcance y optimizando su cadena de suministro, logrando impresionantes cifras de ingresos y beneficios. Pero cuando hablamos de sucesión en Apple, la cuestión no solo recae en la habilidad operativa: Apple necesita un líder con una visión profunda y audaz, alguien capaz de repensar la marca y su futuro en la era post-Cook.
 
-![](/images/blog/despues-de-tim-cook-el-desafio-de-encontrar-un-lider-visionario-para-apple/hero.webp)
+![](/images/blog/2024/11/despues-de-tim-cook-el-desafio-de-encontrar-un-lider-visionario-para-apple/hero.webp)
 
 Desde el enfoque y la mentalidad de Jobs, el próximo CEO debe encarnar ciertos principios clave. Más que solo conocimientos técnicos, se trata de entender y proteger la esencia misma de Apple: la capacidad de crear productos que resuenen en el corazón de los consumidores, que revolucionen industrias y que definan generaciones.
 
@@ -28,7 +28,7 @@ Evaluemos entonces a algunos de los candidatos naturales dentro de Apple y lo qu
 
 Craig Federighi, Vicepresidente Senior de Ingeniería de Software, es uno de los rostros más reconocidos de Apple. Ha sido crucial en el desarrollo y optimización de iOS y macOS, creando una experiencia de usuario integrada y pulida que es esencial para el ecosistema Apple. Su estilo carismático y su habilidad para comunicar la visión técnica lo posicionan bien como un posible sucesor.
 
-![](/images/blog/despues-de-tim-cook-el-desafio-de-encontrar-un-lider-visionario-para-apple/content-1.jpeg)
+![](/images/blog/2024/11/despues-de-tim-cook-el-desafio-de-encontrar-un-lider-visionario-para-apple/content-1.jpeg)
 
 Para alguien como Jobs, Federighi tiene un atractivo evidente: entiende la importancia de la experiencia de usuario y es consciente de la simbiosis entre software y hardware. Sin embargo, el reto está en saber si Federighi tiene la capacidad de elevar su pensamiento hacia una visión de producto global. Apple necesita más que ajustes iterativos en sus sistemas operativos; necesita un líder que pueda reinventar la experiencia tecnológica y concebir la próxima gran plataforma o producto que redefina cómo interactuamos con la tecnología. Federighi muestra potencial, pero la pregunta persiste: ¿es capaz de trascender las innovaciones de software hacia una visión de producto completa?
 
@@ -36,7 +36,7 @@ Para alguien como Jobs, Federighi tiene un atractivo evidente: entiende la impor
 
 John Ternus, Vicepresidente Senior de Ingeniería de Hardware, representa una pieza vital en el arsenal de Apple. Con Ternus al frente, Apple ha creado los revolucionarios chips de la serie M, que han redefinido el desempeño y la eficiencia energética de sus dispositivos. Este enfoque en el hardware de alto rendimiento y eficiencia sería del agrado de Jobs, quien siempre insistió en que Apple debía controlar cada aspecto de sus productos para ofrecer una experiencia sin igual.
 
-![](/images/blog/despues-de-tim-cook-el-desafio-de-encontrar-un-lider-visionario-para-apple/content-2.jpeg)
+![](/images/blog/2024/11/despues-de-tim-cook-el-desafio-de-encontrar-un-lider-visionario-para-apple/content-2.jpeg)
 
 Aún así, Ternus enfrenta el mismo desafío que Federighi: su enfoque ha sido técnico y específico en hardware, pero Apple requiere a alguien con una visión global, un líder que mire más allá de la innovación incremental y pueda ver cómo estos avances tecnológicos encajan en un futuro más amplio y audaz. Ternus ha demostrado que puede impulsar mejoras significativas en hardware, pero ¿puede llevar a Apple a una nueva era de productos icónicos que combinen hardware y software con una sensibilidad casi artística?
 

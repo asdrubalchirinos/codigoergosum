@@ -4,7 +4,8 @@ subtitle: >-
   Mejora la colaboración y la eficiencia con reuniones diarias efectivas.
   Descubre el poder de tres simples preguntas
 pubDate: '2023-08-31'
-heroImage: /images/blog/tres-preguntas-cinco-minutos-resultados-infinitos/hero.jpeg
+heroImage: >-
+  /images/blog/2023/08/tres-preguntas-cinco-minutos-resultados-infinitos/hero.jpeg
 author: Asdrúbal Chirinos
 tags:
   - agile
@@ -14,7 +15,7 @@ tags:
 slug: tres-preguntas-cinco-minutos-resultados-infinitos
 ---
 
-![](/images/blog/tres-preguntas-cinco-minutos-resultados-infinitos/hero.jpeg)
+![](/images/blog/2023/08/tres-preguntas-cinco-minutos-resultados-infinitos/hero.jpeg)
 
 Daily Standup Meetings. Imagen generada por inteligencia artificial. Ideogram.ai. Prompt: Leader conducting a Daily Standup Meeting with his team, Illustration
 

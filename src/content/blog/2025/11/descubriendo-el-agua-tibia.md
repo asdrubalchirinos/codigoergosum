@@ -4,7 +4,7 @@ subtitle: >-
   Cuando la IA te hace creer que estás innovando, pero solo estás repitiendo lo
   obvio.
 pubDate: '2025-11-13'
-heroImage: /images/blog/descubriendo-el-agua-tibia/hero.png
+heroImage: /images/blog/2025/11/descubriendo-el-agua-tibia/hero.png
 author: Asdrúbal Chirinos
 tags:
   - ia
@@ -25,7 +25,7 @@ El problema es que este desarrollador desconoce qué es un API y lo toma como si
 
 **¡Has descubierto el agua tibia!**
 
-![](/images/blog/descubriendo-el-agua-tibia/hero.png)
+![](/images/blog/2025/11/descubriendo-el-agua-tibia/hero.png)
 
 La IA no reveló nada nuevo; solo repitió lo que ya era conocido.
 Lo preocupante no es que repita lo obvio, sino que muchos desarrolladores ya no son capaces de distinguirlo.
@@ -71,7 +71,7 @@ Nosotros debemos ser los navegantes: quienes deciden la ruta, el porqué y el qu
 El éxito no está en dejar que la IA conduzca sola, sino en saber **a dónde queremos ir y por qué.**
 La inteligencia artificial puede acelerar el viaje, pero **la dirección sigue siendo nuestra responsabilidad.**
 
-![](/images/blog/descubriendo-el-agua-tibia/content-1.png)
+![](/images/blog/2025/11/descubriendo-el-agua-tibia/content-1.png)
 
 Si no sabes a dónde vas, la IA tampoco.
 

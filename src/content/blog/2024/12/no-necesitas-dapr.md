@@ -5,7 +5,7 @@ subtitle: >-
   necesarios en la mayoría de los casos, y cómo la simplicidad puede ser la
   mejor estrategia para tus proyectos.
 pubDate: '2024-12-03'
-heroImage: /images/blog/no-necesitas-dapr/hero.png
+heroImage: /images/blog/2024/12/no-necesitas-dapr/hero.png
 author: Asdrúbal Chirinos
 tags:
   - backend
@@ -17,7 +17,7 @@ slug: no-necesitas-dapr
 
 El mundo del desarrollo de software y sus tendencias. Desde la contenerización hasta el “cómputo sin servidores” (serverless computing), siempre hay un término de moda. Uno de ellos es **Dapr**, un entorno de ejecución para aplicaciones distribuidas diseñado para simplificar la creación de microservicios. Y aunque frameworks como Dapr son potentes e interesantes, seamos sinceros: **no necesitas Dapr, al menos no para la mayoría de los escenarios.**
 
-![](/images/blog/no-necesitas-dapr/hero.png)
+![](/images/blog/2024/12/no-necesitas-dapr/hero.png)
 
 ### El furor de las aplicaciones distribuidas
 

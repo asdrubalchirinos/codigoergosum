@@ -1,7 +1,7 @@
 ---
 title: 'IA: La culpa será de los economistas'
 pubDate: '2023-04-24'
-heroImage: /images/blog/ia-la-culpa-sera-de-los-economistas/hero.jpeg
+heroImage: /images/blog/2023/04/ia-la-culpa-sera-de-los-economistas/hero.jpeg
 author: Asdrúbal Chirinos
 tags:
   - ia
@@ -11,7 +11,7 @@ slug: ia-la-culpa-sera-de-los-economistas
 
 > El siguiente articulo es una sátira acerca del rol de los economistas en un mundo post trabajo, así que no se lo tomen tan en serio, a menos que seas economista ;)
 
-![](/images/blog/ia-la-culpa-sera-de-los-economistas/hero.jpeg)
+![](/images/blog/2023/04/ia-la-culpa-sera-de-los-economistas/hero.jpeg)
 
 ¡Alarma! ¡La Inteligencia Artificial está llegando y viene para quitarnos nuestros trabajos! ¿Debemos culpar a los tecnólogos por crear sistemas que reemplacen a los trabajadores humanos? ¡Por supuesto que sí! Sin embargo, ese no es el verdadero problema.
 

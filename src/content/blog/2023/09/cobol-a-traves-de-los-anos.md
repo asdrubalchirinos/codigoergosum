@@ -5,7 +5,7 @@ subtitle: >-
   acompáñame en mi viaje personal junto a este influyente lenguaje de
   programación.
 pubDate: '2023-09-19'
-heroImage: /images/blog/cobol-a-traves-de-los-anos/hero.jpeg
+heroImage: /images/blog/2023/09/cobol-a-traves-de-los-anos/hero.jpeg
 author: Asdrúbal Chirinos
 tags:
   - nostalgia
@@ -14,7 +14,7 @@ tags:
 slug: cobol-a-traves-de-los-anos
 ---
 
-![](/images/blog/cobol-a-traves-de-los-anos/hero.jpeg)
+![](/images/blog/2023/09/cobol-a-traves-de-los-anos/hero.jpeg)
 
 En los años 80, cuando todavía usaba discos de 5 1/4 y mis sonidos favoritos seguian siendo los pitidos de 4 bits de mi Atari 2600, tuve el privilegio de entrar en contacto con un lenguaje de programación que, en aquel entonces, parecía la piedra angular de la tecnología empresarial. Hablo de COBOL, o Common Business Oriented Language, un lenguaje que, aunque muchos consideran antiguo, sigue vivo y coleando en el mundo de la programación actual. Permíteme llevarte en un viaje por el tiempo, entrelazando mi propia experiencia personal con este fascinante lenguaje
 

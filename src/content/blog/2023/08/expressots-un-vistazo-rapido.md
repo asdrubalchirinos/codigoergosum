@@ -2,7 +2,7 @@
 title: 'ExpressoTS: Un Vistazo Rápido'
 subtitle: 'Descubre ExpressoTS: El marco Node.js que simplifica el desarrollo web.'
 pubDate: '2023-08-30'
-heroImage: /images/blog/expressots-un-vistazo-rapido/hero.png
+heroImage: /images/blog/2023/08/expressots-un-vistazo-rapido/hero.png
 author: Asdrúbal Chirinos
 tags:
   - javascript
@@ -12,7 +12,7 @@ tags:
 slug: expressots-un-vistazo-rapido
 ---
 
-![](/images/blog/expressots-un-vistazo-rapido/hero.png)
+![](/images/blog/2023/08/expressots-un-vistazo-rapido/hero.png)
 
 Cuando se trata de construir aplicaciones del lado del servidor con Node.js, la elección del framework adecuado es esencial. Hay muchas opciones disponibles, y una de las más interesantes es **ExpressoTS**. En este artículo, exploraremos qué es ExpressoTS y por qué podría ser la elección perfecta para tus proyectos de desarrollo de Node.js.
 

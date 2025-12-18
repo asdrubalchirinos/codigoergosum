@@ -2,7 +2,7 @@
 title: El Pedacito de Queso
 subtitle: La estrategia para enganchar clientes en el Mundo Digital
 pubDate: '2024-06-25'
-heroImage: /images/blog/el-pedacito-de-queso/hero.webp
+heroImage: /images/blog/2024/06/el-pedacito-de-queso/hero.webp
 author: Asdrúbal Chirinos
 tags:
   - emprendimiento
@@ -13,7 +13,7 @@ slug: el-pedacito-de-queso
 
 En el mundo de los negocios, especialmente en el ámbito del IT, el desarrollo de software y la prestación de servicios, la captación y fidelización de clientes es una batalla constante. Atraer nuevos usuarios y convertirlos en clientes leales que regresen por más puede ser un desafío, pero existe una estrategia simple y efectiva que puede ayudarte a lograrlo: la estrategia del pedacito de queso.
 
-![](/images/blog/el-pedacito-de-queso/hero.webp)
+![](/images/blog/2024/06/el-pedacito-de-queso/hero.webp)
 
 Imagina entrar a una cremería fina y que te ofrezcan un pequeño trozo de queso artesanal para probar. Ese delicioso manjar despierta tu gusto y te hace desear más. Lo mismo sucede con tus productos o servicios digitales. Debes ofrecer a tus potenciales clientes un "pedacito de queso" que los enganche y los haga querer más.
 

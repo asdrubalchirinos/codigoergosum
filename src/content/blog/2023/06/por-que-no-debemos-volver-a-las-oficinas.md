@@ -2,7 +2,7 @@
 title: Por qué no debemos volver a las oficinas
 subtitle: La belleza del trabajo remoto
 pubDate: '2023-06-14'
-heroImage: /images/blog/por-que-no-debemos-volver-a-las-oficinas/hero.png
+heroImage: /images/blog/2023/06/por-que-no-debemos-volver-a-las-oficinas/hero.png
 author: Asdrúbal Chirinos
 tags:
   - productividad
@@ -16,7 +16,7 @@ El mundo laboral está experimentando una transformación profunda, y una de las
 
 Una de las principales razones por las cuales el trabajo remoto ha ganado tanto terreno es el desafío que representa el transporte público abarrotado y el largo tiempo de desplazamiento. Los empleados a menudo se ven obligados a levantarse horas antes de su horario de trabajo para poder llegar a tiempo, sumergiéndose en una multitud agobiante y enfrentando largos trayectos que consumen su energía y paciencia.
 
-![](/images/blog/por-que-no-debemos-volver-a-las-oficinas/hero.png)
+![](/images/blog/2023/06/por-que-no-debemos-volver-a-las-oficinas/hero.png)
 
 Un verdadero líder evita la tortura de su equipo de trabajo
 

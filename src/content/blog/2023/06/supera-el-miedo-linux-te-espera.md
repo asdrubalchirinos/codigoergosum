@@ -1,14 +1,14 @@
 ---
 title: 'Supera el miedo: Linux te espera'
 pubDate: '2023-06-28'
-heroImage: /images/blog/supera-el-miedo-linux-te-espera/hero.jpeg
+heroImage: /images/blog/2023/06/supera-el-miedo-linux-te-espera/hero.jpeg
 author: Asdrúbal Chirinos
 tags:
   - devops
 slug: supera-el-miedo-linux-te-espera
 ---
 
-![](/images/blog/supera-el-miedo-linux-te-espera/hero.jpeg)
+![](/images/blog/2023/06/supera-el-miedo-linux-te-espera/hero.jpeg)
 
 En el mundo de la tecnología, existe un temor arraigado en muchos desarrolladores cuando escuchan la palabra Linux. Sin embargo, es hora de desmitificar este miedo y descubrir las ventajas que Linux ofrece. En este artículo, exploraremos las razones por las cuales Linux puede ser el sustituto perfecto para cualquier sistema operativo, como Windows, y cómo puede adaptarse a un mundo cada vez más dominado por servicios y servidores en la nube.
 

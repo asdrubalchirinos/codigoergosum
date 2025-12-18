@@ -1,7 +1,7 @@
 ---
 title: 'Di "Hello World", no importa el lenguaje'
 pubDate: '2023-07-27'
-heroImage: /images/blog/di-hello-world-no-importa-el-lenguaje/hero.png
+heroImage: /images/blog/2023/07/di-hello-world-no-importa-el-lenguaje/hero.png
 author: Asdrúbal Chirinos
 tags:
   - clean-code
@@ -10,7 +10,7 @@ tags:
 slug: di-hello-world-no-importa-el-lenguaje
 ---
 
-![](/images/blog/di-hello-world-no-importa-el-lenguaje/hero.png)
+![](/images/blog/2023/07/di-hello-world-no-importa-el-lenguaje/hero.png)
 
 Cuando alguien se interesa por la programación, una de las preguntas más comunes suele ser: "¿Qué lenguaje de programación es el mejor para comenzar?". Mi respuesta contundente es: ¡no importa el lenguaje que elijas! En este artículo, exploraremos las razones detrás de esta rotunda afirmación, empecemos por el principio.
 

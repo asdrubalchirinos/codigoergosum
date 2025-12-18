@@ -2,7 +2,7 @@
 title: 'CSS Anidado: Adiós Preprocesadores'
 subtitle: 'Anidamiento CSS: La nueva forma de estilizar fácilmente tus elementos HTML'
 pubDate: '2023-09-05'
-heroImage: /images/blog/css-anidado-adios-preprocesadores/hero.jpeg
+heroImage: /images/blog/2023/09/css-anidado-adios-preprocesadores/hero.jpeg
 author: Asdrúbal Chirinos
 tags:
   - css
@@ -11,7 +11,7 @@ tags:
 slug: css-anidado-adios-preprocesadores
 ---
 
-![](/images/blog/css-anidado-adios-preprocesadores/hero.jpeg)
+![](/images/blog/2023/09/css-anidado-adios-preprocesadores/hero.jpeg)
 
 Imagen generada por inteligencia artificial. Ideogram.ai. Prompt: a monitor inside a nest displaying the word CSS, painting, poster, illustration
 

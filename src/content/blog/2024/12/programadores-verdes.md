@@ -2,7 +2,7 @@
 title: Programadores Verdes
 subtitle: El rol de los desarrolladores en la lucha contra el Cambio Climático.
 pubDate: '2024-12-19'
-heroImage: /images/blog/programadores-verdes/hero.webp
+heroImage: /images/blog/2024/12/programadores-verdes/hero.webp
 author: Asdrúbal Chirinos
 tags:
   - clean-code
@@ -11,7 +11,7 @@ tags:
 slug: programadores-verdes
 ---
 
-![](/images/blog/programadores-verdes/hero.webp)
+![](/images/blog/2024/12/programadores-verdes/hero.webp)
 
 La sostenibilidad se ha convertido en una prioridad global, y los desarrolladores tenemos un rol clave en la lucha contra el cambio climático. Más allá de crear soluciones tecnológicas innovadoras, debemos ser conscientes del impacto ambiental del software que construimos. Es en este contexto donde surge el concepto de Programadores Verdes y Código Sostenible.
 

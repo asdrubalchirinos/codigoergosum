@@ -2,7 +2,7 @@
 title: 'Día 2 de 24: truncateText'
 subtitle: Las 24 funciones antes de navidad
 pubDate: '2025-12-02'
-heroImage: /images/blog/24-dias-de-navidad-dia-2/hero.png
+heroImage: /images/blog/2025/12/24-dias-de-navidad-dia-2/hero.png
 author: Asdrúbal Chirinos
 featured: true
 tags:

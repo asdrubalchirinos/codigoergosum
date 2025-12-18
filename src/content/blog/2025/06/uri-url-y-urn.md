@@ -2,7 +2,7 @@
 title: 'URI, URL y URN'
 subtitle: Lo que nunca te has atrevido a preguntar
 pubDate: '2025-06-02'
-heroImage: /images/blog/uri-url-y-urn/hero.webp
+heroImage: /images/blog/2025/06/uri-url-y-urn/hero.webp
 author: Asdrúbal Chirinos
 tags:
   - web
@@ -11,7 +11,7 @@ tags:
 slug: uri-url-y-urn
 ---
 
-![](/images/blog/uri-url-y-urn/hero.webp)
+![](/images/blog/2025/06/uri-url-y-urn/hero.webp)
 
 En tecnología, hay conceptos que escuchamos tanto que terminamos asumiendo que los entendemos. Y entre los más confundidos está este trío: **URI, URL y URN**.
 
@@ -88,7 +88,7 @@ Quizás no lo necesites para el día a día si trabajas construyendo sitios web,
 
 Además, te da una ventaja: sabrás usar el término correcto en el contexto correcto.
 
-![](/images/blog/uri-url-y-urn/content-1.png)
+![](/images/blog/2025/06/uri-url-y-urn/content-1.png)
 
 * * *
 
@@ -104,4 +104,4 @@ Ahora ya lo sabes: **URI, URL y URN no son lo mismo**, pero están conectados.
 Así que la próxima vez que te enfrentes a esos términos, estarás un paso adelante.
 Porque lo que nunca te atreviste a preguntar… ya tiene respuesta.
 
-![](/images/blog/uri-url-y-urn/content-2.png)
+![](/images/blog/2025/06/uri-url-y-urn/content-2.png)

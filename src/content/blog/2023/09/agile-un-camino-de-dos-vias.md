@@ -4,7 +4,7 @@ subtitle: >-
   Descubre cómo la colaboración activa entre cliente y desarrollo impulsa el
   éxito en Agile.
 pubDate: '2023-09-01'
-heroImage: /images/blog/agile-un-camino-de-dos-vias/hero.jpeg
+heroImage: /images/blog/2023/08/agile-un-camino-de-dos-vias/hero.jpeg
 author: Asdrúbal Chirinos
 tags:
   - agile
@@ -13,7 +13,7 @@ tags:
 slug: agile-un-camino-de-dos-vias
 ---
 
-![](/images/blog/agile-un-camino-de-dos-vias/hero.jpeg)
+![](/images/blog/2023/08/agile-un-camino-de-dos-vias/hero.jpeg)
 
 Agile un camino de dos vías. Imagen generada por inteligencia artificial. Ideogram.ai. Prompt: A two way street, conceptual art, poster
 

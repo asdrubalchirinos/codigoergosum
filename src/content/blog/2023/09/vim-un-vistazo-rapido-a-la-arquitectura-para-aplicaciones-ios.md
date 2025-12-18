@@ -5,7 +5,7 @@ subtitle: >-
   mantenibilidad en desarrollo SwiftUI.
 pubDate: '2023-09-26'
 heroImage: >-
-  /images/blog/vim-un-vistazo-rapido-a-la-arquitectura-para-aplicaciones-ios/hero.jpeg
+  /images/blog/2023/09/vim-un-vistazo-rapido-a-la-arquitectura-para-aplicaciones-ios/hero.jpeg
 author: Asdrúbal Chirinos
 tags:
   - mobile
@@ -14,7 +14,7 @@ tags:
 slug: vim-un-vistazo-rapido-a-la-arquitectura-para-aplicaciones-ios
 ---
 
-![](/images/blog/vim-un-vistazo-rapido-a-la-arquitectura-para-aplicaciones-ios/hero.jpeg)
+![](/images/blog/2023/09/vim-un-vistazo-rapido-a-la-arquitectura-para-aplicaciones-ios/hero.jpeg)
 
 La arquitectura VIM (View-Intent-Model) se ha convertido en una opción popular y eficiente para desarrollar aplicaciones iOS, especialmente en el contexto de SwiftUI. En este artículo, daremos un vistazo rápido a qué es VIM, cómo funciona, sus ventajas y cómo implementarlo en tus proyectos de iOS.
 

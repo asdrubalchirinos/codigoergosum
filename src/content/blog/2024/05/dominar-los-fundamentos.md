@@ -4,7 +4,7 @@ subtitle: >-
   Descubre por qué comprender DNS, TCP/IP, HTTP y más, te prepara para un
   crecimiento a largo plazo en el mundo de la tecnología.
 pubDate: '2024-05-20'
-heroImage: /images/blog/dominar-los-fundamentos/hero.png
+heroImage: /images/blog/2024/05/dominar-los-fundamentos/hero.png
 author: Asdrúbal Chirinos
 tags:
   - web
@@ -15,7 +15,7 @@ Es fácil para los desarrolladores principiantes sentirse atraídos por los últ
 
 > Antes de correr, hay que aprender a caminar.
 
-![](/images/blog/dominar-los-fundamentos/hero.png)
+![](/images/blog/2024/05/dominar-los-fundamentos/hero.png)
 
 #### Principios fundamentales de Internet
 
@@ -49,6 +49,6 @@ Los nuevos desarrolladores deben aspirar a convertirse en un *T-Shaped Developer
 
 La tecnologías que usamos están en constante evolución, pero los fundamentos de la programación y de Internet permanecen constantes. Al asentarte en estos conceptos básicos, construyes una base sólida que respalda todo aprendizaje y desarrollo futuro.
 
-![](/images/blog/dominar-los-fundamentos/content-1.png)
+![](/images/blog/2024/05/dominar-los-fundamentos/content-1.png)
 
 Recuerda, no se trata solo de seguir las últimas tendencias tecnológicas, surfear la última ola, sino de entender las corrientes subyacentes que te mantienen a flote. Abraza los fundamentos, respeta la tecnología y aspira a convertirte en un desarrollador bien equilibrado y en forma de T.

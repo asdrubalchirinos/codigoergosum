@@ -4,7 +4,7 @@ subtitle: >-
   Del computador personal al software personal: la IA habilita crear nuestras
   propias aplicaciones sin saber programar.
 pubDate: '2025-11-03'
-heroImage: /images/blog/personal-software-la-revolucion-del-vibe-coding/hero.png
+heroImage: /images/blog/2025/11/personal-software-la-revolucion-del-vibe-coding/hero.png
 author: Asdrúbal Chirinos
 tags:
   - ia
@@ -12,7 +12,7 @@ tags:
 slug: personal-software-la-revolucion-del-vibe-coding
 ---
 
-![](/images/blog/personal-software-la-revolucion-del-vibe-coding/hero.png)
+![](/images/blog/2025/11/personal-software-la-revolucion-del-vibe-coding/hero.png)
 
 Estás frente a tu computadora.
 No sabes programar, nunca has escrito una sola línea de código, y sin embargo estás creando tu propia aplicación.
@@ -43,7 +43,7 @@ Bill Gates, con *“una computadora en cada hogar.”*
 
 Dos enfoques distintos: uno centrado en la creatividad del usuario y otro en la accesibilidad masiva, pero con una misma misión: democratizar el acceso al poder tecnológico.
 
-![](/images/blog/personal-software-la-revolucion-del-vibe-coding/content-1.png)
+![](/images/blog/2025/11/personal-software-la-revolucion-del-vibe-coding/content-1.png)
 
 1984\. Apple no vendía computadoras. Vendía rebelión.
 
@@ -69,7 +69,7 @@ La revolución del computador personal nos dio la capacidad de ***usar*** la tec
 Es cierto: con la democratización del computador personal, **muchos como yo aprendimos a programar.**
 Compiladores accesibles, manuales como *BASIC for Beginners* y, posteriormente, los IDEs, nos abrieron la puerta.
 
-![](/images/blog/personal-software-la-revolucion-del-vibe-coding/content-2.png)
+![](/images/blog/2025/11/personal-software-la-revolucion-del-vibe-coding/content-2.png)
 
 Pero no era para todos.
 Aprender un lenguaje, dominar su sintaxis, entender estructuras de datos y algoritmos… seguía siendo un **ritual de iniciación.**
@@ -124,7 +124,7 @@ Hoy, con Vibe Coding, puedes tener para final de la tarde una aplicación funcio
 
 ## **El Círculo se Cierra**
 
-![](/images/blog/personal-software-la-revolucion-del-vibe-coding/content-3.png)
+![](/images/blog/2025/11/personal-software-la-revolucion-del-vibe-coding/content-3.png)
 
 Y aquí volvemos al inicio.
 Tú, frente a tu computadora.

@@ -4,7 +4,7 @@ subtitle: >-
   Descubre cómo las reuniones de trabajo ineficaces desmotivan a tu equipo y
   aprende estrategias prácticas para hacerlas productivas y significativas.
 pubDate: '2024-06-07'
-heroImage: /images/blog/guia-de-supervivencia-para-reuniones-inutiles/hero.jpeg
+heroImage: /images/blog/2024/06/guia-de-supervivencia-para-reuniones-inutiles/hero.jpeg
 author: Asdrúbal Chirinos
 tags:
   - productividad
@@ -15,7 +15,7 @@ slug: guia-de-supervivencia-para-reuniones-inutiles
 
 Las reuniones de trabajo son una parte inevitable de la vida corporativa moderna. Sin embargo, es común que muchas de estas reuniones se conviertan en una fuente de frustración y desmotivación. ¿Te has preguntado alguna vez por qué? Aquí desglosamos las razones y te ofrecemos soluciones para transformar estas sesiones en experiencias productivas y motivadoras.
 
-![Image](/images/blog/guia-de-supervivencia-para-reuniones-inutiles/a3dcdfa6-2b91-4825-a3b8-c21d5d09ffd3_500x604.jpeg "Image")
+![Image](/images/blog/2024/06/guia-de-supervivencia-para-reuniones-inutiles/a3dcdfa6-2b91-4825-a3b8-c21d5d09ffd3_500x604.jpeg "Image")
 
 #### 1\. Falta de Propósito Claro
 

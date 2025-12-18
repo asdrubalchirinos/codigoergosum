@@ -4,7 +4,7 @@ subtitle: >-
   Exploro el posible destino de los Vision PRO de Apple en el cambiante panorama
   tecnológico del 2024. ¿Éxito rotundo o un nuevo desafío para la marca?
 pubDate: '2024-01-05'
-heroImage: /images/blog/vision-pro-acierto-o-fracaso/hero.jpeg
+heroImage: /images/blog/2024/01/vision-pro-acierto-o-fracaso/hero.jpeg
 author: Asdrúbal Chirinos
 tags:
   - opinion
@@ -13,7 +13,7 @@ tags:
 slug: vision-pro-acierto-o-fracaso
 ---
 
-![iphone 15 pro spatial video Archives - VRSUN](/images/blog/vision-pro-acierto-o-fracaso/b7923178-42f0-48f6-832c-ad13aea0e87a_768x432.jpeg "iphone 15 pro spatial video Archives - VRSUN")
+![iphone 15 pro spatial video Archives - VRSUN](/images/blog/2024/01/vision-pro-acierto-o-fracaso/b7923178-42f0-48f6-832c-ad13aea0e87a_768x432.jpeg "iphone 15 pro spatial video Archives - VRSUN")
 
 Ya estamos en 2024, el inminente lanzamiento de los Vision PRO por parte de Apple se presenta como un acontecimiento crucial. Esta apuesta marca un cambio radical en el panorama de la informática, introduciendo lo que la compañía denomina como Computación Espacial. La gran incógnita que flota en el ámbito tecnológico y entre los apasionados seguidores de la marca es la siguiente: ¿lograrán los Vision PRO replicar el éxito rotundo de productos previos como el iPod, los iPhones o el Apple Watch?
 
@@ -27,7 +27,7 @@ Más allá de estos aspectos, existe el tema del precio, dejado deliberadamente 
 
 Ahora, la leal base de seguidores de Apple seguramente generará reacciones iniciales positivas y entusiasmo en el lanzamiento de los Vision PRO. Sin embargo, el verdadero dilema radica en si este producto se convertirá efectivamente en un catalizador del mercado, en el estándar que otras marcas seguirán, o si, por el contrario, se convertirá en el "Apple Newton" de esta nueva era, un producto revolucionario que no logra mantener su posición.
 
-![Apple Newton MessagePad 2100](/images/blog/vision-pro-acierto-o-fracaso/3d6810db-a4e8-4be0-8cb4-be4ee65be8b2_1200x900.jpeg "Apple Newton MessagePad 2100")
+![Apple Newton MessagePad 2100](/images/blog/2024/01/vision-pro-acierto-o-fracaso/3d6810db-a4e8-4be0-8cb4-be4ee65be8b2_1200x900.jpeg "Apple Newton MessagePad 2100")
 
 El Newton aspiraba a ser un nuevo motor de ingresos para Apple, compitiendo con el Apple II y el Macintosh, pero no logró cumplir las expectativas.
 

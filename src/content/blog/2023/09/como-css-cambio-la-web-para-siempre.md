@@ -4,7 +4,7 @@ subtitle: >-
   Descubre cómo CSS revolucionó la web: de diseños caóticos a elegantes. Un
   viaje desde el HTML hasta la modernidad web.
 pubDate: '2023-09-22'
-heroImage: /images/blog/como-css-cambio-la-web-para-siempre/hero.jpeg
+heroImage: /images/blog/2023/09/como-css-cambio-la-web-para-siempre/hero.jpeg
 author: Asdrúbal Chirinos
 tags:
   - css
@@ -14,7 +14,7 @@ slug: como-css-cambio-la-web-para-siempre
 
 En los primeros días de la World Wide Web, la estilización de las páginas web era un verdadero desafío. Los desarrolladores web nos enfrentábamos a la tarea de crear diseños "atractivos" usando solo HTML, un lenguaje diseñado principalmente para estructurar el contenido. En este artículo, exploraremos cómo era el desarrollo web antes de la aparición de CSS (Cascading Style Sheets), qué significó esta innovación para la industria y cómo CSS ha evolucionado hasta nuestros días.
 
-![](/images/blog/como-css-cambio-la-web-para-siempre/hero.jpeg)
+![](/images/blog/2023/09/como-css-cambio-la-web-para-siempre/hero.jpeg)
 
 ## **El Desarrollo Web Antes de CSS**
 

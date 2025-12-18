@@ -4,7 +4,7 @@ subtitle: >-
   Descubre HTMX: La revolución en interactividad web. Simplifica el desarrollo y
   mejora la experiencia del usuario.
 pubDate: '2023-09-04'
-heroImage: /images/blog/que-onda-con-htmx/hero.jpeg
+heroImage: /images/blog/2023/09/que-onda-con-htmx/hero.jpeg
 author: Asdrúbal Chirinos
 tags:
   - javascript
@@ -12,7 +12,7 @@ tags:
 slug: que-onda-con-htmx
 ---
 
-![](/images/blog/que-onda-con-htmx/hero.jpeg)
+![](/images/blog/2023/09/que-onda-con-htmx/hero.jpeg)
 
 Si llevas algún tiempo en el mundo del desarrollo web, probablemente ya habrás usado frameworks y bibliotecas populares como React, Vue o Angular. Pero, ¿has oído hablar de HTMX? Si no es así, estás de suerte. En este artículo, te presentaré a esta joya oculta que está revolucionando la forma en que muchos desarrolladores abordan la interactividad en la web.
 

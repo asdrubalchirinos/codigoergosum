@@ -4,7 +4,7 @@ subtitle: >-
   Explora cómo Flexbox y CSS Grid potencian el diseño web. Descubre cuándo usar
   cada herramienta para crear diseños asombrosos
 pubDate: '2023-08-25'
-heroImage: /images/blog/de-cajas-a-cuadriculas-con-flexbox-y-css-grid/hero.webp
+heroImage: /images/blog/2023/08/de-cajas-a-cuadriculas-con-flexbox-y-css-grid/hero.webp
 author: Asdrúbal Chirinos
 tags:
   - css
@@ -12,7 +12,7 @@ tags:
 slug: de-cajas-a-cuadriculas-con-flexbox-y-css-grid
 ---
 
-![](/images/blog/de-cajas-a-cuadriculas-con-flexbox-y-css-grid/hero.webp)
+![](/images/blog/2023/08/de-cajas-a-cuadriculas-con-flexbox-y-css-grid/hero.webp)
 
 La imagen de Scalar Topics se emplea en este artículo con fines ilustrativos y se considera "Fair Use" para uso educativo y de comentario. Los derechos de autor corresponden a sus propietarios.
 
