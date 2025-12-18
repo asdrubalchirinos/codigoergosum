@@ -1,0 +1,93 @@
+---
+title: 'Día 20 de 24: escapeHTML'
+subtitle: 'Las 24 funciones antes de navidad'
+pubDate: '2025-12-20'
+heroImage: /images/blog/24-dias-de-navidad-dia-20/hero.png
+author: Asdrúbal Chirinos
+featured: false
+draft: false
+tags: ['web','javascript']
+slug: 24-dias-de-navidad-dia-20
+---
+
+import PostReference from '@components/PostReference.astro';
+
+En estos días hemos ido construyendo una pequeña caja de herramientas pensada para el día a día del desarrollo. Cada función apunta a resolver un problema concreto, de esos que aparecen una y otra vez en proyectos reales. Hoy damos un paso importante hacia la seguridad y la estabilidad del frontend y backend con una función sencilla, pero fundamental.
+
+<PostReference slug="24-dias-de-navidad-dia-19" />
+
+### escapeHTML
+
+La función `escapeHTML` se encarga de escapar caracteres especiales en un texto para evitar problemas de renderizado y, sobre todo, vulnerabilidades XSS.
+
+Su propósito principal es convertir caracteres como `<`, `>`, `&`, comillas simples y dobles en sus entidades HTML correspondientes antes de que el texto sea insertado en una página web.
+
+Esto es especialmente útil cuando se trabaja con contenido generado por usuarios, templates dinámicos o cualquier entrada externa que termine renderizándose como HTML.
+
+¿Por qué no confiar solo en soluciones nativas o del framework?
+
+Porque muchas veces necesitamos un helper pequeño, explícito y fácil de auditar. Esta función hace exactamente una cosa, de forma clara, sin dependencias externas y con un comportamiento predecible.
+
+Casos típicos de uso incluyen:
+
+* Sanitizar textos antes de mostrarlos en el DOM.
+* Prevenir inyecciones HTML en emails o vistas renderizadas.
+* Normalizar contenido antes de guardarlo o procesarlo.
+
+### Código de la función
+
+```js
+/**
+ * Escapa caracteres especiales HTML para prevenir XSS y problemas de renderizado.
+ * Convierte <, >, &, ", ' en sus entidades HTML correspondientes.
+ * @param {string} text Texto a escapar.
+ * @returns {string} Texto con caracteres especiales escapados.
+ */
+export function escapeHTML(text) {
+  if (typeof text !== 'string') return '';
+  
+  const escapeMap = {
+    '&': '&amp;',
+    '<': '&lt;',
+    '>': '&gt;',
+    '"': '&quot;',
+    "'": '&#x27;',
+    '/': '&#x2F;'
+  };
+  
+  return text.replace(/[&<>"'\/]/g, (char) => escapeMap[char]);
+}
+```
+
+### Cómo usarla
+
+#### Caso básico
+
+```js
+escapeHTML('<h1>Hello World</h1>');
+// Resultado: '&lt;h1&gt;Hello World&lt;/h1&gt;'
+```
+
+Este es el uso más común, proteger contenido antes de renderizarlo como texto visible en una página.
+
+#### Texto con comillas y caracteres mixtos
+
+```js
+escapeHTML(`Tom said: "Hello & welcome"`);
+// Resultado: 'Tom said: &quot;Hello &amp; welcome&quot;'
+```
+
+Ideal para textos que provienen de formularios o entradas libres.
+
+#### Entrada no válida
+
+```js
+escapeHTML(null);
+// Resultado: ''
+```
+
+La función falla de forma segura y retorna una cadena vacía si el valor no es un string.
+
+---
+
+A veces las funciones más pequeñas son las que marcan una gran diferencia en la calidad y seguridad del software. `escapeHTML` es uno de esos helpers que conviene tener siempre a mano. Mañana seguimos avanzando con una nueva función que se suma a este calendario y continúa completando nuestra caja de herramientas navideña.
