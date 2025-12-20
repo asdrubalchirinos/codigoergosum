@@ -1,0 +1,109 @@
+---
+title: 'Día 21 de 24: unescapeHTML'
+subtitle: 'Las 24 funciones antes de navidad'
+pubDate: '2025-12-21'
+heroImage: /images/blog/2025/12/24-dias-de-vaidad-dia-21/hero.png
+author: Asdrúbal Chirinos
+featured: false
+draft: true
+tags: []
+slug: 24-dias-de-vaidad-dia-21
+---
+
+import PostReference from '@components/PostReference.astro';
+
+Después de haber protegido nuestras salidas con el escape de caracteres HTML, hoy damos el paso natural en sentido contrario. En esta serie cada función construye sobre la anterior, y este día está dedicado a recuperar el texto original cuando trabajamos con contenido ya escapado. La función de hoy existe para devolver claridad y legibilidad sin perder control sobre los datos.
+
+<PostReference slug="24-dias-de-navidad-dia-20" />
+
+### unescapeHTML
+
+Esta función resuelve un problema muy común cuando trabajamos con textos que han pasado por procesos de sanitización, almacenamiento o transmisión en HTML.
+
+Permite convertir entidades HTML nuevamente en sus caracteres originales, tanto en su forma nombrada como numérica. Es especialmente útil cuando recibimos contenido desde bases de datos, APIs o editores que devuelven texto escapado.
+
+¿Por qué es práctica en proyectos reales?
+
+* Facilita mostrar texto correctamente al usuario final.
+* Evita tener que manejar conversiones manuales repetidas.
+* Centraliza la lógica de desescapado en un solo punto.
+* Complementa perfectamente funciones de escape como medida de ida y vuelta.
+
+A diferencia de soluciones nativas más limitadas, esta implementación maneja entidades comunes, entidades numéricas decimales y hexadecimales, cubriendo la mayoría de los casos habituales sin depender del DOM ni del entorno de ejecución.
+
+### Código de la función
+
+```js
+/**
+ * Convierte entidades HTML comunes de nuevo a sus caracteres originales.
+ * Maneja entidades numéricas (&#{num};) y entidades nombradas (&amp;, &lt;, etc.).
+ * @param {string} html Texto con entidades HTML.
+ * @returns {string} Texto con caracteres desescapados.
+ */
+export function unescapeHTML(html) {
+  if (typeof html !== 'string') return '';
+  
+  const unescapeMap = {
+    '&amp;': '&',
+    '&lt;': '<',
+    '&gt;': '>',
+    '&quot;': '"',
+    '&#x27;': "'",
+    '&#x2F;': '/',
+    '&apos;': "'",
+    '&nbsp;': ' '
+  };
+  
+  return html
+    .replace(/&[a-z]+;|&#x[0-9a-f]+;|&#[0-9]+;/gi, (entity) => {
+      // Entidades nombradas
+      if (unescapeMap[entity.toLowerCase()]) {
+        return unescapeMap[entity.toLowerCase()];
+      }
+      // Entidades numéricas hexadecimales &#xNN;
+      if (entity.startsWith('&#x')) {
+        const code = parseInt(entity.slice(3, -1), 16);
+        return String.fromCharCode(code);
+      }
+      // Entidades numéricas decimales &#NN;
+      if (entity.startsWith('&#')) {
+        const code = parseInt(entity.slice(2, -1), 10);
+        return String.fromCharCode(code);
+      }
+      return entity;
+    });
+}
+```
+
+### Cómo usarla
+
+#### Caso básico
+
+```js
+unescapeHTML('Hola &amp; bienvenido');
+// "Hola & bienvenido"
+```
+
+Ideal cuando recibes texto escapado desde una API o una base de datos.
+
+### Entidades numéricas
+
+```js
+unescapeHTML('&#72;&#111;&#108;&#97;');
+// "Hola"
+```
+
+Funciona tanto con entidades decimales como hexadecimales.
+
+### Texto mixto
+
+```js
+unescapeHTML('Precio&nbsp;menor&nbsp;a&nbsp;&lt;10&gt;');
+// "Precio menor a <10>"
+```
+
+Muy útil para contenido generado por editores WYSIWYG o sistemas CMS.
+
+---
+
+Con esta función cerramos el ciclo entre escapar y desescapar contenido HTML de forma controlada y predecible. Mañana seguimos avanzando en esta colección, sumando otra pieza pequeña pero esencial para el día a día del desarrollo.
