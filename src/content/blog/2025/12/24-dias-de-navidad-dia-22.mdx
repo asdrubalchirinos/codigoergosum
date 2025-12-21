@@ -1,0 +1,160 @@
+---
+title: 'Día 22 de 24: toMarkdown'
+subtitle: 'Las 24 funciones antes de navidad'
+pubDate: '2025-12-22'
+heroImage: /images/blog/2025/12/24-dias-de-navidad-dia-22/hero.png
+author: Asdrúbal Chirinos
+featured: true
+draft: false
+tags: []
+slug: 24-dias-de-navidad-dia-22
+---
+
+import PostReference from '@components/PostReference.astro';
+
+A estas alturas de la serie ya venimos afinando utilidades que hacen de puente entre formatos. Ayer estuvimos del lado de “limpiar” texto para volverlo legible; hoy damos el siguiente paso natural: tomar HTML sencillo y convertirlo a Markdown para que puedas llevar contenido a README, notas, wikis o posts sin pelearte con etiquetas.
+
+<PostReference slug="24-dias-de-navidad-dia-21" />
+
+### toMarkdown
+
+`toMarkdown` resuelve un problema bien común: tienes un fragmento de HTML simple (por ejemplo, algo copiado de un editor, un email, una nota exportada o un CMS) y quieres pasarlo a Markdown de forma rápida.
+
+Esto es útil en proyectos reales cuando:
+
+* Guardas contenido en HTML pero lo publicas o versionas como Markdown.
+* Migras notas o documentación a repositorios.
+* Necesitas un formato más “portable” y friendly para diffs y Git.
+
+Lo que la hace especialmente práctica es que no intenta ser un parser HTML completo. En vez de eso, aplica un set de reglas claras con expresiones regulares para los elementos más frecuentes: encabezados, párrafos, énfasis, links, listas y código. Es ideal cuando tu HTML es “limpio” y relativamente plano, y prefieres una conversión sencilla y predecible.
+
+### Código de la función
+
+````js
+/**
+ * Convierte un fragmento de HTML simple a formato Markdown.
+ * Soporta: párrafos, encabezados, negritas, cursivas, enlaces, listas y código.
+ * No maneja HTML complejo o anidamientos profundos.
+ * @param {string} html HTML a convertir.
+ * @returns {string} Markdown equivalente.
+ */
+export function toMarkdown(html) {
+  if (typeof html !== 'string') return '';
+  
+  let md = html
+    // Encabezados h1-h6
+    .replace(/<h1[^>]*>(.*?)<\/h1>/gi, '# $1\n\n')
+    .replace(/<h2[^>]*>(.*?)<\/h2>/gi, '## $1\n\n')
+    .replace(/<h3[^>]*>(.*?)<\/h3>/gi, '### $1\n\n')
+    .replace(/<h4[^>]*>(.*?)<\/h4>/gi, '#### $1\n\n')
+    .replace(/<h5[^>]*>(.*?)<\/h5>/gi, '##### $1\n\n')
+    .replace(/<h6[^>]*>(.*?)<\/h6>/gi, '###### $1\n\n')
+    // Negritas
+    .replace(/<(strong|b)>(.*?)<\/(strong|b)>/gi, '**$2**')
+    // Cursivas
+    .replace(/<(em|i)>(.*?)<\/(em|i)>/gi, '*$2*')
+    // Enlaces
+    .replace(/<a\s+href=["']([^"']+)["'][^>]*>(.*?)<\/a>/gi, '[$2]($1)')
+    // Código inline
+    .replace(/<code>(.*?)<\/code>/gi, '`$1`')
+    // Bloques de código
+    .replace(/<pre>(.*?)<\/pre>/gis, '```\n$1\n```\n')
+    // Listas desordenadas
+    .replace(/<ul[^>]*>(.*?)<\/ul>/gis, (match, content) => {
+      return content.replace(/<li[^>]*>(.*?)<\/li>/gi, '- $1\n');
+    })
+    // Listas ordenadas
+    .replace(/<ol[^>]*>(.*?)<\/ol>/gis, (match, content) => {
+      let counter = 1;
+      return content.replace(/<li[^>]*>(.*?)<\/li>/gi, () => `${counter++}. $1\n`);
+    })
+    // Párrafos
+    .replace(/<p[^>]*>(.*?)<\/p>/gi, '$1\n\n')
+    // Saltos de línea
+    .replace(/<br\s*\/?>/gi, '\n')
+    // Remover tags restantes
+    .replace(/<[^>]+>/g, '');
+  
+  // Limpiar espacios excesivos
+  return md.replace(/\n{3,}/g, '\n\n').trim();
+}
+````
+
+### Cómo usarla
+
+#### Caso básico
+
+Convierte un HTML de texto con encabezado, párrafo y énfasis.
+
+```js
+import { toMarkdown } from './toMarkdown.js';
+
+const html = `
+<h2>Notas</h2>
+<p>Esto es <strong>importante</strong> y esto es <em>énfasis</em>.</p>
+`;
+
+console.log(toMarkdown(html));
+```
+
+Resultado esperado (aprox.):
+
+```md
+## Notas
+
+Esto es **importante** y esto es *énfasis*.
+```
+
+#### Caso con enlaces y saltos de línea
+
+```js
+const html = `
+<p>Visita <a href="https://example.com">este link</a><br>y sigue leyendo.</p>
+`;
+
+console.log(toMarkdown(html));
+```
+
+Salida:
+
+```md
+Visita [este link](https://example.com)
+y sigue leyendo.
+```
+
+#### Caso con listas y código
+
+```js
+const html = `
+<p>Checklist:</p>
+<ul>
+  <li>Instalar dependencias</li>
+  <li>Ejecutar <code>npm test</code></li>
+</ul>
+
+<pre>console.log("hola");</pre>
+`;
+
+console.log(toMarkdown(html));
+```
+
+Salida aproximada:
+
+```md
+Checklist:
+
+- Instalar dependencias
+- Ejecutar `npm test`
+
+```
+
+console.log("hola");
+
+```
+```
+
+Nota práctica: esta función está pensada para HTML simple. Si el HTML viene con anidamientos raros, atributos complejos, listas dentro de listas, o tags mezclados de forma poco consistente, el resultado puede requerir una pasada manual.
+
+---
+
+Con `toMarkdown` ya tienes una navaja suiza para convertir contenido “copiado y pegado” en algo que vive mejor en repos y documentación. Mañana seguimos con otra función para mantener el flujo entre formatos y texto cada vez más limpio y reutilizable.
