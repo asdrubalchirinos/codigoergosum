@@ -1,0 +1,170 @@
+---
+title: 'Día 24 de 24: truncateHTMLText'
+subtitle: 'Las 24 funciones antes de navidad'
+pubDate: '2025-12-24'
+heroImage: /images/blog/2025/12/24-dias-de-navidad-dia-24/hero.png
+author: Asdrúbal Chirinos
+featured: false
+draft: false
+tags: ['web','javascript']
+slug: 24-dias-de-navidad-dia-24
+---
+
+import PostReference from '@components/PostReference.astro';
+
+Llegamos al último día de esta mini serie, después de pasar por varias piezas pequeñas pero muy útiles para manipular texto y HTML sin sorpresas. Ayer vimos cómo convertir texto plano a HTML, y hoy cerramos el ciclo con la otra cara del problema: cómo recortar contenido ya en HTML sin romper el marcado. `truncateHTMLText` existe para truncar texto visible dentro de HTML manteniendo un resultado válido, con tags cerrados y una estructura razonable.
+
+<PostReference slug="24-dias-de-navidad-dia-23" />
+
+### truncateHTMLText
+
+Truncar strings es fácil hasta que hay HTML de por medio. El problema aparece cuando cortas a mitad de un tag, cuando dejas tags abiertos, o cuando cuentas caracteres incluyendo markup en lugar del texto que el usuario realmente ve.
+
+Esta función resuelve eso al:
+
+* Contar solo el texto visible, no los tags.
+* Mantener el HTML resultante bien formado.
+* Cerrar los tags que queden abiertos al momento de truncar.
+* Agregar un sufijo configurable al truncar (por defecto `…`).
+
+En proyectos reales esto se vuelve muy útil en previews de artículos, listados de tarjetas, snippets en emails, y resúmenes donde guardas contenido rico (HTML) pero quieres mostrarlo compacto sin romper el render del navegador o del cliente de correo.
+
+### Código de la función
+
+```js
+/**
+ * Trunca el texto dentro de HTML a un número de caracteres, manteniendo HTML válido.
+ * Cierra tags abiertos y preserva la estructura básica.
+ * @param {string} html HTML con texto a truncar.
+ * @param {number} maxLength Máximo de caracteres de texto visible (sin contar tags).
+ * @param {object} [options]
+ * @param {string} [options.ellipsis='…'] Sufijo al truncar.
+ * @returns {string} HTML truncado válido.
+ */
+export function truncateHTMLText(html, maxLength, options = {}) {
+  if (typeof html !== 'string') return '';
+  if (maxLength <= 0) return '';
+  
+  const { ellipsis = '…' } = options;
+  const openTags = [];
+  let textLength = 0;
+  let result = '';
+  let inTag = false;
+  let currentTag = '';
+  
+  for (let i = 0; i < html.length; i++) {
+    const char = html[i];
+    
+    if (char === '<') {
+      inTag = true;
+      currentTag = '';
+      result += char;
+    } else if (char === '>' && inTag) {
+      inTag = false;
+      result += char;
+      
+      // Detectar apertura o cierre de tag
+      const tagMatch = currentTag.match(/^\/?([a-z][a-z0-9]*)/i);
+      if (tagMatch) {
+        const tagName = tagMatch[1].toLowerCase();
+        if (currentTag[0] === '/') {
+          // Cierre de tag
+          const lastOpen = openTags[openTags.length - 1];
+          if (lastOpen === tagName) openTags.pop();
+        } else if (!currentTag.includes('/') && !['br', 'hr', 'img', 'input'].includes(tagName)) {
+          // Apertura de tag (excluir self-closing)
+          openTags.push(tagName);
+        }
+      }
+    } else if (inTag) {
+      currentTag += char;
+      result += char;
+    } else {
+      // Texto visible
+      if (textLength < maxLength) {
+        result += char;
+        textLength++;
+      } else if (textLength === maxLength) {
+        result += ellipsis;
+        textLength++;
+        break;
+      }
+    }
+  }
+  
+  // Cerrar tags abiertos en orden inverso
+  while (openTags.length > 0) {
+    const tag = openTags.pop();
+    result += `</${tag}>`;
+  }
+  
+  return result;
+}
+```
+
+### Cómo usarla
+
+#### Caso básico
+
+Truncar un fragmento de HTML respetando el texto visible:
+
+```js
+import { truncateHTMLText } from './truncateHTMLText.js';
+
+const html = '<p>Hola <strong>mundo</strong>, este texto es más largo.</p>';
+const out = truncateHTMLText(html, 10);
+
+console.log(out);
+// <p>Hola <strong>mundo</strong>…</p>
+```
+
+Qué pasa aquí:
+
+* La función cuenta caracteres visibles: `"Hola mundo,"` etc.
+* Cuando llega al límite, agrega `…`.
+* Si había tags abiertos, los cierra en orden inverso para dejar HTML válido.
+
+#### Cambiar el sufijo de truncado
+
+Si prefieres `...` en lugar del carácter `…`:
+
+```js
+const html = '<div><em>Esto es un ejemplo</em> con más contenido.</div>';
+const out = truncateHTMLText(html, 7, { ellipsis: '...' });
+
+console.log(out);
+// <div><em>Esto es</em>...</div>
+```
+
+#### Truncar sin romper estructura en listas o contenido anidado
+
+Esto es típico en previews de contenido:
+
+```js
+const html = '<p>Intro <span>con <b>énfasis</b> y detalle</span> final.</p>';
+const out = truncateHTMLText(html, 12);
+
+console.log(out);
+// <p>Intro <span>con <b>énfasi</b>…</span></p>
+```
+
+Puntos a notar:
+
+* Puede cortar dentro del texto de un nodo, pero mantiene los tags cerrados.
+* El resultado sigue siendo HTML válido, que era el objetivo principal.
+
+---
+
+Con esto cerramos el **Día 24** y, con él, esta aventura de 24 días explorando pequeñas herramientas que hacen nuestra vida como desarrolladores un poco más fácil.
+
+Si nos acompañaste desde el inicio, ahora tienes un "mini kit" de utilidades listo para usar en cualquier proyecto. A lo largo de estas tres semanas, hemos cubierto piezas clave en diferentes áreas:
+
+*   **Manipulación de Strings**: Desde lo estético con `capitalizeFirst`, hasta lo funcional con `slugify`, pasando por la seguridad con `maskString` y la limpieza con `removeDiacritics`.
+*   **Gestión de Fechas**: Normalizamos el manejo del tiempo con `formatDate`, `addDays`, `diffInDays` y utilerías como `isWeekend` o los límites del día con `startOfDay` y `endOfDay`.
+*   **Rendimiento y Control**: Optimizamos la ejecución con `debounce` y `throttle`, y añadimos resiliencia a nuestras apps con `retryAsync`.
+*   **Objetos y Datos**: Aseguramos la integridad de los datos con `deepClone`, inmutabilidad con `objectDeepFreeze` e identificadores únicos con `simpleUUID`.
+*   **HTML y Transformación**: El tramo final se centró en la web, aprendiendo a limpiar el marcado (`stripHTML`), manejar la seguridad (`escapeHTML`/`unescapeHTML`), convertir a Markdown (`toMarkdown`) y finalmente truncar contenido rico sin romper la estructura con `plainTextToHTML` y `truncateHTMLText`.
+
+Mañana no hay una nueva función, pero queda algo mejor: la satisfacción de haber construido un set de herramientas propio, sólido y reusable. Este calendario ha sido una excusa para recordar que, muchas veces, la calidad de un gran sistema reside en la solidez de sus piezas más pequeñas.
+
+**¡Feliz Navidad y feliz código!**

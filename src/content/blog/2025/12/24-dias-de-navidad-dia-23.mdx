@@ -1,0 +1,143 @@
+---
+title: 'Día 23 de 24: plainTextToHTML'
+subtitle: 'Las 24 funciones antes de navidad'
+pubDate: '2025-12-23'
+heroImage: /images/blog/2025/12/24-dias-de-navidad-dia-23/hero.png
+author: Asdrúbal Chirinos
+featured: false
+draft: false
+tags: ['web','javascript']
+slug: 24-dias-de-navidad-dia-23
+---
+
+import PostReference from '@components/PostReference.astro';
+
+Hoy seguimos avanzando en este recorrido de utilidades para texto, pero dando la vuelta al flujo que vimos ayer. Si en el día anterior convertíamos HTML a Markdown para volver a lo esencial, hoy hacemos el camino inverso: tomar texto plano y transformarlo en HTML básico, seguro y presentable. Esta función está pensada para ese momento final en el que el contenido ya existe, pero necesita una estructura mínima para mostrarse correctamente en la web, sin riesgos ni interpretaciones inesperadas.
+
+<PostReference slug="24-dias-de-navidad-dia-22" />
+
+### plainTextToHTML
+
+`plainTextToHTML` toma texto plano y lo convierte a HTML sencillo, haciendo dos cosas clave:
+
+* **Escapa caracteres especiales** (`&`, `<`, `>`, `"`, `'`) para que el contenido no se interprete como HTML real.
+* **Convierte saltos de línea** en estructura HTML, ya sea con párrafos `<p>` (por bloques) o con `<br>` (por líneas).
+
+### Qué problema resuelve
+
+Cuando recibes texto de usuarios o de fuentes externas, normalmente viene con saltos de línea y sin estructura HTML. Si lo inyectas tal cual en una vista, pierdes el formato, y si lo metes como HTML sin escapar, introduces riesgos.
+
+### Por qué es útil en proyectos reales
+
+* Renderizar comentarios, descripciones o notas en un panel admin.
+* Mostrar contenido de formularios manteniendo saltos de línea.
+* Transformar texto de emails, logs o exports a algo presentable en web.
+
+### Qué la hace diferente de soluciones nativas
+
+El navegador no te da una función directa “texto a HTML con formato simple y seguro”. Aquí tienes una utilidad pequeña, predecible y configurable, que evita decisiones mágicas y mantiene el control en tu código.
+
+### Ventajas y casos típicos
+
+* Defaults razonables: párrafos y saltos de línea activados.
+* Opciones simples para ajustar el formato según el contexto.
+* Primero escapa, luego formatea: evita que el “formato” se convierta en un vector de HTML.
+
+### Código de la función
+
+```js
+/**
+ * Convierte texto plano a HTML básico, escapando caracteres y convirtiendo saltos de línea.
+ * @param {string} text Texto plano.
+ * @param {object} [options]
+ * @param {boolean} [options.paragraphs=true] Si true, envuelve bloques separados por doble salto en <p>.
+ * @param {boolean} [options.breakLines=true] Si true, convierte saltos simples en <br>.
+ * @returns {string} HTML generado.
+ */
+export function plainTextToHTML(text, options = {}) {
+  if (typeof text !== 'string') return '';
+  const { paragraphs = true, breakLines = true } = options;
+  
+  // Escapar HTML primero
+  const escaped = text.replace(/[&<>"']/g, (char) => {
+    const map = { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#x27;' };
+    return map[char];
+  });
+  
+  if (paragraphs) {
+    // Dividir por doble salto de línea y envolver en <p>
+    const blocks = escaped.split(/\n\s*\n/);
+    return blocks
+      .map(block => {
+        const content = breakLines ? block.replace(/\n/g, '<br>') : block;
+        return `<p>${content.trim()}</p>`;
+      })
+      .join('\n');
+  }
+  
+  // Solo convertir saltos de línea
+  return breakLines ? escaped.replace(/\n/g, '<br>') : escaped;
+}
+```
+
+### Cómo usarla
+
+#### Caso básico
+
+Convierte texto con párrafos (doble salto) y líneas (salto simple) a HTML.
+
+```js
+const input = `Hola Astro
+Esto es una segunda línea
+
+Y esto es otro párrafo`;
+
+const html = plainTextToHTML(input);
+
+console.log(html);
+```
+
+**Qué obtienes:**
+
+* Dos `<p>...</p>` porque hay un doble salto.
+* Dentro del primer párrafo, el salto simple se vuelve `<br>`.
+
+#### Caso especial 1: sin párrafos, solo `<br>`
+
+Útil cuando quieres mantener todo en un solo bloque (por ejemplo, dentro de un `<div>` controlado por tu layout).
+
+```js
+const input = `Linea 1
+Linea 2
+Linea 3`;
+
+const html = plainTextToHTML(input, { paragraphs: false });
+
+console.log(html);
+// Linea 1<br>Linea 2<br>Linea 3
+```
+
+#### Caso especial 2: párrafos sin `<br>`
+
+Útil si quieres que cada bloque sea un párrafo, pero que las líneas internas no se conviertan en `<br>`.
+
+```js
+const input = `Titulo
+Subtitulo
+
+Detalle 1
+Detalle 2`;
+
+const html = plainTextToHTML(input, { paragraphs: true, breakLines: false });
+
+console.log(html);
+```
+
+**Qué obtienes:**
+
+* Dos párrafos.
+* Dentro de cada párrafo se preserva el texto sin insertar `<br>`.
+
+---
+
+Con esta función ya tienes una pieza práctica para el “último tramo” del contenido: cuando el texto ya existe y solo quieres presentarlo bien, sin sorpresas. Mañana seguimos sumando herramientas para que tus transformaciones entre formatos se sientan cada vez más completas y consistentes. Solo queda una función más para el recorrido.
