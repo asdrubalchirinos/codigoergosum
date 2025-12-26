@@ -51,8 +51,76 @@ function parseAndValidateDate(input) {
   return { valid: true, pubDate, year, month: String(month).padStart(2, '0') };
 }
 
+// Helper to get the default date (next available slot or today)
+function getDefaultDate() {
+  try {
+    // 1. Find latest year
+    const years = fs.readdirSync(POSTS_DIR)
+      .filter(f => /^\d{4}$/.test(f) && fs.statSync(path.join(POSTS_DIR, f)).isDirectory())
+      .sort((a, b) => b - a); // Descending
+
+    for (const year of years) {
+      const yearPath = path.join(POSTS_DIR, year);
+      
+      // 2. Find latest month in that year
+      const months = fs.readdirSync(yearPath)
+        .filter(f => /^\d{2}$/.test(f) && fs.statSync(path.join(yearPath, f)).isDirectory())
+        .sort((a, b) => b - a); // Descending
+
+      for (const month of months) {
+        const monthPath = path.join(yearPath, month);
+        
+        // 3. Scan files in that month
+        const files = fs.readdirSync(monthPath)
+          .filter(f => (f.endsWith('.md') || f.endsWith('.mdx')));
+
+        let maxDate = null;
+
+        for (const file of files) {
+          const content = fs.readFileSync(path.join(monthPath, file), 'utf-8');
+          // Extract pubDate: 'YYYY-MM-DD'
+          const match = content.match(/pubDate:\s*['"]?(\d{4}-\d{2}-\d{2})['"]?/);
+          
+          if (match) {
+            const date = new Date(match[1]);
+            // Adjust for timezone offset to treat it as UTC/Local correctly for comparison
+            // Or simply compare string values since format is YYYY-MM-DD
+            if (!maxDate || match[1] > maxDate.str) {
+              maxDate = { obj: date, str: match[1] };
+            }
+          }
+        }
+
+        if (maxDate) {
+          // Found the latest post!
+          // Calculate next day
+          // Create date from the string components to avoid timezone issues
+          const [y, m, d] = maxDate.str.split('-').map(Number);
+          const lastDate = new Date(y, m - 1, d);
+          
+          const nextDate = new Date(lastDate);
+          nextDate.setDate(lastDate.getDate() + 1);
+          
+          // Format as dd/mm/yyyy
+          const dayStr = String(nextDate.getDate()).padStart(2, '0');
+          const monthStr = String(nextDate.getMonth() + 1).padStart(2, '0');
+          const yearStr = nextDate.getFullYear();
+          
+          return `${dayStr}/${monthStr}/${yearStr}`;
+        }
+      }
+    }
+  } catch (err) {
+    // In case of error (e.g. empty folders), silent fail to today
+    // console.error(err);
+  }
+
+  // Fallback to today if no posts found
+  return getTodayFormatted();
+}
+
 async function createPost() {
-  const todayFormatted = getTodayFormatted();
+  const defaultDate = getDefaultDate();
   
   const answers = await inquirer.prompt([
     {
@@ -65,7 +133,7 @@ async function createPost() {
       type: 'input',
       name: 'pubDateInput',
       message: `Publication Date (dd/mm/yyyy):`,
-      default: todayFormatted,
+      default: defaultDate,
       validate: (input) => {
         const result = parseAndValidateDate(input);
         return result.valid ? true : result.error;

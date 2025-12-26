@@ -5,8 +5,8 @@ pubDate: '2025-12-31'
 heroImage: /images/blog/2025/12/lo-que-no-se-deja-atras/hero.png
 author: Asdrúbal Chirinos
 featured: true
-draft: true
-tags: []
+draft: false
+tags: ["personal",'nostalgia']
 slug: lo-que-no-se-deja-atras
 ---
 
