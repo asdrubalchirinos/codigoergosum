@@ -58,9 +58,9 @@ Alquilamos un carro solo para ir por ella, para que viajara sola con nosotros.
 Nuestra nueva casa le encantó.
 Se adaptó desde el primer día.
 
-En noviembre yo enfermé.
+En enero yo enfermé.
 Los exámenes indicaban un tumor en el páncreas.
-En enero llegó el diagnóstico: cáncer de páncreas.
+El diagnóstico llegó: cáncer de páncreas.
 Me realizaron una cirugía de Whipple.
 
 Su deterioro comenzó por una patita.
