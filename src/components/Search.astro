@@ -85,6 +85,31 @@
     @media (max-width: 720px) {
         #search .pagefind-ui__drawer {
             padding: 0 1em;
+            position: fixed;
+            top: 70px;
+            left: 10px;
+            right: 10px;
+            width: auto;
+            max-height: 80vh;
+            box-shadow: 0 10px 1000px rgba(0, 0, 0, 0.5);
+            border: 1px solid #eee;
+        }
+
+        #search .pagefind-ui__search-clear {
+            font-size: 0;
+            padding: 0;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #search .pagefind-ui__search-clear::after {
+            content: "✕";
+            font-size: 16px;
+            color: #888;
+            display: block;
         }
     }
 </style>
