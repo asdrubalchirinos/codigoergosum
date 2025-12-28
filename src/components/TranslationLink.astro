@@ -7,7 +7,7 @@ interface Props {
     translationOf?: string;
 }
 
-const { currentSlug, currentLang, translationOf } = Astro.props;
+const { currentSlug, translationOf } = Astro.props;
 const allPosts = await getCollection("blog", ({ data }) => {
     return import.meta.env.PROD
         ? data.draft !== true && data.pubDate <= new Date()

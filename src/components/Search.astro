@@ -30,6 +30,35 @@
             });
         }
     });
+
+    // Scroll Lock Logic for Mobile Search
+    window.addEventListener("DOMContentLoaded", () => {
+        const observer = new MutationObserver(() => {
+            const drawer = document.querySelector(".pagefind-ui__drawer");
+            const input = document.querySelector(".pagefind-ui__search-input");
+            const body = document.body;
+
+            if (drawer && input) {
+                const isVisible =
+                    window.getComputedStyle(drawer).display !== "none" &&
+                    input.value.length > 0;
+                if (isVisible && window.innerWidth <= 720) {
+                    body.style.overflow = "hidden";
+                } else {
+                    body.style.overflow = "";
+                }
+            }
+        });
+
+        const searchContainer = document.getElementById("search");
+        if (searchContainer) {
+            observer.observe(searchContainer, {
+                attributes: true,
+                childList: true,
+                subtree: true,
+            });
+        }
+    });
 </script>
 
 <!-- These paths are relative to the root of the built site -->
@@ -103,6 +132,10 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            top: 50% !important;
+            transform: translateY(-50%);
+            margin: 0;
+            right: 10px;
         }
 
         #search .pagefind-ui__search-clear::after {
