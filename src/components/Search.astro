@@ -40,8 +40,7 @@
 
             if (drawer && input) {
                 const isVisible =
-                    window.getComputedStyle(drawer).display !== "none" &&
-                    input.value.length > 0;
+                    window.getComputedStyle(drawer).display !== "none";
                 if (isVisible && window.innerWidth <= 720) {
                     body.style.overflow = "hidden";
                 } else {
