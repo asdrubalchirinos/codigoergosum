@@ -11,7 +11,8 @@
     "deploy": "npm run build && touch dist/.nojekyll",
     "migrate": "cd ../substack-migrator && npm run",
     "migrate:help": "cd ../substack-migrator && npm run start -- --help",
-    "generate-tags": "node ../blog-tag-generator/index.js ./src/content/blog"
+    "generate-tags": "node scripts/auto-tag.js",
+    "generate-tags-legacy": "node ../blog-tag-generator/index.js ./src/content/blog"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.5",
