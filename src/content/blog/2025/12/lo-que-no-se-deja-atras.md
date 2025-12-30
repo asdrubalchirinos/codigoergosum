@@ -4,8 +4,8 @@ subtitle: 'Un texto personal sobre pérdida, amor y lo que permanece mientras se
 pubDate: '2025-12-31'
 heroImage: /images/blog/2025/12/lo-que-no-se-deja-atras/hero.png
 author: Asdrúbal Chirinos
-featured: true
-draft: false
+featured: false
+draft: true
 tags: ["personal",'nostalgia']
 slug: lo-que-no-se-deja-atras
 ---
