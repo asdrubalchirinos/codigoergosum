@@ -5,7 +5,7 @@ import matter from 'gray-matter';
 
 // Configuration
 const OLLAMA_API = 'http://localhost:11434/api/generate';
-const MODEL = process.env.OLLAMA_MODEL || 'llama3.2'; // Default to llama3.2, can be overridden
+const MODEL = process.env.OLLAMA_MODEL || 'llama3.2';
 const BLOG_DIR = 'src/content/blog';
 
 // ANSI colors for output
@@ -15,14 +15,70 @@ const colors = {
     yellow: '\x1b[33m',
     blue: '\x1b[34m',
     red: '\x1b[31m',
-    dim: '\x1b[2m'
+    dim: '\x1b[2m',
+    cyan: '\x1b[36m'
 };
 
-async function generateTags(content) {
+/**
+ * Recursively get all .md and .mdx files from a directory
+ */
+function getAllBlogFiles(dir) {
+    const files = [];
+    const entries = fs.readdirSync(dir, { withFileTypes: true });
+    
+    for (const entry of entries) {
+        const fullPath = path.join(dir, entry.name);
+        if (entry.isDirectory()) {
+            files.push(...getAllBlogFiles(fullPath));
+        } else if (entry.name.endsWith('.md') || entry.name.endsWith('.mdx')) {
+            files.push(fullPath);
+        }
+    }
+    return files;
+}
+
+/**
+ * Extract all unique tags from existing blog posts
+ */
+function getExistingTags() {
+    const blogPath = path.resolve(process.cwd(), BLOG_DIR);
+    const allFiles = getAllBlogFiles(blogPath);
+    const tagSet = new Set();
+
+    for (const filePath of allFiles) {
+        try {
+            const content = fs.readFileSync(filePath, 'utf8');
+            const parsed = matter(content);
+            
+            if (parsed.data.tags && Array.isArray(parsed.data.tags)) {
+                parsed.data.tags.forEach(tag => tagSet.add(tag));
+            }
+        } catch (error) {
+            // Skip files that can't be parsed
+        }
+    }
+
+    return Array.from(tagSet).sort();
+}
+
+async function generateTags(content, existingTags) {
+    const tagList = existingTags.length > 0 
+        ? existingTags.join(', ') 
+        : 'No existing tags yet';
+
     const prompt = `
 You are an expert tech blog editor. Analyze the following blog post content and generate a list of 3 to 5 relevant tags.
-Output ONLY a raw JSON array of strings. Do not include markdown code blocks, explanations, or any other text.
-Example output: ["javascript", "web-development", "tutorial"]
+
+EXISTING TAGS IN THE BLOG: [${tagList}]
+
+CRITICAL INSTRUCTIONS:
+1. You MUST prefer selecting tags from the EXISTING TAGS list above.
+2. Only suggest a NEW tag if the topic is genuinely not covered by any existing tag.
+3. If you must suggest a new tag, prefix it with [NEW] so it can be reviewed.
+4. All tags MUST be in Spanish (e.g., "desarrollo-web", "inteligencia-artificial").
+5. Output ONLY a raw JSON array of strings. No markdown, no explanations.
+
+Example output: ["javascript", "desarrollo-web", "[NEW] computacion-cuantica"]
 
 Blog Post:
 ${content.substring(0, 3000)}... (truncated)
@@ -44,7 +100,6 @@ ${content.substring(0, 3000)}... (truncated)
         }
 
         const data = await response.json();
-        // Clean up potential markdown formatting in response (e.g. ```json ... ```)
         const cleanResponse = data.response.replace(/```json/g, '').replace(/```/g, '').trim();
         return JSON.parse(cleanResponse);
     } catch (error) {
@@ -53,22 +108,37 @@ ${content.substring(0, 3000)}... (truncated)
     }
 }
 
+/**
+ * Process tags: separate existing from new, clean up [NEW] prefix
+ */
+function processTags(tags) {
+    const reused = [];
+    const newTags = [];
+
+    for (const tag of tags) {
+        if (tag.startsWith('[NEW]')) {
+            const cleanTag = tag.replace('[NEW]', '').trim();
+            newTags.push(cleanTag);
+        } else {
+            reused.push(tag);
+        }
+    }
+
+    return { reused, newTags, allTags: [...reused, ...newTags] };
+}
+
 function getPendingPosts() {
     try {
-        // Find files that are Modified (M), Added (A), or Untracked (??)
         const statusOutput = execSync('git status --porcelain').toString();
         const files = statusOutput
             .split('\n')
             .filter(line => line.trim() !== '')
             .map(line => {
-                // Determine status code and filename
-                // Porcelain format: "XY filename" (XY are status codes)
-                const status = line.substring(0, 2); 
+                const status = line.substring(0, 2);
                 const filename = line.substring(3).trim();
                 return { status, filename };
             })
             .filter(file => {
-                // Filter for .md/.mdx files in the blog directory
                 return (
                     (file.filename.endsWith('.md') || file.filename.endsWith('.mdx')) &&
                     file.filename.includes(BLOG_DIR)
@@ -84,6 +154,11 @@ function getPendingPosts() {
 
 async function main() {
     console.log(`${colors.blue}🔍 Checking for pending blog posts...${colors.reset}`);
+    
+    // Step 1: Get existing tags vocabulary
+    console.log(`${colors.dim}📚 Loading existing tags vocabulary...${colors.reset}`);
+    const existingTags = getExistingTags();
+    console.log(`${colors.dim}   Found ${existingTags.length} unique tags: [${existingTags.slice(0, 5).join(', ')}${existingTags.length > 5 ? '...' : ''}]${colors.reset}`);
     
     const pendingFiles = getPendingPosts();
 
@@ -110,19 +185,25 @@ async function main() {
 
         console.log(`${colors.blue}🤖 Generating tags for: ${colors.green}${file.filename}${colors.reset} using ${colors.blue}${MODEL}${colors.reset}...`);
         
-        const generatedTags = await generateTags(parsed.content);
+        const generatedTags = await generateTags(parsed.content, existingTags);
 
         if (generatedTags && Array.isArray(generatedTags)) {
-            // Update frontmatter
-            parsed.data.tags = generatedTags;
+            const { reused, newTags, allTags } = processTags(generatedTags);
             
-            // Reconstruct the file content
-            // matter.stringify puts quotes around keys sometimes, so we can use a simpler approach 
-            // or just rely on gray-matter's stringify which is robust.
+            // Update frontmatter with clean tags
+            parsed.data.tags = allTags;
+            
             const newContent = matter.stringify(parsed.content, parsed.data);
-            
             fs.writeFileSync(filePath, newContent);
-            console.log(`${colors.green}✅ Added tags: [${generatedTags.join(', ')}]${colors.reset}`);
+            
+            // Display results
+            if (reused.length > 0) {
+                console.log(`${colors.green}   ✅ Reutilizados: [${reused.join(', ')}]${colors.reset}`);
+            }
+            if (newTags.length > 0) {
+                console.log(`${colors.yellow}   ⚠️  Nuevos sugeridos: [${newTags.join(', ')}] ← Revisar si son necesarios${colors.reset}`);
+            }
+            console.log(`${colors.cyan}   📝 Tags guardados: [${allTags.join(', ')}]${colors.reset}`);
         } else {
             console.log(`${colors.red}❌ Failed to generate valid tags for ${file.filename}${colors.reset}`);
         }
