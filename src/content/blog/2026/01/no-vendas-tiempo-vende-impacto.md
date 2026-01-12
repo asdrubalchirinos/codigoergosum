@@ -10,10 +10,11 @@ author: Asdrúbal Chirinos
 featured: true
 draft: false
 tags:
-  - desarrollo-web
-  - impacto
-  - valor-objetivo
-  - arquitectura-de-soluciones
+  - web
+  - opinion  
+  - tendencias
+  - ia
+  - arquitectura
 slug: no-vendas-tiempo-vende-impacto
 ---
 
