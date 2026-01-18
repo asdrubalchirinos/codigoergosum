@@ -6,7 +6,7 @@ import { fileURLToPath } from 'url';
 
 // --- Configuration ---
 const OLLAMA_API = 'http://localhost:11434/api/generate';
-const MODEL = process.env.OLLAMA_MODEL || 'llama3.2';
+const MODEL = process.env.OLLAMA_MODEL || 'deepseek-r1:8b';
 const BLOG_DIR = path.join(process.cwd(), 'src/content/blog');
 
 // --- Helper Functions ---
@@ -44,11 +44,35 @@ function getWeekNumber(d) {
 }
 
 /**
- * Check if a date string is within the range
+ * Check if a date string/object is within the range
+ * correctly handling the UTC parsing of gray-matter
  */
-function isDateInRange(dateStr, range) {
-  const date = new Date(dateStr);
-  return date >= range.start && date <= range.end;
+function isDateInRange(dateInput, range) {
+  const rawDate = new Date(dateInput);
+  
+  // gray-matter parses 'YYYY-MM-DD' as UTC midnight.
+  // We want to interpret that as "The date YYYY-MM-DD", not a specific instant.
+  // We create a new Local date using the UTC components of the parsed date.
+  // This prevents "2026-01-19" (UTC) becoming "2026-01-18" (Local) in Western timezones.
+  const d = new Date(
+      rawDate.getUTCFullYear(),
+      rawDate.getUTCMonth(),
+      rawDate.getUTCDate()
+  );
+
+  // Normalize to integer YYYYMMDD for comparison
+  const toInt = (date) => {
+      const year = date.getFullYear();
+      const month = String(date.getMonth() + 1).padStart(2, '0');
+      const day = String(date.getDate()).padStart(2, '0');
+      return parseInt(`${year}${month}${day}`);
+  };
+  
+  const val = toInt(d);
+  const min = toInt(range.start);
+  const max = toInt(range.end);
+
+  return val >= min && val <= max;
 }
 
 /**
@@ -82,6 +106,7 @@ Analiza los siguientes artículos y genera un resumen estructurado para un "Week
 
 GENERA UN JSON PURO CON ESTA ESTRUCTURA:
 {
+  "metaDescription": "Una frase corta (max 160 caracteres) que integre y conecte los temas de todos los artículos en una idea central cohesiva (evita enfocarte en un solo artículo).",
   "intro": "Párrafo introductorio conectando los temas de la semana.",
   "articles": [
     {
@@ -89,7 +114,7 @@ GENERA UN JSON PURO CON ESTA ESTRUCTURA:
       "keyPoints": ["Frase completa con una idea principal.", "Otra frase completa con un aprendizaje clave."]
     }
   ],
-  "conclusion": "Reflexión final breve."
+  "conclusion": "Una conclusión integradora que identifique el hilo conductor común entre todos los artículos de la semana (evita resumir solo el último) y ofrezca una reflexión final sobre cómo estos conceptos se potencian entre sí."
 }
 
 IMPORTANTE:
@@ -125,7 +150,9 @@ ${articlesContent}
     let responseText = data.response;
     
     try {
-        return JSON.parse(responseText);
+        const parsed = JSON.parse(responseText);
+        console.log("🐛 RAW RESPONSE DEBUG:", parsed); // Debug log
+        return parsed;
     } catch (e) {
         console.error("JSON Parse Error on output:", responseText);
         // Fallback: try to find JSON block
@@ -174,7 +201,8 @@ async function main() {
           title: parsed.data.title,
           slug: slug,
           content: parsed.content,
-          tags: parsed.data.tags || []
+          tags: parsed.data.tags || [],
+          pubDate: new Date(parsed.data.pubDate) // Store for sorting
         });
 
         if (Array.isArray(parsed.data.tags)) {
@@ -183,6 +211,9 @@ async function main() {
       }
     }
   }
+
+  // Sort articles by date ascending
+  weeklyArticles.sort((a, b) => a.pubDate - b.pubDate);
 
   if (weeklyArticles.length === 0) {
     console.log('⚠️ No se encontraron artículos publicados esta semana.');
@@ -233,7 +264,7 @@ async function main() {
 
   // Conclusion
   if (summaryData.conclusion) {
-      mdxContent += `${summaryData.conclusion}\n`;
+      mdxContent += `**Conclusión**\n\n${summaryData.conclusion}\n`;
   }
 
 
@@ -255,10 +286,12 @@ async function main() {
   const filename = `${slug}.mdx`;
   const filePath = path.join(targetDir, filename);
 
+  const fileDescription = summaryData.metaDescription || "Resumen semanal de los artículos publicados en Código Ergo Sum.";
+
   const fileContent = `---
 title: "${title}"
+subtitle: "${fileDescription.replace(/"/g, '\\"')}"
 pubDate: "${year}-${month}-${day}"
-description: "Resumen semanal de los artículos publicados en Código Ergo Sum."
 author: "Asdrúbal Chirinos (AI Assistant)"
 tags: ${JSON.stringify(finalTags)}
 heroImage: /placeholder.png
