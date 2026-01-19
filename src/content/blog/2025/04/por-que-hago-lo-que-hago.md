@@ -12,10 +12,6 @@ tags:
 slug: por-que-hago-lo-que-hago
 ---
 
-![](/images/blog/2025/04/por-que-hago-lo-que-hago/hero.webp)
-
-El Círculo Dorado: empieza por el Por Qué
-
 ### Empieza por el Por Qué
 
 Hace unos años, me topé con el libro *Start with Why* de Simon Sinek. Si no lo conoces, Sinek propone un concepto simple pero profundo: el Círculo Dorado. Este es un marco de trabajo (framework) con tres capas: Qué haces, Cómo lo haces y, lo más importante, Por Qué lo haces. Según él, la mayoría de las personas y organizaciones comunican desde afuera hacia adentro. Empiezan por lo que hacen, a veces mencionan cómo lo hacen, y rara vez profundizan en la razón detrás de eso. Pero aquellos que realmente inspiran, que conectan y lideran, empiezan por el *Por Qué*. Comunican una creencia, un propósito, una razón de ser que atrae a los demás.
