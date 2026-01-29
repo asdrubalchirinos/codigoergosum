@@ -45,6 +45,17 @@ function parseAndValidateDate(input) {
     return { valid: false, error: `Invalid day for month ${month} (01-${daysInMonth})` };
   }
   
+  // Validate date is today or in the future
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+  
+  const inputDate = new Date(year, month - 1, day);
+  inputDate.setHours(0, 0, 0, 0);
+  
+  if (inputDate < today) {
+    return { valid: false, error: 'Date must be today or in the future' };
+  }
+  
   // Convert to yyyy-mm-dd format
   const pubDate = `${year}-${String(month).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
   
@@ -101,10 +112,17 @@ function getDefaultDate() {
           const nextDate = new Date(lastDate);
           nextDate.setDate(lastDate.getDate() + 1);
           
+          // Ensure suggested date is not earlier than today
+          const today = new Date();
+          today.setHours(0, 0, 0, 0);
+          nextDate.setHours(0, 0, 0, 0);
+          
+          const suggestedDate = nextDate < today ? today : nextDate;
+          
           // Format as dd/mm/yyyy
-          const dayStr = String(nextDate.getDate()).padStart(2, '0');
-          const monthStr = String(nextDate.getMonth() + 1).padStart(2, '0');
-          const yearStr = nextDate.getFullYear();
+          const dayStr = String(suggestedDate.getDate()).padStart(2, '0');
+          const monthStr = String(suggestedDate.getMonth() + 1).padStart(2, '0');
+          const yearStr = suggestedDate.getFullYear();
           
           return `${dayStr}/${monthStr}/${yearStr}`;
         }
