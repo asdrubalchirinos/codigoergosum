@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="520" viewBox="0 0 1600 520" fill="none" role="img" aria-label="SOLVE logo">
+  <defs>
+    <!-- Subtil grain via filter (optional). If you want perfectly clean, remove filter usage below. -->
+    <filter id="grain" x="-20%" y="-20%" width="140%" height="140%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch" />
+      <feColorMatrix type="matrix" values="
+        0 0 0 0 0
+        0 0 0 0 0
+        0 0 0 0 0
+        0 0 0 .10 0" />
+      <feComposite operator="in" in2="SourceGraphic"/>
+      <feBlend mode="multiply" in="SourceGraphic"/>
+    </filter>
+
+    <!-- Gradients per letter -->
+    <!-- S: soft lavender vertical -->
+    <linearGradient id="gS" x1="0" y1="80" x2="0" y2="440" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#9A8AE8"/>
+      <stop offset="1" stop-color="#7F74D8"/>
+    </linearGradient>
+
+    <!-- O: radial mint ring with brighter center -->
+    <radialGradient id="gO" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse"
+      gradientTransform="translate(560 260) rotate(90) scale(210 210)">
+      <stop offset="0" stop-color="#D7F2B9"/>
+      <stop offset="0.55" stop-color="#7ED8B1"/>
+      <stop offset="1" stop-color="#55C7A4"/>
+    </radialGradient>
+
+    <!-- L: warm pastel vertical -->
+    <linearGradient id="gL" x1="0" y1="80" x2="0" y2="440" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FFD88A"/>
+      <stop offset="1" stop-color="#F2A56D"/>
+    </linearGradient>
+
+    <!-- V: cool lavender vertical -->
+    <linearGradient id="gV" x1="0" y1="80" x2="0" y2="440" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#9B90EA"/>
+      <stop offset="1" stop-color="#6F75DC"/>
+    </linearGradient>
+
+    <!-- E: periwinkle vertical -->
+    <linearGradient id="gE" x1="0" y1="80" x2="0" y2="440" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#7EA2F2"/>
+      <stop offset="1" stop-color="#5C7EE4"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background is transparent by default -->
+
+  <!-- Group settings -->
+  <g font-family="Nunito, Poppins, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif"
+     font-weight="900"
+     font-size="340"
+     letter-spacing="0"
+     dominant-baseline="middle"
+     text-anchor="start"
+     filter="url(#grain)">
+
+    <!-- Baseline Y center -->
+    <!-- You can adjust x positions if you want tighter or wider spacing -->
+    <text x="140" y="270" fill="url(#gS)">S</text>
+    <text x="410" y="270" fill="url(#gO)">O</text>
+    <text x="700" y="270" fill="url(#gL)">L</text>
+    <text x="910" y="270" fill="url(#gV)">V</text>
+    <text x="1145" y="270" fill="url(#gE)">E</text>
+  </g>
+</svg>
