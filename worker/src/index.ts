@@ -104,6 +104,7 @@ app.post('/api/subscribe', async (c) => {
 
         const subscriberId = existing ? existing.id : crypto.randomUUID();
         const token = crypto.randomUUID();
+        const tokenId = crypto.randomUUID();
         const expiresAt = Math.floor(Date.now() / 1000) + 60 * 60; // 1 hour
 
         // Transaction to upsert subscriber and create token
@@ -114,7 +115,7 @@ app.post('/api/subscribe', async (c) => {
             `).bind(subscriberId, email),
             db.prepare(`
                 INSERT INTO tokens (id, subscriber_id, type, token, expires_at) VALUES (?, ?, 'confirm', ?, ?)
-            `).bind(crypto.randomUUID(), subscriberId, token, expiresAt)
+            `).bind(tokenId, subscriberId, token, expiresAt)
         ]);
 
         // Send confirmation email
@@ -138,6 +139,29 @@ app.post('/api/subscribe', async (c) => {
 
             if (!res.ok) {
                 console.error('Failed to send email', await res.text());
+                const rollbackStatements = [
+                    db.prepare('DELETE FROM tokens WHERE id = ?').bind(tokenId)
+                ];
+
+                if (!existing) {
+                    rollbackStatements.push(
+                        db.prepare('DELETE FROM subscribers WHERE id = ?').bind(subscriberId)
+                    );
+                } else if (existing.status === 'unsubscribed') {
+                    rollbackStatements.push(
+                        db.prepare('UPDATE subscribers SET status = \'unsubscribed\', unsubscribed_at = ? WHERE id = ?')
+                            .bind(existing.unsubscribed_at ?? null, subscriberId)
+                    );
+                }
+
+                try {
+                    await db.batch(rollbackStatements);
+                } catch (rollbackError) {
+                    console.error('Failed to rollback subscription after email error', rollbackError);
+                    return c.json({ error: 'Internal server error' }, 500);
+                }
+
+                return c.json({ error: 'Failed to send confirmation email. Please try again later.' }, 502);
             }
         } else {
             console.log(`[MOCK EMAIL] To: ${email}, Link: ${confirmUrl}`);
@@ -196,7 +220,9 @@ app.post('/api/unsubscribe', async (c) => {
 
         if (token) {
             // Token-based unsubscribe
-            const tokenRecord = await db.prepare('SELECT * FROM tokens WHERE token = ? AND type = \'unsubscribe\'').bind(token).first<Token>();
+            const tokenRecord = await db.prepare(
+                'SELECT * FROM tokens WHERE token = ? AND type = \'unsubscribe\' AND expires_at >= unixepoch()'
+            ).bind(token).first<Token>();
 
             if (!tokenRecord) {
                 return c.json({ error: 'Invalid or expired token' }, 400);
