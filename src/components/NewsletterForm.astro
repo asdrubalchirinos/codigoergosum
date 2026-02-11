@@ -68,32 +68,38 @@ const { mode = "full" } = Astro.props;
             }
 
             try {
-                // TODO: Replace with actual API endpoint
+                const configuredApiUrl = import.meta.env
+                    .PUBLIC_NEWSLETTER_API_URL;
                 const API_URL =
-                    import.meta.env.PUBLIC_NEWSLETTER_API_URL ||
-                    "http://localhost:8787";
+                    configuredApiUrl ||
+                    (import.meta.env.DEV ? "http://localhost:8787" : "");
 
-                // Mock delay for now if no API
-                if (!import.meta.env.PUBLIC_NEWSLETTER_API_URL) {
-                    await new Promise((resolve) => setTimeout(resolve, 1000));
-                    console.log("Mock subscribe:", email);
-                } else {
-                    console.log("Submitting to:", API_URL);
-                    const response = await fetch(`${API_URL}/api/subscribe`, {
+                if (!API_URL) {
+                    throw new Error("Newsletter API URL not configured");
+                }
+
+                const response = await fetch(
+                    `${API_URL.replace(/\/$/, "")}/api/subscribe`,
+                    {
                         method: "POST",
                         headers: {
                             "Content-Type": "application/json",
                         },
                         body: JSON.stringify({ email, token }),
-                    });
-                    console.log("Response status:", response.status);
-                    if (!response.ok) {
+                    },
+                );
+
+                if (!response.ok) {
+                    let errorMessage = "Error al suscribirse";
+                    try {
                         const errorData = await response.json();
-                        console.error("Server error:", errorData);
-                        throw new Error(
-                            errorData.error || "Error al suscribirse",
-                        );
+                        if (errorData?.error) {
+                            errorMessage = errorData.error;
+                        }
+                    } catch {
+                        // Keep generic message when response body is not JSON.
                     }
+                    throw new Error(errorMessage);
                 }
 
                 if (messageEl) {

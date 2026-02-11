@@ -214,6 +214,7 @@ app.get('/api/confirm', async (c) => {
 app.post('/api/unsubscribe', async (c) => {
     const body = await c.req.json();
     const { email, token } = body;
+    const ip = c.req.header('CF-Connecting-IP') || 'unknown';
 
     try {
         const db = c.env.DB;
@@ -235,6 +236,14 @@ app.post('/api/unsubscribe', async (c) => {
 
             return c.json({ message: 'Unsubscribed successfully' });
         } else if (email) {
+            // Rate Limiting: 5 email-based unsubscribe requests per 15 minutes per IP
+            const rateLimiter = new RateLimiter(db);
+            const isAllowed = await rateLimiter.check(`unsubscribe:${ip}`, 5, 15 * 60);
+
+            if (!isAllowed) {
+                return c.json({ error: 'Too many requests. Please try again later.' }, 429);
+            }
+
             // Email-based unsubscribe request
             const subscriber = await db.prepare('SELECT * FROM subscribers WHERE email = ?').bind(email).first<Subscriber>();
 
