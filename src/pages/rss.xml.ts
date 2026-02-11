@@ -1,5 +1,7 @@
 import rss from "@astrojs/rss";
 import { getCollection } from "astro:content";
+import fs from "node:fs";
+import path from "node:path";
 import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
 
 function buildExcerpt(subtitle: string | undefined, body: string | undefined): string {
@@ -39,6 +41,27 @@ function getImageMimeType(imagePath: string): string {
   }
 }
 
+function getImageLengthBytes(imagePath: string): number {
+  const normalized = imagePath.startsWith("/") ? imagePath.slice(1) : imagePath;
+  const candidates = [
+    path.join(process.cwd(), "public", normalized),
+    path.join(process.cwd(), "..", "public", normalized),
+    path.join(process.cwd(), "..", "..", "public", normalized),
+  ];
+
+  for (const absolutePath of candidates) {
+    try {
+      if (fs.existsSync(absolutePath)) {
+        return fs.statSync(absolutePath).size;
+      }
+    } catch {
+      // Try next candidate.
+    }
+  }
+
+  return 0;
+}
+
 export async function GET(context: { site: URL | undefined }) {
   if (!context.site) {
     return new Response("RSS requires Astro `site` config.", { status: 500 });
@@ -64,7 +87,7 @@ export async function GET(context: { site: URL | undefined }) {
       description: buildExcerpt(post.data.subtitle, post.body),
       link: `/blog/${post.slug}/`,
       customData: post.data.heroImage
-        ? `<enclosure url="${new URL(post.data.heroImage, context.site).toString()}" type="${getImageMimeType(post.data.heroImage)}" length="0" />`
+        ? `<enclosure url="${new URL(post.data.heroImage, context.site).toString()}" type="${getImageMimeType(post.data.heroImage)}" length="${getImageLengthBytes(post.data.heroImage)}" />`
         : undefined,
     })),
     customData: "<language>es</language>",
