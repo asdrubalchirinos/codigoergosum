@@ -2,7 +2,6 @@ import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
 import slugify from 'slugify';
-import { fileURLToPath } from 'url';
 
 // --- Configuration ---
 const OLLAMA_API = 'http://localhost:11434/api/generate';

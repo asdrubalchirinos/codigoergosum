@@ -20,6 +20,8 @@ import path from "node:path";
 import sizeOf from "image-size";
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const rawBase = import.meta.env.BASE_URL;
+const base = rawBase === "/" ? "" : rawBase.replace(/\/$/, "");
 const SITE_NAME = "Código Ergo Sum";
 const DEFAULT_DESC =
   "Descubre en Código ergo sum cómo los cambios laborales y tecnológicos están transformando los negocios. Exploramos desarrollo de software, gestión del tiempo e impacto de la inteligencia artificial. Únete y navega el panorama laboral con éxito.";
@@ -93,6 +95,12 @@ if (isArticle) {
 
 <!-- Canonical URL -->
 <link rel="canonical" href={canonicalURL} />
+<link
+  rel="alternate"
+  type="application/rss+xml"
+  title="Código Ergo Sum RSS"
+  href={`${base}/rss.xml`}
+/>
 
 <!-- Primary Meta Tags -->
 <title>{title}</title>
