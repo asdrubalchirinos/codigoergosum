@@ -18,6 +18,27 @@ function buildExcerpt(subtitle: string | undefined, body: string | undefined): s
   return `${cleaned.slice(0, 240).trim()}…`;
 }
 
+function getImageMimeType(imagePath: string): string {
+  const ext = imagePath.split(".").pop()?.toLowerCase();
+  switch (ext) {
+    case "jpg":
+    case "jpeg":
+      return "image/jpeg";
+    case "png":
+      return "image/png";
+    case "webp":
+      return "image/webp";
+    case "avif":
+      return "image/avif";
+    case "gif":
+      return "image/gif";
+    case "svg":
+      return "image/svg+xml";
+    default:
+      return "image/jpeg";
+  }
+}
+
 export async function GET(context: { site: URL | undefined }) {
   if (!context.site) {
     return new Response("RSS requires Astro `site` config.", { status: 500 });
@@ -42,6 +63,9 @@ export async function GET(context: { site: URL | undefined }) {
       pubDate: post.data.pubDate,
       description: buildExcerpt(post.data.subtitle, post.body),
       link: `/blog/${post.slug}/`,
+      customData: post.data.heroImage
+        ? `<enclosure url="${new URL(post.data.heroImage, context.site).toString()}" type="${getImageMimeType(post.data.heroImage)}" length="0" />`
+        : undefined,
     })),
     customData: "<language>es</language>",
   });
