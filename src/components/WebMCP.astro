@@ -38,5 +38,74 @@
                 }
             },
         });
+
+        window.navigator.modelContext.registerTool({
+            name: "get_latest_posts",
+            description:
+                "Obtiene los últimos 10 artículos publicados en el blog. Úsalo para saber qué hay de nuevo.",
+            inputSchema: {
+                type: "object",
+                properties: {},
+            },
+            execute: async () => {
+                try {
+                    const response = await fetch("/api/latest_posts.json");
+                    if (!response.ok) throw new Error("Error fetching posts");
+                    return await response.json();
+                } catch (e) {
+                    console.error("WebMCP Loop Error", e);
+                    return {
+                        error: "No se pudieron obtener los artículos recientes",
+                    };
+                }
+            },
+        });
+
+        window.navigator.modelContext.registerTool({
+            name: "read_article",
+            description:
+                "Lee el contenido completo de un artículo dado su URL. Úsalo cuando necesites profundizar en un tema específico.",
+            inputSchema: {
+                type: "object",
+                properties: {
+                    url: {
+                        type: "string",
+                        description:
+                            "La URL relativa o absoluta del artículo a leer",
+                    },
+                },
+                required: ["url"],
+            },
+            execute: async ({ url }) => {
+                try {
+                    const response = await fetch(url);
+                    if (!response.ok) throw new Error("Error fetching article");
+                    const html = await response.text();
+                    const parser = new DOMParser();
+                    const doc = parser.parseFromString(html, "text/html");
+
+                    // Intentar encontrar el contenido principal
+                    const article =
+                        doc.querySelector("article") ||
+                        doc.querySelector("main") ||
+                        doc.body;
+
+                    // Limpiar elementos no deseados (scripts, estilos, navegación)
+                    const unwanted = article.querySelectorAll(
+                        "script, style, nav, footer, header, .ad, .social-share",
+                    );
+                    unwanted.forEach((el) => el.remove());
+
+                    return {
+                        title: doc.title,
+                        content: article.innerText.replace(/\s+/g, " ").trim(),
+                        url: url,
+                    };
+                } catch (e) {
+                    console.error("WebMCP Loop Error", e);
+                    return { error: "No se pudo leer el artículo" };
+                }
+            },
+        });
     }
 </script>
