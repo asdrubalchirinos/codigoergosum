@@ -1,0 +1,42 @@
+---
+
+---
+
+<script is:inline>
+    if (window.navigator.modelContext) {
+        window.navigator.modelContext.registerTool({
+            toolname: "search_blog",
+            tooldescription:
+                "Busca artículos en el blog sobre tecnología, programación y desarrollo de software. Úsalo para encontrar contenido específico dentro del sitio.",
+            toolparameters: {
+                type: "object",
+                properties: {
+                    query: {
+                        type: "string",
+                        description: "El término o frase a buscar en el blog",
+                    },
+                },
+                required: ["query"],
+            },
+            toolfunction: async (args) => {
+                try {
+                    const pagefind = await import("/pagefind/pagefind.js");
+                    const search = await pagefind.search(args.query);
+                    const results = await Promise.all(
+                        search.results.slice(0, 5).map((r) => r.data()),
+                    );
+                    return results.map((r) => ({
+                        title: r.meta.title,
+                        url: r.url,
+                        excerpt: r.excerpt,
+                    }));
+                } catch (e) {
+                    console.error("WebMCP Loop Error", e);
+                    return {
+                        error: "No se pudo realizar la búsqueda",
+                    };
+                }
+            },
+        });
+    }
+</script>
