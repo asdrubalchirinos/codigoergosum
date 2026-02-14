@@ -1,7 +1,7 @@
 import { getCollection } from "astro:content";
 
 export async function GET(context: { site: URL | undefined }) {
-    const site = context.site ? context.site.toString() : "";
+    const site = context.site?.toString() ?? import.meta.env.SITE ?? "http://localhost:4321";
     const posts = await getCollection("blog", ({ data }) => {
         return import.meta.env.PROD
             ? data.draft !== true && data.pubDate <= new Date()
