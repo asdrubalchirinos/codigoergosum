@@ -5,10 +5,10 @@
 <script is:inline>
     if (window.navigator.modelContext) {
         window.navigator.modelContext.registerTool({
-            toolname: "search_blog",
-            tooldescription:
+            name: "search_blog",
+            description:
                 "Busca artículos en el blog sobre tecnología, programación y desarrollo de software. Úsalo para encontrar contenido específico dentro del sitio.",
-            toolparameters: {
+            inputSchema: {
                 type: "object",
                 properties: {
                     query: {
@@ -18,7 +18,7 @@
                 },
                 required: ["query"],
             },
-            toolfunction: async (args) => {
+            execute: async (args) => {
                 try {
                     const pagefind = await import("/pagefind/pagefind.js");
                     const search = await pagefind.search(args.query);
