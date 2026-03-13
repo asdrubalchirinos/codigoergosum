@@ -1,0 +1,83 @@
+---
+title: De repositorios de código a repositorios de intención
+subtitle: ''
+pubDate: '2026-03-13'
+heroImage: /images/blog/2026/03/de-repositorios-de-codigo-a-repositorios-de-intencion/hero.png
+author: Asdrúbal Chirinos
+featured: true 
+draft: false
+tags: ['arquitectura', 'desarrollo', 'ia', 'industria', 'tendencias']
+slug: de-repositorios-de-codigo-a-repositorios-de-intencion
+---
+
+import PostReference from '@components/PostReference.astro';
+
+Muchos developers hoy ya estamos trabajando por especificación, aunque no siempre lo llamemos así. Escribimos ideas, módulos o comportamiento en Markdown y luego usamos herramientas como **Claude Code**, **Cursor** o **GitHub Copilot** para convertir eso en código.
+
+Algo como:
+
+```
+spec.md
+↓
+LLM
+↓
+src/
+```
+
+Entonces cuando aparece algo como [CodeSpeak](https://www.codespeak.dev/), la reacción natural es:
+
+"¿Pero esto no es exactamente lo que ya hacemos?"
+
+En realidad no.
+
+La diferencia no está en **cómo se genera el código**, sino en **qué consideramos el verdadero código fuente del sistema**.
+
+Hoy, incluso usando IA, el source of truth sigue siendo:
+
+```
+src/
+```
+
+El código generado se convierte inmediatamente en **el artefacto que el equipo mantiene, revisa y versiona**.
+
+Las especificaciones solo ayudan a producirlo.
+
+El espíritu detrás de CodeSpeak es cambiar eso completamente.
+
+La propuesta es que el verdadero repositorio del sistema sea:
+
+```
+spec/
+```
+
+La intención del sistema.
+
+La arquitectura.
+
+Las reglas.
+
+Las invariantes.
+
+El código pasa a ser **un artefacto generado**, similar a cómo un compilador genera binarios.
+
+Algo más cercano a esto:
+
+```
+spec
+↓
+modelo del sistema
+↓
+compilación
+↓
+código
+```
+
+No es simplemente "usar LLMs para escribir código".
+
+Es tratar a los LLMs como **parte del pipeline de compilación**.
+
+La diferencia puede parecer sutil, pero cambia el enfoque completo de la ingeniería de software.
+
+Hoy versionamos código.
+
+La idea detrás de CodeSpeak es que en el futuro podríamos **versionar intención**.
