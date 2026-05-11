@@ -1,0 +1,20 @@
+---
+description: Taxonomía y tags para posts del blog (skill Blog Tagging System)
+globs: src/content/blog/**/*.mdx
+alwaysApply: false
+---
+
+# Tags en posts del blog
+
+Antes de **añadir, quitar o revisar** el campo `tags` en el frontmatter de un `.mdx` bajo `src/content/blog/`:
+
+1. **Lee** el skill del proyecto: `.agent/skills/blog-tagging-system/SKILL.md` (reutilizar tags existentes, minúsculas estilo slug, 3–6 tags, orden alfabético en el array).
+2. **Lista tags ya usados** ejecutando desde la raíz del repo:
+
+   ```bash
+   bash .agent/skills/blog-tagging-system/scripts/list-tags.sh
+   ```
+
+3. Mapea temas del artículo a esas etiquetas; solo introduce un tag nuevo si no hay sinónimo en la lista y sigue las convenciones del skill.
+
+Formato en frontmatter: `tags: ['tag-a', 'tag-b', 'tag-c']` (alfabético).
