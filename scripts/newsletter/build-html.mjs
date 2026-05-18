@@ -17,6 +17,83 @@ if (!fs.existsSync(OUTPUT_DIR)) {
     fs.mkdirSync(OUTPUT_DIR, { recursive: true });
 }
 
+const HORIZONTAL_RULE_LINE = /^(?:---|\*\*\*|___)\s*$/;
+const ASTRO_COMPONENT = /<[A-Z][A-Za-z0-9.]*\b[^>\n]*\/>/g;
+const FALLBACK_MAX_CHARS = 1000;
+
+function findFirstHorizontalRuleLineIndex(body) {
+    const lines = body.split('\n');
+    let inFence = false;
+
+    for (let i = 0; i < lines.length; i++) {
+        const trimmed = lines[i].trim();
+        if (/^```/.test(trimmed)) {
+            inFence = !inFence;
+            continue;
+        }
+        if (inFence) continue;
+        if (HORIZONTAL_RULE_LINE.test(trimmed)) return i;
+    }
+
+    return -1;
+}
+
+function sliceBeforeFirstHorizontalRule(body) {
+    const hrLineIndex = findFirstHorizontalRuleLineIndex(body);
+    if (hrLineIndex === -1) return null;
+
+    return body.split('\n').slice(0, hrLineIndex).join('\n').trim();
+}
+
+function stripAuthoringNoise(text) {
+    return text
+        .replace(/^(import|export)\s[^\n]*\n+/gm, '')
+        .replace(ASTRO_COMPONENT, '')
+        .replace(/\n{3,}/g, '\n\n')
+        .trim();
+}
+
+function isContentParagraph(paragraph) {
+    const trimmed = paragraph.trim();
+    return (
+        trimmed.length > 0 &&
+        !trimmed.startsWith('!') &&
+        !trimmed.startsWith('#') &&
+        !trimmed.startsWith('<') &&
+        !/^(import|export)\s/.test(trimmed)
+    );
+}
+
+function extractFallbackParagraphs(markdownBody) {
+    const paragraphs = markdownBody.split('\n\n').filter(isContentParagraph);
+
+    if (paragraphs.length === 0) return '';
+
+    let selectedText = paragraphs[0];
+    let nextIndex = 1;
+
+    if (selectedText.trim().startsWith('>') && paragraphs.length > 1) {
+        selectedText += '\n\n' + paragraphs[1];
+        nextIndex = 2;
+    }
+
+    while (nextIndex < paragraphs.length && selectedText.length < FALLBACK_MAX_CHARS) {
+        const candidate = paragraphs[nextIndex];
+        const joined = `${selectedText}\n\n${candidate}`;
+        if (joined.length > FALLBACK_MAX_CHARS && selectedText.length > 0) break;
+        selectedText = joined;
+        nextIndex++;
+    }
+
+    return selectedText.trim();
+}
+
+function extractExcerptMarkdown(markdownBody) {
+    const beforeHorizontalRule = sliceBeforeFirstHorizontalRule(markdownBody);
+    const source = beforeHorizontalRule ?? extractFallbackParagraphs(markdownBody);
+    return stripAuthoringNoise(source);
+}
+
 // Helper to recursively find file
 function findPostFile(dir, slug) {
     const files = fs.readdirSync(dir, { withFileTypes: true });
@@ -42,33 +119,11 @@ async function getPost(slug) {
     const content = fs.readFileSync(filePath, 'utf-8');
     const { data, content: markdownBody } = matter(content);
 
-    // Extract a clean excerpt from the markdown body if description is missing
+    // Extract excerpt: body until first ---, or fallback for older posts
     let excerpt = data.description;
     if (!excerpt) {
-        const paragraphs = markdownBody.split('\n\n').filter(p => {
-             const trimmed = p.trim();
-             return trimmed.length > 0 && 
-                    !trimmed.startsWith('!') && 
-                    !trimmed.startsWith('#') && 
-                    !trimmed.startsWith('<') &&
-                    !trimmed.match(/^(import|export)\s/);
-        });
-
-        if (paragraphs.length > 0) {
-            let selectedText = paragraphs[0];
-            
-            // If the first paragraph is a quote, take it AND the next paragraph for context
-            if (selectedText.trim().startsWith('>')) {
-                 if (paragraphs.length > 1) {
-                     selectedText += '\n\n' + paragraphs[1];
-                 }
-            }
-            
-            // Convert markdown to HTML using marked
-            excerpt = marked.parse(selectedText);
-        } else {
-            excerpt = '';
-        }
+        const excerptMarkdown = extractExcerptMarkdown(markdownBody);
+        excerpt = excerptMarkdown ? marked.parse(excerptMarkdown) : '';
     } else {
         // If description exists (from frontmatter), treat it as plain text or simple markdown
         // Just in case, parse it too so styles are consistent
