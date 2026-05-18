@@ -73,7 +73,7 @@
 
         <!-- CTA Button -->
         <mj-button background-color="#0066cc" color="white" href="{{url}}" font-size="18px" font-weight="bold" padding-top="20px">
-          Leer artículo completo
+          Continuar leyendo
         </mj-button>
 
       </mj-column>
