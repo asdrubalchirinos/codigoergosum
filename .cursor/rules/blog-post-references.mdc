@@ -1,0 +1,28 @@
+---
+description: Enlaces entre posts del blog con PostReference (skill Blog Post References)
+globs: src/content/blog/**/*.mdx
+alwaysApply: false
+---
+
+# Referencias entre posts (`PostReference`)
+
+Antes de **añadir, quitar o revisar** `<PostReference />` en un `.mdx` bajo `src/content/blog/`:
+
+1. **Lee** el skill del proyecto: `.agent/skills/blog-post-references/SKILL.md` (relevancia contextual, 3–6 enlaces, respetar alcance del usuario).
+2. **Lista candidatos** desde la raíz del repo:
+
+   ```bash
+   bash .agent/skills/blog-post-references/scripts/list-posts.sh
+   bash .agent/skills/blog-post-references/scripts/list-posts.sh 2026
+   bash .agent/skills/blog-post-references/scripts/list-posts.sh --tags-from src/content/blog/RUTA/al-post.mdx
+   ```
+
+3. Coloca cada referencia **después** del párrafo que conecta con el post enlazado; usa solo `slug` existentes; no auto-referencies el post actual.
+
+Formato:
+
+```mdx
+import PostReference from '@components/PostReference.astro';
+
+<PostReference slug="slug-del-post-relacionado" />
+```
