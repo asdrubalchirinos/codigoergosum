@@ -9,8 +9,6 @@ tags:
 slug: smartphones-no-aptos-para-ninos
 ---
 
-![](/images/blog/2023/07/smartphones-no-aptos-para-ninos/hero.jpeg)
-
 Desde una edad temprana, tuve el privilegio de tener acceso a las computadoras, lo que despertó mi pasión por la tecnología y la programación. Esta pasión me ha llevado a ser un firme defensor del uso de la tecnología, así como de la enseñanza de la programación desde edades tempranas. Sin embargo, hay un tema en particular que me lleva a tomar una posición diferente. No estoy a favor del uso de dispositivos personales o no supervisados, como smartphones, tablets o laptops, en niños menores de 12 años, especialmente cuando conllevan a participación en redes sociales.
 
 Quiero enfatizar en la palabra "personal", ya que considero que el acceso a una computadora en el hogar es fundamental para el crecimiento intelectual de un niño.
