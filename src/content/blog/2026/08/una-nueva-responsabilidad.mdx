@@ -1,0 +1,176 @@
+---
+title: Una nueva responsabilidad
+subtitle: 'La deuda de contexto y el reto de mantener alineados el código, las decisiones y los agentes de IA'
+pubDate: '2026-08-12'
+heroImage: /images/blog/2026/08/una-nueva-responsabilidad/hero.png
+author: Asdrúbal Chirinos
+featured: false
+draft: true
+tags: ['arquitectura', 'desarrollo', 'ia', 'opinion', 'tendencias']
+slug: una-nueva-responsabilidad
+---
+
+import PostReference from '@components/PostReference.astro';
+
+
+Hay algo extraño que comienza a ocurrir cuando dejamos que una IA escriba nuestro código.
+
+La IA genera una solución. La revisamos. Encontramos algo que no nos convence y lo cambiamos. Todo funciona.
+
+Después volvemos a pedirle a la IA que continúe trabajando.
+
+Y entonces puede aparecer un problema que no siempre es evidente: **el código que tenemos delante puede reflejar decisiones que el agente desconoce.**
+
+No necesariamente porque no pueda leer el estado actual de los archivos, sino porque puede desconocer las decisiones que llevaron hasta ese estado.
+
+El agente puede observar qué hace el código. Pero no siempre puede inferir por qué está hecho de esa manera.
+
+Ahí comienza la divergencia.
+
+---
+
+## El problema no es modificar el código
+
+Uno de los cambios más profundos del Vibe Coding es que ya no somos necesariamente quienes escribimos cada línea.
+
+Podemos expresar una intención, revisar el resultado, pedir modificaciones y dejar que un agente produzca buena parte del código.
+
+Para algunos desarrolladores esto resulta incómodo. Existe todavía la idea de que un buen desarrollador debe revisar cada línea y, si algo no le convence, modificarlo personalmente.
+
+No encuentro falla en esa lógica, adelante.
+
+**El problema es modificar el código sin modificar también el contexto del agente.**
+
+Cuando hacemos un cambio manual, acabamos de introducir una decisión que puede no formar parte del conocimiento con el que el agente tomará sus próximas decisiones.
+
+El código cambió.
+
+**El criterio puede no haberlo hecho.**
+
+Y si continuamos trabajando, esa diferencia puede crecer.
+
+## El código puede evolucionar más rápido que el contexto
+
+Imaginemos una secuencia sencilla:
+
+**Intención → Contexto → Agente → Código**
+
+Ahora hacemos una modificación manual:
+
+**Intención → Contexto → Agente → Código → Cambio**
+
+Ese último cambio puede contener información que el agente no conoce.
+
+Por ejemplo, imaginemos que un agente implementa un endpoint que consulta directamente la base de datos. Durante la revisión, decidimos introducir un repositorio porque todas las consultas deben pasar por una capa que aplica autorización y caché.
+
+El cambio funciona.
+
+En la siguiente tarea, sin embargo, el agente vuelve a consultar directamente la base de datos. Puede leer el código actual, pero no necesariamente sabe que el repositorio no es una abstracción accidental, sino una restricción arquitectónica.
+
+El agente no necesita solamente saber **cómo está el código**. Necesita entender, en la medida de lo posible, **por qué está de esa manera**.
+
+De lo contrario puede producir una nueva solución técnicamente razonable, pero incompatible con una decisión que nosotros ya habíamos tomado.
+
+No necesariamente tenemos un bug.
+
+Tenemos una **desalineación entre el software y las decisiones desde las que el agente intenta evolucionarlo**.
+
+## Mantener la alineación
+
+Hay varias formas de evitar esta divergencia.
+
+La primera es sencilla: cuando identificamos la necesidad de un cambio, **pedimos al agente que lo haga**.
+
+Le explicamos qué hemos encontrado, qué queremos modificar y, cuando sea relevante, por qué.
+
+Así, el cambio ocurre dentro del mismo proceso de trabajo que está guiando la evolución del software.
+
+La segunda es hacer nosotros mismos el cambio, pero después **informar al agente de lo que hicimos y, sobre todo, de nuestro criterio**.
+
+No es lo mismo decir:
+
+> "Ya hice este cambio."
+
+que decir:
+
+> "Hice este cambio porque observé X. La implementación anterior producía Y y decidí resolverlo de esta manera por Z. En situaciones similares, deberíamos considerar este criterio."
+
+En el segundo caso no estamos simplemente actualizando el contexto.
+
+Estamos transfiriendo una decisión que puede ser útil en futuras iteraciones.
+
+La tercera es convertir las decisiones importantes en **artefactos persistentes y verificables**: documentación, tests, reglas del proyecto, especificaciones o registros de decisiones arquitectónicas.
+
+No todo debe terminar en un documento. Pero si una decisión debe mantenerse durante varias iteraciones, no debería existir únicamente en nuestra memoria o en una conversación que el agente puede dejar de tener disponible.
+
+## El código representa el qué; la decisión explica el porqué
+
+El código nos dice **qué hicimos**.
+
+La decisión nos dice **por qué lo hicimos**.
+
+<PostReference slug="donde-vive-el-software" />
+
+Cuando explicamos al agente nuestras decisiones, no solamente estamos intentando que no deshaga nuestro trabajo. Estamos incorporando conocimiento que puede utilizar en las siguientes iteraciones.
+
+**Corregimos el código una vez. Pero podemos enseñar un criterio que se aplique muchas veces.**
+
+Ese criterio no necesita ser una transcripción completa de nuestro razonamiento. Lo importante es conservar aquello que pueda orientar decisiones futuras.
+
+Por ejemplo:
+
+> "Las peticiones a este servicio deben pasar por el adaptador `ExternalApiClient` porque allí se aplican los límites de frecuencia y el registro de errores. No deben realizarse llamadas directas desde los controladores."
+
+Esta instrucción puede ser mucho más útil para futuras tareas que una explicación extensa del proceso que nos llevó hasta ella.
+
+Y esto cambia incluso el significado de revisar código generado por IA.
+
+En el desarrollo tradicional, la revisión suele centrarse en comprobar la corrección, la mantenibilidad y los riesgos del cambio.
+
+En este nuevo modelo, la revisión también significa comprobar si el resultado **sigue representando las decisiones que gobiernan el sistema**.
+
+Cuando encontramos una desviación, podemos corregir el código.
+
+Pero también podemos corregir el contexto del agente.
+
+Idealmente, hacemos ambas cosas.
+
+## La deuda de contexto
+
+Quizás aquí aparece un concepto que tendremos que aprender a reconocer: **la deuda de contexto**.
+
+Propongo utilizar este término para describir la acumulación de decisiones relevantes para la evolución del software que no están disponibles para el agente de forma accesible, verificable y suficientemente actualizada.
+
+Estamos acostumbrados a hablar de deuda técnica. La deuda técnica aparece cuando ciertas decisiones hacen que el software sea más difícil de mantener o evolucionar.
+
+La deuda de contexto aparece cuando **el software evoluciona, pero las decisiones y restricciones desde las que trabaja el agente no lo hacen al mismo ritmo**.
+
+Un cambio manual que nunca comunicamos puede parecer insignificante.
+
+Pero varios cambios acumulados pueden crear una distancia cada vez mayor entre lo que el software es y lo que el agente entiende que debería ser.
+
+Y cuanto mayor sea esa distancia, más probable será que las próximas decisiones vuelvan a introducir problemas que ya habíamos resuelto.
+
+La deuda de contexto no surge únicamente de cambios manuales. También aparece cuando modificamos una convención sin actualizar la documentación, cuando descartamos una solución sin explicar por qué o cuando un requisito importante existe solamente en la memoria de una persona.
+
+---
+
+Quizás uno de los retos menos visibles del Vibe Coding no sea conseguir que una IA escriba código correcto.
+
+Es **mantener la coherencia mientras el software evoluciona**.
+
+Ahora tenemos varias cosas que deben permanecer alineadas:
+
+**la intención, el contexto, las decisiones, los cambios y el código.**
+
+Si dejamos que el agente participe en la construcción del software, mantenerlo informado sobre el código ya no es suficiente.
+
+Tenemos que mantenerlo informado sobre las decisiones que explican ese código.
+
+Porque **el código representa lo que hicimos.**
+
+**El contexto contiene lo que el agente sabe.**
+
+**Las decisiones explican por qué lo hicimos y qué criterios deberían guiar los siguientes cambios.**
+
+Y cuando humanos y agentes construyen software juntos, mantener esas tres cosas alineadas puede convertirse en una de nuestras nuevas responsabilidades como desarrolladores.
