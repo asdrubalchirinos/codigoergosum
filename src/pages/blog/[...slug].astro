@@ -22,7 +22,9 @@ const base = rawBase === "/" ? "" : rawBase.replace(/\/$/, "");
 
 const shareUrl = new URL(Astro.url.pathname, Astro.site);
 const shareText = `Lee "${post.data.title}" en Código Ergo Sum`;
+const discussionText = `Leí "${post.data.title}" de @achirinos y mi punto de vista es:`;
 const encodedShareText = encodeURIComponent(shareText);
+const encodedDiscussionText = encodeURIComponent(discussionText);
 const encodedShareUrl = encodeURIComponent(shareUrl.toString());
 
 // Excerpt / description fallback
@@ -109,6 +111,18 @@ const modifiedDate = post.data.updatedDate;
         <hr />
       </div>
       <Content />
+
+      <div class="discussion-section">
+        <p>¿Qué opinas sobre este post?</p>
+        <a
+          href={`https://x.com/intent/tweet?text=${encodedDiscussionText}&url=${encodedShareUrl}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="discussion-button"
+        >
+          Comentar en X
+        </a>
+      </div>
 
       <div class="article-links">
         <h3>Compartir:</h3>
@@ -244,6 +258,39 @@ const modifiedDate = post.data.updatedDate;
   .last-updated-on {
     font-style: italic;
   }
+  .discussion-section {
+    margin-top: 4rem;
+    padding: 1.5rem;
+    border: 1px solid rgba(var(--accent), 0.35);
+    border-radius: 8px;
+    background: rgba(var(--accent-light), 0.22);
+    text-align: center;
+  }
+  .discussion-section p {
+    margin: 0 0 1rem 0;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: rgb(var(--gray-dark));
+  }
+  .discussion-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 42px;
+    padding: 0 1rem;
+    border-radius: 6px;
+    background: #000;
+    color: #fff;
+    font-weight: 700;
+    text-decoration: none;
+    transition:
+      transform 0.2s,
+      background 0.2s;
+  }
+  .discussion-button:hover {
+    transform: translateY(-2px);
+    background: rgb(var(--accent-dark));
+  }
   .article-links {
     margin-top: 4rem;
     padding-top: 2rem;
@@ -366,6 +413,13 @@ const modifiedDate = post.data.updatedDate;
       border-color: rgba(var(--accent-light), 0.4);
     }
     .support-section p {
+      color: rgb(var(--black));
+    }
+    .discussion-section {
+      background: rgba(var(--accent-dark), 0.28);
+      border-color: rgba(var(--accent-light), 0.35);
+    }
+    .discussion-section p {
       color: rgb(var(--black));
     }
     .tag {
