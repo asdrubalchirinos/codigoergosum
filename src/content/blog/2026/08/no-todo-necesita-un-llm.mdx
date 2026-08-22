@@ -1,0 +1,205 @@
+---
+title: No todo necesita un LLM
+subtitle: 'Antes de automatizar con IA, preguntémonos si el problema necesita inferencia o simplemente una buena regla.'
+pubDate: '2026-08-24'
+heroImage: /images/blog/2026/08/no-todo-necesita-un-llm/hero.png
+author: Asdrúbal Chirinos
+featured: false
+draft: true
+tags: ['arquitectura', 'desarrollo', 'ia', 'opinion', 'productividad', 'tendencias']
+slug: no-todo-necesita-un-llm
+---
+
+import PostReference from '@components/PostReference.astro';
+
+
+Hubo un tiempo, no hace tanto, en el que automatizar un proceso no significaba ejecutar un prompt.
+
+Ya automatizábamos.
+
+Escribíamos funciones. Definíamos reglas. Usábamos expresiones regulares, validaciones, parsers, diccionarios, condiciones, filtros y toda clase de mecanismos deterministas. Construíamos sistemas que, ante una misma entrada, producían el mismo resultado.
+
+No era particularmente sexy, lo sé. Pero funcionaba.
+
+Entonces llegaron los LLM y algo extraño comenzó a suceder: **pareciera que automatizar se convirtió en meter el problema completo en un prompt gigante y dejar que la inferencia lo resuelva.**
+
+¿Hay que validar un texto? LLM.
+
+¿Hay que revisar una estructura? LLM.
+
+¿Hay que detectar un patrón? LLM.
+
+¿Hay que decidir si algo cumple una regla? LLM.
+
+Y aquí creo que estamos cometiendo un error de diseño.
+
+---
+
+## No todo necesita inteligencia
+
+Que un LLM pueda resolver un problema no significa que sea la mejor tecnología para hacerlo.
+
+Hay problemas que no necesitan interpretar nada.
+
+Si quiero saber si un título tiene más de 80 caracteres, puedo contarlos.
+
+Si quiero comprobar que una hora tiene determinado formato, puedo usar una expresión regular.
+
+Si quiero detectar si existe un enlace, puedo inspeccionar el HTML.
+
+Si quiero saber cuántos párrafos tiene una nota, puedo contarlos.
+
+Si quiero comprobar que una palabra no aparece, puedo buscarla.
+
+Si tengo una lista de términos prohibidos, puedo compararlos.
+
+En ninguno de estos casos necesito que un modelo "piense".
+
+Necesito una regla.
+
+Y una regla puede convertirse en código.
+
+---
+
+## El determinismo sigue siendo una gran herramienta
+
+Las soluciones deterministas tienen una característica que puede parecer poco importante hasta que construyes sistemas que deben comportarse de manera confiable:
+
+**son predecibles.**
+
+Ante la misma entrada y las mismas reglas, esperamos el mismo resultado.
+
+Además, normalmente son:
+
+* más rápidas,
+* más baratas,
+* reproducibles,
+* explicables,
+* independientes de un modelo,
+* y resistentes a cambios en la interpretación de ese modelo.
+
+Esto último es particularmente importante.
+
+Si hoy un LLM considera que una determinada frase cumple un criterio y mañana, después de cambiar de modelo o de versión, decide que no lo cumple, tenemos un problema difícil de explicar.
+
+Si una función devuelve `false` porque una cadena no cumple una expresión regular, podemos explicar exactamente por qué.
+
+No se trata de que una solución sea "menos inteligente".
+
+Se trata de utilizar el nivel de complejidad adecuado para el problema.
+
+---
+
+## No todo lo que involucra lenguaje necesita un LLM
+
+Aquí la distinción se vuelve más interesante.
+
+Incluso algunos problemas que parecen necesitar inteligencia porque trabajan con texto pueden resolverse parcialmente con técnicas tradicionales.
+
+Podemos utilizar:
+
+* **Funciones**: para calcular métricas.
+* **Regex**: para identificar patrones.
+* **Diccionarios**: para reconocer términos conocidos.
+* **Listas de excepciones**: para manejar casos particulares.
+* **Conteos**: para comprobar cantidades, palabras, párrafos o caracteres.
+* **Validaciones**: para comprobar condiciones.
+* **Parsers**: para interpretar estructuras conocidas.
+* **Análisis del HTML**: para comprobar elementos de una página.
+* **Métricas de legibilidad**: para evaluar determinadas características de un texto.
+
+Y probablemente haya muchos más casos.
+
+La pregunta no debería ser:
+
+> "¿Podemos hacer esto con un LLM?"
+
+Porque la respuesta cada vez será más frecuentemente, sí.
+
+La pregunta debería ser:
+
+> **"¿Necesitamos inferencia para resolver esto?"**
+
+Esa es una pregunta de arquitectura, no de moda tecnológica.
+
+---
+
+## Entonces, ¿para qué usamos el LLM?
+
+Para los problemas que realmente lo necesitan.
+
+Cuando tenemos que interpretar contexto.
+
+Cuando necesitamos entender intención.
+
+Cuando existe ambigüedad.
+
+Cuando necesitamos evaluar significado, relevancia, tono o relaciones entre conceptos.
+
+Cuando las reglas son demasiado complejas, variables o difíciles de expresar de manera determinista.
+
+Ahí los LLM son extraordinariamente útiles.
+
+El objetivo no es eliminar la inferencia.
+
+Es **reservarla para donde aporta valor**.
+
+---
+
+## La arquitectura no tiene por qué ser "todo o nada"
+
+Una automatización puede combinar perfectamente ambas aproximaciones.
+
+En lugar de:
+
+**Entrada → LLM → resultado**
+
+podemos tener:
+
+**Entrada → reglas deterministas → análisis tradicional → LLM cuando sea necesario → resultado**
+
+Cada etapa resuelve aquello para lo que está mejor preparada.
+
+Y hay otra posibilidad todavía más interesante.
+
+Podemos utilizar un LLM para **construir la automatización**, sin utilizarlo necesariamente para ejecutarla.
+
+Por ejemplo, podemos pedirle que nos ayude a convertir una especificación editorial en reglas, funciones, expresiones regulares o validaciones.
+
+El modelo nos ayuda a construir el sistema.
+
+Después, el sistema puede ejecutarse de manera determinista.
+
+Esto cambia bastante la conversación.
+
+No se trata de elegir entre "programar" o "usar IA".
+
+Podemos usar IA para programar sistemas que después **no necesitan IA para funcionar**.
+
+---
+
+## Volver a pensar antes de construir
+
+Quizás uno de los efectos secundarios de la revolución de los LLM es que nos hemos acostumbrado demasiado rápido a tener una herramienta capaz de intentar resolver casi cualquier cosa.
+
+Y no lo niego, eso es maravilloso.
+
+Pero también puede hacernos olvidar algo que ya sabíamos:
+
+**la automatización no empezó con los LLM.**
+
+Llevamos décadas aprendiendo a convertir procesos en reglas, algoritmos y sistemas.
+
+Los LLM no reemplazan ese conocimiento.
+
+Lo complementan.
+
+Por eso, la próxima vez que estemos diseñando una automatización, quizás convenga hacer una pausa antes de escribir el prompt.
+
+Preguntarnos:
+
+**¿Esto necesita inferencia?**
+
+Si la respuesta es no, probablemente ya sabemos cómo resolverlo.
+
+Y quizás la mejor IA para ese problema sea ninguna.
