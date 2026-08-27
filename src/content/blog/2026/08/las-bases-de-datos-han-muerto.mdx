@@ -1,13 +1,123 @@
 ---
 title: Las bases de datos han muerto
-subtitle: ''
+subtitle: 'Cuando el Vibe Coding y el Personal Software cambian decisiones arquitectónicas que durante años dimos por sentadas.'
 pubDate: '2026-08-27'
 heroImage: /images/blog/2026/08/las-bases-de-datos-han-muerto/hero.png
 author: Asdrúbal Chirinos
 featured: false
 draft: true
-tags: []
+tags: ['arquitectura', 'desarrollo', 'ia', 'opinion', 'productividad', 'tendencias']
 slug: las-bases-de-datos-han-muerto
 ---
 
 import PostReference from '@components/PostReference.astro';
+
+Recientemente leí un post en X (Twitter) que decía:
+
+> **“Databases are dead.”**
+
+Mi primera reacción fue una carcajada.
+
+Pero seguí leyendo. La persona explicaba que sus aplicaciones creadas con Vibe Coding almacenaban todo en `localStorage`: sin bases de datos, sin costos de infraestructura y sin roundtrips al servidor.
+
+Y entonces mi reacción cambió.
+
+Aquello que inicialmente me parecía una afirmación absurda empezó a conectarse con algo de lo que he venido hablando durante los últimos meses: **Personal Software**.
+
+Y me golpeó una reflexión:
+
+> **¿Estamos usando bases de datos porque las necesitamos, o porque es lo que aprendimos a usar?**
+
+<PostReference slug="el-nacimiento-del-personal-software" />
+
+---
+
+## ¿Necesitamos una base de datos?
+
+Durante mucho tiempo, para una aplicación seria esta parecía una pregunta obvia. La pregunta nunca era si necesitábamos una base de datos, sino cuál íbamos a usar.
+
+PostgreSQL, MySQL, MongoDB, Supabase...
+
+Estábamos pensando en crecimiento, en cientos o quizás miles de usuarios. Concurrencia, disponibilidad, backups, sincronización y escalabilidad.
+
+Pero ¿qué pasa cuando nuestros usuarios no son miles?
+
+¿Qué pasa cuando nuestro usuario es **uno**?
+
+El propio Solver.
+
+<PostReference slug="el-nacimiento-del-solver" />
+
+Entonces quizá la pregunta correcta no sea:
+
+> **¿Qué base de datos necesito?**
+
+sino:
+
+> **¿Necesito realmente una base de datos o lo que necesito es persistencia?**
+
+Porque hay una diferencia notable.
+
+**Persistencia es una necesidad. Una base de datos es una solución.**
+
+Y si el software es para mí, quizá `localStorage` sea suficiente.
+
+Quizá no necesito un servidor, una API, autenticación, sincronización, escalabilidad ni una base de datos.
+
+No porque esas tecnologías hayan dejado de ser útiles, sino porque **el problema no las requiere**.
+
+Eso es precisamente lo que cambia con Personal Software.
+
+**La arquitectura debe adaptarse al problema, y no al revés.**
+
+---
+
+## Vibe Coding cambia el costo
+
+Antes, el costo de desarrollar incluso una aplicación pequeña desde cero era suficientemente alto como para que resultara casi necesario pensar anticipadamente en una arquitectura que pudiera soportar las necesidades futuras.
+
+Si íbamos a construir algo, tenía sentido prepararlo desde el principio para crecer.
+
+Pero Vibe Coding reduce drásticamente el costo de construir una solución.
+
+Podemos construir primero lo que necesitamos y preocuparnos por lo demás cuando realmente aparezca.
+
+Y visto así, la persona del tweet que inicialmente me hizo reír quizá estaba haciendo exactamente lo correcto.
+
+Si su aplicación tiene un único usuario y `localStorage` resuelve su necesidad de persistencia, ¿por qué debería pagar el costo de una base de datos?
+
+No es una mala arquitectura.
+
+Es una arquitectura **proporcional al problema**.
+
+---
+
+## Ya no es uno, son cien
+
+Ahora imaginemos que esa herramienta funciona tan bien que termina resolviendo el mismo problema para cientos o miles de personas.
+
+La solución personal acaba de demostrar que puede tener un alcance mucho mayor.
+
+Queremos convertirla en un producto. Queremos un SaaS.
+
+Y con ese nuevo alcance aparecen nuevas necesidades: usuarios, autenticación, datos compartidos, sincronización, concurrencia, disponibilidad, backups y escalabilidad.
+
+Y probablemente una base de datos.
+
+Es aquí donde el alcance del problema puede superar al Solver y necesitamos de un Coder, un desarrollador más convencional, para asumir estas nuevas necesidades.
+
+No porque el Solver haya hecho algo mal.
+
+**Porque el alcance cambió.**
+
+Y esa quizá sea la lección más interesante de todo esto.
+
+<PostReference slug="que-es-un-solver" />
+
+Las bases de datos no están muertas.
+
+Lo que estamos dejando atrás es la idea de que debemos incorporarlas antes de saber si realmente las necesitamos.
+
+Personal Software nos permite empezar mucho más cerca del problema y mucho más lejos de las suposiciones.
+
+**Primero el problema. Después la arquitectura.**
