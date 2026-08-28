@@ -87,7 +87,7 @@
                 additionalProperties: false,
             },
             annotations: { readOnlyHint: true },
-            execute: async ({ url }, { signal }) => {
+            execute: async ({ url }, { signal } = {}) => {
                 try {
                     const articleUrl = new URL(url, window.location.origin);
                     if (
