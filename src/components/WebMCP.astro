@@ -3,9 +3,10 @@
 ---
 
 <script is:inline>
-    if (window.navigator.modelContext) {
-        window.navigator.modelContext.registerTool({
+    if (document.modelContext) {
+        document.modelContext.registerTool({
             name: "search_blog",
+            title: "Buscar en el blog",
             description:
                 "Busca artículos en el blog sobre tecnología, programación y desarrollo de software. Úsalo para encontrar contenido específico dentro del sitio.",
             inputSchema: {
@@ -14,10 +15,13 @@
                     query: {
                         type: "string",
                         description: "El término o frase a buscar en el blog",
+                        maxLength: 200,
                     },
                 },
                 required: ["query"],
+                additionalProperties: false,
             },
+            annotations: { readOnlyHint: true },
             execute: async (args) => {
                 try {
                     const pagefind = await import("/pagefind/pagefind.js");
@@ -39,14 +43,17 @@
             },
         });
 
-        window.navigator.modelContext.registerTool({
+        document.modelContext.registerTool({
             name: "get_latest_posts",
+            title: "Obtener artículos recientes",
             description:
                 "Obtiene los últimos 10 artículos publicados en el blog. Úsalo para saber qué hay de nuevo.",
             inputSchema: {
                 type: "object",
                 properties: {},
+                additionalProperties: false,
             },
+            annotations: { readOnlyHint: true },
             execute: async () => {
                 try {
                     const response = await fetch("/api/latest_posts.json");
@@ -61,24 +68,36 @@
             },
         });
 
-        window.navigator.modelContext.registerTool({
+        document.modelContext.registerTool({
             name: "read_article",
+            title: "Leer un artículo",
             description:
-                "Lee el contenido completo de un artículo dado su URL. Úsalo cuando necesites profundizar en un tema específico.",
+                "Lee el contenido de un artículo del blog dado su URL. Úsalo cuando necesites profundizar en un tema específico.",
             inputSchema: {
                 type: "object",
                 properties: {
                     url: {
                         type: "string",
                         description:
-                            "La URL relativa o absoluta del artículo a leer",
+                            "La URL relativa o absoluta de un artículo del blog en este sitio",
+                        maxLength: 2048,
                     },
                 },
                 required: ["url"],
+                additionalProperties: false,
             },
-            execute: async ({ url }) => {
+            annotations: { readOnlyHint: true },
+            execute: async ({ url }, { signal }) => {
                 try {
-                    const response = await fetch(url);
+                    const articleUrl = new URL(url, window.location.origin);
+                    if (
+                        articleUrl.origin !== window.location.origin ||
+                        !articleUrl.pathname.startsWith("/blog/")
+                    ) {
+                        throw new Error("Invalid article URL");
+                    }
+
+                    const response = await fetch(articleUrl, { signal });
                     if (!response.ok) throw new Error("Error fetching article");
                     const html = await response.text();
                     const parser = new DOMParser();
@@ -99,7 +118,7 @@
                     return {
                         title: doc.title,
                         content: article.innerText.replace(/\s+/g, " ").trim(),
-                        url: url,
+                        url: articleUrl.href,
                     };
                 } catch (e) {
                     console.error("WebMCP Loop Error", e);

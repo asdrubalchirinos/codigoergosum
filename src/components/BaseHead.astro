@@ -27,6 +27,7 @@ const DEFAULT_DESC =
   "Descubre en Código ergo sum cómo los cambios laborales y tecnológicos están transformando los negocios. Exploramos desarrollo de software, gestión del tiempo e impacto de la inteligencia artificial. Únete y navega el panorama laboral con éxito.";
 const OG_LOCALE = "es_ES";
 const TWITTER_HANDLE = import.meta.env.PUBLIC_TWITTER_HANDLE; // opcional
+const WEBMCP_ORIGIN_TRIAL_TOKEN = import.meta.env.WEBMCP_ORIGIN_TRIAL_TOKEN;
 
 const {
   title,
@@ -92,6 +93,14 @@ if (isArticle) {
 <link rel="icon" type="image/jpeg" href="/favicon.jpg" />
 <meta name="generator" content={Astro.generator} />
 <meta name="author" content={author || "Asdrúbal Chirinos"} />
+{
+  WEBMCP_ORIGIN_TRIAL_TOKEN && (
+    <meta
+      http-equiv="origin-trial"
+      content={WEBMCP_ORIGIN_TRIAL_TOKEN}
+    />
+  )
+}
 
 <!-- Canonical URL -->
 <link rel="canonical" href={canonicalURL} />
