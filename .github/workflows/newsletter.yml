@@ -17,14 +17,17 @@ on:
         default: false
         type: boolean
 
+permissions:
+  contents: read
+
 jobs:
   send:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
       
       - name: Setup Node.js
-        uses: actions/setup-node@v6
+        uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
         with:
           node-version: '20'
           cache: 'npm'
@@ -33,11 +36,14 @@ jobs:
         run: npm ci
         
       - name: Build Newsletter HTML
-        run: node scripts/newsletter/build-html.mjs --slug=${{ inputs.slug }}
+        env:
+          SLUG: ${{ inputs.slug }}
+        run: node scripts/newsletter/build-html.mjs --slug="$SLUG"
         
       - name: Send Newsletter
         env:
           NEWSLETTER_API_URL: ${{ secrets.NEWSLETTER_API_URL }}
           ADMIN_API_KEY: ${{ secrets.ADMIN_API_KEY }}
-          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
-        run: node scripts/newsletter/send.mjs --dryRun="${{ inputs.dryRun }}" --testEmail="${{ inputs.testEmail }}"
+          DRY_RUN: ${{ inputs.dryRun }}
+          TEST_EMAIL: ${{ inputs.testEmail }}
+        run: node scripts/newsletter/send.mjs --dryRun="$DRY_RUN" --testEmail="$TEST_EMAIL"
