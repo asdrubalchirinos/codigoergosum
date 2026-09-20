@@ -1,0 +1,213 @@
+---
+title: 'Jev: un if statement agéntico'
+subtitle: 'Los "if" tradicionales ejecutan el criterio que nosotros escribimos. Jev permite incorporar decisiones probabilísticas que no necesitamos convertir en reglas.'
+pubDate: '2026-09-21'
+heroImage: /images/blog/2026/09/jev-un-if-statement-agentico/hero.png
+author: Asdrúbal Chirinos
+featured: true
+draft: true
+tags: ['arquitectura', 'desarrollo', 'ia', 'opinion', 'programacion', 'tendencias']
+slug: jev-un-if-statement-agentico
+---
+
+import PostReference from '@components/PostReference.astro';
+
+Lo interesante de Jev no es el hype de un nuevo modelo de IA. Es que acerca una decisión probabilística a algo tan cotidiano como un `if`.
+
+Jev no inventó los clasificadores.
+
+Los clasificadores llevan décadas entre nosotros. Reciben información, evalúan una pregunta y producen una decisión, muchas veces acompañada de una probabilidad.
+
+Entonces, ¿qué tiene de especial?
+
+Que ahora puedes hacer algo que antes requería datos, entrenamiento e infraestructura especializada con algo mucho más parecido a escribir un `if`.
+
+Un `if` tradicional, eso sí, necesita que nosotros definamos el criterio:
+
+```text id="r7m4kp"
+if score > 0.8:
+    escalate()
+```
+
+Funciona muy bien cuando sabemos expresar la decisión como una condición.
+
+El problema aparece cuando sabemos **qué queremos decidir**, pero no sabemos convertir ese criterio en una regla determinista.
+
+Ahí es donde deja de parecerse a un clasificador tradicional y empieza a parecerse a una instrucción.
+
+---
+
+## El problema que antes no valía la pena resolver
+
+Imagina que estás construyendo un sistema de soporte y quieres decidir si un mensaje necesita intervención humana.
+
+Puedes hacerlo con reglas:
+
+```text id="8x5kq1"
+if contiene("urgente")
+or contiene("reembolso")
+or contiene("abogado"):
+    escalar()
+```
+
+Es rápido y barato.
+
+También puedes entrenar un clasificador específico. Probablemente será mejor para ese problema, pero ahora necesitas datos, ejemplos etiquetados, entrenamiento, evaluación y mantenimiento.
+
+O puedes preguntarle a un LLM.
+
+Funciona, pero quizá estás utilizando una herramienta generativa extraordinariamente potente para responder una pregunta bastante pequeña:
+
+> ¿Esto necesita intervención humana?
+
+Jev ocupa un espacio diferente.
+
+Puedes plantearle la pregunta a partir del estado de tu aplicación y obtener una decisión tipada acompañada de una probabilidad, sin tener que construir y entrenar un modelo específico para cada problema.
+
+Y eso cambia la pregunta.
+
+Ya no es:
+
+> ¿Vale la pena construir un modelo para esto?
+
+Puede ser simplemente:
+
+> ¿Sería útil saber esto?
+
+Si la respuesta es sí, quizá ahora hacerlo sea suficientemente barato.
+
+Y ese “quizá” es mucho más importante de lo que parece.
+
+<PostReference slug="no-todo-necesita-un-llm" />
+
+---
+
+## Cuando el criterio se vuelve barato
+
+Esto no es exclusivo de la IA.
+
+La fotografía digital no hizo desaparecer la fotografía profesional. Hizo que tomar una fotografía fuera trivial.
+
+Canva no eliminó a los diseñadores. Hizo que millones de personas pudieran resolver pequeños problemas de diseño que antes simplemente delegaban o no resolvían.
+
+La impresión 3D no sustituyó a la fabricación industrial. Redujo el costo de fabricar determinadas cosas para mucha más gente.
+
+Y el vibe coding hace lo mismo con la escritura de código; Jev apunta a algo más estrecho: la decisión.
+
+El patrón se repite:
+
+**una capacidad que antes requería conocimientos, herramientas o recursos especializados se vuelve suficientemente accesible como para que más personas puedan utilizarla.**
+
+Y cuando eso ocurre, no necesariamente desaparece lo anterior.
+
+Aparecen cosas nuevas.
+
+Eso es lo que me interesa de Jev.
+
+Un clasificador entrenado específicamente para un problema puede seguir siendo la mejor herramienta cuando el problema justifica construirlo.
+
+Jev no necesita reemplazarlo.
+
+Su oportunidad está en todos esos problemas que nunca llegaron a convertirse en proyectos de machine learning porque eran demasiado pequeños, cambiantes o poco importantes como para justificar el costo.
+
+El cambio no es que ahora tengamos mejores clasificadores.
+
+Es que **podemos permitirnos incorporar criterio en lugares donde antes solo teníamos reglas o simplemente no teníamos nada.**
+
+<PostReference slug="el-nacimiento-del-solver" />
+
+---
+
+## Un `if` que no sabemos escribir
+
+Volvamos a esa comparación, pero desde el otro lado.
+
+Un `if` representa una decisión que ya sabemos expresar. El problema es que buena parte de las decisiones en software no son así: las reconocemos cuando las vemos, pero nos cuesta convertirlas en una regla.
+
+¿Este contenido merece revisión?
+
+¿Este usuario probablemente necesita ayuda?
+
+¿Este resultado es suficientemente bueno?
+
+¿Debería pedir confirmación?
+
+¿Vale la pena intentar otra estrategia?
+
+No son preguntas que necesariamente necesiten una respuesta generativa.
+
+Tampoco son fáciles de reducir a:
+
+```text id="q1j5zs"
+if x > y
+```
+
+Son decisiones.
+
+Y aquí aparece una diferencia importante entre un modelo generativo y una primitiva como Jev.
+
+Un LLM puede razonar sobre la pregunta y producir una respuesta.
+
+Jev puede convertirse en una pieza del programa cuya función es **tomar esa decisión**.
+
+No necesitas pedirle que escriba un párrafo explicando por qué.
+
+Puedes preguntarle directamente:
+
+```text id="4b9zqp"
+shouldEscalate(message)
+```
+
+y trabajar con la decisión y su probabilidad como parte del flujo de tu aplicación.
+
+Eso empieza a parecerse menos a “usar IA” y más a **incorporar una nueva clase de instrucción al software**.
+
+Obviamente, Jev es más que un `if`.
+
+Es un modelo de **decisiones tipadas** (System One) de TypeSafe AI. No genera texto. Solo responde a preguntas acotadas con unas pocas primitivas:
+
+- **Noul** → probabilidad de sí/no
+- **Choice** → elige una opción de una lista
+- **Score** → puntuación en una escala
+
+La comparación con el `if` sirve para intuir el lugar que ocupa en el código. En un próximo artículo profundizaré sobre esas primitivas y en Jev.
+
+---
+
+## El `if` agéntico
+
+Y aquí es donde el término “agéntico” empieza a tener sentido.
+
+Los sistemas agénticos no se caracterizan únicamente porque utilicen un LLM.
+
+Una parte importante de su comportamiento consiste en decidir qué hacer a continuación: usar una herramienta, intentar otra estrategia, pedir confirmación, continuar, detenerse, escalar.
+
+Hasta ahora hemos tendido a resolver esas decisiones con una combinación de reglas, código y llamadas a modelos generativos.
+
+Jev introduce otra pieza en ese espacio.
+
+El código sigue siendo determinista cuando puede serlo.
+
+El LLM sigue siendo útil cuando necesitamos generación o razonamiento abierto.
+
+Pero ahora podemos introducir decisiones probabilísticas como una parte explícita del flujo.
+
+No todo tiene que pasar por el mismo modelo.
+
+Y eso me parece más interesante que simplemente tener otro modelo capaz de hacer más cosas.
+
+El siguiente paso de los sistemas agénticos quizá no sea un modelo que lo haga todo, sino aprender a **componer diferentes tipos de inteligencia dentro del mismo programa**.
+
+Jev no inventó los clasificadores.
+
+Tampoco inventó la toma de decisiones probabilística.
+
+Lo interesante es que puede hacer que incorporar criterio a un programa sea suficientemente barato como para usarlo donde antes no valía la pena.
+
+Y cuando una capacidad se vuelve suficientemente barata, empezamos a construir cosas que antes ni siquiera considerábamos posibles.
+
+<PostReference slug="de-coder-a-solver" />
+
+Quizá un `if` agéntico no sea un `if` más inteligente.
+
+Quizá sea simplemente **un `if` que ya no necesita que nosotros sepamos escribir todo el criterio.**
