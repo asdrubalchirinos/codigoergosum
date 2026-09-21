@@ -2,6 +2,7 @@
 import { type CollectionEntry, getCollection } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import TranslationLink from "../../components/TranslationLink.astro";
+import AIDisclaimer from "../../components/AIDisclaimer.astro";
 
 export async function getStaticPaths() {
   const posts = await getCollection("blog", ({ data }) => {
@@ -111,6 +112,8 @@ const modifiedDate = post.data.updatedDate;
         <hr />
       </div>
       <Content />
+
+      <AIDisclaimer lang={post.data.lang || "es"} />
 
       <div class="discussion-section">
         <p>¿Qué opinas sobre este post?</p>

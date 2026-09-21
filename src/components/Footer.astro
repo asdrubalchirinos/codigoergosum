@@ -15,6 +15,9 @@ const today = new Date();
         <div class="copyright">
             &copy; {today.getFullYear()} Código Ergo Sum. All rights reserved.
         </div>
+        <div class="ai-note">
+            Artículos conceptualizados por el autor · editados con IA.
+        </div>
         <div class="author">
             Creado por <a href="https://x.com/achirinos" target="_blank">Asdrúbal "Astro" Chirinos</a>
         </div>
@@ -52,6 +55,12 @@ const today = new Date();
     .copyright {
         margin-top: 1em;
         font-size: 0.9em;
+    }
+    .ai-note {
+        margin-top: 0.35em;
+        font-size: 0.75em;
+        color: rgb(var(--gray));
+        opacity: 0.85;
     }
     .author {
         margin-top: 0.5em;

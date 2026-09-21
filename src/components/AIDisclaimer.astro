@@ -1,0 +1,39 @@
+---
+interface Props {
+	lang?: "es" | "en";
+}
+
+const { lang = "es" } = Astro.props;
+
+const text =
+	lang === "en"
+		? "Articles on Código Ergo Sum are conceptualized by me. I use AI as an editing tool: the ideas, opinions, and conclusions are mine."
+		: "Los artículos de Código Ergo Sum están conceptualizados por mí. Uso IA como herramienta de edición: las ideas, opiniones y conclusiones son mías.";
+---
+
+<aside class="ai-disclaimer" data-pagefind-ignore="all" aria-label="Disclosure">
+	<p>{text}</p>
+</aside>
+
+<style>
+	.ai-disclaimer {
+		margin-top: 2.5rem;
+		padding: 1rem 1.25rem;
+		background: rgb(var(--gray-light));
+		border-left: 3px solid rgb(var(--accent));
+		border-radius: 0 8px 8px 0;
+		font-size: 0.9em;
+		line-height: 1.5;
+		color: rgb(var(--gray-dark));
+	}
+	.ai-disclaimer p {
+		margin: 0;
+	}
+
+	@media (prefers-color-scheme: dark) {
+		.ai-disclaimer {
+			background: rgba(var(--white), 0.06);
+			color: rgb(var(--black));
+		}
+	}
+</style>
