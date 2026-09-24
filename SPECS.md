@@ -71,7 +71,7 @@ Incluye: - Paginación - Lista de posts - Sidebar
 ### 5.4 Post individual
 
 Incluye: - titulo - subtitulo - imagen destacada - fecha - autor -
-etiquetas - contenido - compartir en X, LinkedIn y WhatsApp
+etiquetas - contenido - compartir en X, Threads, LinkedIn y WhatsApp
 
 ## 6. SEO
 

@@ -55,7 +55,7 @@ codigoergosum/
 - **Post Destacado**: Sistema de featured post en la home
 - **Paginación**: 10 posts por página
 - **Sistema de Tags**: Navegación por etiquetas
-- **Compartir en Redes**: X, LinkedIn, Facebook, WhatsApp
+- **Compartir en Redes**: X, Threads, LinkedIn, Facebook, WhatsApp
 - **SEO Optimizado**: Meta tags completos, sitemap automático
 - **Responsive Design**: Diseño adaptable a todos los dispositivos
 - **Modo Oscaro**: Soporte con `prefers-color-scheme`
