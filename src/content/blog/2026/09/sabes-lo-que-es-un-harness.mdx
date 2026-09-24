@@ -1,0 +1,400 @@
+---
+title: ¿Sabes lo que es un Harness?
+subtitle: 'Entiende qué hay realmente detrás de un agente en menos de 100 líneas de código.'
+pubDate: '2026-09-24'
+heroImage: /images/blog/2026/09/sabes-lo-que-es-un-harness/hero.png
+author: Asdrúbal Chirinos
+featured: false
+draft: true
+tags: ['arquitectura', 'ia', 'programacion', 'python']
+slug: sabes-lo-que-es-un-harness
+---
+
+import PostReference from '@components/PostReference.astro';
+
+Un modelo puede decidir que necesita leer un archivo para responder una pregunta. Puede incluso generar la llamada a la herramienta que debería hacerlo. Pero entre esa decisión y el archivo que finalmente se abre hay algo que suele quedar fuera de la conversación: código que recibe la petición, ejecuta la herramienta, devuelve el resultado al modelo y controla qué puede hacer a continuación.
+
+Ese código es el **harness**.
+
+El concepto es sencillo, pero importante. El modelo decide qué necesita hacer; el harness convierte esa decisión en una acción y aplica las reglas bajo las cuales esa acción puede ocurrir. Si el modelo pide leer un archivo, el harness decide qué función ejecutar, qué argumentos aceptar, qué permisos aplicar y cuándo detener el proceso.
+
+Y no hace falta un framework de agentes para verlo. Podemos construir uno nosotros mismos, en menos de 100 líneas de Python.
+
+----
+
+## Modelo y harness: dos piezas, un solo sistema
+
+La analogía más fácil es pensar en el modelo como el conductor y el harness como el vehículo y las reglas de conducción.
+
+El **modelo** decide. Recibe la pregunta, determina qué herramienta necesita, interpreta el resultado y redacta la respuesta final. Pero no toca directamente tu disco ni ejecuta las funciones que solicita.
+
+El **harness** ejecuta. Define las herramientas disponibles, recibe las solicitudes del modelo, ejecuta el código correspondiente, valida los argumentos, aplica las reglas de acceso y controla cuánto puede continuar el proceso.
+
+La diferencia puede resumirse así:
+
+> **El modelo decide qué hacer. El harness controla qué puede hacer y hasta cuándo.**
+
+|                                     | Modelo | Harness |
+| ----------------------------------- | ------ | ------- |
+| Decide qué tool usar                | ✅      |         |
+| Ejecuta la tool                     |        | ✅       |
+| Valida rutas y argumentos           |        | ✅       |
+| Controla el loop                    |        | ✅       |
+| Decide cuándo ya no necesita tools  | ✅      |         |
+| Decide cuándo ya no puede continuar |        | ✅       |
+| Redacta la respuesta                | ✅      |         |
+
+Un harness mínimo **para este ejercicio** tiene cinco piezas:
+
+1. **System prompt**
+2. **Tools**, el menú de capacidades
+3. **El loop**, que conecta modelo y herramientas
+4. **El historial de mensajes**
+5. **El stop**, que define cuándo cortar la ejecución
+
+Un harness real puede tener muchas más cosas: permisos, timeouts, retries, memoria, observabilidad, aprobación humana, límites de recursos, etc. Pero el patrón fundamental ya está aquí.
+
+---
+
+## El ejercicio: un harness simple
+
+Vamos a construir uno de verdad, no un diagrama.
+
+En concreto, tendremos un loop con dos tools y un límite de pasos. El modelo podrá listar archivos y leer un archivo de texto, nada más. Como máximo dará 6 pasos antes de que el harness lo corte.
+
+Todo estará en un solo archivo, `harness.py`, sin frameworks ni atajos: solo la biblioteca `ollama` y el standard library.
+
+¿Qué pretende enseñar?
+
+El patrón fundamental de cualquier agente:
+
+> **modelo pide → Python ejecuta → el resultado vuelve al modelo → repite**
+
+Cuando ese patrón te quede claro, todo lo demás, más tools, mejor traza, memoria, conversación, cortes externos, permisos, etc., consiste en añadir piezas alrededor del mismo esqueleto.
+
+Manos a la obra.
+
+---
+
+## Paso 1: Setup
+
+Necesitas [Ollama](https://ollama.com) corriendo con un modelo local. Para este ejemplo he usado `granite4.2:8b`.
+
+También necesitas Python:
+
+```bash
+python3 -m venv .venv
+
+source .venv/bin/activate
+
+pip install ollama
+```
+---
+
+## Paso 2: Configuración
+
+Crea `harness.py` y declara las constantes:
+
+```python
+from pathlib import Path
+
+import ollama
+import sys
+
+MODEL = "granite4.2:8b"
+
+ROOT = Path.cwd()  # solo el directorio desde donde se ejecuta
+
+MAX_STEPS = 6
+
+SYSTEM = (
+    "Eres un asistente local con herramientas."
+    "Usa list_files o read_file si necesitas ver el disco."
+    "Si ya puedes responder, no llames más tools."
+    "Responde en español, breve y claro."
+    "Nunca inventes el contenido de un archivo: léelo."
+)
+```
+
+`MAX_STEPS` es nuestra primera política de ejecución: el modelo puede pedir herramientas, pero solo puede hacerlo hasta seis veces.
+
+El modelo no puede cambiar ese límite.
+
+El harness sí.
+
+---
+
+## Paso 3: Las dos tools
+
+El modelo no sabe qué puede hacer con nuestro filesystem. Tú le das el menú:
+
+```python
+TOOLS = [
+    {
+        "type": "function",
+        "function": {
+            "name": "list_files",
+            "description": "Lista archivos de una carpeta",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "path": {"type": "string"}
+                },
+                "required": ["path"],
+            },
+        },
+    },
+    {
+        "type": "function",
+        "function": {
+            "name": "read_file",
+            "description": "Lee un archivo de texto",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "path": {"type": "string"}
+                },
+                "required": ["path"],
+            },
+        },
+    },
+]
+```
+
+Esto es importante: describir una herramienta no significa ejecutarla.
+
+Aquí solo estamos diciéndole al modelo qué herramientas existen y qué argumentos aceptan. La ejecución viene después.
+
+---
+
+## Paso 4: La puerta de seguridad
+
+El modelo podría pedir:
+
+```text
+read_file("/etc/passwd")
+```
+
+Pero que el modelo lo pida no significa que pueda hacerlo.
+
+Esa decisión pertenece al harness:
+
+```python
+def safe_path(raw: str) -> Path:
+    """Rechaza rutas fuera del directorio de ejecución."""
+
+    root = ROOT.resolve()
+    target = (ROOT / raw).resolve()
+
+    if not target.is_relative_to(root):
+        raise ValueError(f"ruta fuera del proyecto: {raw}")
+
+    return target
+```
+
+Aquí aparece una de las funciones más importantes de un harness: **convertir las intenciones del modelo en acciones sometidas a políticas.**
+
+En este caso, la política es sencilla:
+
+> El modelo puede trabajar dentro de este directorio, pero no fuera de él.
+
+En un harness real podríamos aplicar el mismo principio a permisos, tiempo de ejecución, número de llamadas, tamaño de archivos o acceso a servicios externos.
+
+---
+
+## Paso 5: Los ejecutores
+
+Ahora necesitamos conectar los nombres que conoce el modelo con código real:
+
+```python
+def list_files(path: str) -> str:
+    names = sorted(p.name for p in safe_path(path).iterdir())
+    return "\n".join(names)
+
+
+def read_file(path: str) -> str:
+    return safe_path(path).read_text(encoding="utf-8")
+
+
+EXECUTORS = {
+    "list_files": list_files,
+    "read_file": read_file,
+}
+```
+
+El modelo solo conoce:
+
+```text
+list_files
+read_file
+```
+
+Python sabe qué significa realmente cada una.
+
+Esta separación es fundamental.
+
+**El modelo solicita una capacidad. El harness decide cómo se ejecuta esa capacidad.**
+
+---
+
+## Paso 6: El loop
+
+Ahora llegamos al corazón del harness.
+
+El patrón es siempre el mismo:
+
+> **modelo pide → Python ejecuta → resultado vuelve al modelo → repite**
+
+```python
+def run(question: str) -> str:
+    messages = [
+        {"role": "system", "content": SYSTEM},
+        {"role": "user", "content": question},
+    ]
+
+    for step in range(MAX_STEPS):
+        msg = ollama.chat(
+            model=MODEL,
+            messages=messages,
+            tools=TOOLS,
+            think=False,
+        ).message
+
+        messages.append(msg)
+
+        # Sin tools → respuesta final
+        if not msg.tool_calls:
+            return msg.content or ""
+
+        # Con tools → ejecutar y devolver el resultado al modelo
+        for call in msg.tool_calls:
+            name = call.function.name
+            args = call.function.arguments or {}
+
+            print(f"[paso {step + 1}] {name}({args})")
+
+            try:
+                result = EXECUTORS[name](**args)
+            except Exception as exc:
+                result = f"ERROR: {exc}"
+
+            messages.append({
+                "role": "tool",
+                "tool_name": name,
+                "content": str(result),
+            })
+
+    return "Demasiados pasos."
+```
+
+Aquí ocurre todo.
+
+Primero el modelo recibe la pregunta. Si puede responder directamente, termina. Si necesita una herramienta, devuelve una **tool call**.
+
+Python recibe esa petición, ejecuta la función correspondiente y agrega el resultado al historial. Entonces el modelo vuelve a recibir el contexto, ahora incluyendo el resultado de la herramienta, y decide qué hacer después.
+
+Puede pedir otra herramienta. O puede responder.
+
+El ciclo continúa hasta que ocurre una de dos cosas: el modelo deja de pedir tools o se alcanza `MAX_STEPS`.
+
+El segundo caso es importante. El modelo podría seguir pidiendo herramientas indefinidamente. El harness dice:
+
+> **Hasta aquí.**
+
+No es inteligencia. Es una **política de ejecución**.
+
+---
+
+## Paso 7: Probar
+
+Añade el punto de entrada:
+
+```python
+if __name__ == "__main__":
+    print(run(
+        " ".join(sys.argv[1:])
+        or "¿qué dice notas.txt?"
+    ))
+```
+
+Ahora:
+
+```bash
+python harness.py "¿qué dice notas.txt?"
+```
+
+Podrías ver algo así:
+
+```text
+[paso 1] read_file({'path': 'notas.txt'})
+
+Proyecto de práctica: harness de un agente local.
+
+...
+```
+
+Primero aparece la llamada del modelo. Después, el resultado de la herramienta. Finalmente, el modelo recibe ese resultado y genera la respuesta.
+
+**Eso es el loop.**
+
+---
+
+## ¿Y dónde está el agente?
+
+Esta es probablemente la parte más interesante.
+
+No existe una función mágica llamada `agent()`.
+
+El agente emerge de la combinación:
+
+```text
+Modelo
+   ↓
+Tool call
+   ↓
+Harness
+   ↓
+Tool execution
+   ↓
+Resultado
+   ↓
+Modelo
+   ↓
+...
+```
+
+El modelo aporta la capacidad de decidir cuál es el siguiente paso.
+
+El harness aporta las herramientas, el estado, las reglas y los límites que convierten esa decisión en una acción controlada.
+
+Por eso un agente no es simplemente un modelo con acceso a tools.
+
+Es un **modelo ejecutándose dentro de un sistema que controla qué puede hacer, cómo puede hacerlo y cuándo debe detenerse.**
+
+---
+
+## Qué sigue después
+
+Este harness cabe en 98 líneas a propósito.
+
+No porque un harness real tenga solo 98 líneas, sino porque **son suficientes para hacer visible el patrón**.
+
+A partir de aquí puedes añadir:
+
+* una tercera tool, como `count_lines`;
+* validación más estricta de argumentos;
+* límites de tamaño y tiempo;
+* una traza más rica;
+* modo conversación;
+* memoria;
+* aprobación humana;
+
+Cada una agrega una capacidad al mismo esqueleto.
+
+El código completo está en el repo: [github.com/asdrubalchirinos/harness-demo](https://github.com/asdrubalchirinos/harness-demo)
+
+---
+
+**El modelo decide. El harness controla.**
+
+Y esa diferencia, más que cualquier framework, es una de las claves para entender cómo funcionan realmente los agentes.
