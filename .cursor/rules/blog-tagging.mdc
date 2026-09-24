@@ -12,7 +12,7 @@ Antes de **añadir, quitar o revisar** el campo `tags` en el frontmatter de un `
 2. **Lista tags ya usados** ejecutando desde la raíz del repo:
 
    ```bash
-   bash .agent/skills/blog-tagging-system/scripts/list-tags.sh
+   npm run list-tags
    ```
 
 3. Mapea temas del artículo a esas etiquetas; solo introduce un tag nuevo si no hay sinónimo en la lista y sigue las convenciones del skill.

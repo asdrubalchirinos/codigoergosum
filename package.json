@@ -11,7 +11,11 @@
     "deploy": "npm run build && touch dist/.nojekyll",
     "migrate": "cd ../substack-migrator && npm run",
     "migrate:help": "cd ../substack-migrator && npm run start -- --help",
-    "generate-tags": "node scripts/auto-tag.js",
+    "list-tags": "node scripts/list-tags.js",
+    "validate-tags": "node scripts/list-tags.js --check",
+    "tag-post": "node scripts/tag-post-with-jev.js",
+    "test:tag-taxonomy": "node scripts/evaluate-tag-taxonomy.js",
+    "generate-tags": "npm run list-tags",
     "generate-tags-legacy": "node ../blog-tag-generator/index.js ./src/content/blog",
     "generate-weekly-summary": "node scripts/generate-weekly-summary.js"
   },

@@ -102,6 +102,20 @@ public/images/blog/
 | `npm run astro ...`       | Ejecuta comandos CLI de Astro                    |
 | `npm run astro -- check`  | Verifica tipos TypeScript                        |
 
+### Clasificación de tags con Jev
+
+El catálogo permitido está en `src/content/tag-taxonomy.json`. Para evaluar un post, configura `TYPESAFE_API_KEY` en un archivo `.env` (parte de `.env.example`) y ejecuta:
+
+```bash
+npm run tag-post -- src/content/blog/YYYY/MM/mi-post.mdx
+```
+
+El comando solo reporta la propuesta por defecto. Para escribirla en un post sin tags, usa `--write`; si el resultado es ambiguo o el artículo requiere una categoría nueva, no hará cambios. Los tags existentes solo se reemplazan con `--write --replace`.
+
+```bash
+npm run tag-post -- src/content/blog/YYYY/MM/mi-post.mdx --write
+```
+
 ## 📱 Breakpoints Responsive
 
 - **Mobile**: hasta 639px

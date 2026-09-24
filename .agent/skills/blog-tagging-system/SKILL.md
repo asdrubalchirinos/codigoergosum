@@ -18,7 +18,7 @@ This skill helps maintain a consistent taxonomy across the blog by providing a s
 ### 1. Extract Existing Tags
 Use the provided script to get the current "source of truth" for tags:
 ```bash
-bash .agent/skills/blog-tagging-system/scripts/list-tags.sh
+npm run list-tags
 ```
 
 ### 2. Content Analysis
@@ -37,6 +37,27 @@ Map the identified themes to the list of existing tags. If a perfect match isn't
 Apply the tags to the MDX frontmatter in the standard format:
 ```yaml
 tags: ['tag-a', 'tag-b', 'tag-c']
+```
+
+## Automated classification with Jev
+
+`src/content/tag-taxonomy.json` is the controlled catalog of allowed tags and their definitions. Do not add tags merely because a classifier suggests a related concept.
+
+Evaluate a new post without modifying it:
+```bash
+npm run tag-post -- src/content/blog/YYYY/MM/post.mdx
+```
+
+The command needs `TYPESAFE_API_KEY` in `.env`. It sends the post to Jev, evaluates only the existing taxonomy, and reports high-confidence tags, ambiguous tags, and whether the article needs a new-tag review. It writes tags only with `--write`, when it found 3–6 high-confidence tags, no ambiguous tags, and no new-tag review:
+```bash
+npm run tag-post -- src/content/blog/YYYY/MM/post.mdx --write
+```
+
+Existing tags are protected. Replacing them requires both `--write --replace`.
+
+After changing a taxonomy definition or threshold, run the regression fixtures (also requires `TYPESAFE_API_KEY`). They evaluate posts in read-only mode and fail if `personal-software` stops matching its approved examples or starts matching its negative examples:
+```bash
+npm run test:tag-taxonomy
 ```
 
 ## Example

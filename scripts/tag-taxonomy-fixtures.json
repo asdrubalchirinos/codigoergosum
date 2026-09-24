@@ -1,0 +1,12 @@
+{
+  "tag": "personal-software",
+  "fixtures": [
+    { "path": "src/content/blog/2025/12/de-coder-a-solver.mdx", "expected": true },
+    { "path": "src/content/blog/2025/12/el-nacimiento-del-personal-software.md", "expected": true },
+    { "path": "src/content/blog/2025/12/el-nacimiento-del-solver.mdx", "expected": true },
+    { "path": "src/content/blog/2025/12/personal-software-solvers-y-vibe-coding.mdx", "expected": true },
+    { "path": "src/content/blog/2026/09/jev-un-if-statement-agentico.mdx", "expected": false },
+    { "path": "src/content/blog/2026/08/no-todo-necesita-un-llm.mdx", "expected": false },
+    { "path": "src/content/blog/2024/08/introduccion-a-tailwind-css.md", "expected": false }
+  ]
+}
