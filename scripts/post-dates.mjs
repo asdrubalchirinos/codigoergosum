@@ -5,11 +5,21 @@ import matter from "gray-matter";
 
 const rootDir = path.dirname(path.dirname(fileURLToPath(import.meta.url)));
 
-function toIso(value) {
+// Debe interpretar las fechas igual que `parseDateExact` en src/content/config.ts:
+// YYYY-MM-DD es medianoche local, no UTC.
+function toDate(value) {
   if (!value) return undefined;
-  const date = value instanceof Date ? value : new Date(value);
+  let date;
+  if (value instanceof Date) {
+    date = value;
+  } else {
+    const match = String(value).match(/^(\d{4})-(\d{2})-(\d{2})(?:T.*)?$/);
+    date = match
+      ? new Date(Number(match[1]), Number(match[2]) - 1, Number(match[3]))
+      : new Date(String(value));
+  }
   if (Number.isNaN(date.getTime())) return undefined;
-  return date.toISOString();
+  return date;
 }
 
 function walk(dir, out = []) {
@@ -22,13 +32,20 @@ function walk(dir, out = []) {
 }
 
 /**
- * Mapa de URL de post -> última fecha de modificación (ISO).
- * Usa `updatedDate` si existe y `pubDate` como fallback.
+ * Posts publicables (sin draft y sin pubDate futura), ordenados por pubDate
+ * descendente, más el mapa URL -> lastmod.
+ * `lastmod` usa `updatedDate` si existe y `pubDate` como fallback.
+ * @returns {{
+ *   byPath: Map<string, string>,
+ *   posts: { slug: string, tags: string[], published: string, lastmod: string }[],
+ * }}
  */
 export function collectPostLastmod() {
   const byPath = new Map();
   const contentDir = path.join(rootDir, "src", "content", "blog");
-  let newest;
+  const now = new Date();
+  /** @type {{ slug: string, tags: string[], published: string, lastmod: string, pubTime: number }[]} */
+  const collected = [];
 
   for (const file of walk(contentDir)) {
     let data;
@@ -38,17 +55,37 @@ export function collectPostLastmod() {
       continue;
     }
     if (data.draft === true) continue;
+    const pubDate = toDate(data.pubDate);
+    if (!pubDate || pubDate > now) continue;
+
     const relative = path
       .relative(contentDir, file)
       .replace(/\.mdx?$/, "")
       .split(path.sep)
       .join("/");
-    const slug = typeof data.slug === "string" && data.slug.trim() ? data.slug.trim() : relative;
-    const lastmod = toIso(data.updatedDate) ?? toIso(data.pubDate);
-    if (!lastmod) continue;
+    const slug =
+      typeof data.slug === "string" && data.slug.trim()
+        ? data.slug.trim()
+        : relative;
+    const published = pubDate.toISOString();
+    const lastmod = toDate(data.updatedDate)?.toISOString() ?? published;
+    const tags = Array.isArray(data.tags)
+      ? data.tags.filter((tag) => typeof tag === "string")
+      : [];
+
     byPath.set(`/blog/${slug}/`, lastmod);
-    if (!newest || lastmod > newest) newest = lastmod;
+    collected.push({ slug, tags, published, lastmod, pubTime: pubDate.getTime() });
   }
 
-  return { byPath, newest };
+  collected.sort((a, b) => b.pubTime - a.pubTime);
+
+  return {
+    byPath,
+    posts: collected.map(({ slug, tags, published, lastmod }) => ({
+      slug,
+      tags,
+      published,
+      lastmod,
+    })),
+  };
 }

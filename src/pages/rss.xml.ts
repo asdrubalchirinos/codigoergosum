@@ -72,6 +72,15 @@ export async function GET(context: { site: URL | undefined }) {
     posts.map((post) => [post.slug, post.data.title]),
   );
 
+  const lastContentChange = sortedPosts.reduce<Date | undefined>((latest, post) => {
+    const changed = post.data.updatedDate ?? post.data.pubDate;
+    if (!latest || changed > latest) return changed;
+    return latest;
+  }, undefined);
+  const lastBuildDate = lastContentChange
+    ? `<lastBuildDate>${lastContentChange.toUTCString()}</lastBuildDate>`
+    : "";
+
   const items = await Promise.all(
     sortedPosts.map(async (post, index) => {
       const enclosure = post.data.heroImage
@@ -105,7 +114,7 @@ export async function GET(context: { site: URL | undefined }) {
     items,
     customData:
       `<language>es</language>` +
-      `<lastBuildDate>${new Date().toUTCString()}</lastBuildDate>` +
+      lastBuildDate +
       `<atom:link href="${new URL("rss.xml", site).toString()}" rel="self" type="application/rss+xml" />`,
   });
 }

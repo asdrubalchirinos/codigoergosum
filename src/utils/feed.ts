@@ -2,10 +2,19 @@ import { marked } from "marked";
 
 export const EXCERPT_LENGTH = 500;
 
+const POST_REFERENCE = /<PostReference\s+slug=["']([^"']+)["']\s*\/>/g;
+const PASCAL_TAG = /<\/?[A-Z][A-Za-z0-9]*(?:\s[^<>]*)?\s*\/?>/g;
+
+function referenceMarkdown(slug: string, titles: Map<string, string>): string {
+  const title = titles.get(slug) ?? slug;
+  return `**Ver también:** [${title}](/blog/${slug}/)`;
+}
+
 /**
  * Elimina la sintaxis propia de MDX de un cuerpo de post:
  * - líneas `import`/`export` (fuera de bloques de código)
  * - `<PostReference slug="..." />` → enlace legible al post referenciado
+ * - cualquier otra etiqueta PascalCase que no sea un componente conocido
  */
 export function stripMdxSyntax(
   body: string,
@@ -20,22 +29,26 @@ export function stripMdxSyntax(
       lines.push(line);
       continue;
     }
-    if (!inFence) {
-      if (/^\s*import\s+.*\bfrom\s+['"]/.test(line)) continue;
-      if (/^\s*import\s+['"]/.test(line)) continue;
-      if (/^\s*export\s+(const|function|class|default|\{)/.test(line)) continue;
-
-      const reference = line.match(
-        /^\s*<PostReference\s+slug=["']([^"']+)["']\s*\/>\s*$/,
-      );
-      if (reference) {
-        const slug = reference[1];
-        const title = titles.get(slug) ?? slug;
-        lines.push(`> **Ver también:** [${title}](/blog/${slug}/)`);
-        continue;
-      }
+    if (inFence) {
+      lines.push(line);
+      continue;
     }
-    lines.push(line);
+    if (/^\s*import\s+.*\bfrom\s+['"]/.test(line)) continue;
+    if (/^\s*import\s+['"]/.test(line)) continue;
+    if (/^\s*export\s+(const|function|class|default|\{)/.test(line)) continue;
+
+    const onlyReference = line.match(
+      /^\s*<PostReference\s+slug=["']([^"']+)["']\s*\/>\s*$/,
+    );
+    if (onlyReference) {
+      lines.push(`> ${referenceMarkdown(onlyReference[1], titles)}`);
+      continue;
+    }
+
+    const withReferences = line
+      .replace(POST_REFERENCE, (_, slug: string) => referenceMarkdown(slug, titles))
+      .replace(PASCAL_TAG, "");
+    lines.push(withReferences);
   }
 
   return lines.join("\n");
@@ -72,10 +85,24 @@ export async function toFeedHtml(
 ): Promise<string> {
   const html = await marked.parse(stripMdxSyntax(body, titles), {
     async: true,
+    breaks: true,
   });
   const origin = site.origin;
-  // Relativiza enlaces e imágenes para que funcionen fuera del sitio.
-  return html.replace(/(href|src)="\/(?!\/)/g, `$1="${origin}/`);
+  // Absolutiza enlaces e imágenes para que funcionen fuera del sitio.
+  const absolute = html.replace(/(href|src)="\/(?!\/)/g, `$1="${origin}/`);
+  return absolute.replace(
+    /<a href="(https?:\/\/[^"]+)"/g,
+    (match, href: string) => {
+      let linkOrigin: string;
+      try {
+        linkOrigin = new URL(href).origin;
+      } catch {
+        return match;
+      }
+      if (linkOrigin === origin) return match;
+      return `<a href="${href}" target="_blank" rel="noopener noreferrer"`;
+    },
+  );
 }
 
 export function escapeXml(value: string): string {
