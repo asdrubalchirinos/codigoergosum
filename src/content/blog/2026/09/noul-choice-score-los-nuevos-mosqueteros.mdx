@@ -1,0 +1,393 @@
+---
+title: 'Noul, Choice, Score: los nuevos mosqueteros'
+subtitle: 'Tres nuevas formas de llevar decisiones no deterministas al código sin renunciar al control.'
+pubDate: '2026-09-28'
+heroImage: /images/blog/2026/09/noul-choice-score-los-nuevos-mosqueteros/hero.png
+author: Asdrúbal Chirinos
+featured: false
+draft: true
+tags: []
+slug: noul-choice-score-los-nuevos-mosqueteros
+---
+
+import PostReference from '@components/PostReference.astro';
+
+Buena parte del software se ha construido alrededor de una idea bastante simple: si conocemos las reglas, podemos escribirlas.
+
+`if`, `else`, `switch`, comparaciones, tablas de decisión. El programa recibe un estado y, si las condiciones están bien definidas, produce siempre el mismo resultado.
+
+El problema aparece cuando las reglas empiezan a describir cosas que nosotros entendemos fácilmente, pero que son difíciles de convertir en condiciones explícitas.
+
+¿Este mensaje es urgente?
+¿Este cliente parece estar molesto?
+¿Este contenido pertenece a tecnología o negocios?
+¿Este ticket debería ir al equipo de facturación o al de soporte?
+
+Podemos intentar escribir reglas para cada caso. El problema es que, a medida que aumenta la ambigüedad, el código empieza a convertirse en una colección cada vez más frágil de excepciones.
+
+Ahí apareció la inteligencia artificial generativa.
+
+Le damos contexto a un modelo y le pedimos que interprete el estado. El modelo puede entender matices que serían difíciles de expresar con reglas tradicionales y devolver una respuesta que, en muchos casos, resulta sorprendentemente buena.
+
+Pero aparece otro problema.
+
+El modelo habla con lenguaje.
+
+Y nuestro software no.
+
+---
+
+## El problema no es que la IA se equivoque
+
+Cuando usamos un LLM para tomar una decisión dentro de un programa, normalmente terminamos haciendo algo plomeria alrededor del modelo.
+
+Le enviamos un prompt, recibimos texto, intentamos interpretar ese texto, validamos que tenga la estructura esperada y finalmente convertimos el resultado en algo que el programa pueda utilizar.
+
+Conceptualmente:
+
+```text
+programa
+   ↓
+prompt
+   ↓
+LLM
+   ↓
+texto
+   ↓
+parser
+   ↓
+validación
+   ↓
+programa
+```
+
+Incluso cuando pedimos JSON estructurado, seguimos teniendo una representación que debemos interpretar y validar antes de convertirla en una decisión del programa.
+
+El problema no es solamente que el modelo pueda equivocarse.
+
+Es que existe una fricción entre lo que la inteligencia entiende y lo que el código puede consumir.
+
+**El modelo trabaja con lenguaje. El programa trabaja con tipos.**
+
+Y esa diferencia importa mucho cuando la respuesta de una IA deja de ser algo que una persona va a leer y se convierte en una condición que el software debe ejecutar.
+
+---
+
+## ¿Y si la decisión tuviera un tipo?
+
+Imaginemos que en lugar de preguntarle a un modelo:
+
+> ¿Qué tan urgente es este ticket?
+
+y esperar una explicación en lenguaje natural, pudiéramos definir en nuestro código algo parecido a:
+
+```text
+Score:
+  1 = baja
+  2 = media
+  3 = alta
+```
+
+La IA seguiría teniendo que interpretar el contexto. Esa parte no es determinista.
+
+Pero el resultado ya no podría ser cualquier cosa.
+
+No tendría que decirnos `"parece bastante urgente"` para que después nosotros intentemos averiguar qué significa.
+
+La pregunta ya define el espacio de decisión.
+
+Eso es, en esencia, lo interesante de Jev.
+
+TypeSafe describe sus System One Models como modelos orientados a producir decisiones tipadas que el software pueda consumir directamente. En lugar de generar strings para que posteriormente el programa los interprete, el modelo trabaja sobre una estructura de salida definida de antemano.
+
+La diferencia parece pequeña.
+
+No lo es.
+
+Porque significa que la inteligencia deja de entrar al programa como texto y empieza a entrar como una decisión que ya tiene forma de dato.
+
+```text
+programa
+   ↓
+pregunta tipada
+   ↓
+Jev
+   ↓
+decisión tipada
+   ↓
+programa
+```
+No estamos eliminando la incertidumbre.
+
+Estamos poniendo límites a dónde puede existir.
+
+---
+
+## Los tres mosqueteros
+
+Jev plantea tres primitivas que me parecen especialmente interesantes porque obligan a pensar la IA de una manera diferente: **Noul, Choice y Score**.
+
+No son simplemente tres tipos de respuesta.
+
+Son tres formas de formular una decisión.
+
+### Noul: ¿sí o no?
+
+Noul sirve para expresar una proposición.
+
+```text
+¿El mensaje solicita un reembolso?
+```
+La respuesta pertenece a un espacio muy pequeño:
+
+```text
+sí
+no
+```
+
+El modelo puede tener incertidumbre sobre la respuesta. Puede estar 52% seguro o 97% seguro.
+
+Pero la incertidumbre no cambia el tipo de decisión.
+
+No existe una tercera respuesta llamada `"probablemente"`.
+
+Eso puede parecer trivial, pero es exactamente lo que normalmente terminamos haciendo cuando usamos un LLM: pedirle que responda en lenguaje natural y luego tratar de convertir ese lenguaje en un booleano.
+
+Con Noul, el booleano es parte de la pregunta.
+
+
+### Choice: ¿cuál?
+
+Hay decisiones que no son binarias.
+
+Supongamos que queremos enrutar un ticket:
+
+```text
+¿A qué equipo corresponde?
+
+[
+  "soporte",
+  "facturación",
+  "ventas"
+]
+```
+
+El modelo tiene que interpretar el mensaje, pero nosotros definimos las opciones válidas.
+
+Puede elegir `facturación`.
+
+Puede estar más o menos seguro.
+
+Pero no puede decidir que el ticket pertenece al equipo de `"marketing"` si esa opción no existe.
+
+Eso es importante.
+
+La IA no está definiendo el espacio de decisión. Está evaluando el estado dentro de un espacio que nosotros definimos.
+
+Y aquí aparece una distinción que me parece fundamental con respecto a un LLM puede decirnos cualquier cosa, las famosas alucinaciones.
+
+Un `Choice` puede elegir cualquier cosa **dentro de las cosas que le permitimos elegir**.
+
+La inteligencia está en la interpretación.
+
+El control está en el tipo.
+
+---
+
+## Score: ¿en qué grado?
+
+Hay decisiones donde tampoco queremos categorías independientes.
+
+Queremos una escala.
+
+¿Qué tan urgente es este ticket?
+
+¿Qué tan relevante es este contenido?
+
+¿Qué tan riesgoso parece este caso?
+
+Podemos definir una escala:
+
+```text
+1 = baja
+2 = moderada
+3 = alta
+```
+
+Ahora la IA no tiene que inventar una descripción de la urgencia.
+
+Tiene que ubicar el estado dentro de una escala que ya conocemos.
+
+Esto puede parecer una diferencia de API, pero en realidad cambia la forma de pensar el problema.
+
+No estamos preguntando:
+
+> ¿Qué opinas sobre este ticket?
+
+Estamos preguntando:
+
+> Dentro de esta escala que forma parte de mi sistema, ¿dónde cae este ticket?
+
+La segunda pregunta es mucho más cercana a cómo pensamos una decisión dentro del software.
+
+---
+
+Quizas en este punto te estes preguntando, pero cuál es entonces la diferencia entre Choice y Scores si ambos usan listas.
+
+**La diferencia no está en que Choice tenga opciones y Score tenga niveles**, porque visualmente ambos pueden parecer una lista de valores. La diferencia está en **qué relación existe entre esos valores**.
+
+**Choice: las opciones son categorías**
+Son alternativas, no tienen un orden inherente.
+
+Por ejemplo:
+¿A qué equipo corresponde este ticket?
+
+```text
+[
+  "soporte",
+  "facturación",
+  "ventas"
+]
+```
+Aquí: soporte no es "más" que `facturación", ventas no está por encima ni por debajo de soporte. Son categorías diferentes.
+
+**Score: los valores representan una escala**
+Tienen orden y distancia conceptual.
+
+Por ejemplo:
+¿Qué tan urgente es este ticket?
+
+```text
+[
+  "baja",
+  "moderada",
+  "alta"
+]
+```
+Aquí sí existe una relación:
+
+```text
+baja < moderada < alta
+```
+
+Y esa relación importa.
+
+---
+
+## El código manda
+
+Aquí está probablemente la parte más interesante.
+
+Jev no convierte una decisión ambigua en una decisión determinista.
+
+La evaluación sigue siendo probabilística.
+
+El modelo puede equivocarse.
+
+Puede interpretar mal el contexto.
+
+Puede asignar una probabilidad que no refleje perfectamente la realidad.
+
+Lo que cambia es lo que hacemos con ese resultado.
+
+Supongamos que tenemos:
+
+```text
+urgencia = Score(...)
+```
+
+Nuestro código puede decidir:
+
+```text
+si urgencia >= alta
+    escalar
+si urgencia == moderada
+    enviar a revisión
+si urgencia == baja
+    continuar flujo normal
+```
+
+La decisión de la IA no reemplazó al código.
+
+Se convirtió en una pieza del código.
+
+Ese detalle es mucho más importante que la capacidad de Jev para clasificar, puntuar o enrutar.
+
+Porque estamos empezando a tener una nueva categoría de componente.
+
+Una decisión que no sabemos expresar completamente con reglas, pero cuyo resultado sí sabemos exactamente cómo consumir.
+
+---
+
+## Del determinismo a la inferencia
+
+Durante mucho tiempo hemos pensado el software casi como una dicotomía.
+
+Por un lado está el determinismo:
+
+```text
+if x > 10:
+    ...
+```
+
+Si conocemos las reglas, sabemos qué ocurrirá.
+
+Por otro está la inferencia:
+
+```text
+LLM(context) → texto
+```
+
+Le damos contexto a un modelo y dejamos que interprete.
+
+El primero es extremadamente controlable, pero requiere que nosotros conozcamos y podamos expresar las reglas.
+
+El segundo puede resolver problemas mucho más ambiguos, pero devuelve algo que el software debe interpretar.
+
+<PostReference slug="no-todo-necesita-un-llm" />
+
+Ahora, Noul, Choice y Score introducen otra posibilidad:
+
+```text
+estado → decisión tipada
+```
+
+La decisión no es determinista.
+
+Pero su forma sí está determinada.
+
+Y esa diferencia abre un espacio interesante entre las reglas tradicionales y el lenguaje generativo.
+
+---
+
+## La IA como una nueva primitiva
+
+Aquí es donde creo que está lo verdaderamente interesante de Jev.
+
+No en que pueda clasificar, los clasificadores existen desde hace mucho.
+
+No en que pueda puntuar, algo que tampoco es nuevo.
+
+Ni siquiera en que pueda entender lenguaje natural, eso ya lo sabemos.
+
+**Lo interesante es la combinación.**
+
+Una máquina puede interpretar un estado ambiguo y producir una decisión no determinista, pero hacerlo dentro de una estructura que nuestro programa entiende.
+
+Eso empieza a parecerse menos a consumir un servicio de IA y más a incorporar una nueva primitiva al lenguaje con el que construimos software.
+
+Tenemos `if`, `switch`, tenemos funciones, tipos...
+
+Y ahora podemos imaginar algo diferente:
+
+```text
+Choice(...)
+Score(...)
+Noul(...)
+```
+
+No como funciones que llaman a un chatbot, sino como mecanismos para introducir inteligencia en lugares donde antes necesitábamos reglas demasiado complejas o demasiado frágiles.
+
+Tal vez el futuro de la IA aplicada al software no consista en hacer que los modelos hablen cada vez mejor.
+
+Tal vez consista en hacer que sepan responder exactamente a las preguntas que nuestro código necesita hacer.
