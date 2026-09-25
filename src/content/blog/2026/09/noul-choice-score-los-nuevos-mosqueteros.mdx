@@ -61,15 +61,13 @@ validación
 programa
 ```
 
-Incluso cuando le pedimos a un LLM un JSON, sigue existiendo la posibilidad de que genere algo que después tengamos que validar.
+Pedir JSON reduce el trabajo de interpretación, pero no elimina el contrato que el programa necesita. Todavía hay que validar estructura, valores permitidos y casos límite.
 
-El problema no es solamente que el modelo pueda equivocarse.
+El problema no es solo que el modelo pueda equivocarse. Es que entiende y responde en un formato abierto, mientras que el programa necesita operar sobre datos con restricciones explícitas.
 
-Es que existe una fricción entre lo que la inteligencia entiende y lo que el código puede consumir.
+**El modelo genera una interpretación. El programa necesita una decisión con tipo.**
 
-**El modelo devuelve texto. El programa necesita un tipo.**
-
-Y esa diferencia importa mucho cuando la respuesta de una IA deja de ser algo que una persona va a leer y se convierte en una condición que el software debe ejecutar.
+Y esa diferencia importa mucho cuando la respuesta de una IA deja de ser algo que una persona va a leer y se convierte en una condición que un programa debe ejecutar.
 
 ---
 
@@ -87,7 +85,9 @@ La pregunta ya define el espacio de decisión.
 
 Eso es lo que propone Jev.
 
-En el artículo anterior lo comparé con un `if` que no necesita que escribamos todo el criterio. TypeSafe describe sus System One Models como modelos orientados a producir decisiones tipadas que el software pueda consumir directamente. En lugar de generar strings para que posteriormente el programa los interprete, el modelo trabaja sobre una estructura de salida definida de antemano.
+En el artículo anterior comparé Jev con un `if` cuyo criterio no tenemos que expresar por completo. Su propuesta, descrita como *System One Models*, consiste en modelar decisiones para que el programa las consuma dentro de un dominio de salida definido.
+
+No se trata solo de obtener texto más estructurado. Se trata de definir antes qué decisiones puede recibir el programa y reservar al código el control sobre qué hacer con ellas.
 
 <PostReference slug="jev-un-if-statement-agentico" />
 
@@ -125,7 +125,7 @@ Son tres formas de formular una decisión.
 
 Para verlas trabajar, voy a usar el mismo ticket de soporte en las tres.
 
-### Noul: ¿sí o no?
+### Noul: ¿se cumple?
 
 Noul sirve para expresar una proposición.
 
@@ -133,31 +133,32 @@ Noul sirve para expresar una proposición.
 ¿El mensaje solicita un reembolso?
 ```
 
-La respuesta pertenece a un espacio muy pequeño:
+La respuesta es un valor entre `0` y `1` que representa el grado de respaldo que el modelo asigna a esa proposición. No debe confundirse automáticamente con una probabilidad estadística perfectamente calibrada.
+
+Puede devolver `0.52` o `0.97`.
+
+El programa no tiene que traducir `"probablemente"`: recibe un valor sobre el que puede definir una política.
+
+Por ejemplo:
 
 ```text
-sí
-no
-```
-
-El modelo puede tener incertidumbre sobre la respuesta. Puede estar 52% seguro o 97% seguro.
-
-Pero la incertidumbre no abre una tercera respuesta llamada `"probablemente"`.
-
-El tipo sigue siendo sí o no. Lo que cambia es la rama que el programa elige:
-
-```text
-si confianza >= 97%
+si reembolso >= 0.97
     procesar el reembolso
 si no
     enviar a revisión
 ```
 
-Un 52% no es un sí tímido. Es otra rama.
+Un `0.52` no es un sí tímido.
+
+Es otra rama.
 
 Eso puede parecer trivial, pero es exactamente lo que normalmente terminamos haciendo cuando usamos un LLM: pedirle que responda en lenguaje natural y luego tratar de convertir ese lenguaje en un booleano.
 
-Con Noul, el booleano es parte de la pregunta. La probabilidad también. El umbral lo escribe el código.
+Con Noul, la evaluación queda expresada como un valor sobre el que el código puede establecer sus propios límites.
+
+La inteligencia interpreta.
+
+El código decide qué hacer con esa interpretación.
 
 ### Choice: ¿cuál?
 
@@ -179,17 +180,17 @@ El modelo tiene que interpretar el mensaje, pero nosotros definimos las opciones
 
 Puede elegir `facturación`.
 
-Puede estar más o menos seguro.
+Puede evaluar las opciones con distintos grados de respaldo.
 
-Pero no puede decidir que el ticket pertenece al equipo de `"marketing"` si esa opción no existe.
+Pero `marketing` no puede aparecer como resultado porque no forma parte del espacio que definimos.
 
 Eso es importante.
 
 La IA no está definiendo el espacio de decisión. Está evaluando el estado dentro de un espacio que nosotros definimos.
 
-Un JSON con un enum puede rechazar `"marketing"` después de que el modelo lo escribió. Un `Choice` no llega a ese punto: la opción que no está en la lista no forma parte de la pregunta.
+Jev no tiene que inventar la opción. Nosotros la ponemos sobre la mesa.
 
-Un `Choice` puede elegir cualquier cosa **dentro de las que le permitimos elegir**.
+Un `Choice` solo puede elegir dentro de las opciones que le permitimos.
 
 La inteligencia está en la interpretación.
 
@@ -204,9 +205,9 @@ Lo que importa es el grado.
 ¿Qué tan urgente es este ticket?
 
 ```text
-1 = baja
-2 = moderada
-3 = alta
+0 = baja
+1 = moderada
+2 = alta
 ```
 
 Ahora la IA no tiene que inventar una descripción de la urgencia.
@@ -219,25 +220,79 @@ No estamos preguntando:
 
 Estamos preguntando:
 
-> Dentro de esta escala que forma parte de mi sistema, ¿dónde cae este ticket?
+> Dentro de esta escala, ¿dónde cae este ticket?
 
 Choice y Score se parecen si solo miramos la lista. La diferencia está en la relación entre los valores.
 
-En el Choice de arriba, soporte, facturación y ventas son categorías. Soporte no es más que facturación, ni menos que ventas. No hay un orden que el código pueda usar.
+En Choice:
 
-En Score, los valores sí tienen orden:
+```text
+soporte ≠ facturación ≠ ventas
+```
+
+Son categorías. Una no es mayor o menor que otra.
+
+En Score:
 
 ```text
 baja < moderada < alta
 ```
 
-Esa relación es la que vuelve válida una comparación como `urgencia >= alta`.
+Los valores tienen un orden.
 
-En un Choice, esa línea no significaría nada.
+Esa diferencia es la que permite que el programa utilice una comparación como:
+
+```text
+urgencia >= 2
+```
+
+No porque `2` sea simplemente un número, sino porque representa una posición dentro de una escala ordenada.
+
+En un Choice, esa comparación no tendría ningún significado.
+
+Y aquí aparece un detalle interesante.
+
+Si defines tres niveles, `0`, `1` y `2`, esos son los niveles de la escala. Pero el `score` puede quedar entre ellos. Una urgencia podría resultar en `1.6`, por ejemplo, situándose entre moderada y alta.
+
+El `1.6` no es un cuarto nivel.
+
+Es el resultado ponderado de la evaluación sobre la escala.
+
+Eso permite algo que un Choice no puede expresar de la misma manera: no solo saber **qué categoría** describe mejor el estado, sino **en qué posición de una escala ordenada** se encuentra.
 
 ---
 
-## El código manda
+## La diferencia importa
+
+Podemos resumir las tres primitivas así:
+
+```text
+Noul
+¿Se cumple?
+0 ───────────── 1
+
+Choice
+¿Cuál?
+[soporte | facturación | ventas]
+
+Score
+¿En qué grado?
+baja < moderada < alta
+```
+
+Las tres tienen algo en común.
+
+La IA interpreta el contexto.
+
+Pero el espacio de respuesta lo definimos nosotros.
+
+No intentamos hacer determinista la inteligencia.
+
+Hacemos explícitas las fronteras de la decisión.
+
+---
+
+## El código conserva la última palabra
 
 Jev no convierte una decisión ambigua en una decisión determinista.
 
@@ -247,7 +302,7 @@ El modelo puede equivocarse.
 
 Puede interpretar mal el contexto.
 
-Puede asignar una probabilidad que no refleje la realidad.
+Puede asignar un valor que no refleje la realidad.
 
 Lo que cambia es lo que hacemos con ese resultado.
 
@@ -258,43 +313,58 @@ reembolso = Noul(¿solicita un reembolso?)
 equipo = Choice(soporte, facturación, ventas)
 urgencia = Score(baja, moderada, alta)
 
-si confianza(reembolso) < 97%
+si reembolso < 0.97
     enviar a revisión
-si equipo == facturación y urgencia >= alta
+
+si equipo == facturación y urgencia >= 2
     escalar
-si urgencia == baja
+
+si urgencia < 1
     continuar flujo normal
+
+si urgencia >= 1 y urgencia < 2
+    revisión prioritaria
 ```
 
 La decisión de la IA no reemplazó al código.
 
-Se convirtió en una pieza del código.
+Se convirtió en una entrada más para el código.
 
-Ese detalle es mucho más importante que la capacidad de Jev para clasificar, puntuar o enrutar.
+Y como cualquier otra entrada relevante, necesita una política alrededor: umbrales explícitos, registro de resultados, revisión de casos límite y una salida segura cuando el coste de equivocarse es alto.
+
+Ese detalle es más importante que la capacidad de Jev para clasificar, puntuar o enrutar.
+
+El valor está en poder usar una interpretación incierta sin entregar al modelo el control de las consecuencias.
 
 Porque estamos empezando a tener una nueva categoría de componente.
 
 Una decisión que no sabemos expresar completamente con reglas, pero cuyo resultado sí sabemos exactamente cómo consumir.
 
-El tipo no vuelve correcta esa decisión. La vuelve legible.
+El tipo no vuelve correcta esa decisión.
+
+**La vuelve legible.**
 
 Si el caso necesita una explicación, si las opciones todavía no están estables, o si mandar el ticket al equipo equivocado sale caro, Noul, Choice y Score no alcanzan. Ahí sigue haciendo falta una persona, o un modelo capaz de argumentar.
 
 <PostReference slug="no-todo-necesita-un-llm" />
 
-Durante mucho tiempo hemos pensado el software casi como una dicotomía. Si conocemos la regla, escribimos un `if` y sabemos qué ocurrirá. Si el problema es ambiguo, le pasamos contexto a un LLM y recibimos texto que el programa todavía tiene que interpretar.
+Durante mucho tiempo hemos pensado el software casi como una dicotomía.
 
-Noul, Choice y Score ocupan el espacio de en medio.
+Si conocemos la regla, escribimos un `if` y sabemos qué ocurrirá.
+
+Si el problema es ambiguo, le pasamos contexto a un LLM y recibimos texto que el programa todavía tiene que interpretar.
+
+Noul, Choice y Score ocupan ese espacio de en medio: problemas cuya interpretación no sabemos describir por completo con reglas, pero cuyas consecuencias sí podemos limitar con precisión.
 
 ```text
-estado → decisión tipada
+ambigüedad → decisión → código
 ```
 
-La decisión no es determinista.
+En este ticket actúan como los nuevos tres mosqueteros: Noul evalúa una proposición, Choice selecciona una categoría y Score sitúa el caso en una escala.
 
-Pero su forma sí está determinada.
+Los tres interpretan.
 
-Son tres, y hacen falta las tres. Como mosqueteros, valen juntas: la proposición, la categoría y la escala, del mismo lado, sostenidas por el código.
+El código conserva la última palabra.
 
 Tal vez el futuro de la IA aplicada al software no consista en hacer que los modelos hablen cada vez mejor.
 
