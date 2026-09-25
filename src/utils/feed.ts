@@ -3,18 +3,33 @@ import { marked } from "marked";
 export const EXCERPT_LENGTH = 500;
 
 const POST_REFERENCE = /<PostReference\s+slug=["']([^"']+)["']\s*\/>/g;
-const PASCAL_TAG = /<\/?[A-Z][A-Za-z0-9]*(?:\s[^<>]*)?\s*\/?>/g;
+// Cierre, auto-cierre o apertura con atributos. Evita genéricos TS (`Promise<Response>`).
+const JSX_COMPONENT =
+  /<\/[A-Z][A-Za-z0-9]*\s*>|<([A-Z][A-Za-z0-9]*)(?:\s[^<>]*?)?\s*\/>|<([A-Z][A-Za-z0-9]*)\s+[^<>]*?>/g;
+const INLINE_CODE = /`[^`]*`/g;
 
 function referenceMarkdown(slug: string, titles: Map<string, string>): string {
   const title = titles.get(slug) ?? slug;
   return `**Ver también:** [${title}](/blog/${slug}/)`;
 }
 
+/** Quita componentes JSX PascalCase sin tocar código inline ni genéricos TS. */
+function stripJsxComponents(line: string): string {
+  const stubs: string[] = [];
+  const masked = line.replace(INLINE_CODE, (code) => {
+    stubs.push(code);
+    return `\0CODE${stubs.length - 1}\0`;
+  });
+  return masked
+    .replace(JSX_COMPONENT, "")
+    .replace(/\0CODE(\d+)\0/g, (_, index: string) => stubs[Number(index)]);
+}
+
 /**
  * Elimina la sintaxis propia de MDX de un cuerpo de post:
  * - líneas `import`/`export` (fuera de bloques de código)
  * - `<PostReference slug="..." />` → enlace legible al post referenciado
- * - cualquier otra etiqueta PascalCase que no sea un componente conocido
+ * - otros componentes JSX PascalCase (no genéricos TypeScript ni código `` `...` ``)
  */
 export function stripMdxSyntax(
   body: string,
@@ -45,10 +60,10 @@ export function stripMdxSyntax(
       continue;
     }
 
-    const withReferences = line
-      .replace(POST_REFERENCE, (_, slug: string) => referenceMarkdown(slug, titles))
-      .replace(PASCAL_TAG, "");
-    lines.push(withReferences);
+    const withReferences = line.replace(POST_REFERENCE, (_, slug: string) =>
+      referenceMarkdown(slug, titles),
+    );
+    lines.push(stripJsxComponents(withReferences));
   }
 
   return lines.join("\n");
