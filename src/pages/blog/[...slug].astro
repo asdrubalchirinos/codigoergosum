@@ -48,6 +48,15 @@ const description = excerptSource;
 
 const publishDate = post.data.pubDate;
 const modifiedDate = post.data.updatedDate;
+
+// Fecha en formato ISO (YYYY-MM-DD) a partir de los componentes locales,
+// para que <time datetime> coincida con la fecha visible en cualquier zona horaria.
+function isoDateOnly(date: Date): string {
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, "0");
+  const day = String(date.getDate()).padStart(2, "0");
+  return `${year}-${month}-${day}`;
+}
 ---
 
 <BaseLayout
@@ -82,14 +91,33 @@ const modifiedDate = post.data.updatedDate;
               <span class="lang-indicator">🌐 English</span>
             )
           }
+          <time datetime={isoDateOnly(post.data.pubDate)}>
+            {
+              post.data.pubDate.toLocaleDateString(
+                post.data.lang === "en" ? "en-US" : "es-ES",
+                {
+                  year: "numeric",
+                  month: "long",
+                  day: "numeric",
+                },
+              )
+            }
+          </time>
           {
-            post.data.pubDate.toLocaleDateString(
-              post.data.lang === "en" ? "en-US" : "es-ES",
-              {
-                year: "numeric",
-                month: "long",
-                day: "numeric",
-              },
+            post.data.updatedDate && (
+              <span class="last-updated-on">
+                {" · Actualizado "}
+                <time datetime={isoDateOnly(post.data.updatedDate)}>
+                  {post.data.updatedDate.toLocaleDateString(
+                    post.data.lang === "en" ? "en-US" : "es-ES",
+                    {
+                      year: "numeric",
+                      month: "long",
+                      day: "numeric",
+                    },
+                  )}
+                </time>
+              </span>
             )
           }
         </div>

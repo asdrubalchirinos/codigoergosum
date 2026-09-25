@@ -6,13 +6,31 @@ import mdx from '@astrojs/mdx';
 import rehypeExternalLinks from 'rehype-external-links';
 import remarkBreaks from 'remark-breaks';
 
+import { collectPostLastmod } from './scripts/post-dates.mjs';
+
+// Índice URL -> última fecha de modificación, para emitir <lastmod> en el sitemap.
+const { byPath: postLastmod, newest: newestPost } = collectPostLastmod();
+
+/** @param {string} pathname */
+function lastmodFor(pathname) {
+  if (pathname === '/' || pathname === '/blog/') return newestPost;
+  return postLastmod.get(pathname);
+}
+
 // https://astro.build/config
 export default defineConfig({
   // Dominio canonical normalizado (usar siempre www para evitar 301 extras)
   site: 'https://www.codigoergosum.com',
   // base removido porque el sitio está en la raíz
   integrations: [
-    sitemap(),
+    sitemap({
+      // Añade <lastmod> a los posts para que los agentes detecten cambios sin
+      // tener que descargar y comparar el sitemap completo.
+      serialize(item) {
+        const lastmod = lastmodFor(new URL(item.url).pathname);
+        return lastmod ? { ...item, lastmod } : item;
+      },
+    }),
     mdx({
       rehypePlugins: [
         [

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Alias de conveniencia: algunos bots prueban /sitemap.xml antes de leer robots.txt.
+  Debe mantenerse en sincronía con sitemap-index.xml (generado por @astrojs/sitemap).
+  Si el build llega a generar sitemap-1.xml, añadirlo también aquí.
+-->
+<sitemapindex xmlns="http://www.sitemaps.org/sitemap/0.9">
+  <sitemap>
+    <loc>https://www.codigoergosum.com/sitemap-0.xml</loc>
+  </sitemap>
+</sitemapindex>

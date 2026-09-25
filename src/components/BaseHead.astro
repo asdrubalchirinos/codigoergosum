@@ -85,6 +85,56 @@ if (isArticle) {
     keywords: tags.length ? tags.join(", ") : undefined,
   };
 }
+
+// JSON-LD del sitio para la home y el índice del blog (los posts usan Article).
+const pathname = Astro.url.pathname;
+const isSiteIndex =
+  pathname === "/" || pathname === `${base}/` ||
+  pathname === "/blog/" || pathname === `${base}/blog/`;
+
+let siteJsonLd: Record<string, unknown> | null = null;
+if (!isArticle && isSiteIndex) {
+  const siteUrl = new URL("/", Astro.site).toString();
+  const websiteId = `${siteUrl}#website`;
+  const blogId = `${siteUrl}#blog`;
+  const personId = `${siteUrl}#person`;
+  const person = {
+    "@type": "Person",
+    "@id": personId,
+    name: author || "Asdrúbal Chirinos",
+    url: "https://x.com/achirinos",
+    sameAs: ["https://x.com/achirinos"],
+  };
+  siteJsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": websiteId,
+        url: siteUrl,
+        name: SITE_NAME,
+        description: finalDescription,
+        inLanguage: "es",
+        publisher: { "@id": personId },
+      },
+      {
+        "@type": "Blog",
+        "@id": blogId,
+        url: new URL("blog/", siteUrl).toString(),
+        name: SITE_NAME,
+        description: finalDescription,
+        inLanguage: "es",
+        author: { "@id": personId },
+        publisher: { "@id": websiteId },
+      },
+      person,
+    ],
+  };
+}
+
+const jsonLdBlocks = [jsonLd, siteJsonLd].filter(
+  (block): block is Record<string, unknown> => block !== null,
+);
 ---
 
 <!-- Global Metadata -->
@@ -110,6 +160,7 @@ if (isArticle) {
   title="Código Ergo Sum RSS"
   href={`${base}/rss.xml`}
 />
+<link rel="llms-txt" type="text/plain" href={`${base}/llms.txt`} />
 
 <!-- Primary Meta Tags -->
 <title>{title}</title>
@@ -171,11 +222,11 @@ if (isArticle) {
 
 <!-- Structured Data (JSON-LD) -->
 {
-  jsonLd && (
+  jsonLdBlocks.map((block) => (
     <script
       type="application/ld+json"
       is:inline
-      set:html={JSON.stringify(jsonLd)}
+      set:html={JSON.stringify(block)}
     />
-  )
+  ))
 }
