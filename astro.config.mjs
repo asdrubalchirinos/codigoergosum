@@ -24,6 +24,9 @@ export default defineConfig({
   // base removido porque el sitio está en la raíz
   integrations: [
     sitemap({
+      // Páginas utilitarias del newsletter: no deben aparecer en el sitemap
+      // (además robots.txt las marca como Disallow).
+      filter: (page) => !/\/(confirm|unsubscribe)\/?$/.test(page),
       // Añade <lastmod> a los posts para que los agentes detecten cambios sin
       // tener que descargar y comparar el sitemap completo.
       serialize(item) {
@@ -48,6 +51,10 @@ export default defineConfig({
   build: {
     format: 'directory',
     assets: '_astro'
+  },
+  // Muchos lectores y agentes prueban /feed antes que /rss.xml
+  redirects: {
+    '/feed': '/rss.xml',
   },
   // Asegurar que las imágenes públicas se copien correctamente
   publicDir: './public',

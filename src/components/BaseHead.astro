@@ -13,6 +13,8 @@ interface Props {
   tags?: string[];
   imageWidth?: number;
   imageHeight?: number;
+  lang?: "es" | "en";
+  wordCount?: number;
 }
 
 import fs from "node:fs";
@@ -25,9 +27,9 @@ const base = rawBase === "/" ? "" : rawBase.replace(/\/$/, "");
 const SITE_NAME = "Código Ergo Sum";
 const DEFAULT_DESC =
   "Descubre en Código ergo sum cómo los cambios laborales y tecnológicos están transformando los negocios. Exploramos desarrollo de software, gestión del tiempo e impacto de la inteligencia artificial. Únete y navega el panorama laboral con éxito.";
-const OG_LOCALE = "es_ES";
 const TWITTER_HANDLE = import.meta.env.PUBLIC_TWITTER_HANDLE; // opcional
 const WEBMCP_ORIGIN_TRIAL_TOKEN = import.meta.env.WEBMCP_ORIGIN_TRIAL_TOKEN;
+const AUTHOR_URL = "https://x.com/achirinos";
 
 const {
   title,
@@ -41,7 +43,11 @@ const {
   tags = [],
   imageWidth,
   imageHeight,
+  lang = "es",
+  wordCount,
 } = Astro.props as Props;
+
+const OG_LOCALE = lang === "en" ? "en_US" : "es_ES";
 
 // Fallback dimensions detection if not provided
 let detectedWidth: number | undefined = imageWidth;
@@ -71,18 +77,36 @@ if (isArticle) {
   const modifiedISO = modifiedDate
     ? new Date(modifiedDate).toISOString()
     : publishedISO;
+  const siteRoot = new URL("/", Astro.site).toString();
   jsonLd = {
     "@context": "https://schema.org",
-    "@type": "Article",
+    "@type": "BlogPosting",
     headline: title,
     description: finalDescription,
     image: new URL(image, Astro.site).toString(),
-    author: author ? { "@type": "Person", name: author } : undefined,
-    url: canonicalURL.toString(),
-    mainEntityOfPage: canonicalURL.toString(),
+    inLanguage: lang,
     datePublished: publishedISO,
     dateModified: modifiedISO,
-    keywords: tags.length ? tags.join(", ") : undefined,
+    keywords: tags.length ? tags : undefined,
+    articleSection: tags.length ? tags[0] : undefined,
+    wordCount,
+    author: author
+      ? {
+          "@type": "Person",
+          name: author,
+          url: siteRoot,
+          sameAs: [AUTHOR_URL],
+        }
+      : undefined,
+    publisher: {
+      "@type": "Person",
+      name: "Asdrúbal Chirinos",
+      url: siteRoot,
+      sameAs: [AUTHOR_URL],
+    },
+    isPartOf: { "@type": "Blog", name: SITE_NAME, url: siteRoot },
+    url: canonicalURL.toString(),
+    mainEntityOfPage: canonicalURL.toString(),
   };
 }
 
@@ -159,6 +183,12 @@ const jsonLdBlocks = [jsonLd, siteJsonLd].filter(
   type="application/rss+xml"
   title="Código Ergo Sum RSS"
   href={`${base}/rss.xml`}
+/>
+<link
+  rel="alternate"
+  type="application/feed+json"
+  title="Código Ergo Sum JSON Feed"
+  href={`${base}/feed.json`}
 />
 <link rel="llms-txt" type="text/plain" href={`${base}/llms.txt`} />
 

@@ -16,7 +16,7 @@ const base = rawBase === "/" ? "" : rawBase.replace(/\/$/, "");
 				/>
 			</a>
 		</div>
-		<h2><a href={`${base}/`}>{SITE_TITLE}</a></h2>
+		<p class="site-title"><a href={`${base}/`}>{SITE_TITLE}</a></p>
 		<div class="search-container">
 			<Search />
 		</div>
@@ -30,13 +30,13 @@ const base = rawBase === "/" ? "" : rawBase.replace(/\/$/, "");
 		background: rgb(var(--white));
 		box-shadow: 0 2px 8px rgba(var(--black), 5%);
 	}
-	h2 {
+	.site-title {
 		margin: 0;
 		font-size: 1em;
 	}
 
-	h2 a,
-	h2 a.active {
+	.site-title a,
+	.site-title a.active {
 		text-decoration: none;
 	}
 	nav {
@@ -62,7 +62,7 @@ const base = rawBase === "/" ? "" : rawBase.replace(/\/$/, "");
 		display: flex;
 		justify-content: flex-end;
 	}
-	h2 {
+	.site-title {
 		flex: 2;
 		text-align: center;
 	}

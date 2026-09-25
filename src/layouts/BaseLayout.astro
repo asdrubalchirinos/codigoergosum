@@ -16,6 +16,8 @@ interface Props {
   tags?: string[];
   imageWidth?: number;
   imageHeight?: number;
+  lang?: "es" | "en";
+  wordCount?: number;
 }
 
 const {
@@ -30,11 +32,13 @@ const {
   tags = [],
   imageWidth,
   imageHeight,
+  lang = "es",
+  wordCount,
 } = Astro.props as Props;
 ---
 
 <!doctype html>
-<html lang="es">
+<html lang={lang}>
   <head>
     <BaseHead
       title={title}
@@ -48,6 +52,8 @@ const {
       tags={tags}
       imageWidth={imageWidth}
       imageHeight={imageHeight}
+      lang={lang}
+      wordCount={wordCount}
     />
     <script
       is:inline

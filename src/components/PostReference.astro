@@ -22,7 +22,11 @@ const formattedDate = data.pubDate.toLocaleDateString("es-ES", {
 });
 ---
 
-<div class="post-reference-card" data-href={url}>
+<aside
+	class="post-reference-card"
+	data-href={url}
+	aria-label="Artículo relacionado"
+>
     <div class="post-reference-content">
         <span class="post-reference-title">{data.title}</span>
         {
@@ -39,7 +43,7 @@ const formattedDate = data.pubDate.toLocaleDateString("es-ES", {
             </div>
         )
     }
-</div>
+</aside>
 
 <script>
     document.querySelectorAll(".post-reference-card").forEach((card) => {

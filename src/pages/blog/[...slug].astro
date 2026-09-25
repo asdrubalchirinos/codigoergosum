@@ -49,6 +49,15 @@ const description = excerptSource;
 const publishDate = post.data.pubDate;
 const modifiedDate = post.data.updatedDate;
 
+// Conteo aproximado de palabras (sin bloques de código ni marcado) para JSON-LD.
+const wordCount = post.body
+  ? post.body
+      .replace(/```[\s\S]*?```/g, " ")
+      .replace(/<[^>]+>|[#>*`_|[\]()!]/g, " ")
+      .split(/\s+/)
+      .filter(Boolean).length
+  : undefined;
+
 // Fecha en formato ISO (YYYY-MM-DD) a partir de los componentes locales,
 // para que <time datetime> coincida con la fecha visible en cualquier zona horaria.
 function isoDateOnly(date: Date): string {
@@ -69,6 +78,8 @@ function isoDateOnly(date: Date): string {
   publishDate={publishDate}
   modifiedDate={modifiedDate}
   tags={post.data.tags}
+  lang={post.data.lang || "es"}
+  wordCount={wordCount}
 >
   <article data-pagefind-body>
     <div class="hero-image">
@@ -122,7 +133,7 @@ function isoDateOnly(date: Date): string {
           }
         </div>
         <h1>{post.data.title}</h1>
-        {post.data.subtitle && <h2 class="subtitle">{post.data.subtitle}</h2>}
+        {post.data.subtitle && <p class="subtitle">{post.data.subtitle}</p>}
         <div class="meta">
           {
             post.data.author && (
@@ -142,7 +153,11 @@ function isoDateOnly(date: Date): string {
       <Content />
 
       <AIDisclaimer lang={post.data.lang || "es"} />
+    </div>
+  </article>
 
+  <!-- CTA, compartir y tags fuera de <article>: los extractores los descartan -->
+  <footer class="prose post-footer" data-pagefind-ignore="all">
       <div class="discussion-section">
         <p>¿Qué opinas sobre este post?</p>
         <a
@@ -156,7 +171,7 @@ function isoDateOnly(date: Date): string {
       </div>
 
       <div class="article-links">
-        <h3>Compartir:</h3>
+        <p class="share-label">Compartir:</p>
         <button
           data-url={`https://x.com/intent/tweet?text=${encodedShareText}&url=${encodedShareUrl}`}
           class="icon-link lnk-x"
@@ -247,8 +262,7 @@ function isoDateOnly(date: Date): string {
           ))
         }
       </div>
-    </div>
-  </article>
+  </footer>
 </BaseLayout>
 
 <style>
@@ -269,6 +283,9 @@ function isoDateOnly(date: Date): string {
     padding: 1em 1em 2em 1em;
     color: rgb(var(--gray-dark));
   }
+  .post-footer {
+    padding-top: 0;
+  }
   .title {
     margin-bottom: 1em;
     padding: 1em 0;
@@ -282,6 +299,7 @@ function isoDateOnly(date: Date): string {
     font-size: 1.5em;
     color: rgb(var(--gray));
     font-weight: normal;
+    margin: 0.5em 0;
   }
   .date {
     margin-bottom: 0.5em;
@@ -341,9 +359,10 @@ function isoDateOnly(date: Date): string {
     gap: 1rem;
     align-items: center;
   }
-  .article-links h3 {
+  .article-links .share-label {
     margin: 0;
     font-size: 1rem;
+    font-weight: 700;
     margin-right: 0.5rem;
   }
   .icon-link {

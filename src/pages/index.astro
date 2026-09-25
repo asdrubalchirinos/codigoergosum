@@ -27,6 +27,10 @@ const base = rawBase === "/" ? "" : rawBase.replace(/\/$/, "");
     description={SITE_DESCRIPTION}
     image="/codigoergosum.webp"
 >
+    <h1 class="visually-hidden">
+        Código Ergo Sum — blog de Asdrúbal Chirinos sobre IA, desarrollo de
+        software y carrera tecnológica
+    </h1>
     <div class="container">
         <div class="content">
             {
@@ -163,6 +167,20 @@ const base = rawBase === "/" ? "" : rawBase.replace(/\/$/, "");
 </BaseLayout>
 
 <style>
+    /* Título accesible para lectores de pantalla y motores de búsqueda:
+       la portada usa el logo como imagen, no tenía <h1>. */
+    .visually-hidden {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0 0 0 0);
+        clip-path: inset(50%);
+        white-space: nowrap;
+        border: 0;
+    }
     .container {
         display: flex;
         gap: 2rem;

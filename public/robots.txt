@@ -1,6 +1,15 @@
 # https://www.robotstxt.org/robotstxt.html
 User-agent: *
 Allow: /
+
+# Páginas utilitarias del newsletter, sin contenido para lectores ni bots
+Disallow: /confirm/
+Disallow: /unsubscribe/
+
+# Señales de uso (contentsignals.org):
+#   search   -> indexación en buscadores
+#   ai-input -> uso como entrada de agentes IA (RAG, grounding, resúmenes)
+#   ai-train -> entrenamiento de modelos
 Content-Signal: ai-train=no, search=yes, ai-input=yes
 
 Sitemap: https://www.codigoergosum.com/sitemap-index.xml
