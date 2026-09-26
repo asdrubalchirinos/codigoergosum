@@ -39,6 +39,7 @@
     "resumen semanal": { "category": "editorial", "description": "Recopilación editorial de enlaces, notas o aprendizajes de una semana.", "legacy": true },
     "soft-skills": { "category": "profesion", "description": "Comunicación, colaboración y habilidades humanas en el trabajo." },
     "solvers": { "category": "filosofias-de-software", "description": "La identidad o mentalidad de quien parte de una fricción concreta y construye una solución, priorizando resolver sobre programar." },
+    "system-one": { "category": "tecnologia", "description": "System One Models y sus primitivas tipadas (Noul, Choice, Score y afines) para incorporar decisiones no deterministas al código con un dominio de salida definido." },
     "tecnologia": { "category": "producto-sociedad", "description": "Tecnología como fenómeno, producto o impacto social amplio." },
     "tendencias": { "category": "producto-sociedad", "description": "El artículo presenta un cambio emergente o una señal de transformación futura en tecnología o en su industria; no basta mencionar algo nuevo." },
     "testing": { "category": "tecnologia", "description": "Pruebas de software, calidad y estrategias de verificación." },
