@@ -15,6 +15,7 @@ interface Props {
   imageHeight?: number;
   lang?: "es" | "en";
   wordCount?: number;
+  kind?: "articulo" | "short";
 }
 
 import fs from "node:fs";
@@ -45,6 +46,7 @@ const {
   imageHeight,
   lang = "es",
   wordCount,
+  kind,
 } = Astro.props as Props;
 
 const OG_LOCALE = lang === "en" ? "en_US" : "es_ES";
@@ -100,7 +102,7 @@ if (isArticle) {
     datePublished: publishedISO,
     dateModified: modifiedISO,
     keywords: tags.length ? tags : undefined,
-    articleSection: tags.length ? tags[0] : undefined,
+    articleSection: kind === "short" ? "Shorts" : tags.length ? tags[0] : undefined,
     wordCount,
     author: person,
     publisher: person,

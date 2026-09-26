@@ -2,6 +2,7 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Sidebar from "../components/Sidebar.astro";
 import NewsletterForm from "../components/NewsletterForm.astro";
+import KindBadge from "../components/KindBadge.astro";
 import { getCollection } from "astro:content";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 
@@ -46,6 +47,12 @@ const base = rawBase === "/" ? "" : rawBase.replace(/\/$/, "");
                                         alt=""
                                     />
                                 )}
+                                {featuredPost.data.heroImage && (
+                                    <KindBadge
+                                        kind={featuredPost.data.kind}
+                                        variant="overlay"
+                                    />
+                                )}
                                 {!import.meta.env.PROD &&
                                     featuredPost.data.draft && (
                                         <span class="badge badge-draft">
@@ -71,7 +78,17 @@ const base = rawBase === "/" ? "" : rawBase.replace(/\/$/, "");
                                     <span class="badge badge-lang">EN</span>
                                 )}
                             </div>
-                            <h2 class="title">{featuredPost.data.title}</h2>
+                            <h2 class="title">
+                                {
+                                    !featuredPost.data.heroImage && (
+                                        <KindBadge
+                                            kind={featuredPost.data.kind}
+                                            variant="inline"
+                                        />
+                                    )
+                                }
+                                {featuredPost.data.title}
+                            </h2>
                             {featuredPost.data.subtitle && (
                                 <p class="subtitle">
                                     {featuredPost.data.subtitle}
@@ -102,7 +119,13 @@ const base = rawBase === "/" ? "" : rawBase.replace(/\/$/, "");
                             <li>
                                 <a href={`${base}/blog/${post.slug}/`}>
                                     <div class="post-content">
-                                        <h4 class="title">{post.data.title}</h4>
+                                        <h4 class="title">
+                                            <KindBadge
+                                                kind={post.data.kind}
+                                                variant="inline"
+                                            />
+                                            {post.data.title}
+                                        </h4>
                                         {post.data.subtitle && (
                                             <p class="subtitle">
                                                 {post.data.subtitle}

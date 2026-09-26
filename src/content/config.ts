@@ -39,6 +39,7 @@ const blog = defineCollection({
 		tags: z.array(z.string()).default([]),
 		featured: z.boolean().default(false),
 		draft: z.boolean().default(false),
+		kind: z.enum(['articulo', 'short']).default('articulo'),
 		// Language support: 'es' (Spanish) is default, 'en' for English posts
 		lang: z.enum(['es', 'en']).default('es'),
 		// Optional: link to the original post slug when this is a translation

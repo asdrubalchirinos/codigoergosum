@@ -1,0 +1,52 @@
+---
+interface Props {
+	kind?: "articulo" | "short";
+	variant?: "overlay" | "inline";
+}
+
+const { kind, variant = "inline" } = Astro.props;
+const show = kind === "short";
+---
+
+{
+	show && (
+		<span
+			class:list={["kind-badge", variant]}
+			aria-label="Shorts"
+		>Shorts</span>
+	)
+}
+
+<style>
+	.kind-badge {
+		display: inline-flex;
+		align-items: center;
+		padding: 0.15em 0.55em;
+		font-size: 0.7rem;
+		font-weight: 700;
+		line-height: 1.2;
+		letter-spacing: 0.5px;
+		text-transform: uppercase;
+		border-radius: 4px;
+		background: rgb(var(--accent));
+		color: #fff;
+		box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+	}
+
+	.kind-badge.overlay {
+		position: absolute;
+		top: 8px;
+		left: 8px;
+		z-index: 10;
+		padding: 6px 14px;
+		font-size: 0.75rem;
+	}
+
+	.kind-badge.inline {
+		vertical-align: middle;
+		margin-right: 0.4em;
+		position: relative;
+		top: -0.15em;
+		box-shadow: none;
+	}
+</style>

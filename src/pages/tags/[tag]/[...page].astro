@@ -3,6 +3,7 @@ import type { GetStaticPaths, Page } from "astro";
 import type { CollectionEntry } from "astro:content";
 import BaseLayout from "../../../layouts/BaseLayout.astro";
 import Sidebar from "../../../components/Sidebar.astro";
+import KindBadge from "../../../components/KindBadge.astro";
 import { getCollection } from "astro:content";
 import { BLOG_PAGE_SIZE, SITE_TITLE } from "../../../consts";
 
@@ -65,7 +66,13 @@ const base = rawBase === "/" ? "" : rawBase.replace(/\/$/, "");
                         <li>
                             <a href={`${base}/blog/${post.slug}/`}>
                                 <div class="post-content">
-                                    <h2 class="title">{post.data.title}</h2>
+                                    <h2 class="title">
+                                        <KindBadge
+                                            kind={post.data.kind}
+                                            variant="inline"
+                                        />
+                                        {post.data.title}
+                                    </h2>
                                     <p class="date">
                                         {post.data.pubDate.toLocaleDateString(
                                             "es-ES",

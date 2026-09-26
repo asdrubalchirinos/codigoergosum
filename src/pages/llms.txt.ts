@@ -69,6 +69,7 @@ export async function GET(context: { site: URL | undefined }) {
       const postTags = post.data.tags.join(", ");
       const date = formatDate(post.data.pubDate);
       const parts = [`- [${post.data.title}](${absolute(`/blog/${post.slug}/`)}): ${date}`];
+      if (post.data.kind === "short") parts.push(" — Shorts");
       if (summary) parts.push(` — ${summary}`);
       if (postTags) parts.push(` — etiquetas: ${postTags}`);
       return parts.join("");

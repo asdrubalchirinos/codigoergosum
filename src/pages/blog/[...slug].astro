@@ -3,6 +3,7 @@ import { type CollectionEntry, getCollection } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import TranslationLink from "../../components/TranslationLink.astro";
 import AIDisclaimer from "../../components/AIDisclaimer.astro";
+import KindBadge from "../../components/KindBadge.astro";
 
 export async function getStaticPaths() {
   const posts = await getCollection("blog", ({ data }) => {
@@ -20,6 +21,7 @@ const post = Astro.props as CollectionEntry<"blog">;
 const { Content } = await post.render();
 const rawBase = import.meta.env.BASE_URL;
 const base = rawBase === "/" ? "" : rawBase.replace(/\/$/, "");
+const isShort = post.data.kind === "short";
 
 const shareUrl = new URL(Astro.url.pathname, Astro.site);
 const shareText = `Lee "${post.data.title}" en Código Ergo Sum`;
@@ -80,8 +82,10 @@ function isoDateOnly(date: Date): string {
   tags={post.data.tags}
   lang={post.data.lang || "es"}
   wordCount={wordCount}
+  kind={post.data.kind}
 >
-  <article data-pagefind-body>
+  <div class:list={["post", isShort && "post--short"]}>
+  <article class:list={[isShort && "article--short"]} data-pagefind-body>
     <div class="hero-image">
       {
         post.data.heroImage && (
@@ -97,6 +101,7 @@ function isoDateOnly(date: Date): string {
     <div class="prose">
       <div class="title">
         <div class="date">
+          <KindBadge kind={post.data.kind} variant="inline" />
           {
             post.data.lang === "en" && (
               <span class="lang-indicator">🌐 English</span>
@@ -263,6 +268,7 @@ function isoDateOnly(date: Date): string {
         }
       </div>
   </footer>
+  </div>
 </BaseLayout>
 
 <style>
@@ -495,5 +501,44 @@ function isoDateOnly(date: Date): string {
       background: rgb(var(--accent));
       color: #fff;
     }
+  }
+
+  .post--short .hero-image {
+    margin-top: 1rem;
+  }
+  .post--short .hero-image img {
+    max-height: 280px;
+    object-fit: cover;
+  }
+  .post--short .title {
+    padding: 0.5em 0;
+    margin-bottom: 0.5em;
+  }
+  .post--short .title h1 {
+    font-size: 2rem;
+  }
+  .post--short .subtitle {
+    font-size: 1.2em;
+  }
+  .post--short .date {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+  .post--short .discussion-section {
+    margin-top: 2rem;
+  }
+  .post--short .article-links {
+    margin-top: 2rem;
+    padding-top: 1.25rem;
+  }
+  .post--short .support-section {
+    margin-top: 1.5rem;
+    padding: 1.5rem 1.25rem;
+  }
+  .post--short :global(.ai-disclaimer) {
+    margin-top: 1.5rem;
   }
 </style>

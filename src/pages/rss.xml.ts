@@ -88,12 +88,17 @@ export async function GET(context: { site: URL | undefined }) {
         : "";
       const creator = escapeXml(post.data.author || "Asdrúbal Chirinos");
 
+      const categories = [...post.data.tags];
+      if (post.data.kind === "short" && !categories.includes("shorts")) {
+        categories.push("shorts");
+      }
+
       return {
         title: post.data.title,
         pubDate: post.data.pubDate,
         description: buildExcerpt(post.data.subtitle, post.body, titles),
         link: `/blog/${post.slug}/`,
-        categories: post.data.tags.length ? post.data.tags : undefined,
+        categories: categories.length ? categories : undefined,
         content:
           index < RSS_FULL_CONTENT_ITEMS && post.body
             ? await toFeedHtml(post.body, titles, site)

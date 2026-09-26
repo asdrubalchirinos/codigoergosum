@@ -1,5 +1,6 @@
 ---
 import { getEntry } from "astro:content";
+import KindBadge from "./KindBadge.astro";
 
 interface Props {
     slug: string;
@@ -28,7 +29,10 @@ const formattedDate = data.pubDate.toLocaleDateString("es-ES", {
 	aria-label="Artículo relacionado"
 >
     <div class="post-reference-content">
-        <span class="post-reference-title">{data.title}</span>
+        <span class="post-reference-title">
+            <KindBadge kind={data.kind} variant="inline" />
+            {data.title}
+        </span>
         {
             data.subtitle && (
                 <span class="post-reference-subtitle">{data.subtitle}</span>

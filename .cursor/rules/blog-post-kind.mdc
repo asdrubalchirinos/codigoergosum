@@ -1,0 +1,20 @@
+---
+description: Elige kind articulo o short al crear o editar posts del blog
+globs:
+  - src/content/blog/**/*.md
+  - src/content/blog/**/*.mdx
+alwaysApply: false
+---
+
+# Kind de posts (`articulo` | `short`)
+
+En el frontmatter usa `kind: short` o deja el default (`articulo`).
+
+- `short`: una sola tesis, sin secciones `h2`, ~300–400 palabras. El badge visible es **Shorts**.
+- `articulo` (default): desarrollo largo, con secciones o más de una idea.
+
+```yaml
+kind: short
+```
+
+No inventes otros valores. No hace falta poner `kind: articulo` en posts largos.

@@ -15,12 +15,13 @@ export async function GET(context: { site: URL | undefined }) {
     return new Response(
         JSON.stringify(
             sortedPosts.map((post) => ({
-                title: post.data.title,
-                pubDate: post.data.pubDate,
-                description: post.data.subtitle || "",
-                slug: post.slug,
-                url: site ? new URL(`/blog/${post.slug}/`, site).toString() : `/blog/${post.slug}/`,
-                tags: post.data.tags,
+        title: post.data.title,
+        pubDate: post.data.pubDate,
+        description: post.data.subtitle || "",
+        slug: post.slug,
+        url: site ? new URL(`/blog/${post.slug}/`, site).toString() : `/blog/${post.slug}/`,
+        tags: post.data.tags,
+        kind: post.data.kind,
             }))
         ),
         {

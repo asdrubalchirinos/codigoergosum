@@ -40,6 +40,7 @@ export async function GET(context: { site: URL | undefined }) {
         date_published: post.data.pubDate.toISOString(),
         authors: [{ name: post.data.author || AUTHOR.name }],
         tags: post.data.tags.length ? post.data.tags : undefined,
+        kind: post.data.kind,
       };
 
       if (post.data.updatedDate) {
