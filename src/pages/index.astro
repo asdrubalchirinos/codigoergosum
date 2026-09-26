@@ -16,8 +16,19 @@ const sortedPosts = posts.sort(
 );
 
 const featuredPost = sortedPosts.find((post) => post.data.featured);
+const now = new Date();
+const weekAgo = new Date(now.getTime() - 7 * 24 * 60 * 60 * 1000);
+const recentShorts = sortedPosts
+    .filter(
+        (post) =>
+            post !== featuredPost &&
+            post.data.kind === "short" &&
+            post.data.pubDate > weekAgo &&
+            post.data.pubDate <= now,
+    )
+    .slice(0, 1);
 const recentPosts = sortedPosts
-    .filter((post) => post !== featuredPost)
+    .filter((post) => post !== featuredPost && !recentShorts.includes(post))
     .slice(0, 5);
 const rawBase = import.meta.env.BASE_URL;
 const base = rawBase === "/" ? "" : rawBase.replace(/\/$/, "");
@@ -105,6 +116,76 @@ const base = rawBase === "/" ? "" : rawBase.replace(/\/$/, "");
                                 )}
                             </p>
                         </a>
+                    </section>
+                )
+            }
+
+            {
+                recentShorts.length > 0 && (
+                    <section class="recent-shorts">
+                        <ul>
+                            {recentShorts.map((post) => (
+                                <li>
+                                    <a href={`${base}/blog/${post.slug}/`}>
+                                        <div class="post-content">
+                                            <h4 class="title">
+                                                <KindBadge
+                                                    kind={post.data.kind}
+                                                    variant="inline"
+                                                />
+                                                {post.data.title}
+                                            </h4>
+                                            {post.data.subtitle && (
+                                                <p class="subtitle">
+                                                    {post.data.subtitle}
+                                                </p>
+                                            )}
+                                            <p class="date">
+                                                {post.data.pubDate.toLocaleDateString(
+                                                    "es-ES",
+                                                    {
+                                                        year: "numeric",
+                                                        month: "short",
+                                                        day: "numeric",
+                                                    },
+                                                )}
+                                            </p>
+                                        </div>
+                                        {post.data.heroImage && (
+                                            <div class="post-image">
+                                                <div class="image-wrapper">
+                                                    <img
+                                                        width={120}
+                                                        height={120}
+                                                        src={`${base}${post.data.heroImage}`}
+                                                        alt=""
+                                                    />
+                                                    {!import.meta.env.PROD &&
+                                                        post.data.draft && (
+                                                            <span class="badge badge-draft">
+                                                                DRAFT
+                                                            </span>
+                                                        )}
+                                                    {!import.meta.env.PROD &&
+                                                        !post.data.draft &&
+                                                        post.data.pubDate >
+                                                            new Date() && (
+                                                            <span class="badge badge-scheduled">
+                                                                SCHEDULED
+                                                            </span>
+                                                        )}
+                                                    {post.data.lang === "en" && (
+                                                        <span class="badge badge-lang">
+                                                            EN
+                                                        </span>
+                                                    )}
+                                                </div>
+                                            </div>
+                                        )}
+                                    </a>
+                                </li>
+                            ))}
+                        </ul>
                     </section>
                 )
             }
@@ -220,6 +301,14 @@ const base = rawBase === "/" ? "" : rawBase.replace(/\/$/, "");
     .featured-post {
         margin-bottom: 3rem;
     }
+    .featured-post:has(+ .recent-shorts) {
+        margin-bottom: 1.5rem;
+        padding-bottom: 1.5rem;
+        border-bottom: 1px solid rgb(var(--gray-light));
+    }
+    .featured-post:has(+ .recent-shorts) .date {
+        margin-bottom: 0;
+    }
     .featured-post .post-wrapper {
         position: relative;
     }
@@ -247,19 +336,26 @@ const base = rawBase === "/" ? "" : rawBase.replace(/\/$/, "");
         margin-bottom: 1rem;
         margin-top: 0;
     }
-    .recent-posts ul {
+    .recent-shorts {
+        margin-bottom: 3rem;
+    }
+    .recent-posts ul,
+    .recent-shorts ul {
         list-style: none;
         padding: 0;
     }
-    .recent-posts li {
+    .recent-posts li,
+    .recent-shorts li {
         margin-bottom: 1.5rem;
         border-bottom: 1px solid rgb(var(--gray-light));
         padding-bottom: 1.5rem;
     }
-    .recent-posts li:last-child {
+    .recent-posts li:last-child,
+    .recent-shorts li:last-child {
         border-bottom: none;
     }
-    .recent-posts a {
+    .recent-posts a,
+    .recent-shorts a {
         text-decoration: none;
         color: inherit;
         display: flex;
@@ -280,12 +376,14 @@ const base = rawBase === "/" ? "" : rawBase.replace(/\/$/, "");
         border-radius: 8px;
         display: block;
     }
-    .recent-posts .title {
+    .recent-posts .title,
+    .recent-shorts .title {
         font-size: 1.5rem;
         margin-bottom: 0.5rem;
         margin-top: 0;
     }
-    .recent-posts .date {
+    .recent-posts .date,
+    .recent-shorts .date {
         color: rgb(var(--gray));
         font-size: 0.9rem;
         margin-bottom: 0.25rem;
@@ -308,7 +406,8 @@ const base = rawBase === "/" ? "" : rawBase.replace(/\/$/, "");
     .view-all a:hover {
         background-color: rgb(var(--accent-dark));
     }
-    .recent-posts .subtitle {
+    .recent-posts .subtitle,
+    .recent-shorts .subtitle {
         color: rgb(var(--gray-dark));
         font-size: 1rem;
         margin: 0;
