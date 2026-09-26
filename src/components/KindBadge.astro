@@ -9,44 +9,67 @@ const show = kind === "short";
 ---
 
 {
-	show && (
-		<span
-			class:list={["kind-badge", variant]}
-			aria-label="Shorts"
-		>Shorts</span>
+	show && variant === "overlay" && (
+		<span class="kind-badge overlay" aria-label="Shorts">
+			<span class="kind-badge-label">Shorts</span>
+		</span>
+	)
+}
+{
+	show && variant === "inline" && (
+		<span class="kind-badge inline" aria-label="Shorts">Shorts</span>
 	)
 }
 
 <style>
 	.kind-badge {
-		display: inline-flex;
-		align-items: center;
-		padding: 0.15em 0.55em;
-		font-size: 0.7rem;
 		font-weight: 700;
-		line-height: 1.2;
 		letter-spacing: 0.5px;
 		text-transform: uppercase;
-		border-radius: 4px;
-		background: rgb(var(--accent));
 		color: #fff;
-		box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+		background: rgb(var(--accent));
 	}
 
 	.kind-badge.overlay {
 		position: absolute;
-		top: 8px;
-		left: 8px;
+		top: 0;
+		right: 0;
 		z-index: 10;
-		padding: 6px 14px;
-		font-size: 0.75rem;
+		display: block;
+		width: 108px;
+		height: 108px;
+		overflow: hidden;
+		background: none;
+		pointer-events: none;
+	}
+
+	.kind-badge-label {
+		position: absolute;
+		top: 22px;
+		right: -32px;
+		width: 148px;
+		padding: 5px 0;
+		background: rgb(var(--accent));
+		color: #fff;
+		font-size: 0.7rem;
+		font-weight: 700;
+		letter-spacing: 0.1em;
+		text-align: center;
+		text-transform: uppercase;
+		box-shadow: 0 2px 8px rgba(0, 0, 0, 0.28);
+		transform: rotate(45deg);
 	}
 
 	.kind-badge.inline {
+		display: inline-flex;
+		align-items: center;
+		padding: 0.15em 0.55em;
+		font-size: 0.7rem;
+		line-height: 1.2;
+		border-radius: 4px;
 		vertical-align: middle;
 		margin-right: 0.4em;
 		position: relative;
 		top: -0.15em;
-		box-shadow: none;
 	}
 </style>

@@ -327,6 +327,10 @@ const base = rawBase === "/" ? "" : rawBase.replace(/\/$/, "");
         z-index: 10;
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     }
+    .post-wrapper:has(.kind-badge.overlay) .badge {
+        right: auto;
+        left: 8px;
+    }
     .badge-draft {
         background-color: #f59e0b;
         color: white;

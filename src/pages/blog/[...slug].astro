@@ -97,11 +97,20 @@ function isoDateOnly(date: Date): string {
           />
         )
       }
+      {
+        post.data.heroImage && (
+          <KindBadge kind={post.data.kind} variant="overlay" />
+        )
+      }
     </div>
     <div class="prose">
       <div class="title">
         <div class="date">
-          <KindBadge kind={post.data.kind} variant="inline" />
+          {
+            !post.data.heroImage && (
+              <KindBadge kind={post.data.kind} variant="inline" />
+            )
+          }
           {
             post.data.lang === "en" && (
               <span class="lang-indicator">🌐 English</span>
@@ -273,6 +282,7 @@ function isoDateOnly(date: Date): string {
 
 <style>
   .hero-image {
+    position: relative;
     width: 100%;
     margin-top: 2rem;
   }
