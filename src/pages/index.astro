@@ -3,14 +3,16 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import Sidebar from "../components/Sidebar.astro";
 import NewsletterForm from "../components/NewsletterForm.astro";
 import KindBadge from "../components/KindBadge.astro";
-import { getCollection } from "astro:content";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
+import {
+    englishVersionSlugs,
+    getPublishedPosts,
+    primaryVersions,
+} from "../utils/posts";
 
-const posts = await getCollection("blog", ({ data }) => {
-    return import.meta.env.PROD
-        ? data.draft !== true && data.pubDate <= new Date()
-        : true;
-});
+const allPosts = await getPublishedPosts();
+const enSlugs = englishVersionSlugs(allPosts);
+const posts = primaryVersions(allPosts);
 const sortedPosts = posts.sort(
     (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
 );
@@ -85,7 +87,7 @@ const base = rawBase === "/" ? "" : rawBase.replace(/\/$/, "");
                                             )}
                                         </span>
                                     )}
-                                {featuredPost.data.lang === "en" && (
+                                {enSlugs.has(featuredPost.slug) && (
                                     <span class="badge badge-lang">EN</span>
                                 )}
                             </div>
@@ -174,7 +176,7 @@ const base = rawBase === "/" ? "" : rawBase.replace(/\/$/, "");
                                                                 SCHEDULED
                                                             </span>
                                                         )}
-                                                    {post.data.lang === "en" && (
+                                                    {enSlugs.has(post.slug) && (
                                                         <span class="badge badge-lang">
                                                             EN
                                                         </span>
@@ -246,7 +248,7 @@ const base = rawBase === "/" ? "" : rawBase.replace(/\/$/, "");
                                                             SCHEDULED
                                                         </span>
                                                     )}
-                                                {post.data.lang === "en" && (
+                                                {enSlugs.has(post.slug) && (
                                                     <span class="badge badge-lang">
                                                         EN
                                                     </span>

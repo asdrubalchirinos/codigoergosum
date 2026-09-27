@@ -5,6 +5,7 @@ import {
   SITE_TITLE,
 } from "../consts";
 import { buildExcerpt, toFeedHtml } from "../utils/feed";
+import { primaryVersions } from "../utils/posts";
 
 const AUTHOR = { name: "Asdrúbal Chirinos", url: "https://x.com/achirinos" };
 
@@ -16,18 +17,20 @@ export async function GET(context: { site: URL | undefined }) {
     });
   }
 
-  const posts = await getCollection("blog", ({ data }) => {
+  const allPosts = await getCollection("blog", ({ data }) => {
     return import.meta.env.PROD
       ? data.draft !== true && data.pubDate <= new Date()
       : true;
   });
+
+  const posts = primaryVersions(allPosts);
 
   const sortedPosts = posts.sort(
     (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
   );
 
   const titles = new Map<string, string>(
-    posts.map((post) => [post.slug, post.data.title]),
+    allPosts.map((post) => [post.slug, post.data.title]),
   );
 
   const items = await Promise.all(

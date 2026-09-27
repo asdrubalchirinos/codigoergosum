@@ -8,6 +8,7 @@ import {
   SITE_TITLE,
 } from "../consts";
 import { buildExcerpt, escapeXml, toFeedHtml } from "../utils/feed";
+import { primaryVersions } from "../utils/posts";
 
 function getImageMimeType(imagePath: string): string {
   const ext = imagePath.split(".").pop()?.toLowerCase();
@@ -57,11 +58,13 @@ export async function GET(context: { site: URL | undefined }) {
     return new Response("RSS requires Astro `site` config.", { status: 500 });
   }
 
-  const posts = await getCollection("blog", ({ data }) => {
+  const allPosts = await getCollection("blog", ({ data }) => {
     return import.meta.env.PROD
       ? data.draft !== true && data.pubDate <= new Date()
       : true;
   });
+
+  const posts = primaryVersions(allPosts);
 
   const sortedPosts = posts.sort(
     (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
@@ -69,7 +72,7 @@ export async function GET(context: { site: URL | undefined }) {
 
   // Título por slug, para resolver las referencias cruzadas de los posts MDX.
   const titles = new Map<string, string>(
-    posts.map((post) => [post.slug, post.data.title]),
+    allPosts.map((post) => [post.slug, post.data.title]),
   );
 
   const lastContentChange = sortedPosts.reduce<Date | undefined>((latest, post) => {

@@ -1,14 +1,15 @@
 import { getCollection } from "astro:content";
+import { primaryVersions } from "../../utils/posts";
 
 export async function GET(context: { site: URL | undefined }) {
     const site = context.site?.toString() ?? import.meta.env.SITE ?? "http://localhost:4321";
-    const posts = await getCollection("blog", ({ data }) => {
+    const allPosts = await getCollection("blog", ({ data }) => {
         return import.meta.env.PROD
             ? data.draft !== true && data.pubDate <= new Date()
             : true;
     });
 
-    const sortedPosts = posts
+    const sortedPosts = primaryVersions(allPosts)
         .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
         .slice(0, 10);
 

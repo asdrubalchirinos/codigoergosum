@@ -1,5 +1,6 @@
 import { getCollection } from "astro:content";
 import { RSS_FULL_CONTENT_ITEMS, SITE_DESCRIPTION, SITE_TITLE } from "../consts";
+import { primaryVersions } from "../utils/posts";
 
 // Artículos listados en el índice. El archivo completo está en el sitemap y en el RSS.
 const RECENT_POSTS = 50;
@@ -21,11 +22,13 @@ export async function GET(context: { site: URL | undefined }) {
 
   const absolute = (pathname: string) => new URL(pathname, site).toString();
 
-  const posts = await getCollection("blog", ({ data }) => {
+  const allPosts = await getCollection("blog", ({ data }) => {
     return import.meta.env.PROD
       ? data.draft !== true && data.pubDate <= new Date()
       : true;
   });
+
+  const posts = primaryVersions(allPosts);
 
   const sortedPosts = posts.sort(
     (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
