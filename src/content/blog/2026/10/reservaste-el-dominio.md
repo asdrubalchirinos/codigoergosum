@@ -21,6 +21,8 @@ Había un pequeño detalle del que nadie parecia haberse percatado.
 
 **El dominio ``mypalm.com``, ya estaba registrado.**
 
+---
+
 Un consultor británico, _Dominic Hulewicz_ lo había hecho once meses atrás y lo usaba para su correo electrónico.
 
 Un cuarto de siglo después... el mismo guion vuelve a repetirse.
