@@ -5,7 +5,7 @@ pubDate: '2026-10-03'
 heroImage: /images/blog/2026/10/reservaste-el-dominio/hero.png
 author: Asdrúbal Chirinos
 featured: false
-draft: true
+draft: false
 kind: short
 tags: ["opinion","tendencia","industria"]
 slug: reservaste-el-dominio
