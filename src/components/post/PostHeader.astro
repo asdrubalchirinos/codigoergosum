@@ -1,0 +1,49 @@
+---
+import TranslationLink from "../TranslationLink.astro";
+import KindBadge from "../KindBadge.astro";
+
+interface Props {
+	title: string;
+	subtitle?: string;
+	author?: string;
+	pubDate: Date;
+	updatedDate?: Date;
+	lang: "es" | "en";
+	currentSlug: string;
+	translationOf?: string;
+	kind?: "articulo" | "short";
+	hasHeroImage: boolean;
+}
+
+const { title, subtitle, author, pubDate, updatedDate, lang, currentSlug, translationOf, kind, hasHeroImage } = Astro.props;
+const locale = lang === "en" ? "en-US" : "es-ES";
+const formatDate = (date: Date) => date.toLocaleDateString(locale, { year: "numeric", month: "long", day: "numeric" });
+const isoDateOnly = (date: Date) => `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, "0")}-${String(date.getDate()).padStart(2, "0")}`;
+---
+
+<header class="title">
+	<div class="date">
+		{!hasHeroImage && <KindBadge kind={kind} variant="inline" />}
+		{lang === "en" && <span class="lang-indicator">🌐 English</span>}
+		<time datetime={isoDateOnly(pubDate)}>{formatDate(pubDate)}</time>
+		{updatedDate && <span class="last-updated-on"> · Actualizado <time datetime={isoDateOnly(updatedDate)}>{formatDate(updatedDate)}</time></span>}
+	</div>
+	<h1>{title}</h1>
+	{subtitle && <p class="subtitle">{subtitle}</p>}
+	{author && <div class="meta"><span class="author">{lang === "en" ? "By" : "Por"} {author}</span></div>}
+	<TranslationLink currentSlug={currentSlug} currentLang={lang} translationOf={translationOf} />
+	<hr />
+</header>
+
+<style>
+	.title { margin-bottom: 1em; padding: 1em 0; text-align: center; line-height: 1; }
+	.title h1 { margin: 0 0 0.5em; }
+	.subtitle { font-size: 1.5em; color: rgb(var(--gray)); font-weight: normal; margin: 0.5em 0; }
+	.date { margin-bottom: 0.5em; color: rgb(var(--gray)); }
+	.lang-indicator { display: inline-block; margin-right: 0.5em; padding: 0.15em 0.5em; background-color: #10b981; color: white; border-radius: 4px; font-size: 0.85em; font-weight: 600; }
+	.last-updated-on { font-style: italic; }
+	:global(.post--short) .title { padding: 0.5em 0; margin-bottom: 0.5em; }
+	:global(.post--short) .title h1 { font-size: 2rem; }
+	:global(.post--short) .subtitle { font-size: 1.2em; }
+	:global(.post--short) .date { display: flex; align-items: center; justify-content: center; gap: 0.5rem; flex-wrap: wrap; }
+</style>

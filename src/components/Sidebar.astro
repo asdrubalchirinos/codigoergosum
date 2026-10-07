@@ -1,6 +1,6 @@
 ---
 import { getCollection } from 'astro:content';
-import Recomendaciones from './Recomendaciones.astro';
+import SidebarRecommendations from './SidebarRecommendations.astro';
 
 const allPosts = await getCollection('blog', ({ data }) => {
 	return import.meta.env.PROD ? data.draft !== true : true;
@@ -17,7 +17,7 @@ const base = rawBase === '/' ? '' : rawBase.replace(/\/$/, '');
             Descubre en Código ergo sum cómo los cambios laborales y tecnológicos están transformando los negocios. Exploramos desarrollo de software, gestión del tiempo e impacto de la inteligencia artificial. Únete y navega el panorama laboral con éxito.
         </p>
     </div>
-    <Recomendaciones variant="sidebar" />
+    <SidebarRecommendations />
     <div class="widget tags">
         <h3>Etiquetas</h3>
         <div class="tag-cloud">

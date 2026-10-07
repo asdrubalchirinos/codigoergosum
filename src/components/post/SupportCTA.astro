@@ -1,0 +1,16 @@
+<aside class="support-section" aria-label="Apoya el blog">
+	<p>¿Te gustó este artículo? Apoya este blog y ayuda a que siga creciendo.</p>
+	<a href="https://buymeacoffee.com/achirinos" target="_blank" rel="noopener noreferrer" class="coffee-button">
+		<span class="coffee-icon">☕</span> Invítame un café
+	</a>
+</aside>
+
+<style>
+	.support-section { margin-top: 3rem; padding: 2rem 1.5rem; background: linear-gradient(135deg, rgba(var(--accent-light), 0.35) 0%, rgba(var(--accent-light), 0.15) 100%); border-radius: 16px; text-align: center; border: 1px solid rgba(var(--accent), 0.5); box-shadow: 0 4px 14px -2px rgba(var(--gray), 0.25); }
+	.support-section p { margin: 0 0 1.5rem; font-size: 1.1rem; color: rgb(var(--gray-dark)); }
+	.coffee-button { display: inline-flex; align-items: center; gap: 0.5rem; background: rgb(var(--accent)); color: #fff; padding: 0.75rem 1.5rem; border-radius: 10px; text-decoration: none; font-weight: 600; letter-spacing: 0.5px; transition: background 0.25s, transform 0.25s, box-shadow 0.25s; box-shadow: 0 4px 8px -2px rgba(var(--accent), 0.5); }
+	.coffee-button:hover { background: rgb(var(--accent-dark)); transform: translateY(-3px); box-shadow: 0 6px 14px -2px rgba(var(--accent), 0.55); }
+	.coffee-icon { font-size: 1.5rem; }
+	:global(.post--short) .support-section { margin-top: 1.5rem; padding: 1.5rem 1.25rem; }
+	@media (prefers-color-scheme: dark) { .support-section { background: linear-gradient(135deg, rgba(var(--accent-dark), 0.55) 0%, rgba(var(--accent-dark), 0.35) 100%); border-color: rgba(var(--accent-light), 0.4); } .support-section p { color: rgb(var(--black)); } }
+</style>

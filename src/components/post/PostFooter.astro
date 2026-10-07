@@ -1,0 +1,20 @@
+---
+import ShareActions from "./ShareActions.astro";
+import PostTags from "./PostTags.astro";
+import SupportCTA from "./SupportCTA.astro";
+import RecommendationsGrid from "./RecommendationsGrid.astro";
+
+interface Props { url: string; title: string; tags: string[] }
+const { url, title, tags } = Astro.props;
+---
+
+<footer class="post-footer" data-pagefind-ignore="all">
+	<ShareActions url={url} title={title} />
+	<PostTags tags={tags} />
+	<SupportCTA />
+	<RecommendationsGrid />
+</footer>
+
+<style>
+	.post-footer { max-width: 720px; width: 100%; margin: auto; padding: 0 1em 2em; }
+</style>

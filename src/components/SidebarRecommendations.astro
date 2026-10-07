@@ -1,0 +1,46 @@
+---
+import { recomendaciones, listaUrl, esEnlaceReal } from "../data/recomendaciones";
+
+const rawBase = import.meta.env.BASE_URL;
+const base = rawBase === "/" ? "" : rawBase.replace(/\/$/, "");
+const libros = recomendaciones.filter((libro) => esEnlaceReal(libro.url)).slice(0, 3);
+const verLista = esEnlaceReal(listaUrl) ? listaUrl : null;
+const rel = "sponsored nofollow noopener";
+
+if (libros.length === 0) return null;
+---
+
+<div class="widget recomendaciones">
+	<h3>Mis recomendaciones</h3>
+	<ul class="lista">
+		{libros.map((libro) => (
+			<li>
+				<a class="item" href={libro.url} target="_blank" rel={rel}>
+					<img src={`${base}${libro.image}`} alt={`Portada de ${libro.title}`} width="280" height="360" loading="lazy" />
+					<span class="texto">
+						<strong>{libro.title}</strong>
+						<span class="meta">{libro.author} · {libro.note}</span>
+					</span>
+				</a>
+			</li>
+		))}
+	</ul>
+	{verLista && <a class="ver-mas" href={verLista} target="_blank" rel={rel}>Ver toda mi lista →</a>}
+	<p class="aviso">Enlaces de afiliado: si compras, recibo una pequeña comisión sin costo extra para ti.</p>
+</div>
+
+<style>
+	.widget { background: rgb(var(--gray-light)); padding: 1.5rem; border-radius: 8px; margin-bottom: 2rem; }
+	.widget h3 { margin-top: 0; margin-bottom: 1rem; font-size: 1.2rem; border-bottom: 2px solid rgb(var(--accent)); padding-bottom: 0.5rem; display: inline-block; }
+	.lista { list-style: none; margin: 0 0 1rem; padding: 0; }
+	.lista li { margin: 0 0 0.85rem; }
+	.item { display: flex; gap: 0.8rem; align-items: center; text-decoration: none; color: inherit; }
+	.item img { width: 52px; height: 78px; object-fit: cover; border-radius: 3px; box-shadow: 0 1px 4px rgba(var(--gray), 0.45); flex-shrink: 0; }
+	.item strong { display: block; font-size: 0.92rem; line-height: 1.3; color: rgb(var(--black)); }
+	.item .meta { display: block; font-size: 0.8rem; line-height: 1.35; color: rgb(var(--gray)); }
+	.item:hover strong { color: rgb(var(--accent)); }
+	.ver-mas { font-weight: 700; font-size: 0.92rem; color: rgb(var(--accent)); text-decoration: none; }
+	.ver-mas:hover { text-decoration: underline; }
+	.aviso { margin: 0.85rem 0 0; font-size: 0.8rem; line-height: 1.45; color: rgb(var(--gray)); }
+	@media (prefers-color-scheme: dark) { .widget { background: rgba(var(--white), 0.06); } .widget h3 { color: rgb(var(--black)); } }
+</style>
