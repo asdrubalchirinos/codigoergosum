@@ -26,9 +26,7 @@ const isShort = post.data.kind === "short";
 
 const shareUrl = new URL(Astro.url.pathname, Astro.site);
 const shareText = `Lee "${post.data.title}" en Código Ergo Sum`;
-const discussionText = `Leí "${post.data.title}" de @achirinos y mi punto de vista es:`;
 const encodedShareText = encodeURIComponent(shareText);
-const encodedDiscussionText = encodeURIComponent(discussionText);
 const encodedShareUrl = encodeURIComponent(shareUrl.toString());
 
 // Excerpt / description fallback
@@ -168,24 +166,11 @@ function isoDateOnly(date: Date): string {
       <Content />
 
       <AIDisclaimer lang={post.data.lang || "es"} />
-      <Recomendaciones variant="post" />
     </div>
   </article>
 
   <!-- CTA, compartir y tags fuera de <article>: los extractores los descartan -->
   <footer class="prose post-footer" data-pagefind-ignore="all">
-      <div class="discussion-section">
-        <p>¿Qué opinas sobre este post?</p>
-        <a
-          href={`https://x.com/intent/tweet?text=${encodedDiscussionText}&url=${encodedShareUrl}`}
-          target="_blank"
-          rel="noopener noreferrer"
-          class="discussion-button"
-        >
-          Comentar en X
-        </a>
-      </div>
-
       <div class="article-links">
         <p class="share-label">Compartir:</p>
         <button
@@ -253,6 +238,8 @@ function isoDateOnly(date: Date): string {
           });
         });
       </script>
+
+      <Recomendaciones variant="post" />
 
       <div class="support-section">
         <p>
@@ -336,45 +323,9 @@ function isoDateOnly(date: Date): string {
   .last-updated-on {
     font-style: italic;
   }
-  .discussion-section {
-    margin-top: 4rem;
-    padding: 1.5rem;
-    border: 1px solid rgba(var(--accent), 0.35);
-    border-radius: 8px;
-    background: rgba(var(--accent-light), 0.22);
-    text-align: center;
-  }
-  .post:has(:global(.reco-card)) .discussion-section {
-    margin-top: 2rem;
-  }
-  .discussion-section p {
-    margin: 0 0 1rem 0;
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: rgb(var(--gray-dark));
-  }
-  .discussion-button {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 42px;
-    padding: 0 1rem;
-    border-radius: 6px;
-    background: #000;
-    color: #fff;
-    font-weight: 700;
-    text-decoration: none;
-    transition:
-      transform 0.2s,
-      background 0.2s;
-  }
-  .discussion-button:hover {
-    transform: translateY(-2px);
-    background: rgb(var(--accent-dark));
-  }
   .article-links {
-    margin-top: 4rem;
-    padding-top: 2rem;
+    margin-top: 1.25rem;
+    padding-top: 1.25rem;
     border-top: 1px solid rgb(var(--gray-light));
     display: flex;
     gap: 1rem;
@@ -500,13 +451,6 @@ function isoDateOnly(date: Date): string {
     .support-section p {
       color: rgb(var(--black));
     }
-    .discussion-section {
-      background: rgba(var(--accent-dark), 0.28);
-      border-color: rgba(var(--accent-light), 0.35);
-    }
-    .discussion-section p {
-      color: rgb(var(--black));
-    }
     .tag {
       background: rgba(var(--gray-light), 0.35);
       color: rgb(var(--black));
@@ -541,12 +485,9 @@ function isoDateOnly(date: Date): string {
     gap: 0.5rem;
     flex-wrap: wrap;
   }
-  .post--short .discussion-section {
-    margin-top: 2rem;
-  }
   .post--short .article-links {
-    margin-top: 2rem;
-    padding-top: 1.25rem;
+    margin-top: 1rem;
+    padding-top: 1rem;
   }
   .post--short .support-section {
     margin-top: 1.5rem;
