@@ -25,7 +25,7 @@ export const PENDIENTE = "PENDIENTE";
  * Central de Afiliados). Mientras sea PENDIENTE, no se muestra
  * "Ver toda mi lista".
  */
-export const listaUrl = PENDIENTE;
+export const listaUrl = 'https://meli.la/1qVZcZk';
 
 export type Recomendacion = {
 	title: string;
@@ -41,28 +41,28 @@ export const recomendaciones: Recomendacion[] = [
 		author: "Cal Newport",
 		note: "Para recuperar la concentración.",
 		image: "/images/recomendaciones/centrate.jpg",
-		url: PENDIENTE, // pega aquí el enlace de afiliado de este libro
+		url: 'https://meli.la/2ZPx9W5'
 	},
 	{
 		title: "Empieza con el porqué",
 		author: "Simon Sinek",
 		note: "Para liderar con propósito.",
 		image: "/images/recomendaciones/empieza-con-el-porque.jpg",
-		url: PENDIENTE,
+		url: 'https://meli.la/2zSVFbS'
 	},
 	{
 		title: "Hábitos atómicos",
 		author: "James Clear",
 		note: "Pequeños cambios, grandes resultados.",
 		image: "/images/recomendaciones/habitos-atomicos.jpg",
-		url: PENDIENTE,
+		url: 'https://meli.la/281oVpf'
 	},
 	{
 		title: "El programador pragmático",
 		author: "David Thomas y Andrew Hunt",
 		note: "Un clásico para crecer como dev.",
 		image: "/images/recomendaciones/el-programador-pragmatico.jpg",
-		url: PENDIENTE,
+		url: 'https://meli.la/1LwmCFT',
 	},
 ];
 
