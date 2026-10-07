@@ -4,6 +4,7 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import TranslationLink from "../../components/TranslationLink.astro";
 import AIDisclaimer from "../../components/AIDisclaimer.astro";
 import KindBadge from "../../components/KindBadge.astro";
+import Recomendaciones from "../../components/Recomendaciones.astro";
 
 export async function getStaticPaths() {
   const posts = await getCollection("blog", ({ data }) => {
@@ -167,6 +168,7 @@ function isoDateOnly(date: Date): string {
       <Content />
 
       <AIDisclaimer lang={post.data.lang || "es"} />
+      <Recomendaciones variant="post" />
     </div>
   </article>
 
@@ -341,6 +343,9 @@ function isoDateOnly(date: Date): string {
     border-radius: 8px;
     background: rgba(var(--accent-light), 0.22);
     text-align: center;
+  }
+  .post:has(:global(.reco-card)) .discussion-section {
+    margin-top: 2rem;
   }
   .discussion-section p {
     margin: 0 0 1rem 0;
