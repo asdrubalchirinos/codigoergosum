@@ -1,0 +1,72 @@
+---
+title: No todo en REST es CRUD
+subtitle: 'Diseñar una API es mucho más que exponer operaciones sobre datos.'
+pubDate: '2026-10-13'
+heroImage: /images/blog/2026/10/no-todo-en-rest-es-crud/hero.png
+author: Asdrúbal Chirinos
+featured: false
+draft: true
+kind: short
+tags: ['arquitectura', 'backend', 'opinion']
+slug: no-todo-en-rest-es-crud
+---
+
+import PostReference from '@components/PostReference.astro';
+
+Un reciente post de X (tweet) de Nicolás Schürmann (@_nasch_) me hizo revivir una discusión que he tenido en más de una ocasión con compañeros de equipo al momento de sentarnos a diseñar una API: la tendencia a confundir REST con CRUD.
+
+> Una API REST no es un CRUD, y definirla como CRUD es un error de diseño grave.
+
+Pareciera que diseñar una API REST consiste en crear endpoints para cada entidad, asignarles los métodos ``GET``, ``POST``, ``PUT`` y ``DELETE``, y listo, ¡tenemos una API REST!.
+
+Pero no, no tan rápido.
+
+**CRUD describe operaciones sobre datos, mientras que REST es un estilo arquitectónico para interactuar con recursos.** Pueden convivir perfectamente, pero no son lo mismo.
+
+Y que quede claro: **no hay nada de malo en diseñar una API con operaciones CRUD**. Existen aplicaciones donde crear, consultar, modificar y eliminar registros es exactamente lo que necesitamos. No todo requiere procesos complejos ni sofisticadas reglas de negocio.
+
+El problema aparece cuando asumimos que todas las capacidades de un sistema pueden reducirse a esas cuatro operaciones.
+
+---
+
+## Publicar no es hacer UPDATE
+
+Llevo más de veinte años trabajando con sitios de noticias y, si algo he aprendido, es que publicar una noticia es bastante más que cambiar un campo en una base de datos.
+
+Imaginemos una API para gestionar artículos. Desde una perspectiva centrada exclusivamente en CRUD, publicar una noticia podría ser tan sencillo como:
+
+```http
+PATCH /articles/123
+
+{
+  "status": "published"
+}
+```
+
+Listo, noticia publicada.
+
+¿O no?
+
+¿Tiene título y contenido? ¿Fue aprobada por un editor? ¿Tiene una fecha de publicación válida? ¿Debemos invalidar la caché, actualizar el sitemap o distribuirla a otros canales?
+
+**Publicar una noticia no es simplemente modificar su estado. Es una operación de negocio con reglas y consecuencias.**
+
+En lugar de exponer directamente el cambio de estado, podríamos representar la publicación como un recurso:
+
+```http
+POST /articles/123/publications
+```
+
+Ahora el sistema recibe la intención de publicar y asume la responsabilidad de ejecutar las validaciones y acciones necesarias.
+
+Esto no significa que `PATCH` sea incorrecto o que utilizar `POST` convierta automáticamente una API en RESTful. Las mismas reglas podrían implementarse con ambos métodos.
+
+La diferencia está en **diseñar la interfaz alrededor de las capacidades del sistema, en lugar de limitarse a reproducir las operaciones de almacenamiento.**
+
+REST tiene sus propias restricciones arquitectónicas, que van más allá de este ejemplo. Pero reducirlo a CRUD es perder de vista buena parte de lo que significa diseñar una API.
+
+**CRUD no es un mal diseño. Diseñar todo como si fuera CRUD puede serlo.**
+
+Porque CRUD nos dice qué podemos hacer con los datos. El dominio nos dice qué tiene sentido hacer con ellos.
+
+Y una buena API debería entender la diferencia.
