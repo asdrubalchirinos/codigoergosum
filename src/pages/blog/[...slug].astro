@@ -5,6 +5,7 @@ import AIDisclaimer from "../../components/AIDisclaimer.astro";
 import PostHero from "../../components/post/PostHero.astro";
 import PostHeader from "../../components/post/PostHeader.astro";
 import PostFooter from "../../components/post/PostFooter.astro";
+import NewsletterForm from "../../components/NewsletterForm.astro";
 
 export async function getStaticPaths() {
   const posts = await getCollection("blog", ({ data }) =>
@@ -76,6 +77,11 @@ const wordCount = post.body
         />
         <Content />
         <AIDisclaimer lang={language} />
+        <NewsletterForm
+          mode="article"
+          title="Recibe los próximos artículos"
+          description="Recibe nuevas ideas sobre tecnología, IA y trabajo directamente en tu correo. Sin spam."
+        />
       </div>
     </article>
     <PostFooter url={shareUrl} title={post.data.title} tags={post.data.tags} />
