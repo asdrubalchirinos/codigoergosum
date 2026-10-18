@@ -1,0 +1,99 @@
+---
+title: Nadie nos enseñó a orquestar
+subtitle: 'Orquestar agentes agota porque estamos usando un músculo que nadie nos entrenó.'
+pubDate: '2026-10-19'
+heroImage: /images/blog/2026/10/nadie-nos-enseno-a-orquestar/hero.png
+author: Asdrúbal Chirinos
+featured: true
+draft: false
+tags: ['ia', 'liderazgo', 'opinion', 'productividad']
+slug: nadie-nos-enseno-a-orquestar
+---
+
+import PostReference from '@components/PostReference.astro';
+
+Orquestar agentes agota porque estamos usando un músculo que nadie nos entrenó.
+
+Hace unos días leí en X un [comentario](https://x.com/aItokemirey/status/2111832018648732053) de [@aItokemirey](https://x.com/aItokemirey) que me hizo detenerme: la carga cognitiva de tener varios agentes haciendo cosas distintas en proyectos distintos es enorme. Incluso, decía, más agotadora que programar sin IA.
+
+No lo leí como una queja. Lo leí como un síntoma.
+
+[Le respondí](https://x.com/achirinos/status/2111869684433699044): "Claro que es agotador. Toda la vida nos enseñaron a enfocarnos en una sola tarea y a evitar el context switching. Ahora nos toca orquestar, y nadie nos entrenó para eso."
+
+Este artículo es la versión larga de esa respuesta.
+
+Porque el problema no es que los agentes trabajen mal. Muchas veces trabajan bastante bien. El problema es que nosotros seguimos trabajando como si tuviéramos que hacerlo todo, solo que ahora en paralelo.
+
+---
+
+## Un músculo nuevo
+
+Toda nuestra formación como desarrolladores giró alrededor del foco. Una tarea a la vez. Cerrar el chat, silenciar las notificaciones, proteger el flow. Durante años, el context switching fue el enemigo.
+
+<PostReference slug="no-somos-multitasking" />
+
+Ahora nos piden exactamente lo contrario: tener varios trabajos avanzando en paralelo y mantenerlos todos bajo control.
+
+Lo intentamos con las herramientas mentales que tenemos, y por eso agota. Saltamos de un agente a otro, revisamos cada línea, cargamos todo en la cabeza. Eso no es orquestar. Es hacer malabares.
+
+Orquestar no es saltar entre contextos. Es ver el bosque en lugar de cada rama.
+
+Lo vivo con mis propios asistentes. Ergo investiga y me prepara borradores para este blog. Susan crea las imágenes de portada. Zinger me propone respuestas para X. Al principio quería revisar cada paso de cada uno. Terminaba más cansado que si lo hubiera hecho yo.
+
+Mejoró cuando dejé de mirar ramas y empecé a mirar el bosque. Cuando dejé de preguntarme qué está haciendo cada uno en este momento y empecé a preguntarme en qué estado está cada trabajo. No tengo un método cerrado, pero hay tres prácticas que me están funcionando.
+
+<PostReference slug="me-myself-and-ai" />
+
+## Delegar resultados, no solamente instrucciones
+
+Cuando programamos personalmente, podemos comenzar con una idea relativamente incompleta e ir tomando decisiones durante la implementación. Pero cuando delegamos, necesitamos comunicar con mayor claridad qué esperamos conseguir.
+
+¿Cuál es el objetivo? ¿Qué restricciones existen? ¿Qué criterios determinan que el trabajo está terminado?
+
+Cuando le pedí a Ergo un artículo sobre salarios y ubicación, no le dicté los pasos. Le di la tesis, le dije qué tipo de fuentes esperaba, le pedí una extensión y le puse una restricción que no negocio: no inventes números. Cada dato, con su enlace.
+
+No fue un prompt más largo. Fue un trabajo mejor definido.
+
+No se trata de escribir prompts cada vez más largos, sino de aprender a definir mejor el trabajo. Cuanto más claro sea el resultado esperado, mayor autonomía podremos conceder al agente.
+
+<PostReference slug="de-asistentes-a-colaboradores" />
+
+## Supervisar avances, no líneas de código
+
+Si necesitamos observar permanentemente lo que hace cada agente, difícilmente podremos aprovechar la ejecución paralela.
+
+Debemos aprender a establecer puntos de control. Revisar qué tareas están avanzando, cuáles están bloqueadas, cuáles necesitan una decisión y cuáles están listas para ser evaluadas.
+
+En mi caso, el punto de control es el borrador. Ergo no me entrega solo un texto: me entrega el texto, las fuentes y una lista de cosas que debo verificar. Ahí es donde pongo mi atención. No en cómo buscó, sino en qué encontró y en qué duda.
+
+Con Susan es igual: no reviso cada intento, reviso la imagen que propone para la portada. Con Zinger pasa algo parecido. No necesito ver cómo arma cada respuesta. Me la propone, y yo decido si sale, si la cambio o si la descarto.
+
+Eso no significa renunciar a revisar el código, o el texto, cuando sea necesario. Significa comprender que nuestra atención es un recurso limitado y que debemos reservarla para los momentos en los que realmente aporta valor.
+
+## Mantener el contexto fuera de nuestra cabeza
+
+Quizás este sea el cambio más importante.
+
+Cuando trabajamos en una sola funcionalidad, podemos mantener buena parte del contexto en nuestra memoria. Sabemos qué estamos haciendo, qué decisiones tomamos y cuál es el siguiente paso. Pero cuando supervisamos varios agentes, ese modelo deja de escalar.
+
+Necesitamos mecanismos que nos permitan recuperar rápidamente el estado de cada trabajo. Objetivos claros, tareas delimitadas, decisiones documentadas, estados de avance y resultados verificables.
+
+Lo primero que hizo Ergo fue leer el blog y escribir una guía de estilo en un archivo. Cada borrador tiene al lado su archivo de fuentes. Y cuando un artículo está listo, termina en un pull request en el repositorio del blog, con la fecha de publicación definida.
+
+Si mañana retomo cualquiera de esos trabajos, no necesito recordar nada. Abro el archivo, leo el estado y sigo.
+
+No podemos depender exclusivamente de nuestra memoria para recordar qué está haciendo cada agente.
+
+<PostReference slug="una-nueva-responsabilidad" />
+
+## El precio del aprendizaje
+
+El cansancio que sentimos hoy es real. Pero creo que es el precio del aprendizaje, no del oficio.
+
+La primera vez que trabajamos con Git, con pruebas automatizadas o con integración continua también nos costó. Parecía más trabajo. Hasta que se volvió la forma natural de trabajar.
+
+Con la orquestación va a pasar lo mismo. Estamos entrenando un músculo nuevo, y eso duele al principio. Espero que, cuando se vuelva rutina, pese menos.
+
+Mientras tanto, vale la pena preguntarse algo cada vez que abrimos otro agente:
+
+¿Estás orquestando o estás haciendo malabares?
