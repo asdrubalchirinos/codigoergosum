@@ -21,6 +21,7 @@ const base = rawBase === "/" ? "" : rawBase.replace(/\/$/, "");
 const isShort = post.data.kind === "short";
 const language = post.data.lang || "es";
 const heroSrc = post.data.heroImage ? `${base}${post.data.heroImage}` : undefined;
+const heroAlt = post.data.heroImageAlt || post.data.title;
 const shareUrl = new URL(Astro.url.pathname, Astro.site).toString();
 
 let description = post.data.subtitle || "";
@@ -51,7 +52,7 @@ const wordCount = post.body
   image={post.data.heroImage}
   author={post.data.author}
   isArticle={true}
-  imageAlt={post.data.title}
+  imageAlt={heroAlt}
   publishDate={post.data.pubDate}
   modifiedDate={post.data.updatedDate}
   tags={post.data.tags}
@@ -61,7 +62,7 @@ const wordCount = post.body
 >
   <div class:list={["post", isShort && "post--short"]}>
     <article class:list={[isShort && "article--short"]} data-pagefind-body>
-      <PostHero src={heroSrc} alt={post.data.title} kind={post.data.kind} />
+      <PostHero src={heroSrc} alt={heroAlt} kind={post.data.kind} />
       <div class="prose">
         <PostHeader
           title={post.data.title}
