@@ -2,6 +2,8 @@
 title: Control remoto
 subtitle: 'Cómo quitarle los anuncios a tu Android TV con un prompt y un asistente de código.'
 pubDate: '2026-10-23'
+heroImage: /images/blog/2026/10/control-remoto/hero.png
+heroImageAlt: 'Ilustración: un hombre apunta el control remoto a una Android TV y los anuncios y apps salen volando y desaparecen en nubecitas'
 author: Asdrúbal Chirinos
 featured: false
 draft: false
