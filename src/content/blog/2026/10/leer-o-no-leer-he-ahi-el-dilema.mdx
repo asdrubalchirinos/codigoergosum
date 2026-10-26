@@ -1,0 +1,122 @@
+---
+title: Leer o no leer, he ahí el dilema
+subtitle: '¿Realmente debemos elegir un bando frente al código generado por IA?'
+pubDate: '2026-10-26'
+heroImage: /images/blog/2026/10/leer-o-no-leer-he-ahi-el-dilema/hero.png
+author: Asdrúbal Chirinos
+featured: true
+draft: false
+tags: ['desarrollo', 'ia', 'opinion']
+slug: leer-o-no-leer-he-ahi-el-dilema
+---
+
+import PostReference from '@components/PostReference.astro';
+
+
+Una nueva discusión parece dividir al mundo de los desarrolladores: ¿debemos leer siempre el código generado por inteligencia artificial?
+
+De un lado están quienes defienden que un buen desarrollador debe revisar cada línea, independientemente de quién la haya escrito. Del otro, quienes consideran que leer el código ya no es necesario y que podemos sustituir esa revisión por pruebas y otros mecanismos de validación.
+
+Como suele suceder, una decisión técnica termina convirtiéndose en una cuestión de principios. Pareciera que tenemos que escoger un bando y defenderlo.
+
+Pero ¿por qué tiene que ser una decisión de blanco o negro, de ceros o unos?
+
+---
+
+**No veo ninguna razón** para convertir la lectura del código en un dogma, mucho menos en parte de nuestra **identidad como desarrolladores**.
+
+No es lo mismo construir una pequeña aplicación para resolver un problema personal que desarrollar un sistema financiero o modificar un mecanismo de autenticación. Tampoco es igual trabajar en un proyecto que conocemos desde hace años que enfrentarnos a uno completamente nuevo.
+
+<PostReference slug="el-nacimiento-del-personal-software" />
+
+Importa el problema que estamos resolviendo, sus riesgos, qué tan bien hemos definido el resultado esperado, las pruebas disponibles y hasta nuestra experiencia previa con la IA en ese proyecto.
+
+Un desarrollador puede decidir revisar exhaustivamente un cambio y prescindir de esa revisión en el siguiente. Ambas decisiones pueden ser perfectamente razonables.
+
+**Lo importante no es defender un procedimiento, sino entender cuándo y por qué necesitamos aplicarlo.**
+
+---
+
+## La curiosa autoridad de Grok
+
+Hace poco me encontré con una interacción en X que me provocó cierta gracia.
+
+Alguien le había preguntado a Grok si los desarrolladores debíamos leer el código generado por IA. Su respuesta, en pocas palabras fue que sí, que debíamos revisarlo y no confiar en lo que produce una inteligencia artificial.
+
+Hasta ahí, nada particularmente sorprendente.
+
+Lo curioso vino después. Varios desarrolladores utilizaron aquella respuesta como argumento para respaldar su posición, casi como si Grok acabara de resolver definitivamente la discusión.
+
+Y no pude evitar preguntarme: ¿no resulta irónico utilizar una respuesta generada por IA como argumento de autoridad para defender que no debemos confiar en lo que genera una IA?
+
+Por supuesto, una respuesta conceptual no es lo mismo que código que terminará ejecutándose en producción. Pero ese no era el punto.
+
+Lo que me llamó la atención fue la facilidad con la que algunos parecían aceptar la respuesta porque coincidía con lo que ya creían.
+
+Es una manifestación de algo que conocemos bien: **el sesgo de confirmación**. Nuestra tendencia a favorecer la información que refuerza nuestras creencias y a cuestionar con mayor severidad aquello que las contradice.
+
+Y me pregunto cuánto de esta discusión sobre leer o no el código responde a una evaluación de sus beneficios y riesgos, y cuánto a nuestras propias convicciones sobre lo que significa ser un buen desarrollador.
+
+---
+
+## Hablan los expertos
+
+**_Robert C. Martin_**, mejor conocido como Uncle Bob y autor de *Clean Code*, ha explicado que prácticamente dejó de leer el código generado por sus agentes de IA.
+
+En lugar de revisar línea por línea, supervisa la arquitectura y utiliza pruebas automatizadas, métricas de complejidad, cobertura y otras restricciones para verificar los resultados.
+
+Su argumento es que los humanos somos demasiado lentos revisando código como para aprovechar plenamente la velocidad de los agentes. Eso no significa renunciar a la responsabilidad, sino ejercerla desde un nivel superior.
+
+**_Grady Booch_**, otro referente de la ingeniería de software y uno de los creadores de UML, ha sido asociado con una visión más cautelosa. El argumento es que las pruebas y métricas pueden pasar por alto vulnerabilidades, problemas de diseño o implementaciones difíciles de mantener.
+
+Dos perspectivas diferentes sobre cómo debemos supervisar el trabajo producido por una IA.
+
+También resulta interesante la posición expresada por el equipo de `GitHub`: seguimos siendo responsables del código que entregamos, pero eso no significa que cada línea merezca el mismo nivel de atención. Un cambio en el sistema de autenticación de producción no debería revisarse de la misma manera que un experimento con CSS.
+
+**¿Quién tiene razón?**
+
+Pues, ninguno.
+
+No necesitamos que Uncle Bob, Grady Booch o cualquier otro referente decida por nosotros. Podemos aprender de sus argumentos sin convertir sus opiniones en reglas universales.
+
+Al fin y al cabo, de hacerlo, estaríamos cometiendo el mismo error que observé en aquella conversación con Grok: buscar una autoridad que confirme nuestra posición en lugar de evaluar las razones que la sustentan.
+
+---
+
+## Aprender a confiar
+
+Hay un elemento que me parece particularmente importante en esta discusión: la experiencia acumulada.
+
+Si durante meses hemos trabajado con una IA en un proyecto específico, hemos revisado sus resultados y comprobado repetidamente que cumple con nuestras expectativas, ¿por qué esa experiencia no debería influir en cómo supervisamos su trabajo?
+
+La confianza no aparece de la nada. Se construye con evidencia.
+
+Eso no significa que cien resultados correctos garanticen que el siguiente también lo será. Pero tampoco parece razonable comportarnos como si esas cien experiencias no hubieran existido.
+
+Lo mismo sucede en sentido contrario. Si hemos encontrado errores recurrentes, comportamientos inesperados o problemas difíciles de detectar, tenemos razones para incrementar nuestra supervisión.
+
+Y si trabajamos con funcionalidades sensibles, el riesgo puede justificar controles adicionales, independientemente de la confianza que tengamos en la herramienta.
+
+Además, conviene recordar algo: **leer el código tampoco garantiza que encontraremos todos sus errores**, de la misma manera que superar una batería de pruebas no garantiza que el sistema esté libre de problemas.
+
+**Revisar el código es una forma de validar nuestro trabajo, pero no es la única.**
+
+---
+
+## Eligiendo un bando
+
+Creo que estamos dedicando demasiada energía a discutir si debemos leer o no el código, cuando deberíamos preguntarnos cómo asegurarnos de que lo que construimos resuelve correctamente el problema.
+
+Podemos leer cada línea de una implementación y aun así terminar construyendo la solución equivocada. También podemos delegar la implementación, comprobar el resultado mediante mecanismos adecuados y entregar una solución que cumple con lo esperado.
+
+<PostReference slug="antes-del-codigo" />
+
+**Nuestra responsabilidad como desarrolladores no desaparece por utilizar inteligencia artificial**. Lo que puede cambiar es la manera en que la ejercemos.
+
+Habrá situaciones en las que leer el código sea necesario, otras en las que sea conveniente y algunas en las que apenas aporte valor.
+
+Ninguna de esas decisiones nos convierte automáticamente en mejores o peores desarrolladores.
+
+Quizás deberíamos abandonar esa necesidad de dividirnos entre quienes leen y quienes no leen, entre quienes confían y quienes desconfían.
+
+**La confianza no es binaria. Tampoco debería serlo nuestra forma de trabajar.**
