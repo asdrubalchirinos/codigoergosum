@@ -1,0 +1,278 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import NewsletterForm from "../components/NewsletterForm.astro";
+import KindBadge from "../components/KindBadge.astro";
+import { SITE_TITLE } from "../consts";
+import { getPublishedPosts, primaryVersions } from "../utils/posts";
+
+const posts = primaryVersions(await getPublishedPosts())
+    .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+    .slice(0, 3);
+
+const rawBase = import.meta.env.BASE_URL;
+const base = rawBase === "/" ? "" : rawBase.replace(/\/$/, "");
+const description =
+    "Ideas, tecnología y algo de código. Un correo ocasional sobre inteligencia artificial, software, negocios y el trabajo que viene.";
+---
+
+<BaseLayout title={`Newsletter — ${SITE_TITLE}`} description={description}>
+    <div class="newsletter-page">
+        <section class="intro" aria-labelledby="newsletter-title">
+            <p class="eyebrow">Código Ergo Sum</p>
+            <h1 id="newsletter-title">Ideas, tecnología y algo de código</h1>
+            <p class="lead">
+                Un correo ocasional sobre inteligencia artificial, software,
+                negocios y el trabajo que viene.
+            </p>
+            <p class="intro-copy">
+                Comparto las ideas que me ayudan a entender cómo estamos
+                construyendo, trabajando y pensando en esta nueva etapa de la
+                tecnología.
+            </p>
+        </section>
+
+        <section class="signup-card" aria-label="Suscripción al newsletter">
+            <NewsletterForm
+                title="Recíbelo directamente en tu correo"
+                description="Nuevos artículos, reflexiones y descubrimientos. Sin spam; solo contenido que vale la pena leer."
+            />
+            <p class="privacy-note">
+                Usaré tu correo únicamente para enviarte el newsletter. Puedes
+                darte de baja cuando quieras desde cualquier mensaje.
+            </p>
+        </section>
+
+        <section class="benefits" aria-labelledby="benefits-title">
+            <h2 id="benefits-title">Qué encontrarás</h2>
+            <div class="benefit-grid">
+                <article>
+                    <h3>Ideas para pensar</h3>
+                    <p>
+                        Reflexiones sobre IA, trabajo, carrera, liderazgo y
+                        las decisiones que tomamos alrededor de la tecnología.
+                    </p>
+                </article>
+                <article>
+                    <h3>Software para construir</h3>
+                    <p>
+                        Desarrollo, arquitectura, agentes y experimentos con
+                        código cuando ayudan a explicar una idea.
+                    </p>
+                </article>
+                <article>
+                    <h3>Una mirada personal</h3>
+                    <p>
+                        No es un resumen de noticias: es una conversación sobre
+                        lo que estos cambios significan para quienes los viven.
+                    </p>
+                </article>
+            </div>
+        </section>
+
+        <section class="recent" aria-labelledby="recent-title">
+            <div class="section-heading">
+                <h2 id="recent-title">Últimos artículos</h2>
+                <a href={`${base}/blog/`}>Ver todos →</a>
+            </div>
+            <div class="recent-grid">
+                {posts.map((post) => (
+                    <a class="post-card" href={`${base}/blog/${post.slug}/`}>
+                        <div class="post-card-content">
+                            <h3>
+                                <KindBadge
+                                    kind={post.data.kind}
+                                    variant="inline"
+                                />
+                                {post.data.title}
+                            </h3>
+                            {post.data.subtitle && (
+                                <p>{post.data.subtitle}</p>
+                            )}
+                            <time datetime={post.data.pubDate.toISOString()}>
+                                {post.data.pubDate.toLocaleDateString("es-ES", {
+                                    year: "numeric",
+                                    month: "short",
+                                    day: "numeric",
+                                })}
+                            </time>
+                        </div>
+                    </a>
+                ))}
+            </div>
+        </section>
+    </div>
+</BaseLayout>
+
+<style>
+    .newsletter-page {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 4rem 1.25rem 1rem;
+    }
+
+    .intro {
+        max-width: 720px;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    .eyebrow {
+        margin: 0 0 0.75rem;
+        color: rgb(var(--accent));
+        font-size: 0.8rem;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+    }
+
+    h1 {
+        margin: 0;
+        font-size: clamp(2.2rem, 6vw, 4.5rem);
+        line-height: 1.05;
+        letter-spacing: -0.04em;
+    }
+
+    .lead {
+        margin: 1.5rem auto 0;
+        max-width: 640px;
+        color: rgb(var(--gray-dark));
+        font-size: clamp(1.15rem, 2vw, 1.45rem);
+        line-height: 1.5;
+    }
+
+    .intro-copy {
+        margin: 1rem auto 0;
+        max-width: 580px;
+        color: rgb(var(--gray));
+        line-height: 1.7;
+    }
+
+    .signup-card {
+        max-width: 680px;
+        margin: 3rem auto 0;
+    }
+
+    .signup-card :global(.newsletter-form) {
+        margin: 0;
+        background: linear-gradient(
+            135deg,
+            rgba(var(--accent-light), 0.4) 0%,
+            rgba(var(--gray-light), 0.9) 100%
+        );
+        border: 1px solid rgba(var(--accent), 0.45);
+        border-radius: 16px;
+        box-shadow: 0 8px 24px -12px rgba(var(--gray-dark), 0.35);
+        text-align: center;
+    }
+
+    .signup-card :global(.newsletter-form .content h3) {
+        font-size: 1.45rem;
+    }
+
+    .signup-card :global(.newsletter-form .content p) {
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 500px;
+    }
+
+    .privacy-note {
+        margin: 0.85rem auto 0;
+        max-width: 580px;
+        color: rgb(var(--gray));
+        font-size: 0.8rem;
+        line-height: 1.5;
+        text-align: center;
+    }
+
+    .benefits,
+    .recent {
+        margin-top: 5rem;
+    }
+
+    h2 {
+        margin: 0 0 1.5rem;
+        font-size: 1.65rem;
+    }
+
+    .benefit-grid,
+    .recent-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1rem;
+    }
+
+    .benefit-grid article,
+    .post-card {
+        padding: 1.35rem;
+        border: 1px solid rgba(var(--gray), 0.2);
+        border-radius: 10px;
+        background: rgb(var(--white));
+    }
+
+    .benefit-grid h3 {
+        margin: 0 0 0.65rem;
+        font-size: 1.05rem;
+    }
+
+    .benefit-grid p,
+    .post-card p {
+        margin: 0;
+        color: rgb(var(--gray));
+        font-size: 0.95rem;
+        line-height: 1.55;
+    }
+
+    .section-heading {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 1rem;
+    }
+
+    .section-heading a {
+        color: rgb(var(--accent));
+        font-size: 0.9rem;
+    }
+
+    .post-card {
+        color: rgb(var(--black));
+        text-decoration: none;
+        transition:
+            transform 0.2s ease,
+            box-shadow 0.2s ease;
+    }
+
+    .post-card:hover {
+        box-shadow: 0 8px 18px -12px rgba(var(--gray-dark), 0.5);
+        transform: translateY(-2px);
+    }
+
+    .post-card h3 {
+        margin: 0 0 0.7rem;
+        font-size: 1.05rem;
+        line-height: 1.3;
+    }
+
+    .post-card time {
+        display: block;
+        margin-top: 1rem;
+        color: rgb(var(--gray));
+        font-size: 0.78rem;
+    }
+
+    @media (max-width: 700px) {
+        .newsletter-page {
+            padding-top: 3rem;
+        }
+
+        .benefit-grid,
+        .recent-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .benefits,
+        .recent {
+            margin-top: 3.5rem;
+        }
+    }
+</style>
