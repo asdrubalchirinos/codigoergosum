@@ -33,6 +33,12 @@ This document outlines the steps required to configure, deploy, and run the news
    database_id = "PASTE_YOUR_ID_HERE"
    ```
 
+For an existing database, apply the consent metadata migration once from the `worker/` directory:
+
+```bash
+npx wrangler d1 execute newsletter-db --remote --file=./migrations/0001_add_consent_metadata.sql
+```
+
 ### C. Resend (Email)
 1. Go to [Resend.com](https://resend.com) -> **API Keys**.
 2. Create a new API Key.
@@ -106,6 +112,19 @@ To enable the "Send Newsletter" workflow:
 3. Click **Run workflow**.
 4. Enter the **Post Slug** (e.g., `mi-vision-de-los-vision-pro`).
 5. Uncheck **Dry Run** to actually send.
+
+### Administrative subscriber enrollment
+
+To add a person who has already authorized receiving the newsletter without sending a confirmation email, call the protected endpoint:
+
+```bash
+curl -X POST "$NEWSLETTER_API_URL/api/admin/subscribers" \
+  -H "Content-Type: application/json" \
+  -H "X-Admin-Key: $ADMIN_API_KEY" \
+  -d '{"email":"persona@example.com","consentSource":"autorización directa","consentNote":"Autorizó recibir el newsletter el 2026-11-12","addedBy":"admin"}'
+```
+
+The endpoint records the consent metadata and marks the subscriber as `confirmed`. An address that previously unsubscribed is rejected unless `"resubscribe": true` is explicitly provided after obtaining fresh consent.
 
 ## 6. Local Development
 

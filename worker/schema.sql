@@ -5,7 +5,11 @@ CREATE TABLE IF NOT EXISTS subscribers (
     status TEXT NOT NULL CHECK (status IN ('pending', 'confirmed', 'unsubscribed')),
     created_at INTEGER NOT NULL DEFAULT (unixepoch()),
     confirmed_at INTEGER,
-    unsubscribed_at INTEGER
+    unsubscribed_at INTEGER,
+    consent_at INTEGER,
+    consent_source TEXT,
+    consent_note TEXT,
+    added_by TEXT
 );
 
 -- Tokens table for confirmation and unsubscribe links

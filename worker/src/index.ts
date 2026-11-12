@@ -20,6 +20,10 @@ interface Subscriber {
     created_at: number;
     confirmed_at?: number;
     unsubscribed_at?: number;
+    consent_at?: number;
+    consent_source?: string;
+    consent_note?: string;
+    added_by?: string;
 }
 
 interface Token {
@@ -32,6 +36,19 @@ interface Token {
 }
 
 const app = new Hono<{ Bindings: Bindings }>();
+
+function hasValidAdminKey(requestKey: string | undefined, configuredKey: string | undefined): boolean {
+    if (!requestKey || !configuredKey || requestKey.length !== configuredKey.length) {
+        return false;
+    }
+
+    let isEqual = true;
+    for (let i = 0; i < requestKey.length; i++) {
+        if (requestKey[i] !== configuredKey[i]) isEqual = false;
+    }
+
+    return isEqual;
+}
 
 // Security Headers Middleware
 app.use('*', async (c, next) => {
@@ -211,6 +228,101 @@ app.get('/api/confirm', async (c) => {
     }
 });
 
+app.post('/api/admin/subscribers', async (c) => {
+    if (!hasValidAdminKey(c.req.header('X-Admin-Key'), c.env.ADMIN_API_KEY)) {
+        return c.json({ error: 'Unauthorized' }, 401);
+    }
+
+    let body: {
+        email?: string;
+        consentSource?: string;
+        consentNote?: string;
+        addedBy?: string;
+        resubscribe?: boolean;
+    };
+
+    try {
+        body = await c.req.json();
+    } catch {
+        return c.json({ error: 'Invalid JSON body' }, 400);
+    }
+
+    const email = body.email?.trim().toLowerCase();
+    const consentSource = body.consentSource?.trim();
+    const consentNote = body.consentNote?.trim() || null;
+    const addedBy = body.addedBy?.trim() || 'admin-api';
+
+    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        return c.json({ error: 'Invalid email address' }, 400);
+    }
+
+    if (!consentSource) {
+        return c.json({ error: 'consentSource is required' }, 400);
+    }
+
+    if (consentSource.length > 120 || (consentNote && consentNote.length > 500) || addedBy.length > 120) {
+        return c.json({ error: 'Consent metadata is too long' }, 400);
+    }
+
+    try {
+        const db = c.env.DB;
+        const existing = await db.prepare('SELECT * FROM subscribers WHERE email = ?').bind(email).first<Subscriber>();
+
+        if (existing?.status === 'unsubscribed' && !body.resubscribe) {
+            return c.json({
+                error: 'Subscriber is unsubscribed. Set resubscribe=true only after obtaining fresh consent.'
+            }, 409);
+        }
+
+        const consentAt = Math.floor(Date.now() / 1000);
+        const subscriberId = existing?.id || crypto.randomUUID();
+
+        if (existing) {
+            await db.batch([
+                db.prepare(`
+                    UPDATE subscribers
+                    SET status = 'confirmed',
+                        confirmed_at = ?,
+                        unsubscribed_at = NULL,
+                        consent_at = ?,
+                        consent_source = ?,
+                        consent_note = ?,
+                        added_by = ?
+                    WHERE id = ?
+                `).bind(consentAt, consentAt, consentSource, consentNote, addedBy, subscriberId),
+                db.prepare("DELETE FROM tokens WHERE subscriber_id = ? AND type = 'confirm'").bind(subscriberId)
+            ]);
+        } else {
+            await db.prepare(`
+                INSERT INTO subscribers
+                    (id, email, status, confirmed_at, consent_at, consent_source, consent_note, added_by)
+                VALUES (?, ?, 'confirmed', ?, ?, ?, ?, ?)
+            `).bind(
+                subscriberId,
+                email,
+                consentAt,
+                consentAt,
+                consentSource,
+                consentNote,
+                addedBy
+            ).run();
+        }
+
+        console.log(`[AUDIT] Admin subscriber ${existing ? 'updated' : 'created'}: ${email}, source=${consentSource}, addedBy=${addedBy}`);
+
+        return c.json({
+            message: existing?.status === 'confirmed'
+                ? 'Subscriber already confirmed; consent metadata updated.'
+                : 'Subscriber added as confirmed.',
+            email,
+            status: 'confirmed'
+        }, existing?.status === 'confirmed' ? 200 : 201);
+    } catch (e) {
+        console.error(e);
+        return c.json({ error: 'Internal server error' }, 500);
+    }
+});
+
 app.post('/api/unsubscribe', async (c) => {
     const body = await c.req.json();
     const { email, token } = body;
@@ -291,17 +403,7 @@ app.post('/api/broadcast', async (c) => {
     const apiKey = c.req.header('X-Admin-Key');
     const envApiKey = c.env.ADMIN_API_KEY;
 
-    // Timing-safe comparison
-    if (!apiKey || !envApiKey || apiKey.length !== envApiKey.length) {
-        return c.json({ error: 'Unauthorized' }, 401);
-    }
-
-    let isEqual = true;
-    for (let i = 0; i < apiKey.length; i++) {
-        if (apiKey[i] !== envApiKey[i]) isEqual = false;
-    }
-
-    if (!isEqual) {
+    if (!hasValidAdminKey(apiKey, envApiKey)) {
         return c.json({ error: 'Unauthorized' }, 401);
     }
 
