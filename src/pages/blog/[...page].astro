@@ -29,7 +29,12 @@ const rawBase = import.meta.env.BASE_URL;
 const base = rawBase === "/" ? "" : rawBase.replace(/\/$/, "");
 ---
 
-<BaseLayout title={`Blog - ${SITE_TITLE}`} description={SITE_DESCRIPTION}>
+<BaseLayout
+    title={`Blog - ${SITE_TITLE}`}
+    description={SITE_DESCRIPTION}
+    image="/og-blog.png"
+    imageAlt="Todos los artículos de Código Ergo Sum"
+>
     <div class="container">
         <div class="content">
             <h1>Blog</h1>
