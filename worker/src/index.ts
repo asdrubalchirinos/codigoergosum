@@ -3,6 +3,7 @@ import { cors } from 'hono/cors';
 import { validateTurnstileToken } from './turnstile';
 import { RateLimiter } from './rate-limiter';
 import { sanitizeHtml } from './sanitize';
+import { buildSubscriptionConfirmationEmail, buildUnsubscribeConfirmationEmail } from './emails';
 
 type Bindings = {
     DB: D1Database;
@@ -86,25 +87,25 @@ app.post('/api/subscribe', async (c) => {
     const isAllowed = await rateLimiter.check(ip, 10, 15 * 60);
 
     if (!isAllowed) {
-        return c.json({ error: 'Too many requests. Please try again later.' }, 429);
+        return c.json({ error: 'Demasiadas solicitudes. Inténtalo de nuevo más tarde.' }, 429);
     }
 
     const body = await c.req.json();
     const { email, token } = body;
 
     if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-        return c.json({ error: 'Invalid email address' }, 400);
+        return c.json({ error: 'La dirección de correo no es válida.' }, 400);
     }
 
     // Validate Turnstile
     if (c.env.TURNSTILE_SECRET_KEY && token) {
         const isValid = await validateTurnstileToken(token, c.env.TURNSTILE_SECRET_KEY, ip);
         if (!isValid) {
-            return c.json({ error: 'Invalid captcha' }, 400);
+            return c.json({ error: 'El captcha no es válido.' }, 400);
         }
     } else if (c.env.TURNSTILE_SECRET_KEY && !token) {
         // Enforce captcha if key is set
-        return c.json({ error: 'Captcha required' }, 400);
+        return c.json({ error: 'Debes completar el captcha.' }, 400);
     }
 
     try {
@@ -120,9 +121,9 @@ app.post('/api/subscribe', async (c) => {
         }
 
         const subscriberId = existing ? existing.id : crypto.randomUUID();
-        const token = crypto.randomUUID();
+        const confirmToken = crypto.randomUUID();
         const tokenId = crypto.randomUUID();
-        const expiresAt = Math.floor(Date.now() / 1000) + 60 * 60; // 1 hour
+        const expiresAt = Math.floor(Date.now() / 1000) + 60 * 60 * 24; // 24 hours
 
         // Transaction to upsert subscriber and create token
         await db.batch([
@@ -130,13 +131,15 @@ app.post('/api/subscribe', async (c) => {
                 INSERT INTO subscribers (id, email, status) VALUES (?, ?, 'pending')
                 ON CONFLICT(email) DO UPDATE SET status = 'pending', unsubscribed_at = NULL
             `).bind(subscriberId, email),
+            db.prepare("DELETE FROM tokens WHERE subscriber_id = ? AND type = 'confirm'").bind(subscriberId),
             db.prepare(`
                 INSERT INTO tokens (id, subscriber_id, type, token, expires_at) VALUES (?, ?, 'confirm', ?, ?)
-            `).bind(tokenId, subscriberId, token, expiresAt)
+            `).bind(tokenId, subscriberId, confirmToken, expiresAt)
         ]);
 
         // Send confirmation email
-        const confirmUrl = `${c.env.ORIGIN_BASE_URL}/confirm?token=${token}`;
+        const confirmUrl = `${c.env.ORIGIN_BASE_URL}/confirm?token=${confirmToken}`;
+        const confirmationEmail = buildSubscriptionConfirmationEmail(confirmUrl);
 
         // Mock sending email if no API key
         if (c.env.RESEND_API_KEY) {
@@ -149,8 +152,9 @@ app.post('/api/subscribe', async (c) => {
                 body: JSON.stringify({
                     from: 'Código Ergo Sum <newsletter@notifications.codigoergosum.com>', // Update this!
                     to: email,
-                    subject: 'Confirm your subscription',
-                    html: `<p>Please confirm your subscription by clicking <a href="${confirmUrl}">here</a>.</p>`
+                    subject: confirmationEmail.subject,
+                    html: confirmationEmail.html,
+                    text: confirmationEmail.text
                 })
             });
 
@@ -178,17 +182,17 @@ app.post('/api/subscribe', async (c) => {
                     return c.json({ error: 'Internal server error' }, 500);
                 }
 
-                return c.json({ error: 'Failed to send confirmation email. Please try again later.' }, 502);
+                return c.json({ error: 'No fue posible enviar el correo de confirmación. Inténtalo de nuevo más tarde.' }, 502);
             }
         } else {
             console.log(`[MOCK EMAIL] To: ${email}, Link: ${confirmUrl}`);
         }
 
-        return c.json({ message: 'Check your email to confirm.' });
+        return c.json({ message: 'Revisa tu correo para confirmar tu suscripción.' });
 
     } catch (e) {
         console.error(e);
-        return c.json({ error: 'Internal server error' }, 500);
+        return c.json({ error: 'Ocurrió un error interno.' }, 500);
     }
 });
 
@@ -196,7 +200,7 @@ app.get('/api/confirm', async (c) => {
     const token = c.req.query('token');
 
     if (!token) {
-        return c.json({ error: 'Token is required' }, 400);
+        return c.json({ error: 'Se requiere el enlace de confirmación.' }, 400);
     }
 
     try {
@@ -206,11 +210,11 @@ app.get('/api/confirm', async (c) => {
         const tokenRecord = await db.prepare('SELECT * FROM tokens WHERE token = ? AND type = \'confirm\'').bind(token).first<Token>();
 
         if (!tokenRecord) {
-            return c.json({ error: 'Invalid or expired token' }, 400);
+            return c.json({ error: 'El enlace no es válido o ha vencido.' }, 400);
         }
 
         if (tokenRecord.expires_at < Math.floor(Date.now() / 1000)) {
-            return c.json({ error: 'Token expired' }, 400);
+            return c.json({ error: 'El enlace ha vencido.' }, 400);
         }
 
         // Update subscriber status
@@ -220,11 +224,11 @@ app.get('/api/confirm', async (c) => {
         ]);
 
         // Return JSON success, let frontend handle redirect
-        return c.json({ success: true, message: 'Subscription confirmed' });
+        return c.json({ success: true, message: 'Suscripción confirmada.' });
 
     } catch (e) {
         console.error(e);
-        return c.json({ error: 'Internal server error' }, 500);
+        return c.json({ error: 'Ocurrió un error interno.' }, 500);
     }
 });
 
@@ -338,7 +342,7 @@ app.post('/api/unsubscribe', async (c) => {
             ).bind(token).first<Token>();
 
             if (!tokenRecord) {
-                return c.json({ error: 'Invalid or expired token' }, 400);
+                return c.json({ error: 'El enlace no es válido o ha vencido.' }, 400);
             }
 
             await db.batch([
@@ -346,26 +350,30 @@ app.post('/api/unsubscribe', async (c) => {
                 db.prepare('DELETE FROM tokens WHERE id = ?').bind(tokenRecord.id)
             ]);
 
-            return c.json({ message: 'Unsubscribed successfully' });
+            return c.json({ message: 'La baja fue confirmada.' });
         } else if (email) {
             // Rate Limiting: 5 email-based unsubscribe requests per 15 minutes per IP
             const rateLimiter = new RateLimiter(db);
             const isAllowed = await rateLimiter.check(`unsubscribe:${ip}`, 5, 15 * 60);
 
             if (!isAllowed) {
-                return c.json({ error: 'Too many requests. Please try again later.' }, 429);
+                return c.json({ error: 'Demasiadas solicitudes. Inténtalo de nuevo más tarde.' }, 429);
             }
 
             // Email-based unsubscribe request
             const subscriber = await db.prepare('SELECT * FROM subscribers WHERE email = ?').bind(email).first<Subscriber>();
 
             if (subscriber) {
-                const token = crypto.randomUUID();
+                const unsubscribeToken = crypto.randomUUID();
                 const expiresAt = Math.floor(Date.now() / 1000) + 60 * 60 * 24; // 24 hours
 
-                await db.prepare('INSERT INTO tokens (id, subscriber_id, type, token, expires_at) VALUES (?, ?, \'unsubscribe\', ?, ?)').bind(crypto.randomUUID(), subscriber.id, token, expiresAt).run();
+                await db.batch([
+                    db.prepare("DELETE FROM tokens WHERE subscriber_id = ? AND type = 'unsubscribe'").bind(subscriber.id),
+                    db.prepare('INSERT INTO tokens (id, subscriber_id, type, token, expires_at) VALUES (?, ?, \'unsubscribe\', ?, ?)').bind(crypto.randomUUID(), subscriber.id, unsubscribeToken, expiresAt)
+                ]);
 
-                const unsubscribeUrl = `${c.env.ORIGIN_BASE_URL}/unsubscribe?token=${token}`;
+                const unsubscribeUrl = `${c.env.ORIGIN_BASE_URL}/unsubscribe?token=${unsubscribeToken}`;
+                const unsubscribeEmail = buildUnsubscribeConfirmationEmail(unsubscribeUrl);
 
                 // Mock sending email
                 if (c.env.RESEND_API_KEY) {
@@ -378,8 +386,9 @@ app.post('/api/unsubscribe', async (c) => {
                         body: JSON.stringify({
                             from: 'Código Ergo Sum <newsletter@notifications.codigoergosum.com>',
                             to: email,
-                            subject: 'Unsubscribe from newsletter',
-                            html: `<p>Click <a href="${unsubscribeUrl}">here</a> to unsubscribe.</p>`
+                        subject: unsubscribeEmail.subject,
+                        html: unsubscribeEmail.html,
+                        text: unsubscribeEmail.text
                         })
                     });
                 } else {
@@ -388,14 +397,14 @@ app.post('/api/unsubscribe', async (c) => {
             }
 
             // Always return success to prevent email enumeration
-            return c.json({ message: 'If the email exists, an unsubscribe link has been sent.' });
+            return c.json({ message: 'Si el correo existe, se envió un enlace para confirmar la baja.' });
         }
 
-        return c.json({ error: 'Email or token required' }, 400);
+        return c.json({ error: 'Se requiere un correo o un enlace de baja.' }, 400);
 
     } catch (e) {
         console.error(e);
-        return c.json({ error: 'Internal server error' }, 500);
+        return c.json({ error: 'Ocurrió un error interno.' }, 500);
     }
 });
 

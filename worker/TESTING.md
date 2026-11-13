@@ -27,7 +27,7 @@ curl -X POST http://localhost:8787/api/subscribe \
   -H "Content-Type: application/json" \
   -d '{"email": "test@example.com"}'
 ```
-**Expected Response:** `{"message":"Check your email to confirm."}`
+**Expected Response:** `{"message":"Revisa tu correo para confirmar tu suscripción."}`
 
 ### Check Database (to get the token)
 ```bash
@@ -40,7 +40,15 @@ Replace `<TOKEN>` with the token you copied:
 ```bash
 curl "http://localhost:8787/api/confirm?token=<TOKEN>"
 ```
-**Expected Response:** Redirects to `http://localhost:4321/confirm?status=success`.
+**Expected Response:** `{"success":true,"message":"Suscripción confirmada."}`. The frontend uses that response to show the confirmation screen.
+
+### Confirmation email checks
+When `RESEND_API_KEY` is configured, send a test subscription and verify that:
+1. The subject is `Confirma tu suscripción a Código Ergo Sum`.
+2. The email has a primary confirmation button and a visible fallback link.
+3. The email has both HTML and plain-text versions.
+4. Submitting the same address again invalidates the first confirmation link; only the newest link works.
+5. The confirmation token expires after 24 hours.
 
 ### Unsubscribe
 ```bash
